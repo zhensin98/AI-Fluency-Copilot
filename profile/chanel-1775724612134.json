@@ -2,20 +2,20 @@
   "id": "chanel-1775724612134",
   "name": "Chanel",
   "url": "https://www.chanel.com/sg/",
-  "timestamp": "2026-04-09T09:12:50.031Z",
+  "timestamp": "2026-04-10T06:57:09.466Z",
   "data": {
     "client": {
       "name": "Chanel S.A.S.",
       "shortName": "Chanel",
-      "tagline": "Elegance is refusal.",
-      "subtitle": "Luxury Goods | Fashion, Fragrance & Beauty",
-      "description": "Chanel is a privately held French luxury fashion house founded by Gabrielle 'Coco' Chanel. The company designs, makes, and sells high-end fashion, fragrances, cosmetics, watches, and fine jewellery through more than 500 directly operated boutiques worldwide. It serves affluent clients globally, with Asia Pacific — including Singapore — as a key and growing market."
+      "tagline": "To be unique",
+      "subtitle": "Luxury Fashion & Beauty | Global Luxury Brand House",
+      "description": "Chanel S.A.S. is a privately held French luxury house founded in 1910 by Gabrielle Coco Chanel in Paris. The company operates across fashion, fragrances, beauty, and fine jewellery, with over 600 boutiques worldwide. Chanel is owned by the Wertheimer family and is known for setting global standards in luxury craftsmanship and style."
     },
     "keyFacts": [
       {
         "label": "Founded",
         "value": "1910",
-        "desc": "By Gabrielle 'Coco' Chanel"
+        "desc": "Paris, by Gabrielle Coco Chanel"
       },
       {
         "label": "Employees",
@@ -24,40 +24,36 @@
       },
       {
         "label": "Revenue",
-        "value": "$19.7 billion",
-        "desc": "Reported annual revenue, 2023"
+        "value": "$17.6 billion",
+        "desc": "Reported revenue for 2022"
       },
       {
-        "label": "Key Business Metric",
-        "value": "500+ boutiques",
-        "desc": "Directly operated stores worldwide"
+        "label": "Global Boutiques",
+        "value": "600+",
+        "desc": "Boutiques across all major markets"
       },
       {
         "label": "Workshop Focus",
         "value": "Microsoft 365 Copilot",
-        "desc": "AI productivity across business teams"
+        "desc": "AI adoption training for staff"
       }
     ],
     "serviceAreas": [
       {
-        "title": "Fashion",
-        "desc": "Designs and sells ready-to-wear clothing, Haute Couture, and fashion accessories including handbags and shoes."
+        "title": "Fashion & Ready-to-Wear",
+        "desc": "Designs and sells seasonal clothing collections through boutiques and trunk shows worldwide."
       },
       {
-        "title": "Fragrance & Beauty",
-        "desc": "Makes and distributes perfumes, skincare, and makeup sold globally through boutiques and retailers."
+        "title": "Fragrances & Beauty",
+        "desc": "Creates and markets perfumes, skincare, and makeup products sold globally in boutiques and counters."
       },
       {
         "title": "Watches & Fine Jewellery",
-        "desc": "Produces and sells luxury timepieces and fine jewellery through dedicated boutiques worldwide."
+        "desc": "Produces high-end timepieces and jewellery sold through dedicated boutiques and select retailers."
       },
       {
-        "title": "Métiers d'Art",
-        "desc": "Operates specialist craft workshops that preserve traditional artisan skills used in Chanel collections."
-      },
-      {
-        "title": "Retail & Client Experience",
-        "desc": "Manages boutique operations, client relationship programmes, and in-store luxury service standards."
+        "title": "Métiers d'Art Workshops",
+        "desc": "Owns and runs artisan workshops that supply hand-crafted components to Chanel and partner houses."
       }
     ],
     "leadership": [
@@ -66,68 +62,68 @@
         "name": "Leena Nair"
       },
       {
-        "title": "Chief Financial Officer",
-        "name": "Philippe Blondiaux"
+        "title": "President of Fashion",
+        "name": "Bruno Pavlovsky"
       },
       {
-        "title": "President, Fashion",
-        "name": "Bruno Pavlovsky"
+        "title": "Chief Financial Officer",
+        "name": "Philippe Blondiaux"
       }
     ],
     "locations": [
       {
         "label": "Headquarters",
-        "address": "135 Avenue Charles de Gaulle, Neuilly-sur-Seine, France"
+        "address": "135 avenue Charles de Gaulle, Neuilly-sur-Seine, France"
       },
       {
-        "label": "Singapore Flagship",
-        "address": "ION Orchard, 2 Orchard Turn, Singapore 238801"
+        "label": "Asia-Pacific Hub",
+        "address": "Singapore, Singapore"
       },
       {
-        "label": "Asia Pacific Office",
-        "address": "Ngee Ann City, 391 Orchard Road, Singapore"
+        "label": "Key Market",
+        "address": "Hong Kong, China"
       }
     ],
     "priorities": [
       {
         "num": 1,
-        "title": "Protecting Brand Exclusivity in Digital Channels",
-        "tagline": "Stay rare, stay relevant",
-        "desc": "Chanel carefully controls how its brand appears online and offline to protect its image of exclusivity. This means managing digital communications, social content, and client interactions within strict brand guidelines. Teams need to move quickly without compromising the look, tone, or feel of the brand.",
-        "roles": "Marketing, Communications, Retail Teams, Client Advisors",
-        "pains": "Inconsistent brand voice across regions, slow approval cycles for content, difficulty coordinating messaging between boutiques and head office"
+        "title": "Speed Up Seasonal Collection Planning",
+        "tagline": "From brief to boutique, faster",
+        "desc": "Chanel runs two major fashion seasons plus cruise and pre-fall collections each year. Teams across design, production, and retail need to move quickly and stay aligned. Copilot can help staff draft briefs, summarise feedback, and track tasks without switching between tools.",
+        "roles": "Design, Merchandising, Retail Operations",
+        "pains": "Slow briefing cycles, scattered feedback, manual task tracking"
       },
       {
         "num": 2,
-        "title": "Delivering Exceptional Personalised Client Experiences",
-        "tagline": "Every client, every time",
-        "desc": "Chanel's clients expect a personalised, seamless experience every time they visit a boutique or contact the brand. Building and maintaining strong client relationships requires staff to have the right information at the right moment. AI tools can help advisors prepare better and respond faster.",
-        "roles": "Client Advisors, Boutique Managers, CRM Teams, Customer Service",
-        "pains": "Fragmented client data across systems, time lost preparing for appointments, difficulty tracking client preferences and purchase history across channels"
+        "title": "Improve Client Relationship Quality",
+        "tagline": "Know your client, serve them well",
+        "desc": "Chanel clients expect a personal and consistent experience across every boutique visit. Client advisors need fast access to purchase history, preferences, and upcoming events. Copilot can help staff prepare for appointments and follow up after visits more efficiently.",
+        "roles": "Client Advisors, Boutique Managers, CRM Teams",
+        "pains": "Time spent on manual prep, inconsistent client notes, slow follow-up"
       },
       {
         "num": 3,
-        "title": "Scaling Seasonal Collection Launches Globally",
-        "tagline": "Launch fast, look perfect",
-        "desc": "Twice a year, Chanel launches major fashion collections alongside ongoing beauty and fragrance releases. Each launch needs tight coordination across design, production, marketing, retail, and PR teams worldwide. Delays in any one area affect the full launch timeline.",
-        "roles": "Product Teams, Marketing, Retail Operations, PR & Communications, Supply Chain",
-        "pains": "Long email threads replacing proper briefs, missed deadlines from cross-team misalignment, repetitive status meetings consuming planning time"
+        "title": "Streamline Global Reporting and Finance",
+        "tagline": "Clear numbers, less manual work",
+        "desc": "Finance and operations teams produce weekly sales reports, forecasts, and budget reviews across many markets. Much of this work is done manually in Excel. Copilot can help generate summaries, flag variances, and prepare board-ready slides more quickly.",
+        "roles": "Finance, Operations, Regional Directors",
+        "pains": "Manual data consolidation, slow report turnaround, formatting time"
       },
       {
         "num": 4,
-        "title": "Advancing Sustainable and Responsible Luxury",
-        "tagline": "Craftsmanship with conscience",
-        "desc": "Chanel is committed to reducing its environmental impact while maintaining the quality and craftsmanship it is known for. This involves tracking supplier practices, reporting on sustainability metrics, and embedding responsible sourcing into everyday operations. Reporting and compliance work is growing in volume and complexity.",
-        "roles": "Sustainability Teams, Procurement, Finance, Legal & Compliance",
-        "pains": "Manual data collection across suppliers, difficulty consolidating sustainability reports, time-consuming ESG disclosure and regulatory filing processes"
+        "title": "Strengthen Onboarding and People Development",
+        "tagline": "Help people grow from day one",
+        "desc": "Chanel hires staff across boutiques, offices, and workshops in many countries. Onboarding is often inconsistent and relies on printed materials or emails. Copilot and Viva Learning can help HR deliver structured, up-to-date onboarding content at scale.",
+        "roles": "HR, Learning & Development, Line Managers",
+        "pains": "Inconsistent onboarding, hard to update materials, limited learning visibility"
       },
       {
         "num": 5,
-        "title": "Building a Future-Ready Global Workforce",
-        "tagline": "People who shape the future",
-        "desc": "Chanel is investing in attracting, developing, and retaining skilled people across all parts of the business. This includes upskilling staff in digital tools, supporting career growth, and maintaining the craft knowledge that defines the brand. HR and learning teams need better tools to manage this at scale.",
-        "roles": "HR, Learning & Development, People Managers, Talent Acquisition",
-        "pains": "Learning materials scattered across shared drives, onboarding that takes too long, difficulty tracking skills development and training completion across global teams"
+        "title": "Reduce IT Support Load and Response Time",
+        "tagline": "Fix issues faster, serve users better",
+        "desc": "IT teams support thousands of employees across time zones, devices, and business systems. Many support requests are routine but still take time to resolve. Copilot can help IT staff write responses, summarise tickets, and document fixes more efficiently.",
+        "roles": "IT Support, Systems Administrators, Helpdesk",
+        "pains": "High ticket volume, repetitive queries, slow documentation"
       }
     ],
     "capabilities": [
@@ -135,49 +131,49 @@
         "role": "Knowledge Workers & Office Staff",
         "short": "KW",
         "icon": "primary",
-        "objectives": "Office staff support the business by handling communications, preparing documents, and keeping day-to-day operations running. They work across departments and often bridge information between teams. At Chanel, this group plays a key role in maintaining the high standards of output the brand requires. Their work directly affects how quickly decisions get made and how well teams stay aligned.",
-        "painPoints": "Staff write common documents like briefs and reports from scratch, even for recurring tasks. Emails go back and forth unnecessarily before a clear answer is reached. Finding the right file version across SharePoint and email is time-consuming. Meeting notes are rarely captured well, so follow-ups get missed.",
-        "keyActivities": "drafting internal briefs and memos, formatting presentation decks for leadership, managing inbox and responding to cross-department queries, scheduling and preparing agendas for recurring meetings, updating shared documents on SharePoint, summarising reports for non-specialist readers"
+        "objectives": "Help office staff draft and edit documents faster. Make it easier to find information stored across SharePoint and email. Reduce time spent on routine writing and admin tasks. Free up time for higher-value work.",
+        "painPoints": "Staff spend too much time writing emails and reports from scratch. Finding the right document in SharePoint takes too long. Meeting notes are often incomplete or never shared. Switching between tools breaks focus and slows work.",
+        "keyActivities": "Draft emails and internal memos using Copilot in Outlook, summarise long email threads before replying, search SharePoint for brand guidelines and product information, use Copilot in Word to edit and reformat documents, take and share meeting notes using Copilot in Teams"
       },
       {
         "role": "Managers & Team Leads",
         "short": "MGR",
         "icon": "secondary",
-        "objectives": "Managers at Chanel lead teams across boutiques, regional offices, and head office functions. They are responsible for team performance, project delivery, and upholding brand standards. They translate strategic direction into day-to-day tasks for their teams. Good managers keep projects moving and staff motivated.",
-        "painPoints": "Managers spend too much time in status update meetings instead of focused work. Writing performance reviews and team communications takes longer than it should. Tracking action items across multiple Teams chats and email threads is error-prone. Preparing for one-on-ones and team briefings means pulling information from many different places.",
-        "keyActivities": "running weekly team check-ins and setting action items, writing staff performance notes and review summaries, reviewing project status across boutique or department deliverables, preparing briefs for seasonal launches or campaigns, escalating issues to regional leadership, tracking team training completion"
+        "objectives": "Help managers run meetings more effectively and follow up on actions. Make it easier to track team progress across projects. Reduce time spent on status reporting. Give managers more time to coach and support their teams.",
+        "painPoints": "Managers spend too much time in meetings without clear outcomes. Action items from meetings are often missed or forgotten. Status updates require chasing team members manually. Preparing team performance summaries takes too long.",
+        "keyActivities": "Use Copilot in Teams to recap missed meetings and extract action items, create weekly team status updates using Copilot in Word, assign and track tasks using Planner with Copilot support, prepare talking points for one-on-one meetings using Copilot in Outlook, summarise project documents before stakeholder reviews"
       },
       {
         "role": "Finance & Operations",
         "short": "FIN",
         "icon": "accent",
-        "objectives": "Finance and operations teams manage budgets, forecasts, and the flow of goods and money across Chanel's business. They produce reports that help leaders make decisions on stock, investment, and costs. In a business with multiple product lines and global boutiques, accuracy and speed in financial reporting matter greatly. Operations teams also manage the logistics behind collection launches and product supply.",
-        "painPoints": "Building monthly financial reports in Excel takes significant manual effort and is prone to errors. Consolidating data from multiple boutiques and regions into one view is slow. Finance staff spend time chasing approvals via email rather than through a clear workflow. Explaining financial data to non-finance stakeholders in plain language is a recurring challenge.",
-        "keyActivities": "preparing monthly budget-to-actual reports, consolidating sales and margin data from boutiques, reviewing supplier invoices and purchase orders, building Excel models for seasonal forecasting, drafting financial summaries for regional leadership, tracking operational KPIs across product lines"
+        "objectives": "Speed up the preparation of financial reports and forecasts. Help finance staff analyse sales data more quickly in Excel. Reduce manual effort in creating board and leadership presentations. Make it easier to spot issues in data before they escalate.",
+        "painPoints": "Weekly sales reports take too long to compile from multiple sources. Creating slides from Excel data is slow and error-prone. Finance queries require back-and-forth with regional teams. Budget documents need frequent reformatting for different audiences.",
+        "keyActivities": "Use Copilot in Excel to analyse sales data and flag variances, draft finance commentary and report summaries in Word, convert Excel analysis into PowerPoint slides using Copilot, send structured data queries to regional teams via Outlook, use Power BI with Copilot to build visual sales dashboards"
       },
       {
         "role": "HR & People Development",
         "short": "HR",
         "icon": "primary",
-        "objectives": "HR and learning teams at Chanel recruit talent, support employee development, and manage the people processes that keep the business running well. They look after onboarding, benefits, compliance, and learning programmes. As Chanel grows and invests in its workforce, HR handles more work without a proportional increase in team size. Keeping staff engaged and developing their skills is a top priority.",
-        "painPoints": "Onboarding documents exist in different formats and locations, making it hard for new staff to get up to speed. Scheduling interviews across hiring managers wastes time. Writing job descriptions, training content, and policy documents from scratch is time-consuming. Tracking learning completion and skills data across global teams is difficult without better tools.",
-        "keyActivities": "writing job postings and position descriptions, coordinating interview schedules across hiring managers, preparing onboarding packs for new boutique and office staff, drafting HR policy documents and internal communications, tracking training completion and learning records, summarising employee survey results for leadership"
+        "objectives": "Make onboarding consistent and easy to update across all markets. Help HR staff create learning content faster. Use Viva Learning to deliver training to boutique and office staff. Reduce admin time so HR can focus on people, not paperwork.",
+        "painPoints": "Onboarding materials are stored in different places and go out of date quickly. Creating new training content takes too much time. HR staff spend too long answering the same employee questions. Learning progress is hard to track across markets.",
+        "keyActivities": "Build and update onboarding guides using Copilot in Word, publish and assign training modules through Viva Learning, draft HR policy documents and FAQs using Copilot, respond to common employee queries using Copilot-drafted email templates, track learning completion data in Power BI"
       },
       {
         "role": "Sales & Customer Service",
-        "short": "CS",
+        "short": "SAL",
         "icon": "secondary",
-        "objectives": "Client Advisors and customer service teams are the face of Chanel. They build relationships with clients, guide them through purchases, and deliver a standard of service that matches the brand's prestige. In Singapore and across Asia Pacific, this team handles high-value clients who expect personalised attention. Strong client knowledge and communication skills are essential to this role.",
-        "painPoints": "Preparing for client appointments means pulling information from multiple systems, which takes time before each visit. Writing personalised follow-up notes after interactions is done manually and inconsistently. Responding to client queries by email requires careful brand-tone writing, which is time-intensive. Boutique teams struggle to share client insights across locations in a structured way.",
-        "keyActivities": "preparing client profiles and briefing notes before appointments, writing personalised thank-you and follow-up messages to clients, responding to email and phone enquiries from walk-in and existing clients, logging client interactions and purchase preferences in CRM, handling product availability enquiries across boutiques, escalating client complaints to boutique management"
+        "objectives": "Help client advisors prepare for appointments faster. Make it easier to record and act on client preferences. Speed up follow-up communications after boutique visits. Give sales staff more time with clients and less time on admin.",
+        "painPoints": "Preparing for VIC appointments requires pulling data from multiple systems. Client notes after visits are often incomplete or inconsistent. Follow-up emails take too long to write personally for each client. New client advisors take time to learn brand communication standards.",
+        "keyActivities": "Use Copilot in Outlook to draft personalised follow-up emails after client visits, summarise client history from Salesforce CRM before appointments, record and store client preferences in structured notes using Teams, prepare appointment briefs using Copilot in Word, create event invitations for product launches using Copilot in Outlook"
       },
       {
         "role": "IT & Systems Administrators",
         "short": "IT",
         "icon": "accent",
-        "objectives": "IT teams manage the systems, devices, and platforms that keep Chanel's business running. They support retail point-of-sale systems, corporate applications, and the Microsoft 365 environment. In a luxury business, system downtime has an immediate impact on client experience and sales. IT also leads the rollout of new tools including Microsoft 365 Copilot.",
-        "painPoints": "IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly. Writing clear technical documentation for non-technical users is time-consuming. Coordinating system updates across global time zones is complex. Communicating IT changes to boutique staff in plain, simple language is a recurring challenge.",
-        "keyActivities": "managing Microsoft 365 user accounts and access permissions, supporting boutique POS system issues and escalations, writing technical guides and user-facing how-to documents, coordinating software rollouts across Singapore boutiques, monitoring system availability and flagging incidents, preparing IT reports for regional management"
+        "objectives": "Help IT staff resolve support tickets faster with less manual writing. Make it easier to document fixes and system changes. Use Copilot to draft user communications and training guides. Reduce time spent on routine helpdesk tasks.",
+        "painPoints": "Writing responses to routine support tickets takes too much time. System documentation is often out of date or missing. Communicating planned downtime to all staff is slow and inconsistent. IT staff spend time on simple queries that users could self-serve.",
+        "keyActivities": "Draft ticket responses and resolution notes using Copilot in Outlook, document system changes and fixes using Copilot in Word, create user guides and how-to articles using Copilot, use ServiceNow with Copilot summaries to triage and prioritise tickets, send scheduled maintenance notices using Copilot-drafted Teams messages"
       }
     ],
     "workflows": [
@@ -185,211 +181,202 @@
         "name": "Seasonal Collection Launch",
         "steps": [
           {
-            "t": "Creative Briefing",
-            "d": "Design and marketing teams align on the season's themes, products, and key messages."
+            "t": "Creative Brief Draft",
+            "d": "Design lead writes the seasonal brief and shares it with the merchandising team."
           },
           {
-            "t": "Content Production",
-            "d": "Marketing creates campaign materials, look books, and product copy across all channels."
+            "t": "Product Range Review",
+            "d": "Merchandising team reviews selected pieces and flags changes for production planning."
           },
           {
-            "t": "Retail Briefing",
-            "d": "Boutique managers receive launch guides covering stock, merchandising, and client messaging."
+            "t": "Market Allocation Plan",
+            "d": "Operations team allocates stock to regions based on sales forecasts and boutique size."
           },
           {
-            "t": "Staff Training",
-            "d": "Client Advisors are trained on new products and how to present them to clients."
+            "t": "Training Material Build",
+            "d": "HR and retail teams create product knowledge guides for all client advisors."
           },
           {
-            "t": "Launch Execution",
-            "d": "Boutiques open the collection to clients, with outreach sent to VIC client lists."
-          },
-          {
-            "t": "Post-Launch Review",
-            "d": "Sales data and client feedback are collected and shared with leadership for review."
+            "t": "Boutique Launch Briefing",
+            "d": "Retail managers brief boutique teams on the collection before the launch date."
           }
         ],
-        "friction": "Briefing documents are sent via email with multiple attachments, causing version confusion. Boutique staff frequently miss updates because information is spread across emails, chats, and shared drives."
+        "friction": "Creative briefs and product updates are shared by email and change frequently. Teams in different markets often work from outdated versions of documents."
       },
       {
-        "name": "Client Appointment Management",
+        "name": "Weekly Sales Reporting",
         "steps": [
           {
-            "t": "Appointment Booking",
-            "d": "Client Advisor or boutique receptionist schedules a private client appointment via calendar."
+            "t": "Data Pull from SAP",
+            "d": "Finance analyst extracts weekly sales figures from SAP S/4HANA for all regions."
           },
           {
-            "t": "Client Research",
-            "d": "Advisor reviews client purchase history, preferences, and notes from prior visits."
+            "t": "Spreadsheet Consolidation",
+            "d": "Analyst combines regional data into a single Excel file and checks for errors."
           },
           {
-            "t": "Product Preparation",
-            "d": "Advisor selects and reserves relevant items based on the client's profile and interests."
+            "t": "Variance Commentary",
+            "d": "Finance manager writes commentary on key variances against budget and prior week."
           },
           {
-            "t": "Appointment Delivery",
-            "d": "Advisor meets the client, presents curated products, and gives personalised styling guidance."
+            "t": "Slide Deck Preparation",
+            "d": "Team converts the Excel summary into a PowerPoint deck for leadership review."
           },
           {
-            "t": "Client Follow-Up",
-            "d": "Advisor sends a personalised thank-you note and logs the interaction in CRM."
+            "t": "Leadership Distribution",
+            "d": "CFO office shares the final report with regional directors and senior leadership."
           }
         ],
-        "friction": "Pulling client information from multiple systems before each appointment takes too long. Writing personalised follow-up notes manually after every visit is time-consuming and often skipped."
+        "friction": "Pulling and consolidating data from multiple regions takes most of the week. Writing commentary and building slides is manual and slows down the final review."
       },
       {
-        "name": "Monthly Performance Reporting",
+        "name": "New Employee Onboarding",
         "steps": [
           {
-            "t": "Data Collection",
-            "d": "Finance teams pull sales, margin, and inventory data from multiple source systems."
+            "t": "Offer and Pre-Boarding",
+            "d": "HR sends welcome information and collects documents before the employee starts."
           },
           {
-            "t": "Report Building",
-            "d": "Analysts consolidate data into Excel and build summary tables and charts for leadership."
+            "t": "System Access Setup",
+            "d": "IT team creates accounts and grants access to required platforms on day one."
           },
           {
-            "t": "Narrative Drafting",
-            "d": "Finance managers write commentary explaining performance trends and key variances."
+            "t": "Brand Induction Session",
+            "d": "HR and brand team run a session on Chanel history, values, and standards."
           },
           {
-            "t": "Review and Approval",
-            "d": "Regional leadership reviews the draft report and requests changes before sign-off."
+            "t": "Role Training Modules",
+            "d": "Manager assigns role-specific learning modules through Viva Learning."
           },
           {
-            "t": "Report Distribution",
-            "d": "The final report is shared via email or posted to a SharePoint folder."
+            "t": "30-Day Check-In",
+            "d": "HR coordinator meets the new employee to review progress and address any issues."
           }
         ],
-        "friction": "Building reports manually in Excel each month is slow and error-prone. Writing clear commentary for non-finance readers takes time and several revision rounds."
+        "friction": "Onboarding materials are stored across email, SharePoint, and printed packs. New employees often miss key steps because no single system tracks their progress."
       },
       {
-        "name": "Meeting Management and Follow-Up",
+        "name": "VIC Client Appointment Management",
         "steps": [
           {
-            "t": "Meeting Scheduling",
-            "d": "Organiser sends a Teams or Outlook calendar invite with an agenda attached."
+            "t": "Appointment Scheduling",
+            "d": "Client advisor books the VIC appointment and logs it in Salesforce CRM."
           },
           {
-            "t": "Pre-Meeting Prep",
-            "d": "Participants review briefing documents or prior meeting notes before joining the call."
+            "t": "Client Profile Review",
+            "d": "Advisor reviews purchase history and preferences before the appointment."
           },
           {
-            "t": "Meeting Delivery",
-            "d": "Teams meeting is held with discussion, decisions, and action items identified."
+            "t": "Boutique Preparation",
+            "d": "Boutique team prepares selected pieces and a personalised welcome for the client."
           },
           {
-            "t": "Notes and Actions",
-            "d": "Someone manually captures meeting notes and emails a summary to all attendees."
+            "t": "In-Boutique Appointment",
+            "d": "Client advisor hosts the VIC and records preferences and purchases during the visit."
           },
           {
-            "t": "Follow-Up Tracking",
-            "d": "Action owners update progress via email threads or informal Teams messages."
+            "t": "Post-Visit Follow-Up",
+            "d": "Advisor sends a personalised thank-you and product recommendation email after the visit."
           }
         ],
-        "friction": "Meeting notes are often incomplete or arrive late, so follow-ups fall through the gaps. There is no consistent way to track action items, leading to the same topics recurring in the next meeting."
+        "friction": "Advisors spend too much time pulling client information from different systems before each appointment. Writing personalised follow-up emails for every VIC is slow and inconsistent."
       }
     ],
     "painPoints": {
       "individual": [
         {
-          "name": "Starting from Blank",
-          "desc": "Staff write common documents like briefs, emails, and reports from scratch every time.",
+          "name": "Email Overload",
+          "desc": "Staff spend too much time reading and writing emails instead of doing core work.",
           "freq": "Daily"
         },
         {
-          "name": "Inbox Overload",
-          "desc": "Long email threads make it hard to find key decisions or spot what needs action.",
+          "name": "Document Hunting",
+          "desc": "Finding the right version of a document across SharePoint and email takes too long.",
           "freq": "Daily"
         },
         {
-          "name": "Version Confusion",
-          "desc": "Multiple file versions saved across email, OneDrive, and SharePoint create confusion over which is current.",
+          "name": "Meeting Overrun",
+          "desc": "Too many meetings run over time and produce no clear actions or summaries.",
           "freq": "Daily"
         },
         {
-          "name": "Meeting Overload",
-          "desc": "Too many meetings leave little time for focused, high-quality individual work.",
+          "name": "Slow First Draft",
+          "desc": "Writing reports, briefs, or emails from scratch takes far too long each day.",
           "freq": "Daily"
         },
         {
-          "name": "Slow Content Approval",
-          "desc": "Getting brand copy or communications approved takes multiple rounds of back-and-forth edits.",
+          "name": "Tool Switching",
+          "desc": "Moving between SAP, Salesforce, Outlook, and Teams breaks focus and wastes time.",
           "freq": "Daily"
         },
         {
-          "name": "Inconsistent Brand Tone",
-          "desc": "Staff struggle to match Chanel's precise brand voice when drafting client-facing communications.",
+          "name": "Manual Data Entry",
+          "desc": "Staff re-enter the same data across multiple systems because they do not connect.",
           "freq": "Daily"
         },
         {
-          "name": "Manual Note-Taking",
-          "desc": "Capturing meeting notes while participating in discussions leads to incomplete and inconsistent records.",
-          "freq": "Daily"
-        },
-        {
-          "name": "Information Scattering",
-          "desc": "Key information lives across emails, Teams chats, SharePoint, and local drives with no central view.",
+          "name": "Inconsistent Templates",
+          "desc": "Different teams use different templates, so documents look and read differently each time.",
           "freq": "Daily"
         }
       ],
       "team": [
         {
-          "name": "Misaligned Priorities",
-          "desc": "Boutique teams and head office work to different timelines, causing delays on shared launch tasks.",
+          "name": "Action Item Loss",
+          "desc": "Action items from meetings are often not recorded and get missed by the team.",
           "freq": "Weekly"
         },
         {
-          "name": "Repetitive Status Updates",
-          "desc": "Managers spend meeting time chasing progress that should already be visible in shared tools.",
+          "name": "Version Confusion",
+          "desc": "Teams work from different versions of the same document and produce conflicting outputs.",
           "freq": "Weekly"
         },
         {
-          "name": "Slow Brief Turnaround",
-          "desc": "Writing and approving creative or retail briefs often takes longer than the launch timeline allows.",
+          "name": "Slow Cross-Team Sign-Off",
+          "desc": "Getting approval from other departments takes too long and stalls project progress.",
           "freq": "Weekly"
         },
         {
-          "name": "Cross-Team Knowledge Gaps",
-          "desc": "Information learned by one team rarely reaches other teams who would benefit from knowing it.",
+          "name": "Uneven Workload",
+          "desc": "Some team members carry most of the admin work while others are underused.",
           "freq": "Weekly"
         },
         {
-          "name": "Training Inconsistency",
-          "desc": "Staff in different boutiques receive product training at different times and in different formats.",
+          "name": "Knowledge Not Shared",
+          "desc": "When someone leaves or is away, their knowledge is hard for others to find.",
           "freq": "Weekly"
         }
       ],
       "organisation": [
         {
-          "name": "Brand Voice Inconsistency",
-          "desc": "Communications produced by different regions and teams do not always sound like Chanel.",
+          "name": "Inconsistent Onboarding",
+          "desc": "New employees in different markets receive different onboarding quality and information.",
           "freq": "Structural"
         },
         {
-          "name": "Siloed Data",
-          "desc": "Sales, client, and operational data sit in separate systems with no single consolidated view.",
+          "name": "Slow Reporting Cycles",
+          "desc": "Leadership waits too long for accurate sales and operational data to make decisions.",
           "freq": "Structural"
         },
         {
-          "name": "Low Digital Tool Adoption",
-          "desc": "Many staff use only a small fraction of the Microsoft 365 tools available to them.",
+          "name": "Siloed Systems",
+          "desc": "SAP, Salesforce, and Workday do not connect well, creating duplicate work across teams.",
           "freq": "Structural"
         },
         {
-          "name": "Slow Decision-Making",
-          "desc": "Long approval processes slow down responses to market changes and emerging client needs.",
+          "name": "Brand Inconsistency Risk",
+          "desc": "Client communications vary in tone and quality across boutiques and markets.",
           "freq": "Structural"
         },
         {
-          "name": "Knowledge Retention Risk",
-          "desc": "When experienced staff leave, their client knowledge and institutional know-how leave with them.",
+          "name": "Limited Learning Visibility",
+          "desc": "HR cannot easily see who has completed training or identify skill gaps across the business.",
           "freq": "Structural"
         }
       ]
     },
     "technology": {
-      "m365Status": "Chanel uses Microsoft 365 across its corporate and regional teams for email, document collaboration, and video conferencing. Microsoft 365 Copilot is being introduced to selected knowledge workers and business teams as part of a broader digital productivity initiative.",
+      "m365Status": "Chanel uses Microsoft 365 across its global offices and boutique operations. Microsoft 365 Copilot is being introduced through a phased adoption programme starting with office-based knowledge workers.",
       "m365": [
         "Outlook",
         "Teams",
@@ -398,221 +385,215 @@
         "PowerPoint",
         "SharePoint",
         "OneDrive",
-        "OneNote",
+        "Power BI",
         "Viva Learning",
-        "Planner"
+        "Planner",
+        "Forms",
+        "Viva Engage"
       ],
       "platforms": [
         {
           "name": "SAP S/4HANA",
-          "desc": "Core ERP managing finance, procurement, and supply chain across global operations."
+          "desc": "Manages finance, supply chain, and global operations data."
         },
         {
           "name": "Salesforce CRM",
-          "desc": "Manages client profiles, purchase history, and relationship data for boutique teams."
-        },
-        {
-          "name": "Cegid Retail",
-          "desc": "Point-of-sale and inventory system used in Chanel boutiques worldwide."
-        },
-        {
-          "name": "Adobe Creative Cloud",
-          "desc": "Used by marketing and visual teams to produce campaign and product imagery."
+          "desc": "Tracks client relationships, appointments, and purchase history."
         },
         {
           "name": "Workday",
-          "desc": "HR platform for payroll, workforce planning, and employee lifecycle management."
+          "desc": "Handles HR, payroll, and workforce management globally."
         },
         {
-          "name": "Veeva Vault",
-          "desc": "Manages product and regulatory documentation for fragrance and beauty lines."
+          "name": "Adobe Creative Cloud",
+          "desc": "Used by creative teams for design and campaign production."
         },
         {
-          "name": "SharePoint Intranet",
-          "desc": "Central hub for policies, brand guidelines, and internal communications across regions."
+          "name": "ServiceNow",
+          "desc": "Manages IT support tickets and internal service requests."
         }
       ]
     },
     "glossary": [
       {
-        "t": "Maison",
-        "d": "The French word for 'house', used to refer to Chanel as a brand and institution. Employees often say 'the Maison' to mean the company and its heritage.",
+        "t": "Chanel S.A.S.",
+        "d": "The full legal name of the Chanel company. S.A.S. stands for Société par Actions Simplifiée, a French company structure.",
         "cat": "Organisation"
       },
       {
-        "t": "Savoir-Faire",
-        "d": "The craft knowledge and skill embedded in Chanel's products and processes. Preserving savoir-faire is a key part of Chanel's identity and business strategy.",
+        "t": "Wertheimer Family",
+        "d": "The private owners of Chanel. They have held ownership since the 1920s.",
         "cat": "Organisation"
       },
       {
-        "t": "Atelier",
-        "d": "A specialist workshop where skilled artisans produce Chanel garments, accessories, or jewellery by hand. Ateliers are central to Haute Couture and Métiers d'Art production.",
+        "t": "Neuilly-sur-Seine",
+        "d": "The suburb of Paris where Chanel's global headquarters is located. It is just outside the city centre.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Leena Nair",
+        "d": "Global CEO of Chanel since January 2022. She joined from Unilever where she served as Chief Human Resources Officer.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Bruno Pavlovsky",
+        "d": "President of Chanel Fashion. He oversees the ready-to-wear and haute couture business.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Philippe Blondiaux",
+        "d": "Chief Financial Officer of Chanel. He manages the company's global financial operations.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "VIC",
+        "d": "Very Important Client. A term used for Chanel's highest-value and most loyal customers who receive special service.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Boutique",
+        "d": "A Chanel retail store. Chanel operates over 600 boutiques globally.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Fashion & Ready-to-Wear",
+        "d": "Chanel's core fashion division. It produces seasonal clothing collections shown at runway shows.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Fragrances & Beauty",
+        "d": "The division responsible for Chanel's perfumes, skincare, and makeup products. It includes iconic products like Chanel No. 5.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Watches & Fine Jewellery",
+        "d": "Chanel's division that designs and sells luxury timepieces and jewellery. It operates through dedicated boutiques.",
         "cat": "Business Units"
       },
       {
         "t": "Métiers d'Art",
-        "d": "Chanel's network of craft workshops acquired to preserve traditional artisan skills. Each Métier specialises in one craft such as embroidery, featherwork, or goldsmithing.",
-        "cat": "Business Units"
-      },
-      {
-        "t": "RTW",
-        "d": "Ready-to-Wear — Chanel's main seasonal fashion line sold in boutiques globally. RTW collections are shown twice a year and are a core driver of retail revenue.",
+        "d": "A group of specialist artisan workshops owned by Chanel. They produce hand-crafted components for fashion houses including Chanel.",
         "cat": "Business Units"
       },
       {
         "t": "Haute Couture",
-        "d": "Chanel's highest-end fashion line, made entirely by hand to individual client measurements. Haute Couture is shown in Paris each season and is not available in general retail.",
+        "d": "Custom-made luxury clothing produced to the highest craft standards. Chanel is one of the few houses certified to use this term.",
         "cat": "Business Units"
       },
       {
-        "t": "F&B",
-        "d": "Fragrance & Beauty — Chanel's division covering perfumes, skincare, and makeup. F&B is one of the largest revenue contributors across the business globally.",
+        "t": "Cruise Collection",
+        "d": "A Chanel fashion collection shown between the main spring and autumn seasons. It is also called the resort collection.",
         "cat": "Business Units"
-      },
-      {
-        "t": "W&FJ",
-        "d": "Watches & Fine Jewellery — the division managing Chanel's luxury timepieces and jewellery. This division operates through dedicated boutiques and selected retail partners.",
-        "cat": "Business Units"
-      },
-      {
-        "t": "VIC",
-        "d": "Very Important Client — Chanel's term for top-tier clients who receive priority service and bespoke experiences. VIC relationship management is a key focus for boutique teams.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Client Advisor",
-        "d": "The title used for Chanel's in-boutique sales and relationship staff. Client Advisors provide expert product guidance and build long-term client relationships.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Client Book",
-        "d": "A Client Advisor's personal record of client contact details, preferences, and relationship notes. A strong client book signals an experienced and well-connected advisor.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Boutique Manager",
-        "d": "The leader responsible for day-to-day boutique operations, team performance, and client experience. Boutique Managers report to a Zone or Regional Director.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Zone Director",
-        "d": "A senior leader overseeing multiple boutiques within a geographic zone. Zone Directors are responsible for sales performance, staff development, and brand standards in their area.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Look Book",
-        "d": "A visual product guide showing how items from a new collection can be worn or styled. Look books are used for staff training and client presentations.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Trunk Show",
-        "d": "An exclusive in-boutique event where a broader product selection is shown to selected clients, often before general availability. Trunk shows are a key tool for engaging VIC clients.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Visual Merchandising",
-        "d": "The arrangement and presentation of products and displays inside a boutique. Chanel's visual merchandising standards are set globally and applied consistently worldwide.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Sell-Through Rate",
-        "d": "The percentage of inventory sold within a given period, used to measure how well a collection is performing. A high sell-through rate signals strong demand and good product selection.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "Pre-Collection",
-        "d": "Smaller fashion collections released between the main seasonal shows, also called Cruise or Resort lines. Pre-collections give boutiques fresh product to sell outside the main fashion calendar.",
-        "cat": "Business Units"
-      },
-      {
-        "t": "Gross Margin",
-        "d": "The difference between revenue and the cost of making goods sold, expressed as a percentage. Chanel's gross margins are high relative to the broader fashion industry.",
-        "cat": "Organisation"
-      },
-      {
-        "t": "ESG",
-        "d": "Environmental, Social, and Governance — the framework Chanel uses to report on sustainability and ethical business practices. ESG reporting is growing in regulatory importance across markets.",
-        "cat": "Industry"
-      },
-      {
-        "t": "Fashion Week",
-        "d": "The seasonal industry event where Chanel presents its RTW and Haute Couture collections in Paris. Fashion Week is a critical moment for brand visibility and press coverage.",
-        "cat": "Industry"
-      },
-      {
-        "t": "Exclusive Distribution",
-        "d": "Chanel sells only through its own boutiques and selected channels, not through mass retailers. This controls the client experience and protects the brand's positioning.",
-        "cat": "Industry"
-      },
-      {
-        "t": "Luxury Retail",
-        "d": "A retail model built around exclusive products, premium pricing, and high-touch service. At Chanel, client experience and brand prestige drive purchasing decisions as much as the product does.",
-        "cat": "Industry"
-      },
-      {
-        "t": "Microsoft 365 Copilot",
-        "d": "An AI assistant built into Microsoft 365 apps like Word, Outlook, and Teams. It helps users write, summarise, and analyse content faster using AI.",
-        "cat": "Technology"
-      },
-      {
-        "t": "SharePoint",
-        "d": "Microsoft's document management and intranet platform used for storing and sharing files across teams. At Chanel, SharePoint hosts brand guidelines, policies, and operational documents.",
-        "cat": "Technology"
-      },
-      {
-        "t": "Microsoft Teams",
-        "d": "Chanel's main platform for internal messaging, video calls, and file sharing. It connects boutique teams, regional offices, and global headquarters in one place.",
-        "cat": "Technology"
       },
       {
         "t": "SAP S/4HANA",
-        "d": "Chanel's enterprise resource planning system for managing finance, procurement, and supply chain. It is the primary system of record for financial transactions and inventory data.",
+        "d": "Chanel's core enterprise system for finance, supply chain, and operations. It connects data across the global business.",
         "cat": "Technology"
       },
       {
         "t": "Salesforce CRM",
-        "d": "The customer relationship management platform storing Chanel's client profiles and purchase records. Boutique teams use it to manage client relationships and log visit interactions.",
+        "d": "The platform Chanel uses to manage client relationships and track sales activity. Client advisors use it to record appointments and preferences.",
         "cat": "Technology"
       },
       {
-        "t": "Cegid Retail",
-        "d": "Chanel's point-of-sale system used in boutiques to process transactions and manage stock. It connects boutique sales data to broader inventory and reporting systems.",
+        "t": "Workday",
+        "d": "Chanel's HR and payroll system. It is used for hiring, performance reviews, and workforce management.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Adobe Creative Cloud",
+        "d": "A suite of design tools used by Chanel's creative teams. It includes Photoshop, Illustrator, and InDesign.",
+        "cat": "Technology"
+      },
+      {
+        "t": "ServiceNow",
+        "d": "The platform Chanel IT uses to manage support tickets and service requests. Staff log issues and track resolutions through it.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Microsoft 365 Copilot",
+        "d": "An AI tool built into Microsoft 365 apps. It helps users write, summarise, analyse, and find information faster.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Power BI",
+        "d": "A Microsoft tool for building data dashboards and visual reports. Finance and operations teams use it to track business performance.",
+        "cat": "Technology"
+      },
+      {
+        "t": "SharePoint",
+        "d": "Microsoft's document management and intranet platform. Chanel teams use it to store and share files.",
         "cat": "Technology"
       },
       {
         "t": "Viva Learning",
-        "d": "A Microsoft 365 tool that surfaces training content inside Teams for easy access. Chanel uses it to deliver product training and compliance courses to staff.",
-        "cat": "Technology"
+        "d": "A Microsoft tool that delivers training content inside Teams. HR uses it to assign and track learning for employees.",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "Viva Engage",
+        "d": "A Microsoft tool for internal communication and community building. It helps connect employees across locations.",
+        "cat": "HR & Learning"
       },
       {
         "t": "Onboarding",
-        "d": "The process of integrating a new employee into Chanel's culture, systems, and role. Effective onboarding includes brand education, product knowledge training, and tool access setup.",
+        "d": "The process of welcoming and training new employees when they join. At Chanel it covers brand values, systems, and role-specific training.",
         "cat": "HR & Learning"
       },
       {
-        "t": "Learning & Development",
-        "d": "The HR function responsible for employee training, skill-building, and career growth. At Chanel, L&D covers product knowledge, leadership skills, and digital tool adoption.",
+        "t": "Learning Path",
+        "d": "A set of training modules arranged in order for a specific role or skill. Viva Learning is used to assign and track learning paths.",
         "cat": "HR & Learning"
       },
       {
-        "t": "Performance Review",
-        "d": "A structured conversation between a manager and employee about goals and progress. At Chanel, reviews are tied to both sales results and how well staff embody brand standards.",
+        "t": "Copilot Adoption",
+        "d": "The process of helping employees learn to use Microsoft 365 Copilot in their daily work. It includes training, practice, and change management.",
         "cat": "HR & Learning"
       },
       {
-        "t": "AI Adoption",
-        "d": "The process of introducing AI tools like Microsoft 365 Copilot into everyday work routines. Chanel's AI adoption goal is to help staff work more efficiently while maintaining brand quality.",
-        "cat": "HR & Learning"
+        "t": "Ready-to-Wear (RTW)",
+        "d": "Clothing that is made in standard sizes and sold in boutiques, as opposed to custom haute couture pieces. It is Chanel's main fashion product line.",
+        "cat": "Industry"
       },
       {
-        "t": "Regional President",
-        "d": "The executive leading Chanel's operations in a major region such as Asia Pacific or the Americas. Regional Presidents report to global leadership and set market strategy for their region.",
-        "cat": "Organisation"
+        "t": "Trunk Show",
+        "d": "A special event where a full collection is shown to selected clients, often before it reaches the boutique. It is a key sales and relationship tool.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Client Advisor",
+        "d": "A sales associate who works directly with clients in a Chanel boutique. They manage client relationships and provide personalised service.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Maison",
+        "d": "The French word for house, used to refer to a luxury fashion brand. Chanel is often referred to as a maison.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Atelier",
+        "d": "A workshop or studio where garments or products are made by hand. Chanel's ateliers in Paris produce its haute couture pieces.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Savoir-Faire",
+        "d": "A French term meaning know-how or craft skill. Chanel uses it to describe the specialist skills of its artisans.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Asia-Pacific (APAC)",
+        "d": "The region covering Asia and the Pacific, including key Chanel markets such as China, Japan, South Korea, Singapore, and Hong Kong.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Seasonal Collection",
+        "d": "A fashion collection released for a specific season, typically spring/summer or autumn/winter. Chanel releases multiple collections each year.",
+        "cat": "Industry"
       }
     ],
     "brandColors": {
-      "primary": "#C9A84C — Chanel's signature champagne gold, used in luxury packaging, logo embossing, and boutique accents as the most distinctive non-monochrome brand colour.",
-      "accent": "#2C4A7C — a deep navy blue drawn from Chanel's classic tweed and uniform palette, used as a secondary accent in digital and print materials."
+      "primary": "#C9A96E — warm Chanel gold used in packaging, embossing, and brand accents",
+      "accent": "#9B1B30 — deep Chanel rouge red used in beauty lines and campaign highlights"
     }
   },
   "useCases": {
@@ -621,11 +602,11 @@
         "id": "CH-01",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Get quick answers to support drafting internal briefs and memos",
-        "pain": "Staff write common documents like briefs and reports from scratch, even for recurring tasks",
+        "name": "Get quick answers to support Draft emails and internal memos using Copilot in Outlook",
+        "pain": "Staff spend too much time writing emails and reports from scratch",
         "habitId": "CH1",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Explain [concept, process, or term relevant to drafting internal briefs and memos] as if I am a Knowledge Workers & Office Staff at Chanel. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.",
+        "prompt": "Explain [concept or process relevant to Draft emails and internal memos using Copilot in Outlook] as if I'm a Knowledge Workers & Office Staff at Chanel. This supports our goal to Improve Client Relationship Quality. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
@@ -636,12 +617,12 @@
         "id": "CH-02",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Research information needed for formatting presentation decks for leadership",
-        "pain": "Emails go back and forth unnecessarily before a clear answer is reached",
+        "name": "Research information needed for summarise long email threads before replying",
+        "pain": "Finding the right document in SharePoint takes too long",
         "habitId": "CH2",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to research [specific topic] to help with formatting presentation decks for leadership at Chanel. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps. Flag any conflicting information.",
-        "inputs": "None — web research",
+        "prompt": "I need to research [specific topic] to help with summarise long email threads before replying at Chanel as part of the Seasonal Collection Launch process. Context: Creative briefs and product updates are shared by email and change frequently. Teams in different markets often work from outdated versions of documents.. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps.",
+        "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
         "timeSaved": 40,
@@ -651,11 +632,11 @@
         "id": "CH-03",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Draft email for managing inbox and responding to cross-department queries",
-        "pain": "Finding the right file version across SharePoint and email is time-consuming",
+        "name": "Draft email for search SharePoint for brand guidelines and product information",
+        "pain": "Meeting notes are often incomplete or never shared",
         "habitId": "CH3",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Draft an email to [recipient] about [topic] related to managing inbox and responding to cross-department queries at Chanel. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.",
+        "prompt": "Draft an email to [recipient] about [topic] related to search SharePoint for brand guidelines and product information at Chanel. This is for the \"Creative Brief Draft\" stage of the Seasonal Collection Launch process. Key points: [list]. Tone: professional. Length: ~200 words.",
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
@@ -666,11 +647,11 @@
         "id": "CH-04",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Create structured notes from discussion about scheduling and preparing agendas for recurring meetings",
-        "pain": "Staff write common documents like briefs and reports from scratch, even for recurring tasks",
+        "name": "Create structured notes from discussion about use Copilot in Word to edit and reformat documents",
+        "pain": "Staff spend too much time writing emails and reports from scratch",
         "habitId": "CH4",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting notes from a meeting or discussion about scheduling and preparing agendas for recurring meetings at Chanel. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "prompt": "I'm pasting notes from a discussion about use Copilot in Word to edit and reformat documents at Chanel (part of the Seasonal Collection Launch workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
@@ -681,11 +662,11 @@
         "id": "CH-05",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Create a document or template for updating shared documents on SharePoint",
-        "pain": "Emails go back and forth unnecessarily before a clear answer is reached",
+        "name": "Create a document or template for take and share meeting notes using Copilot in Teams",
+        "pain": "Finding the right document in SharePoint takes too long",
         "habitId": "CH5",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to create a [document type, e.g., brief, template, report] to support updating shared documents on SharePoint at Chanel. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: Office staff support the business by handling communications, preparing documents, and keeping day-to-day operations running",
+        "prompt": "I need to create a [document type] to support take and share meeting notes using Copilot in Teams at Chanel, aligned with our priority to Improve Client Relationship Quality. This document will be used during the \"Product Range Review\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Help office staff draft and edit documents faster",
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
@@ -696,11 +677,11 @@
         "id": "CH-06",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Extract key information from documents for summarising reports for non-specialist readers",
-        "pain": "Finding the right file version across SharePoint and email is time-consuming",
+        "name": "Extract key information from documents for Draft emails and internal memos using Copilot in Outlook",
+        "pain": "Meeting notes are often incomplete or never shared",
         "habitId": "CH6",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting a document relevant to summarising reports for non-specialist readers at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "prompt": "I'm pasting a document relevant to Draft emails and internal memos using Copilot in Outlook at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
@@ -711,11 +692,11 @@
         "id": "CH-07",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Analyse data relevant to drafting internal briefs and memos",
-        "pain": "Staff write common documents like briefs and reports from scratch, even for recurring tasks",
+        "name": "Analyse data relevant to Draft emails and internal memos using Copilot in Outlook",
+        "pain": "Staff spend too much time writing emails and reports from scratch",
         "habitId": "CH7",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting data related to drafting internal briefs and memos at Chanel. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "prompt": "I'm pasting data related to Draft emails and internal memos using Copilot in Outlook at Chanel as part of the Seasonal Collection Launch process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
         "inputs": "Paste data table or metrics from a spreadsheet or report",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
@@ -726,11 +707,11 @@
         "id": "CH-08",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Get quick answers to support running weekly team check-ins and setting action items",
-        "pain": "Managers spend too much time in status update meetings instead of focused work",
+        "name": "Get quick answers to support Use Copilot in Teams to recap missed meetings and extract action items",
+        "pain": "Managers spend too much time in meetings without clear outcomes",
         "habitId": "CH1",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Explain [concept, process, or term relevant to running weekly team check-ins and setting action items] as if I am a Managers & Team Leads at Chanel. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.",
+        "prompt": "Explain [concept or process relevant to Use Copilot in Teams to recap missed meetings and extract action items] as if I'm a Managers & Team Leads at Chanel. This supports our goal to Streamline Global Reporting and Finance. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
@@ -741,12 +722,12 @@
         "id": "CH-09",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Research information needed for writing staff performance notes and review summaries",
-        "pain": "Writing performance reviews and team communications takes longer than it should",
+        "name": "Research information needed for create weekly team status updates using Copilot in Word",
+        "pain": "Action items from meetings are often missed or forgotten",
         "habitId": "CH2",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to research [specific topic] to help with writing staff performance notes and review summaries at Chanel. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps. Flag any conflicting information.",
-        "inputs": "None — web research",
+        "prompt": "I need to research [specific topic] to help with create weekly team status updates using Copilot in Word at Chanel as part of the Seasonal Collection Launch process. Context: Creative briefs and product updates are shared by email and change frequently. Teams in different markets often work from outdated versions of documents.. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps.",
+        "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
         "timeSaved": 24,
@@ -756,11 +737,11 @@
         "id": "CH-10",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Draft email for reviewing project status across boutique or department deliverables",
-        "pain": "Tracking action items across multiple Teams chats and email threads is error-prone",
+        "name": "Draft email for assign and track tasks using Planner with Copilot support",
+        "pain": "Status updates require chasing team members manually",
         "habitId": "CH3",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Draft an email to [recipient] about [topic] related to reviewing project status across boutique or department deliverables at Chanel. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.",
+        "prompt": "Draft an email to [recipient] about [topic] related to assign and track tasks using Planner with Copilot support at Chanel. This is for the \"Creative Brief Draft\" stage of the Seasonal Collection Launch process. Key points: [list]. Tone: professional. Length: ~200 words.",
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
@@ -771,11 +752,11 @@
         "id": "CH-11",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Create structured notes from discussion about preparing briefs for seasonal launches or campaigns",
-        "pain": "Managers spend too much time in status update meetings instead of focused work",
+        "name": "Create structured notes from discussion about prepare talking points for one-on-one meetings using Copilot in Outlook",
+        "pain": "Managers spend too much time in meetings without clear outcomes",
         "habitId": "CH4",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting notes from a meeting or discussion about preparing briefs for seasonal launches or campaigns at Chanel. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "prompt": "I'm pasting notes from a discussion about prepare talking points for one-on-one meetings using Copilot in Outlook at Chanel (part of the Seasonal Collection Launch workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
@@ -786,11 +767,11 @@
         "id": "CH-12",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Create a document or template for escalating issues to regional leadership",
-        "pain": "Writing performance reviews and team communications takes longer than it should",
+        "name": "Create a document or template for summarise project documents before stakeholder reviews",
+        "pain": "Action items from meetings are often missed or forgotten",
         "habitId": "CH5",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to create a [document type, e.g., brief, template, report] to support escalating issues to regional leadership at Chanel. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: Managers at Chanel lead teams across boutiques, regional offices, and head office functions",
+        "prompt": "I need to create a [document type] to support summarise project documents before stakeholder reviews at Chanel, aligned with our priority to Streamline Global Reporting and Finance. This document will be used during the \"Product Range Review\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Help managers run meetings more effectively and follow up on actions",
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
@@ -801,11 +782,11 @@
         "id": "CH-13",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Extract key information from documents for tracking team training completion",
-        "pain": "Tracking action items across multiple Teams chats and email threads is error-prone",
+        "name": "Extract key information from documents for Use Copilot in Teams to recap missed meetings and extract action items",
+        "pain": "Status updates require chasing team members manually",
         "habitId": "CH6",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting a document relevant to tracking team training completion at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "prompt": "I'm pasting a document relevant to Use Copilot in Teams to recap missed meetings and extract action items at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
@@ -816,11 +797,11 @@
         "id": "CH-14",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Analyse data relevant to running weekly team check-ins and setting action items",
-        "pain": "Managers spend too much time in status update meetings instead of focused work",
+        "name": "Analyse data relevant to Use Copilot in Teams to recap missed meetings and extract action items",
+        "pain": "Managers spend too much time in meetings without clear outcomes",
         "habitId": "CH7",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting data related to running weekly team check-ins and setting action items at Chanel. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "prompt": "I'm pasting data related to Use Copilot in Teams to recap missed meetings and extract action items at Chanel as part of the Seasonal Collection Launch process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
         "inputs": "Paste data table or metrics from a spreadsheet or report",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
@@ -831,11 +812,11 @@
         "id": "CH-15",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Get quick answers to support preparing monthly budget-to-actual reports",
-        "pain": "Building monthly financial reports in Excel takes significant manual effort and is prone to errors",
+        "name": "Get quick answers to support Use Copilot in Excel to analyse sales data and flag variances",
+        "pain": "Weekly sales reports take too long to compile from multiple sources",
         "habitId": "CH1",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Explain [concept, process, or term relevant to preparing monthly budget-to-actual reports] as if I am a Finance & Operations at Chanel. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.",
+        "prompt": "Explain [concept or process relevant to Use Copilot in Excel to analyse sales data and flag variances] as if I'm a Finance & Operations at Chanel. This supports our goal to Streamline Global Reporting and Finance. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
@@ -846,12 +827,12 @@
         "id": "CH-16",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Research information needed for consolidating sales and margin data from boutiques",
-        "pain": "Consolidating data from multiple boutiques and regions into one view is slow",
+        "name": "Research information needed for draft finance commentary and report summaries in Word",
+        "pain": "Creating slides from Excel data is slow and error-prone",
         "habitId": "CH2",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to research [specific topic] to help with consolidating sales and margin data from boutiques at Chanel. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps. Flag any conflicting information.",
-        "inputs": "None — web research",
+        "prompt": "I need to research [specific topic] to help with draft finance commentary and report summaries in Word at Chanel as part of the Weekly Sales Reporting process. Context: Pulling and consolidating data from multiple regions takes most of the week. Writing commentary and building slides is manual and slows down the final review.. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps.",
+        "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
         "timeSaved": 37,
@@ -861,11 +842,11 @@
         "id": "CH-17",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Draft email for reviewing supplier invoices and purchase orders",
-        "pain": "Finance staff spend time chasing approvals via email rather than through a clear workflow",
+        "name": "Draft email for convert Excel analysis into PowerPoint slides using Copilot",
+        "pain": "Finance queries require back-and-forth with regional teams",
         "habitId": "CH3",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Draft an email to [recipient] about [topic] related to reviewing supplier invoices and purchase orders at Chanel. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.",
+        "prompt": "Draft an email to [recipient] about [topic] related to convert Excel analysis into PowerPoint slides using Copilot at Chanel. This is for the \"Data Pull from SAP\" stage of the Weekly Sales Reporting process. Key points: [list]. Tone: professional. Length: ~200 words.",
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
@@ -876,11 +857,11 @@
         "id": "CH-18",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Create structured notes from discussion about building Excel models for seasonal forecasting",
-        "pain": "Building monthly financial reports in Excel takes significant manual effort and is prone to errors",
+        "name": "Create structured notes from discussion about send structured data queries to regional teams via Outlook",
+        "pain": "Weekly sales reports take too long to compile from multiple sources",
         "habitId": "CH4",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting notes from a meeting or discussion about building Excel models for seasonal forecasting at Chanel. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "prompt": "I'm pasting notes from a discussion about send structured data queries to regional teams via Outlook at Chanel (part of the Weekly Sales Reporting workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
@@ -891,11 +872,11 @@
         "id": "CH-19",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Create a document or template for drafting financial summaries for regional leadership",
-        "pain": "Consolidating data from multiple boutiques and regions into one view is slow",
+        "name": "Create a document or template for use Power BI with Copilot to build visual sales dashboards",
+        "pain": "Creating slides from Excel data is slow and error-prone",
         "habitId": "CH5",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to create a [document type, e.g., brief, template, report] to support drafting financial summaries for regional leadership at Chanel. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: Finance and operations teams manage budgets, forecasts, and the flow of goods and money across Chanel's business",
+        "prompt": "I need to create a [document type] to support use Power BI with Copilot to build visual sales dashboards at Chanel, aligned with our priority to Streamline Global Reporting and Finance. This document will be used during the \"Spreadsheet Consolidation\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Speed up the preparation of financial reports and forecasts",
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
@@ -906,11 +887,11 @@
         "id": "CH-20",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Extract key information from documents for tracking operational KPIs across product lines",
-        "pain": "Finance staff spend time chasing approvals via email rather than through a clear workflow",
+        "name": "Extract key information from documents for Use Copilot in Excel to analyse sales data and flag variances",
+        "pain": "Finance queries require back-and-forth with regional teams",
         "habitId": "CH6",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting a document relevant to tracking operational KPIs across product lines at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "prompt": "I'm pasting a document relevant to Use Copilot in Excel to analyse sales data and flag variances at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
@@ -921,11 +902,11 @@
         "id": "CH-21",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Analyse data relevant to preparing monthly budget-to-actual reports",
-        "pain": "Building monthly financial reports in Excel takes significant manual effort and is prone to errors",
+        "name": "Analyse data relevant to Use Copilot in Excel to analyse sales data and flag variances",
+        "pain": "Weekly sales reports take too long to compile from multiple sources",
         "habitId": "CH7",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting data related to preparing monthly budget-to-actual reports at Chanel. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "prompt": "I'm pasting data related to Use Copilot in Excel to analyse sales data and flag variances at Chanel as part of the Weekly Sales Reporting process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
         "inputs": "Paste data table or metrics from a spreadsheet or report",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
@@ -936,11 +917,11 @@
         "id": "CH-22",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Get quick answers to support writing job postings and position descriptions",
-        "pain": "Onboarding documents exist in different formats and locations, making it hard for new staff to get up to speed",
+        "name": "Get quick answers to support Build and update onboarding guides using Copilot in Word",
+        "pain": "Onboarding materials are stored in different places and go out of date quickly",
         "habitId": "CH1",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Explain [concept, process, or term relevant to writing job postings and position descriptions] as if I am a HR & People Development at Chanel. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.",
+        "prompt": "Explain [concept or process relevant to Build and update onboarding guides using Copilot in Word] as if I'm a HR & People Development at Chanel. This supports our goal to Strengthen Onboarding and People Development. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
@@ -951,12 +932,12 @@
         "id": "CH-23",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Research information needed for coordinating interview schedules across hiring managers",
-        "pain": "Scheduling interviews across hiring managers wastes time",
+        "name": "Research information needed for publish and assign training modules through Viva Learning",
+        "pain": "Creating new training content takes too much time",
         "habitId": "CH2",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to research [specific topic] to help with coordinating interview schedules across hiring managers at Chanel. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps. Flag any conflicting information.",
-        "inputs": "None — web research",
+        "prompt": "I need to research [specific topic] to help with publish and assign training modules through Viva Learning at Chanel as part of the New Employee Onboarding process. Context: Onboarding materials are stored across email, SharePoint, and printed packs. New employees often miss key steps because no single system tracks their progress.. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps.",
+        "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
         "timeSaved": 36,
@@ -966,11 +947,11 @@
         "id": "CH-24",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Draft email for preparing onboarding packs for new boutique and office staff",
-        "pain": "Writing job descriptions, training content, and policy documents from scratch is time-consuming",
+        "name": "Draft email for draft HR policy documents and FAQs using Copilot",
+        "pain": "HR staff spend too long answering the same employee questions",
         "habitId": "CH3",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Draft an email to [recipient] about [topic] related to preparing onboarding packs for new boutique and office staff at Chanel. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.",
+        "prompt": "Draft an email to [recipient] about [topic] related to draft HR policy documents and FAQs using Copilot at Chanel. This is for the \"Offer and Pre-Boarding\" stage of the New Employee Onboarding process. Key points: [list]. Tone: professional. Length: ~200 words.",
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
@@ -981,11 +962,11 @@
         "id": "CH-25",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Create structured notes from discussion about drafting HR policy documents and internal communications",
-        "pain": "Onboarding documents exist in different formats and locations, making it hard for new staff to get up to speed",
+        "name": "Create structured notes from discussion about respond to common employee queries using Copilot-drafted email templates",
+        "pain": "Onboarding materials are stored in different places and go out of date quickly",
         "habitId": "CH4",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting notes from a meeting or discussion about drafting HR policy documents and internal communications at Chanel. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "prompt": "I'm pasting notes from a discussion about respond to common employee queries using Copilot-drafted email templates at Chanel (part of the New Employee Onboarding workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
@@ -996,11 +977,11 @@
         "id": "CH-26",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Create a document or template for tracking training completion and learning records",
-        "pain": "Scheduling interviews across hiring managers wastes time",
+        "name": "Create a document or template for track learning completion data in Power BI",
+        "pain": "Creating new training content takes too much time",
         "habitId": "CH5",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to create a [document type, e.g., brief, template, report] to support tracking training completion and learning records at Chanel. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: HR and learning teams at Chanel recruit talent, support employee development, and manage the people processes that keep the business running well",
+        "prompt": "I need to create a [document type] to support track learning completion data in Power BI at Chanel, aligned with our priority to Strengthen Onboarding and People Development. This document will be used during the \"System Access Setup\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Make onboarding consistent and easy to update across all markets",
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
@@ -1011,11 +992,11 @@
         "id": "CH-27",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Extract key information from documents for summarising employee survey results for leadership",
-        "pain": "Writing job descriptions, training content, and policy documents from scratch is time-consuming",
+        "name": "Extract key information from documents for Build and update onboarding guides using Copilot in Word",
+        "pain": "HR staff spend too long answering the same employee questions",
         "habitId": "CH6",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting a document relevant to summarising employee survey results for leadership at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "prompt": "I'm pasting a document relevant to Build and update onboarding guides using Copilot in Word at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
@@ -1026,11 +1007,11 @@
         "id": "CH-28",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Analyse data relevant to writing job postings and position descriptions",
-        "pain": "Onboarding documents exist in different formats and locations, making it hard for new staff to get up to speed",
+        "name": "Analyse data relevant to Build and update onboarding guides using Copilot in Word",
+        "pain": "Onboarding materials are stored in different places and go out of date quickly",
         "habitId": "CH7",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting data related to writing job postings and position descriptions at Chanel. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "prompt": "I'm pasting data related to Build and update onboarding guides using Copilot in Word at Chanel as part of the New Employee Onboarding process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
         "inputs": "Paste data table or metrics from a spreadsheet or report",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
@@ -1040,117 +1021,117 @@
       {
         "id": "CH-29",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Get quick answers to support preparing client profiles and briefing notes before appointments",
-        "pain": "Preparing for client appointments means pulling information from multiple systems, which takes time before each visit",
+        "code": "SAL",
+        "name": "Get quick answers to support Use Copilot in Outlook to draft personalised follow-up emails after client visits",
+        "pain": "Preparing for VIC appointments requires pulling data from multiple systems",
         "habitId": "CH1",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Explain [concept, process, or term relevant to preparing client profiles and briefing notes before appointments] as if I am a Sales & Customer Service at Chanel. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.",
+        "prompt": "Explain [concept or process relevant to Use Copilot in Outlook to draft personalised follow-up emails after client visits] as if I'm a Sales & Customer Service at Chanel. This supports our goal to Improve Client Relationship Quality. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
-        "timeSaved": 18,
+        "timeSaved": 20,
         "priority": "Medium"
       },
       {
         "id": "CH-30",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Research information needed for writing personalised thank-you and follow-up messages to clients",
-        "pain": "Writing personalised follow-up notes after interactions is done manually and inconsistently",
+        "code": "SAL",
+        "name": "Research information needed for summarise client history from Salesforce CRM before appointments",
+        "pain": "Client notes after visits are often incomplete or inconsistent",
         "habitId": "CH2",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to research [specific topic] to help with writing personalised thank-you and follow-up messages to clients at Chanel. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps. Flag any conflicting information.",
-        "inputs": "None — web research",
+        "prompt": "I need to research [specific topic] to help with summarise client history from Salesforce CRM before appointments at Chanel as part of the VIC Client Appointment Management process. Context: Advisors spend too much time pulling client information from different systems before each appointment. Writing personalised follow-up emails for every VIC is slow and inconsistent.. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps.",
+        "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
-        "timeSaved": 24,
+        "timeSaved": 26,
         "priority": "High"
       },
       {
         "id": "CH-31",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Draft email for responding to email and phone enquiries from walk-in and existing clients",
-        "pain": "Responding to client queries by email requires careful brand-tone writing, which is time-intensive",
+        "code": "SAL",
+        "name": "Draft email for record and store client preferences in structured notes using Teams",
+        "pain": "Follow-up emails take too long to write personally for each client",
         "habitId": "CH3",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Draft an email to [recipient] about [topic] related to responding to email and phone enquiries from walk-in and existing clients at Chanel. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.",
+        "prompt": "Draft an email to [recipient] about [topic] related to record and store client preferences in structured notes using Teams at Chanel. This is for the \"Appointment Scheduling\" stage of the VIC Client Appointment Management process. Key points: [list]. Tone: professional. Length: ~200 words.",
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
-        "timeSaved": 25,
+        "timeSaved": 27,
         "priority": "High"
       },
       {
         "id": "CH-32",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Create structured notes from discussion about logging client interactions and purchase preferences in CRM",
-        "pain": "Preparing for client appointments means pulling information from multiple systems, which takes time before each visit",
+        "code": "SAL",
+        "name": "Create structured notes from discussion about prepare appointment briefs using Copilot in Word",
+        "pain": "Preparing for VIC appointments requires pulling data from multiple systems",
         "habitId": "CH4",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting notes from a meeting or discussion about logging client interactions and purchase preferences in CRM at Chanel. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "prompt": "I'm pasting notes from a discussion about prepare appointment briefs using Copilot in Word at Chanel (part of the VIC Client Appointment Management workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
-        "timeSaved": 31,
+        "timeSaved": 33,
         "priority": "High"
       },
       {
         "id": "CH-33",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Create a document or template for handling product availability enquiries across boutiques",
-        "pain": "Writing personalised follow-up notes after interactions is done manually and inconsistently",
+        "code": "SAL",
+        "name": "Create a document or template for create event invitations for product launches using Copilot in Outlook",
+        "pain": "Client notes after visits are often incomplete or inconsistent",
         "habitId": "CH5",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to create a [document type, e.g., brief, template, report] to support handling product availability enquiries across boutiques at Chanel. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: Client Advisors and customer service teams are the face of Chanel",
+        "prompt": "I need to create a [document type] to support create event invitations for product launches using Copilot in Outlook at Chanel, aligned with our priority to Improve Client Relationship Quality. This document will be used during the \"Client Profile Review\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Help client advisors prepare for appointments faster",
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
-        "timeSaved": 37,
+        "timeSaved": 39,
         "priority": "Medium"
       },
       {
         "id": "CH-34",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Extract key information from documents for escalating client complaints to boutique management",
-        "pain": "Responding to client queries by email requires careful brand-tone writing, which is time-intensive",
+        "code": "SAL",
+        "name": "Extract key information from documents for Use Copilot in Outlook to draft personalised follow-up emails after client visits",
+        "pain": "Follow-up emails take too long to write personally for each client",
         "habitId": "CH6",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting a document relevant to escalating client complaints to boutique management at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
-        "inputs": "Paste document, report, or reference text",
+        "prompt": "I'm pasting a document exported from Salesforce CRM (Tracks client relationships, appointments, and purchase history.) relevant to Use Copilot in Outlook to draft personalised follow-up emails after client visits at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or Salesforce CRM export",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
-        "timeSaved": 28,
+        "timeSaved": 30,
         "priority": "Medium"
       },
       {
         "id": "CH-35",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Analyse data relevant to preparing client profiles and briefing notes before appointments",
-        "pain": "Preparing for client appointments means pulling information from multiple systems, which takes time before each visit",
+        "code": "SAL",
+        "name": "Analyse data relevant to Use Copilot in Outlook to draft personalised follow-up emails after client visits",
+        "pain": "Preparing for VIC appointments requires pulling data from multiple systems",
         "habitId": "CH7",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting data related to preparing client profiles and briefing notes before appointments at Chanel. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
-        "inputs": "Paste data table or metrics from a spreadsheet or report",
+        "prompt": "I'm pasting data from Salesforce CRM related to Use Copilot in Outlook to draft personalised follow-up emails after client visits at Chanel as part of the VIC Client Appointment Management process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from Salesforce CRM",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
-        "timeSaved": 39,
+        "timeSaved": 41,
         "priority": "Medium"
       },
       {
         "id": "CH-36",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Get quick answers to support managing Microsoft 365 user accounts and access permissions",
-        "pain": "IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly",
+        "name": "Get quick answers to support Draft ticket responses and resolution notes using Copilot in Outlook",
+        "pain": "Writing responses to routine support tickets takes too much time",
         "habitId": "CH1",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Explain [concept, process, or term relevant to managing Microsoft 365 user accounts and access permissions] as if I am a IT & Systems Administrators at Chanel. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.",
+        "prompt": "Explain [concept or process relevant to Draft ticket responses and resolution notes using Copilot in Outlook] as if I'm a IT & Systems Administrators at Chanel. This supports our goal to Reduce IT Support Load and Response Time. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
@@ -1161,12 +1142,12 @@
         "id": "CH-37",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Research information needed for supporting boutique POS system issues and escalations",
-        "pain": "Writing clear technical documentation for non-technical users is time-consuming",
+        "name": "Research information needed for document system changes and fixes using Copilot in Word",
+        "pain": "System documentation is often out of date or missing",
         "habitId": "CH2",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to research [specific topic] to help with supporting boutique POS system issues and escalations at Chanel. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps. Flag any conflicting information.",
-        "inputs": "None — web research",
+        "prompt": "I need to research [specific topic] to help with document system changes and fixes using Copilot in Word at Chanel as part of the Seasonal Collection Launch process. Context: Creative briefs and product updates are shared by email and change frequently. Teams in different markets often work from outdated versions of documents.. Provide: 1) key findings with sources 2) how this applies to Chanel 3) recommended next steps.",
+        "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
         "timeSaved": 25,
@@ -1176,11 +1157,11 @@
         "id": "CH-38",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Draft email for writing technical guides and user-facing how-to documents",
-        "pain": "Coordinating system updates across global time zones is complex",
+        "name": "Draft email for create user guides and how-to articles using Copilot",
+        "pain": "Communicating planned downtime to all staff is slow and inconsistent",
         "habitId": "CH3",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "Draft an email to [recipient] about [topic] related to writing technical guides and user-facing how-to documents at Chanel. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.",
+        "prompt": "Draft an email to [recipient] about [topic] related to create user guides and how-to articles using Copilot at Chanel. This is for the \"Creative Brief Draft\" stage of the Seasonal Collection Launch process. Key points: [list]. Tone: professional. Length: ~200 words.",
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
@@ -1191,11 +1172,11 @@
         "id": "CH-39",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Create structured notes from discussion about coordinating software rollouts across Singapore boutiques",
-        "pain": "IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly",
+        "name": "Create structured notes from discussion about use ServiceNow with Copilot summaries to triage and prioritise tickets",
+        "pain": "Writing responses to routine support tickets takes too much time",
         "habitId": "CH4",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting notes from a meeting or discussion about coordinating software rollouts across Singapore boutiques at Chanel. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "prompt": "I'm pasting notes from a discussion about use ServiceNow with Copilot summaries to triage and prioritise tickets at Chanel (part of the Seasonal Collection Launch workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
@@ -1206,11 +1187,11 @@
         "id": "CH-40",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Create a document or template for monitoring system availability and flagging incidents",
-        "pain": "Writing clear technical documentation for non-technical users is time-consuming",
+        "name": "Create a document or template for send scheduled maintenance notices using Copilot-drafted Teams messages",
+        "pain": "System documentation is often out of date or missing",
         "habitId": "CH5",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I need to create a [document type, e.g., brief, template, report] to support monitoring system availability and flagging incidents at Chanel. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: IT teams manage the systems, devices, and platforms that keep Chanel's business running",
+        "prompt": "I need to create a [document type] to support send scheduled maintenance notices using Copilot-drafted Teams messages at Chanel, aligned with our priority to Reduce IT Support Load and Response Time. This document will be used during the \"Product Range Review\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Help IT staff resolve support tickets faster with less manual writing",
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
@@ -1221,12 +1202,12 @@
         "id": "CH-41",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Extract key information from documents for preparing IT reports for regional management",
-        "pain": "Coordinating system updates across global time zones is complex",
+        "name": "Extract key information from documents for Draft ticket responses and resolution notes using Copilot in Outlook",
+        "pain": "Communicating planned downtime to all staff is slow and inconsistent",
         "habitId": "CH6",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting a document relevant to preparing IT reports for regional management at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
-        "inputs": "Paste document, report, or reference text",
+        "prompt": "I'm pasting a document exported from ServiceNow (Manages IT support tickets and internal service requests.) relevant to Draft ticket responses and resolution notes using Copilot in Outlook at Chanel. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or ServiceNow export",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
         "timeSaved": 29,
@@ -1236,12 +1217,12 @@
         "id": "CH-42",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Analyse data relevant to managing Microsoft 365 user accounts and access permissions",
-        "pain": "IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly",
+        "name": "Analyse data relevant to Draft ticket responses and resolution notes using Copilot in Outlook",
+        "pain": "Writing responses to routine support tickets takes too much time",
         "habitId": "CH7",
         "entry": "Copilot Chat (microsoft365.com)",
-        "prompt": "I am pasting data related to managing Microsoft 365 user accounts and access permissions at Chanel. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
-        "inputs": "Paste data table or metrics from a spreadsheet or report",
+        "prompt": "I'm pasting data from ServiceNow related to Draft ticket responses and resolution notes using Copilot in Outlook at Chanel as part of the Seasonal Collection Launch process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from ServiceNow",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
         "timeSaved": 40,
@@ -1253,11 +1234,11 @@
         "id": "MH-01",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Get a daily briefing on tasks related to drafting internal briefs and memos",
-        "pain": "Staff write common documents like briefs and reports from scratch, even for recurring tasks",
+        "name": "Get a daily briefing on tasks related to Draft emails and internal memos using Copilot in Outlook",
+        "pain": "Staff spend too much time writing emails and reports from scratch",
         "habitId": "MH1",
         "entry": "M365 Copilot Chat",
-        "prompt": "Give me a daily digest as a Knowledge Workers & Office Staff at Chanel focused on drafting internal briefs and memos. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.",
+        "prompt": "Give me a daily digest as a Knowledge Workers & Office Staff at Chanel focused on the Seasonal Collection Launch process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Creative briefs and product updates are shared by email and change frequently. Teams in different markets often work from outdated versions of documents..",
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
@@ -1268,11 +1249,11 @@
         "id": "MH-02",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Reply to emails about formatting presentation decks for leadership using thread context",
-        "pain": "Emails go back and forth unnecessarily before a clear answer is reached",
+        "name": "Reply to emails about summarise long email threads before replying using thread context",
+        "pain": "Finding the right document in SharePoint takes too long",
         "habitId": "MH2",
         "entry": "Outlook",
-        "prompt": "Write a reply to [sender] about [topic] related to formatting presentation decks for leadership at Chanel. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.",
+        "prompt": "Write a reply to [sender] about [topic] related to summarise long email threads before replying at Chanel. This relates to the \"Creative Brief Draft\" stage of the Seasonal Collection Launch process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
@@ -1283,11 +1264,11 @@
         "id": "MH-03",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Prepare agenda and capture meeting notes for managing inbox and responding to cross-department queries",
-        "pain": "Finding the right file version across SharePoint and email is time-consuming",
+        "name": "Prepare agenda and capture meeting notes for search SharePoint for brand guidelines and product information",
+        "pain": "Meeting notes are often incomplete or never shared",
         "habitId": "MH3",
         "entry": "Teams",
-        "prompt": "Using recent messages and emails about managing inbox and responding to cross-department queries at Chanel, create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "prompt": "Using recent messages and emails about search SharePoint for brand guidelines and product information at Chanel (part of the Seasonal Collection Launch workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Product Range Review\" step. After the meeting, summarise key decisions and action items.",
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
@@ -1298,12 +1279,12 @@
         "id": "MH-04",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Search internal files and emails related to scheduling and preparing agendas for recurring meetings",
-        "pain": "Staff write common documents like briefs and reports from scratch, even for recurring tasks",
+        "name": "Search internal files and emails related to use Copilot in Word to edit and reformat documents",
+        "pain": "Staff spend too much time writing emails and reports from scratch",
         "habitId": "MH4",
         "entry": "M365 Copilot Chat",
-        "prompt": "Find documents and messages related to scheduling and preparing agendas for recurring meetings from our SharePoint and Teams files at Chanel. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
-        "inputs": "SharePoint files, Teams messages, internal documents",
+        "prompt": "Find documents and messages related to use Copilot in Word to edit and reformat documents from our SharePoint and Teams files at Chanel for the Seasonal Collection Launch process. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
         "timeSaved": 48,
@@ -1313,12 +1294,12 @@
         "id": "MH-05",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Draft a report or document for updating shared documents on SharePoint",
-        "pain": "Emails go back and forth unnecessarily before a clear answer is reached",
+        "name": "Draft a report or document for take and share meeting notes using Copilot in Teams",
+        "pain": "Finding the right document in SharePoint takes too long",
         "habitId": "MH5",
         "entry": "Word",
-        "prompt": "Create a detailed outline for a [report/brief/proposal] about updating shared documents on SharePoint at Chanel. I am a Knowledge Workers & Office Staff. Include: executive summary, background, key findings, recommendations, and next steps. Context: Office staff support the business by handling communications, preparing documents, and keeping day-to-day operations running",
-        "inputs": "Brief, existing notes, relevant background documents (attach to Word)",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about take and share meeting notes using Copilot in Teams at Chanel. This output will be used for the \"Market Allocation Plan\" stage of the Seasonal Collection Launch process. I am a Knowledge Workers & Office Staff. Include: executive summary, background, key findings, recommendations, and next steps. Context: Help office staff draft and edit documents faster",
+        "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
         "timeSaved": 41,
@@ -1328,12 +1309,12 @@
         "id": "MH-06",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Review and summarise documents related to summarising reports for non-specialist readers",
-        "pain": "Finding the right file version across SharePoint and email is time-consuming",
+        "name": "Review and summarise documents related to Draft emails and internal memos using Copilot in Outlook",
+        "pain": "Meeting notes are often incomplete or never shared",
         "habitId": "MH6",
         "entry": "Word",
-        "prompt": "Summarise the attached document related to summarising reports for non-specialist readers at Chanel. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Knowledge Workers & Office Staff.",
-        "inputs": "Attach Word document, PDF, or report in Word",
+        "prompt": "Summarise the attached document related to Draft emails and internal memos using Copilot in Outlook at Chanel (this relates to our priority: Improve Client Relationship Quality). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Knowledge Workers & Office Staff.",
+        "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
         "timeSaved": 49,
@@ -1343,12 +1324,12 @@
         "id": "MH-07",
         "role": "Knowledge Workers & Office Staff",
         "code": "KW",
-        "name": "Analyse and visualise data for drafting internal briefs and memos",
-        "pain": "Staff write common documents like briefs and reports from scratch, even for recurring tasks",
+        "name": "Analyse and visualise data for Draft emails and internal memos using Copilot in Outlook",
+        "pain": "Staff spend too much time writing emails and reports from scratch",
         "habitId": "MH7",
         "entry": "Excel",
-        "prompt": "Analyse the data in this spreadsheet related to drafting internal briefs and memos at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
-        "inputs": "Excel spreadsheet with relevant data",
+        "prompt": "Analyse the data in this spreadsheet related to Draft emails and internal memos using Copilot in Outlook at Chanel as part of the Seasonal Collection Launch process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
         "timeSaved": 47,
@@ -1358,11 +1339,11 @@
         "id": "MH-08",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Get a daily briefing on tasks related to running weekly team check-ins and setting action items",
-        "pain": "Managers spend too much time in status update meetings instead of focused work",
+        "name": "Get a daily briefing on tasks related to Use Copilot in Teams to recap missed meetings and extract action items",
+        "pain": "Managers spend too much time in meetings without clear outcomes",
         "habitId": "MH1",
         "entry": "M365 Copilot Chat",
-        "prompt": "Give me a daily digest as a Managers & Team Leads at Chanel focused on running weekly team check-ins and setting action items. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.",
+        "prompt": "Give me a daily digest as a Managers & Team Leads at Chanel focused on the Seasonal Collection Launch process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Creative briefs and product updates are shared by email and change frequently. Teams in different markets often work from outdated versions of documents..",
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
@@ -1373,11 +1354,11 @@
         "id": "MH-09",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Reply to emails about writing staff performance notes and review summaries using thread context",
-        "pain": "Writing performance reviews and team communications takes longer than it should",
+        "name": "Reply to emails about create weekly team status updates using Copilot in Word using thread context",
+        "pain": "Action items from meetings are often missed or forgotten",
         "habitId": "MH2",
         "entry": "Outlook",
-        "prompt": "Write a reply to [sender] about [topic] related to writing staff performance notes and review summaries at Chanel. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.",
+        "prompt": "Write a reply to [sender] about [topic] related to create weekly team status updates using Copilot in Word at Chanel. This relates to the \"Creative Brief Draft\" stage of the Seasonal Collection Launch process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
@@ -1388,11 +1369,11 @@
         "id": "MH-10",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Prepare agenda and capture meeting notes for reviewing project status across boutique or department deliverables",
-        "pain": "Tracking action items across multiple Teams chats and email threads is error-prone",
+        "name": "Prepare agenda and capture meeting notes for assign and track tasks using Planner with Copilot support",
+        "pain": "Status updates require chasing team members manually",
         "habitId": "MH3",
         "entry": "Teams",
-        "prompt": "Using recent messages and emails about reviewing project status across boutique or department deliverables at Chanel, create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "prompt": "Using recent messages and emails about assign and track tasks using Planner with Copilot support at Chanel (part of the Seasonal Collection Launch workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Product Range Review\" step. After the meeting, summarise key decisions and action items.",
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
@@ -1403,12 +1384,12 @@
         "id": "MH-11",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Search internal files and emails related to preparing briefs for seasonal launches or campaigns",
-        "pain": "Managers spend too much time in status update meetings instead of focused work",
+        "name": "Search internal files and emails related to prepare talking points for one-on-one meetings using Copilot in Outlook",
+        "pain": "Managers spend too much time in meetings without clear outcomes",
         "habitId": "MH4",
         "entry": "M365 Copilot Chat",
-        "prompt": "Find documents and messages related to preparing briefs for seasonal launches or campaigns from our SharePoint and Teams files at Chanel. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
-        "inputs": "SharePoint files, Teams messages, internal documents",
+        "prompt": "Find documents and messages related to prepare talking points for one-on-one meetings using Copilot in Outlook from our SharePoint and Teams files at Chanel for the Seasonal Collection Launch process. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
         "timeSaved": 48,
@@ -1418,12 +1399,12 @@
         "id": "MH-12",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Draft a report or document for escalating issues to regional leadership",
-        "pain": "Writing performance reviews and team communications takes longer than it should",
+        "name": "Draft a report or document for summarise project documents before stakeholder reviews",
+        "pain": "Action items from meetings are often missed or forgotten",
         "habitId": "MH5",
         "entry": "Word",
-        "prompt": "Create a detailed outline for a [report/brief/proposal] about escalating issues to regional leadership at Chanel. I am a Managers & Team Leads. Include: executive summary, background, key findings, recommendations, and next steps. Context: Managers at Chanel lead teams across boutiques, regional offices, and head office functions",
-        "inputs": "Brief, existing notes, relevant background documents (attach to Word)",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about summarise project documents before stakeholder reviews at Chanel. This output will be used for the \"Market Allocation Plan\" stage of the Seasonal Collection Launch process. I am a Managers & Team Leads. Include: executive summary, background, key findings, recommendations, and next steps. Context: Help managers run meetings more effectively and follow up on actions",
+        "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
         "timeSaved": 41,
@@ -1433,12 +1414,12 @@
         "id": "MH-13",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Review and summarise documents related to tracking team training completion",
-        "pain": "Tracking action items across multiple Teams chats and email threads is error-prone",
+        "name": "Review and summarise documents related to Use Copilot in Teams to recap missed meetings and extract action items",
+        "pain": "Status updates require chasing team members manually",
         "habitId": "MH6",
         "entry": "Word",
-        "prompt": "Summarise the attached document related to tracking team training completion at Chanel. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Managers & Team Leads.",
-        "inputs": "Attach Word document, PDF, or report in Word",
+        "prompt": "Summarise the attached document related to Use Copilot in Teams to recap missed meetings and extract action items at Chanel (this relates to our priority: Streamline Global Reporting and Finance). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Managers & Team Leads.",
+        "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
         "timeSaved": 49,
@@ -1448,12 +1429,12 @@
         "id": "MH-14",
         "role": "Managers & Team Leads",
         "code": "MGR",
-        "name": "Analyse and visualise data for running weekly team check-ins and setting action items",
-        "pain": "Managers spend too much time in status update meetings instead of focused work",
+        "name": "Analyse and visualise data for Use Copilot in Teams to recap missed meetings and extract action items",
+        "pain": "Managers spend too much time in meetings without clear outcomes",
         "habitId": "MH7",
         "entry": "Excel",
-        "prompt": "Analyse the data in this spreadsheet related to running weekly team check-ins and setting action items at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
-        "inputs": "Excel spreadsheet with relevant data",
+        "prompt": "Analyse the data in this spreadsheet related to Use Copilot in Teams to recap missed meetings and extract action items at Chanel as part of the Seasonal Collection Launch process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
         "timeSaved": 47,
@@ -1463,11 +1444,11 @@
         "id": "MH-15",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Get a daily briefing on tasks related to preparing monthly budget-to-actual reports",
-        "pain": "Building monthly financial reports in Excel takes significant manual effort and is prone to errors",
+        "name": "Get a daily briefing on tasks related to Use Copilot in Excel to analyse sales data and flag variances",
+        "pain": "Weekly sales reports take too long to compile from multiple sources",
         "habitId": "MH1",
         "entry": "M365 Copilot Chat",
-        "prompt": "Give me a daily digest as a Finance & Operations at Chanel focused on preparing monthly budget-to-actual reports. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.",
+        "prompt": "Give me a daily digest as a Finance & Operations at Chanel focused on the Weekly Sales Reporting process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Pulling and consolidating data from multiple regions takes most of the week. Writing commentary and building slides is manual and slows down the final review..",
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
@@ -1478,11 +1459,11 @@
         "id": "MH-16",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Reply to emails about consolidating sales and margin data from boutiques using thread context",
-        "pain": "Consolidating data from multiple boutiques and regions into one view is slow",
+        "name": "Reply to emails about draft finance commentary and report summaries in Word using thread context",
+        "pain": "Creating slides from Excel data is slow and error-prone",
         "habitId": "MH2",
         "entry": "Outlook",
-        "prompt": "Write a reply to [sender] about [topic] related to consolidating sales and margin data from boutiques at Chanel. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.",
+        "prompt": "Write a reply to [sender] about [topic] related to draft finance commentary and report summaries in Word at Chanel. This relates to the \"Data Pull from SAP\" stage of the Weekly Sales Reporting process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
@@ -1493,11 +1474,11 @@
         "id": "MH-17",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Prepare agenda and capture meeting notes for reviewing supplier invoices and purchase orders",
-        "pain": "Finance staff spend time chasing approvals via email rather than through a clear workflow",
+        "name": "Prepare agenda and capture meeting notes for convert Excel analysis into PowerPoint slides using Copilot",
+        "pain": "Finance queries require back-and-forth with regional teams",
         "habitId": "MH3",
         "entry": "Teams",
-        "prompt": "Using recent messages and emails about reviewing supplier invoices and purchase orders at Chanel, create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "prompt": "Using recent messages and emails about convert Excel analysis into PowerPoint slides using Copilot at Chanel (part of the Weekly Sales Reporting workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Spreadsheet Consolidation\" step. After the meeting, summarise key decisions and action items.",
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
@@ -1508,12 +1489,12 @@
         "id": "MH-18",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Search internal files and emails related to building Excel models for seasonal forecasting",
-        "pain": "Building monthly financial reports in Excel takes significant manual effort and is prone to errors",
+        "name": "Search internal files and emails related to send structured data queries to regional teams via Outlook",
+        "pain": "Weekly sales reports take too long to compile from multiple sources",
         "habitId": "MH4",
         "entry": "M365 Copilot Chat",
-        "prompt": "Find documents and messages related to building Excel models for seasonal forecasting from our SharePoint and Teams files at Chanel. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
-        "inputs": "SharePoint files, Teams messages, internal documents",
+        "prompt": "Find documents and messages related to send structured data queries to regional teams via Outlook from our SharePoint and Teams files at Chanel for the Weekly Sales Reporting process. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
         "timeSaved": 43,
@@ -1523,12 +1504,12 @@
         "id": "MH-19",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Draft a report or document for drafting financial summaries for regional leadership",
-        "pain": "Consolidating data from multiple boutiques and regions into one view is slow",
+        "name": "Draft a report or document for use Power BI with Copilot to build visual sales dashboards",
+        "pain": "Creating slides from Excel data is slow and error-prone",
         "habitId": "MH5",
         "entry": "Word",
-        "prompt": "Create a detailed outline for a [report/brief/proposal] about drafting financial summaries for regional leadership at Chanel. I am a Finance & Operations. Include: executive summary, background, key findings, recommendations, and next steps. Context: Finance and operations teams manage budgets, forecasts, and the flow of goods and money across Chanel's business",
-        "inputs": "Brief, existing notes, relevant background documents (attach to Word)",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about use Power BI with Copilot to build visual sales dashboards at Chanel. This output will be used for the \"Variance Commentary\" stage of the Weekly Sales Reporting process. I am a Finance & Operations. Include: executive summary, background, key findings, recommendations, and next steps. Context: Speed up the preparation of financial reports and forecasts",
+        "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
         "timeSaved": 56,
@@ -1538,12 +1519,12 @@
         "id": "MH-20",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Review and summarise documents related to tracking operational KPIs across product lines",
-        "pain": "Finance staff spend time chasing approvals via email rather than through a clear workflow",
+        "name": "Review and summarise documents related to Use Copilot in Excel to analyse sales data and flag variances",
+        "pain": "Finance queries require back-and-forth with regional teams",
         "habitId": "MH6",
         "entry": "Word",
-        "prompt": "Summarise the attached document related to tracking operational KPIs across product lines at Chanel. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Finance & Operations.",
-        "inputs": "Attach Word document, PDF, or report in Word",
+        "prompt": "Summarise the attached document related to Use Copilot in Excel to analyse sales data and flag variances at Chanel (this relates to our priority: Streamline Global Reporting and Finance). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Finance & Operations.",
+        "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
         "timeSaved": 44,
@@ -1553,12 +1534,12 @@
         "id": "MH-21",
         "role": "Finance & Operations",
         "code": "FIN",
-        "name": "Analyse and visualise data for preparing monthly budget-to-actual reports",
-        "pain": "Building monthly financial reports in Excel takes significant manual effort and is prone to errors",
+        "name": "Analyse and visualise data for Use Copilot in Excel to analyse sales data and flag variances",
+        "pain": "Weekly sales reports take too long to compile from multiple sources",
         "habitId": "MH7",
         "entry": "Excel",
-        "prompt": "Analyse the data in this spreadsheet related to preparing monthly budget-to-actual reports at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
-        "inputs": "Excel spreadsheet with relevant data",
+        "prompt": "Analyse the data in this spreadsheet related to Use Copilot in Excel to analyse sales data and flag variances at Chanel as part of the Weekly Sales Reporting process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
         "timeSaved": 42,
@@ -1568,11 +1549,11 @@
         "id": "MH-22",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Get a daily briefing on tasks related to writing job postings and position descriptions",
-        "pain": "Onboarding documents exist in different formats and locations, making it hard for new staff to get up to speed",
+        "name": "Get a daily briefing on tasks related to Build and update onboarding guides using Copilot in Word",
+        "pain": "Onboarding materials are stored in different places and go out of date quickly",
         "habitId": "MH1",
         "entry": "M365 Copilot Chat",
-        "prompt": "Give me a daily digest as a HR & People Development at Chanel focused on writing job postings and position descriptions. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.",
+        "prompt": "Give me a daily digest as a HR & People Development at Chanel focused on the New Employee Onboarding process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Onboarding materials are stored across email, SharePoint, and printed packs. New employees often miss key steps because no single system tracks their progress..",
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
@@ -1583,11 +1564,11 @@
         "id": "MH-23",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Reply to emails about coordinating interview schedules across hiring managers using thread context",
-        "pain": "Scheduling interviews across hiring managers wastes time",
+        "name": "Reply to emails about publish and assign training modules through Viva Learning using thread context",
+        "pain": "Creating new training content takes too much time",
         "habitId": "MH2",
         "entry": "Outlook",
-        "prompt": "Write a reply to [sender] about [topic] related to coordinating interview schedules across hiring managers at Chanel. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.",
+        "prompt": "Write a reply to [sender] about [topic] related to publish and assign training modules through Viva Learning at Chanel. This relates to the \"Offer and Pre-Boarding\" stage of the New Employee Onboarding process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
@@ -1598,11 +1579,11 @@
         "id": "MH-24",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Prepare agenda and capture meeting notes for preparing onboarding packs for new boutique and office staff",
-        "pain": "Writing job descriptions, training content, and policy documents from scratch is time-consuming",
+        "name": "Prepare agenda and capture meeting notes for draft HR policy documents and FAQs using Copilot",
+        "pain": "HR staff spend too long answering the same employee questions",
         "habitId": "MH3",
         "entry": "Teams",
-        "prompt": "Using recent messages and emails about preparing onboarding packs for new boutique and office staff at Chanel, create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "prompt": "Using recent messages and emails about draft HR policy documents and FAQs using Copilot at Chanel (part of the New Employee Onboarding workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"System Access Setup\" step. After the meeting, summarise key decisions and action items.",
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
@@ -1613,12 +1594,12 @@
         "id": "MH-25",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Search internal files and emails related to drafting HR policy documents and internal communications",
-        "pain": "Onboarding documents exist in different formats and locations, making it hard for new staff to get up to speed",
+        "name": "Search internal files and emails related to respond to common employee queries using Copilot-drafted email templates",
+        "pain": "Onboarding materials are stored in different places and go out of date quickly",
         "habitId": "MH4",
         "entry": "M365 Copilot Chat",
-        "prompt": "Find documents and messages related to drafting HR policy documents and internal communications from our SharePoint and Teams files at Chanel. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
-        "inputs": "SharePoint files, Teams messages, internal documents",
+        "prompt": "Find documents and messages related to respond to common employee queries using Copilot-drafted email templates from our SharePoint and Teams files at Chanel for the New Employee Onboarding process. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
         "timeSaved": 48,
@@ -1628,12 +1609,12 @@
         "id": "MH-26",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Draft a report or document for tracking training completion and learning records",
-        "pain": "Scheduling interviews across hiring managers wastes time",
+        "name": "Draft a report or document for track learning completion data in Power BI",
+        "pain": "Creating new training content takes too much time",
         "habitId": "MH5",
         "entry": "Word",
-        "prompt": "Create a detailed outline for a [report/brief/proposal] about tracking training completion and learning records at Chanel. I am a HR & People Development. Include: executive summary, background, key findings, recommendations, and next steps. Context: HR and learning teams at Chanel recruit talent, support employee development, and manage the people processes that keep the business running well",
-        "inputs": "Brief, existing notes, relevant background documents (attach to Word)",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about track learning completion data in Power BI at Chanel. This output will be used for the \"Brand Induction Session\" stage of the New Employee Onboarding process. I am a HR & People Development. Include: executive summary, background, key findings, recommendations, and next steps. Context: Make onboarding consistent and easy to update across all markets",
+        "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
         "timeSaved": 41,
@@ -1643,12 +1624,12 @@
         "id": "MH-27",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Review and summarise documents related to summarising employee survey results for leadership",
-        "pain": "Writing job descriptions, training content, and policy documents from scratch is time-consuming",
+        "name": "Review and summarise documents related to Build and update onboarding guides using Copilot in Word",
+        "pain": "HR staff spend too long answering the same employee questions",
         "habitId": "MH6",
         "entry": "Word",
-        "prompt": "Summarise the attached document related to summarising employee survey results for leadership at Chanel. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a HR & People Development.",
-        "inputs": "Attach Word document, PDF, or report in Word",
+        "prompt": "Summarise the attached document related to Build and update onboarding guides using Copilot in Word at Chanel (this relates to our priority: Strengthen Onboarding and People Development). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a HR & People Development.",
+        "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
         "timeSaved": 49,
@@ -1658,12 +1639,12 @@
         "id": "MH-28",
         "role": "HR & People Development",
         "code": "HR",
-        "name": "Analyse and visualise data for writing job postings and position descriptions",
-        "pain": "Onboarding documents exist in different formats and locations, making it hard for new staff to get up to speed",
+        "name": "Analyse and visualise data for Build and update onboarding guides using Copilot in Word",
+        "pain": "Onboarding materials are stored in different places and go out of date quickly",
         "habitId": "MH7",
         "entry": "Excel",
-        "prompt": "Analyse the data in this spreadsheet related to writing job postings and position descriptions at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
-        "inputs": "Excel spreadsheet with relevant data",
+        "prompt": "Analyse the data in this spreadsheet related to Build and update onboarding guides using Copilot in Word at Chanel as part of the New Employee Onboarding process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
         "timeSaved": 47,
@@ -1672,117 +1653,117 @@
       {
         "id": "MH-29",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Get a daily briefing on tasks related to preparing client profiles and briefing notes before appointments",
-        "pain": "Preparing for client appointments means pulling information from multiple systems, which takes time before each visit",
+        "code": "SAL",
+        "name": "Get a daily briefing on tasks related to Use Copilot in Outlook to draft personalised follow-up emails after client visits",
+        "pain": "Preparing for VIC appointments requires pulling data from multiple systems",
         "habitId": "MH1",
         "entry": "M365 Copilot Chat",
-        "prompt": "Give me a daily digest as a Sales & Customer Service at Chanel focused on preparing client profiles and briefing notes before appointments. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.",
+        "prompt": "Give me a daily digest as a Sales & Customer Service at Chanel focused on the VIC Client Appointment Management process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Advisors spend too much time pulling client information from different systems before each appointment. Writing personalised follow-up emails for every VIC is slow and inconsistent..",
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
-        "timeSaved": 29,
+        "timeSaved": 19,
         "priority": "High"
       },
       {
         "id": "MH-30",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Reply to emails about writing personalised thank-you and follow-up messages to clients using thread context",
-        "pain": "Writing personalised follow-up notes after interactions is done manually and inconsistently",
+        "code": "SAL",
+        "name": "Reply to emails about summarise client history from Salesforce CRM before appointments using thread context",
+        "pain": "Client notes after visits are often incomplete or inconsistent",
         "habitId": "MH2",
         "entry": "Outlook",
-        "prompt": "Write a reply to [sender] about [topic] related to writing personalised thank-you and follow-up messages to clients at Chanel. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.",
+        "prompt": "Write a reply to [sender] about [topic] related to summarise client history from Salesforce CRM before appointments at Chanel. This relates to the \"Appointment Scheduling\" stage of the VIC Client Appointment Management process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
-        "timeSaved": 27,
+        "timeSaved": 37,
         "priority": "High"
       },
       {
         "id": "MH-31",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Prepare agenda and capture meeting notes for responding to email and phone enquiries from walk-in and existing clients",
-        "pain": "Responding to client queries by email requires careful brand-tone writing, which is time-intensive",
+        "code": "SAL",
+        "name": "Prepare agenda and capture meeting notes for record and store client preferences in structured notes using Teams",
+        "pain": "Follow-up emails take too long to write personally for each client",
         "habitId": "MH3",
         "entry": "Teams",
-        "prompt": "Using recent messages and emails about responding to email and phone enquiries from walk-in and existing clients at Chanel, create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "prompt": "Using recent messages and emails about record and store client preferences in structured notes using Teams at Chanel (part of the VIC Client Appointment Management workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Client Profile Review\" step. After the meeting, summarise key decisions and action items.",
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
-        "timeSaved": 40,
+        "timeSaved": 30,
         "priority": "High"
       },
       {
         "id": "MH-32",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Search internal files and emails related to logging client interactions and purchase preferences in CRM",
-        "pain": "Preparing for client appointments means pulling information from multiple systems, which takes time before each visit",
+        "code": "SAL",
+        "name": "Search internal files and emails related to prepare appointment briefs using Copilot in Word",
+        "pain": "Preparing for VIC appointments requires pulling data from multiple systems",
         "habitId": "MH4",
         "entry": "M365 Copilot Chat",
-        "prompt": "Find documents and messages related to logging client interactions and purchase preferences in CRM from our SharePoint and Teams files at Chanel. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
-        "inputs": "SharePoint files, Teams messages, internal documents",
+        "prompt": "Find documents and messages related to prepare appointment briefs using Copilot in Word from our SharePoint and Teams files at Chanel for the VIC Client Appointment Management process. Also look for any exports or reports from Salesforce CRM. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages, Salesforce CRM exports",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
-        "timeSaved": 48,
+        "timeSaved": 58,
         "priority": "Medium"
       },
       {
         "id": "MH-33",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Draft a report or document for handling product availability enquiries across boutiques",
-        "pain": "Writing personalised follow-up notes after interactions is done manually and inconsistently",
+        "code": "SAL",
+        "name": "Draft a report or document for create event invitations for product launches using Copilot in Outlook",
+        "pain": "Client notes after visits are often incomplete or inconsistent",
         "habitId": "MH5",
         "entry": "Word",
-        "prompt": "Create a detailed outline for a [report/brief/proposal] about handling product availability enquiries across boutiques at Chanel. I am a Sales & Customer Service. Include: executive summary, background, key findings, recommendations, and next steps. Context: Client Advisors and customer service teams are the face of Chanel",
-        "inputs": "Brief, existing notes, relevant background documents (attach to Word)",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about create event invitations for product launches using Copilot in Outlook at Chanel. This output will be used for the \"Boutique Preparation\" stage of the VIC Client Appointment Management process. Reference data from Salesforce CRM (Tracks client relationships, appointments, and purchase history.). I am a Sales & Customer Service. Include: executive summary, background, key findings, recommendations, and next steps. Context: Help client advisors prepare for appointments faster",
+        "inputs": "Brief, existing notes, Salesforce CRM data export (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
-        "timeSaved": 41,
+        "timeSaved": 51,
         "priority": "Medium"
       },
       {
         "id": "MH-34",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Review and summarise documents related to escalating client complaints to boutique management",
-        "pain": "Responding to client queries by email requires careful brand-tone writing, which is time-intensive",
+        "code": "SAL",
+        "name": "Review and summarise documents related to Use Copilot in Outlook to draft personalised follow-up emails after client visits",
+        "pain": "Follow-up emails take too long to write personally for each client",
         "habitId": "MH6",
         "entry": "Word",
-        "prompt": "Summarise the attached document related to escalating client complaints to boutique management at Chanel. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Sales & Customer Service.",
-        "inputs": "Attach Word document, PDF, or report in Word",
+        "prompt": "Summarise the attached document from Salesforce CRM related to Use Copilot in Outlook to draft personalised follow-up emails after client visits at Chanel (this relates to our priority: Improve Client Relationship Quality). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Sales & Customer Service.",
+        "inputs": "Attach Salesforce CRM report, Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
-        "timeSaved": 49,
+        "timeSaved": 39,
         "priority": "Medium"
       },
       {
         "id": "MH-35",
         "role": "Sales & Customer Service",
-        "code": "CS",
-        "name": "Analyse and visualise data for preparing client profiles and briefing notes before appointments",
-        "pain": "Preparing for client appointments means pulling information from multiple systems, which takes time before each visit",
+        "code": "SAL",
+        "name": "Analyse and visualise data for Use Copilot in Outlook to draft personalised follow-up emails after client visits",
+        "pain": "Preparing for VIC appointments requires pulling data from multiple systems",
         "habitId": "MH7",
         "entry": "Excel",
-        "prompt": "Analyse the data in this spreadsheet related to preparing client profiles and briefing notes before appointments at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
-        "inputs": "Excel spreadsheet with relevant data",
+        "prompt": "Analyse the data in this spreadsheet (pulled from Salesforce CRM) related to Use Copilot in Outlook to draft personalised follow-up emails after client visits at Chanel as part of the VIC Client Appointment Management process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Salesforce CRM data export in Excel spreadsheet",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
-        "timeSaved": 47,
+        "timeSaved": 57,
         "priority": "Medium"
       },
       {
         "id": "MH-36",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Get a daily briefing on tasks related to managing Microsoft 365 user accounts and access permissions",
-        "pain": "IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly",
+        "name": "Get a daily briefing on tasks related to Draft ticket responses and resolution notes using Copilot in Outlook",
+        "pain": "Writing responses to routine support tickets takes too much time",
         "habitId": "MH1",
         "entry": "M365 Copilot Chat",
-        "prompt": "Give me a daily digest as a IT & Systems Administrators at Chanel focused on managing Microsoft 365 user accounts and access permissions. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.",
+        "prompt": "Give me a daily digest as a IT & Systems Administrators at Chanel focused on the Seasonal Collection Launch process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Creative briefs and product updates are shared by email and change frequently. Teams in different markets often work from outdated versions of documents..",
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
@@ -1793,11 +1774,11 @@
         "id": "MH-37",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Reply to emails about supporting boutique POS system issues and escalations using thread context",
-        "pain": "Writing clear technical documentation for non-technical users is time-consuming",
+        "name": "Reply to emails about document system changes and fixes using Copilot in Word using thread context",
+        "pain": "System documentation is often out of date or missing",
         "habitId": "MH2",
         "entry": "Outlook",
-        "prompt": "Write a reply to [sender] about [topic] related to supporting boutique POS system issues and escalations at Chanel. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.",
+        "prompt": "Write a reply to [sender] about [topic] related to document system changes and fixes using Copilot in Word at Chanel. This relates to the \"Creative Brief Draft\" stage of the Seasonal Collection Launch process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
@@ -1808,11 +1789,11 @@
         "id": "MH-38",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Prepare agenda and capture meeting notes for writing technical guides and user-facing how-to documents",
-        "pain": "Coordinating system updates across global time zones is complex",
+        "name": "Prepare agenda and capture meeting notes for create user guides and how-to articles using Copilot",
+        "pain": "Communicating planned downtime to all staff is slow and inconsistent",
         "habitId": "MH3",
         "entry": "Teams",
-        "prompt": "Using recent messages and emails about writing technical guides and user-facing how-to documents at Chanel, create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "prompt": "Using recent messages and emails about create user guides and how-to articles using Copilot at Chanel (part of the Seasonal Collection Launch workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Product Range Review\" step. After the meeting, summarise key decisions and action items.",
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
@@ -1823,12 +1804,12 @@
         "id": "MH-39",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Search internal files and emails related to coordinating software rollouts across Singapore boutiques",
-        "pain": "IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly",
+        "name": "Search internal files and emails related to use ServiceNow with Copilot summaries to triage and prioritise tickets",
+        "pain": "Writing responses to routine support tickets takes too much time",
         "habitId": "MH4",
         "entry": "M365 Copilot Chat",
-        "prompt": "Find documents and messages related to coordinating software rollouts across Singapore boutiques from our SharePoint and Teams files at Chanel. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
-        "inputs": "SharePoint files, Teams messages, internal documents",
+        "prompt": "Find documents and messages related to use ServiceNow with Copilot summaries to triage and prioritise tickets from our SharePoint and Teams files at Chanel for the Seasonal Collection Launch process. Also look for any exports or reports from ServiceNow. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages, ServiceNow exports",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
         "timeSaved": 43,
@@ -1838,12 +1819,12 @@
         "id": "MH-40",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Draft a report or document for monitoring system availability and flagging incidents",
-        "pain": "Writing clear technical documentation for non-technical users is time-consuming",
+        "name": "Draft a report or document for send scheduled maintenance notices using Copilot-drafted Teams messages",
+        "pain": "System documentation is often out of date or missing",
         "habitId": "MH5",
         "entry": "Word",
-        "prompt": "Create a detailed outline for a [report/brief/proposal] about monitoring system availability and flagging incidents at Chanel. I am a IT & Systems Administrators. Include: executive summary, background, key findings, recommendations, and next steps. Context: IT teams manage the systems, devices, and platforms that keep Chanel's business running",
-        "inputs": "Brief, existing notes, relevant background documents (attach to Word)",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about send scheduled maintenance notices using Copilot-drafted Teams messages at Chanel. This output will be used for the \"Market Allocation Plan\" stage of the Seasonal Collection Launch process. Reference data from ServiceNow (Manages IT support tickets and internal service requests.). I am a IT & Systems Administrators. Include: executive summary, background, key findings, recommendations, and next steps. Context: Help IT staff resolve support tickets faster with less manual writing",
+        "inputs": "Brief, existing notes, ServiceNow data export (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
         "timeSaved": 56,
@@ -1853,12 +1834,12 @@
         "id": "MH-41",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Review and summarise documents related to preparing IT reports for regional management",
-        "pain": "Coordinating system updates across global time zones is complex",
+        "name": "Review and summarise documents related to Draft ticket responses and resolution notes using Copilot in Outlook",
+        "pain": "Communicating planned downtime to all staff is slow and inconsistent",
         "habitId": "MH6",
         "entry": "Word",
-        "prompt": "Summarise the attached document related to preparing IT reports for regional management at Chanel. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a IT & Systems Administrators.",
-        "inputs": "Attach Word document, PDF, or report in Word",
+        "prompt": "Summarise the attached document from ServiceNow related to Draft ticket responses and resolution notes using Copilot in Outlook at Chanel (this relates to our priority: Reduce IT Support Load and Response Time). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a IT & Systems Administrators.",
+        "inputs": "Attach ServiceNow report, Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
         "timeSaved": 44,
@@ -1868,12 +1849,12 @@
         "id": "MH-42",
         "role": "IT & Systems Administrators",
         "code": "IT",
-        "name": "Analyse and visualise data for managing Microsoft 365 user accounts and access permissions",
-        "pain": "IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly",
+        "name": "Analyse and visualise data for Draft ticket responses and resolution notes using Copilot in Outlook",
+        "pain": "Writing responses to routine support tickets takes too much time",
         "habitId": "MH7",
         "entry": "Excel",
-        "prompt": "Analyse the data in this spreadsheet related to managing Microsoft 365 user accounts and access permissions at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
-        "inputs": "Excel spreadsheet with relevant data",
+        "prompt": "Analyse the data in this spreadsheet (pulled from ServiceNow) related to Draft ticket responses and resolution notes using Copilot in Outlook at Chanel as part of the Seasonal Collection Launch process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "ServiceNow data export in Excel spreadsheet",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
         "timeSaved": 42,
@@ -1887,8 +1868,8 @@
       "primary": "#000000",
       "primaryDark": "#000000",
       "primaryLight": "#999999",
-      "accent": "#dedede",
-      "sidebarBg": "#ccced1"
+      "accent": "#c7c6c6",
+      "sidebarBg": "#424251"
     },
     "logoDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOwAAAA0CAYAAACJvtRWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAZPSURBVHhe7ZxrkrMqEIY7ZyVkJcGVxKxEXEmcleCsBGYlfj+OpBzGbi7iLemniqoZEzECL900rZdhGAZgGOYU/OcfYBjmuLBgGeZEsGAZ5kSwYBnmRLBgGeZEsGAZ5kSwYBnmRFxK7sNaa+Hr6+v1t7UWAACEEHC73UAI8SoMw2QwLMQYMyilBgCIKkKIoa7rQWvtV5XE8/n8U7crSxFC/KkTAIa6rv2vLga71rQsbSsfrfWfa/gl916xuqWU/leDxLRNbjHG+JdDwca3EML/6upku8TWWmjbFq7XKyil/I9RrLXQdR1UVQXX6xXatvW/8jF0XffyQij2aKOu66Dve/8wszNZgu37Plmoc1hrQSm1y4A8Am75EMJau4t4Ho+Hf4jZmWTBtm0LVVX5hxehlILr9Rplbd6Fvu+jRTiNDWyJtZZFezCSBNu27WKrimGthaqqPka0qV5FrLhLw67xsYgWbN/3SWIVQoCUEqSU0VFhJ9p3h3JxsbZyMYM9YCt7HKIEGyukuq5Baw3DMIAxBrTWoLUGYwwYY+D5fIKU0j/tF3sOzK2g7k9rjbZR13X+oU04mmtsjIFhGBYVbGI8OlGCDXWWEAK01qQghRAvQYcstVIKtUDvACa8uq5BCAH3+93/CCBgmUvgvKI5uq5DfzezHUHBhoIjUkowxqAdPUfTNGCMmZ3lhBCglEqq70xQg94Jlbp3yjovRQgBz+fTP/yibduPiTEclaBgQwNEa+0fimJucCilwBgDTdP8Ov5OYO05tW5u0pojNIEuhbr2JyxXjk5QsNTgyBWrQ0r5sqbvLlQIJEr49465xUCIvhT3+x218uwa7wspWKpjXAR4KU3TgNZ61j1+N6i91Lquf/1PrSe3WMv63s8Udo33gxTs9/e3f+gFZQH25nK5LCprDEbKlfXF6vCtrsNukEhBiXbvqLEdHyzJKafHTy6eIqX8k/Cckzy9BlTy/1olNyF+WNCW2HlLEs9jE/SNMej1AWBQSv36/pBQdwylk/9z2+w0yf/UjPQJLmwpLOHCuq0cDMyTseNDFGtCWVkIrMmZdSAFi4GtrZh5qCARJkgH1dZUvaWgRGt3do0/EVKwPHuWAbOEVGDJEdpmwSx3Seq6Rn9n3/ebTBzM/5CCxVw1FnI8mFiBCCr5UFZ4K7FgVhb4AYFNIV8RU1UV2hFYptJWdF2HumOYRYoFO7+ua3LgzkE9NmiM8Q+hPB4PtC+o/OM5+r6fzQ2XUpJ761SbCyHAGJNd9xxY2+WOOzGm0KaCPaXm7nlT/CjUFCpCWPq1JalQUeKlYNHJ1Cgx9RtLltQI7JJILjUmlFKL6vbB+oGKqq/BaaLElCu29j7gO7BVG221loXRNcYsXNd15N49sxxSsJSbRSUCpPCuQYtS7ROD3SCRwiGEQNfednzlD7MepGCpKGaJkL4dn7N1r4ihAjRnYysBObaaHGBcy2PZWcy6kIKFgFtsFzy94Qve/Y8FGs7G1pOP3SCRYkrTNKhrzKxHULChJH+lFDwejySROXHOWQVndec+OwuU5yEmL1PPLRi5k2cOgkioYFbEj0LNgUX+/IjZXG7plNiXjsdEFKkI7FKw6GRslNg/r+RvGwKR2pjoPdafMe3uE9OfuXVj/XCkKLHWenFJgdyHnYLtRfk4CyClhNvtBj8/PwAJQRgRubdF7QlG3hIK5pbH7MNSvyvm/BiwvU6I3O/Ezo8518d5RHPtNSWnbqwfKI8vBSriPSV27OcQO95f+ArGCD25UarEzjhHtbDYuVDYMlB9EWpDXdDCDkR9S+um2rJEie0PzMKWKKl7ucE1rMOtWdaMDqZm7BwN6umV0FM5qVDBwK0j1HJ8cwizPtGChckeXOnOEWPK2JnFCgGhUALLQRLve+77Hp041oJ6rQxTjiTBwkS0sf5/CJnx1sUjQq3RQ5H2HFw/zLFkuy0XjhpvQ7JgHdN3DKcKV4yPjLmXjb8DW1pXBzUJYJPHmrh+ZdYjOkocwo7pcc4dm7pkYtw/dAMMswwp+NeYQg3kGLDB7u5jDuwcKPB7KHKui7UddX+xlKyburcSYO3jg91TCVLbpZhgGYZZn2yXmGGY7WHBMsyJYMEyzIlgwTLMiWDBMsyJYMEyzIlgwTLMiWDBMsyJYMEyzIn4B6WJfOQntDusAAAAAElFTkSuQmCC"
   }

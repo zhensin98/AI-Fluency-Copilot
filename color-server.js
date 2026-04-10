@@ -248,75 +248,153 @@ function extractActivities(text) {
   return text.split(',').map(function(a){return a.trim();}).filter(Boolean);
 }
 
-function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId) {
+// ── Context matchers: map a role to its most relevant workflow, tech, priority ──
+function findWorkflowForRole(role, workflows) {
+  if (!workflows || !workflows.length) return null;
+  var kw = ((role.keyActivities || '') + ' ' + (role.role || '') + ' ' + (role.painPoints || '')).toLowerCase();
+  var best = null, bestScore = -1;
+  workflows.forEach(function(wf) {
+    var wfText = (wf.name + ' ' + (wf.friction || '') + ' ' + (wf.steps || []).map(function(s){return s.t + ' ' + s.d;}).join(' ')).toLowerCase();
+    var score = 0;
+    wfText.split(/\s+/).forEach(function(word) {
+      if (word.length > 4 && kw.indexOf(word) >= 0) score++;
+    });
+    if (score > bestScore) { bestScore = score; best = wf; }
+  });
+  return best;
+}
+
+function findTechForRole(role, platforms) {
+  if (!platforms || !platforms.length) return null;
+  var kw = ((role.keyActivities || '') + ' ' + (role.objectives || '')).toLowerCase();
+  for (var i = 0; i < platforms.length; i++) {
+    var pName = platforms[i].name.toLowerCase().split(/[\s\/]/)[0];
+    if (kw.indexOf(pName) >= 0) return platforms[i];
+  }
+  return null;
+}
+
+function findPriorityForRole(role, priorities) {
+  if (!priorities || !priorities.length) return null;
+  var kw = ((role.role || '') + ' ' + (role.keyActivities || '') + ' ' + (role.objectives || '')).toLowerCase();
+  var best = null, bestScore = -1;
+  priorities.forEach(function(p) {
+    var score = 0;
+    (p.roles || '').split(',').forEach(function(r) {
+      var rt = r.trim().toLowerCase();
+      if (rt.length > 2 && kw.indexOf(rt) >= 0) score += 3;
+    });
+    (p.title + ' ' + (p.pains || '')).toLowerCase().split(/\s+/).forEach(function(word) {
+      if (word.length > 4 && kw.indexOf(word) >= 0) score++;
+    });
+    if (score > bestScore) { bestScore = score; best = p; }
+  });
+  return best;
+}
+
+function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   var coShort = (clientInfo && (clientInfo.shortName || clientInfo.name)) || 'the organisation';
   var pain0 = extractPain(role.painPoints, 0);
   var pain1 = extractPain(role.painPoints, 1);
   var pain2 = extractPain(role.painPoints, 2);
   var obj0  = extractObj(role.objectives, 0);
 
-  // Use keyActivities so each use case reflects what this role actually does
   var acts = extractActivities(role.keyActivities);
   var act = function(i) { return acts[i % acts.length] || role.role + ' tasks'; };
+  var a0=act(0), a1=act(1), a2=act(2), a3=act(3), a4=act(4), a5=act(5);
 
-  // Map each of the 7 Copilot Chat habits to a specific activity from this role
-  // habitIndex 0=CH1(Explain), 1=CH2(Research), 2=CH3(Email), 3=CH4(Minutes),
-  //            4=CH5(Content), 5=CH6(DocInsights), 6=CH7(DataAnalyst)
-  var a0 = act(0); // e.g. "preparing client profiles and briefing notes"
-  var a1 = act(1); // e.g. "writing personalised thank-you messages to clients"
-  var a2 = act(2); // e.g. "responding to email and phone enquiries"
-  var a3 = act(3); // e.g. "logging client interactions in CRM"
-  var a4 = act(4); // e.g. "handling product availability enquiries"
-  var a5 = act(5); // e.g. "escalating client complaints to management"
+  // Pull workflow, tech, priority context
+  var wf       = (ctx && ctx.workflow)  || null;
+  var tech     = (ctx && ctx.tech)      || null;
+  var priority = (ctx && ctx.priority)  || null;
+  var wfName      = wf       ? wf.name                                    : '';
+  var wfFriction  = wf       ? (wf.friction || '')                         : '';
+  var wfStep0     = wf && wf.steps && wf.steps[0] ? wf.steps[0].t         : '';
+  var wfStep1     = wf && wf.steps && wf.steps[1] ? wf.steps[1].t         : '';
+  var techName    = tech     ? tech.name                                   : '';
+  var techDesc    = tech     ? tech.desc                                   : '';
+  var priTitle    = priority ? priority.title                              : '';
 
   var habits = [
+    // CH1 — Quick answer: tie to strategic priority so the question feels purposeful
     { id:'CH1', baseSaved:15, highPriority:false,
       name:'Get quick answers to support ' + a0,
       pain:pain0,
-      prompt:'Explain [concept, process, or term relevant to ' + a0 + '] as if I\'m a ' + role.role + ' at ' + coShort + '. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.',
+      prompt:'Explain [concept or process relevant to ' + a0 + '] as if I\'m a ' + role.role + ' at ' + coShort
+        + (priTitle ? '. This supports our goal to ' + priTitle + '.' : '.')
+        + ' Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.',
       inputs:'None — general knowledge query',
       metric:'Understanding new concepts reduced from 30 min to 5 min',
       guardrails:'AI explanations are not expert advice; verify key facts with authoritative sources' },
+
+    // CH2 — Research: reference the workflow friction point as the reason research is needed
     { id:'CH2', baseSaved:30, highPriority:true,
       name:'Research information needed for ' + a1,
       pain:pain1,
-      prompt:'I need to research [specific topic] to help with ' + a1 + ' at ' + coShort + '. Provide: 1) key findings with sources 2) how this applies to ' + coShort + ' 3) recommended next steps. Flag any conflicting information.',
-      inputs:'None — web research',
+      prompt:'I need to research [specific topic] to help with ' + a1 + ' at ' + coShort
+        + (wfName ? ' as part of the ' + wfName + ' process' : '')
+        + '. Context: ' + (wfFriction || obj0)
+        + '. Provide: 1) key findings with sources 2) how this applies to ' + coShort + ' 3) recommended next steps.',
+      inputs:'None — web research or internal documents',
       metric:'Research time reduced from 2 hours to 15 minutes',
       guardrails:'Verify all facts against primary sources before acting; note any information cutoff dates' },
+
+    // CH3 — Draft email: tie to a specific workflow step so the email has clear context
     { id:'CH3', baseSaved:20, highPriority:true,
       name:'Draft email for ' + a2,
       pain:pain2,
-      prompt:'Draft an email to [recipient] about [topic] related to ' + a2 + ' at ' + coShort + '. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.',
+      prompt:'Draft an email to [recipient] about [topic] related to ' + a2 + ' at ' + coShort
+        + (wfStep0 ? '. This is for the "' + wfStep0 + '" stage' + (wfName ? ' of the ' + wfName + ' process' : '') : '')
+        + '. Key points: [list]. Tone: professional. Length: ~200 words.',
       inputs:'Recipient, key message points, any relevant context',
       metric:'Email drafting time reduced from 20 to 5 minutes',
       guardrails:'Review all drafts before sending; do not include sensitive or confidential information' },
+
+    // CH4 — Meeting notes: reference the workflow so notes are structured for that process
     { id:'CH4', baseSaved:35, highPriority:true,
       name:'Create structured notes from discussion about ' + a3,
       pain:pain0,
-      prompt:'I\'m pasting notes from a meeting or discussion about ' + a3 + ' at ' + coShort + '. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]',
+      prompt:'I\'m pasting notes from a discussion about ' + a3 + ' at ' + coShort
+        + (wfName ? ' (part of the ' + wfName + ' workflow)' : '')
+        + '. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]',
       inputs:'Paste meeting notes or transcript',
       metric:'Notes creation reduced from 60 to 10 minutes',
       guardrails:'Verify all attributed decisions are accurate; mark unclear items as [To Verify]' },
+
+    // CH5 — Create document: reference the priority goal and workflow step
     { id:'CH5', baseSaved:30, highPriority:false,
       name:'Create a document or template for ' + a4,
       pain:pain1,
-      prompt:'I need to create a [document type, e.g., brief, template, report] to support ' + a4 + ' at ' + coShort + '. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: ' + obj0,
+      prompt:'I need to create a [document type] to support ' + a4 + ' at ' + coShort
+        + (priTitle ? ', aligned with our priority to ' + priTitle : '')
+        + (wfStep1 ? '. This document will be used during the "' + wfStep1 + '" stage' : '')
+        + '. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: ' + obj0,
       inputs:'Topic, audience, purpose, any existing notes',
       metric:'Document outline created in 15 minutes instead of 1 hour',
       guardrails:'Validate all factual claims before publishing; get appropriate approvals' },
+
+    // CH6 — Extract from document: name the system the document came from
     { id:'CH6', baseSaved:30, highPriority:false,
       name:'Extract key information from documents for ' + a5,
       pain:pain2,
-      prompt:'I\'m pasting a document relevant to ' + a5 + ' at ' + coShort + '. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]',
-      inputs:'Paste document, report, or reference text',
+      prompt:'I\'m pasting a document'
+        + (techName ? ' exported from ' + techName + ' (' + techDesc + ')' : '')
+        + ' relevant to ' + a5 + ' at ' + coShort
+        + '. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]',
+      inputs:'Paste document, report, or ' + (techName ? techName + ' export' : 'reference text'),
       metric:'Document review time reduced from 60 to 10 minutes',
       guardrails:'Verify extracted details against original; flag any ambiguities for human review' },
+
+    // CH7 — Analyse data: name the system the data comes from
     { id:'CH7', baseSaved:30, highPriority:false,
       name:'Analyse data relevant to ' + a0,
       pain:pain0,
-      prompt:'I\'m pasting data related to ' + a0 + ' at ' + coShort + '. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]',
-      inputs:'Paste data table or metrics from a spreadsheet or report',
+      prompt:'I\'m pasting data'
+        + (techName ? ' from ' + techName : '')
+        + ' related to ' + a0 + ' at ' + coShort
+        + (wfName ? ' as part of the ' + wfName + ' process' : '')
+        + '. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]',
+      inputs:'Paste data table or metrics' + (techName ? ' from ' + techName : ' from a spreadsheet or report'),
       metric:'Data analysis time reduced from 3 hours to 20 minutes',
       guardrails:'Validate interpretation with relevant stakeholders; do not share individual-level sensitive data' }
   ];
@@ -330,75 +408,114 @@ function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId) {
     timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium' };
 }
 
-function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId) {
+function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   var coShort = (clientInfo && (clientInfo.shortName || clientInfo.name)) || 'the organisation';
   var pain0 = extractPain(role.painPoints, 0);
   var pain1 = extractPain(role.painPoints, 1);
   var pain2 = extractPain(role.painPoints, 2);
   var obj0  = extractObj(role.objectives, 0);
 
-  // Use keyActivities so each use case reflects what this role actually does
   var acts = extractActivities(role.keyActivities);
   var act = function(i) { return acts[i % acts.length] || role.role + ' tasks'; };
+  var a0=act(0), a1=act(1), a2=act(2), a3=act(3), a4=act(4), a5=act(5);
 
-  // Map each of the 7 M365 habits to a specific activity from this role
-  // habitIndex 0=MH1(DailyBriefing), 1=MH2(Outlook), 2=MH3(Teams),
-  //            3=MH4(InternalSearch), 4=MH5(Word-report), 5=MH6(Word-review), 6=MH7(Excel)
-  var a0 = act(0);
-  var a1 = act(1);
-  var a2 = act(2);
-  var a3 = act(3);
-  var a4 = act(4);
-  var a5 = act(5);
+  // Pull workflow, tech, priority context
+  var wf       = (ctx && ctx.workflow)  || null;
+  var tech     = (ctx && ctx.tech)      || null;
+  var priority = (ctx && ctx.priority)  || null;
+  var wfName      = wf       ? wf.name                                    : '';
+  var wfFriction  = wf       ? (wf.friction || '')                        : '';
+  var wfStep0     = wf && wf.steps && wf.steps[0] ? wf.steps[0].t        : '';
+  var wfStep1     = wf && wf.steps && wf.steps[1] ? wf.steps[1].t        : '';
+  var wfStep2     = wf && wf.steps && wf.steps[2] ? wf.steps[2].t        : '';
+  var techName    = tech     ? tech.name                                  : '';
+  var techDesc    = tech     ? tech.desc                                  : '';
+  var priTitle    = priority ? priority.title                             : '';
 
   var habits = [
+    // MH1 — Daily briefing: focus on the workflow to start the day ready
     { id:'MH1', entry:'M365 Copilot Chat', baseSaved:25, highPriority:true,
       name:'Get a daily briefing on tasks related to ' + a0,
       pain:pain0,
-      prompt:'Give me a daily digest as a ' + role.role + ' at ' + coShort + ' focused on ' + a0 + '. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.',
+      prompt:'Give me a daily digest as a ' + role.role + ' at ' + coShort
+        + (wfName ? ' focused on the ' + wfName + ' process' : ' focused on ' + a0)
+        + '. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week'
+        + (wfFriction ? '. Flag anything related to: ' + wfFriction : '') + '.',
       inputs:'Emails, chats, calendar events (accessed via M365 Copilot)',
       metric:'Daily briefing prep reduced from 30 to 5 minutes',
       guardrails:'Do not share summary outputs outside your direct team; verify key action items before proceeding' },
+
+    // MH2 — Outlook reply: tie to a specific workflow step
     { id:'MH2', entry:'Outlook', baseSaved:30, highPriority:true,
       name:'Reply to emails about ' + a1 + ' using thread context',
       pain:pain1,
-      prompt:'Write a reply to [sender] about [topic] related to ' + a1 + ' at ' + coShort + '. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.',
+      prompt:'Write a reply to [sender] about [topic] related to ' + a1 + ' at ' + coShort
+        + (wfStep0 ? '. This relates to the "' + wfStep0 + '" stage' + (wfName ? ' of the ' + wfName + ' process' : '') : '')
+        + '. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.',
       inputs:'Email thread (Outlook reads context automatically)',
       metric:'Email reply time reduced from 20 to 4 minutes',
       guardrails:'Review drafts carefully before sending; remove any internal-only references' },
+
+    // MH3 — Teams meeting: structure agenda around the workflow
     { id:'MH3', entry:'Teams', baseSaved:30, highPriority:true,
       name:'Prepare agenda and capture meeting notes for ' + a2,
       pain:pain2,
-      prompt:'Using recent messages and emails about ' + a2 + ' at ' + coShort + ', create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.',
+      prompt:'Using recent messages and emails about ' + a2 + ' at ' + coShort
+        + (wfName ? ' (part of the ' + wfName + ' workflow)' : '')
+        + ', create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads'
+        + (wfStep1 ? '. Ensure the agenda covers the "' + wfStep1 + '" step' : '')
+        + '. After the meeting, summarise key decisions and action items.',
       inputs:'Calendar invite, email threads, prior meeting notes (Teams reads context)',
       metric:'Meeting prep reduced from 45 to 8 minutes',
       guardrails:'Confirm agenda with all parties before distributing; verify meeting summaries are accurate' },
+
+    // MH4 — Internal search: search for workflow-specific documents and name the tech system
     { id:'MH4', entry:'M365 Copilot Chat', baseSaved:45, highPriority:false,
       name:'Search internal files and emails related to ' + a3,
       pain:pain0,
-      prompt:'Find documents and messages related to ' + a3 + ' from our SharePoint and Teams files at ' + coShort + '. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.',
-      inputs:'SharePoint files, Teams messages, internal documents',
+      prompt:'Find documents and messages related to ' + a3 + ' from our SharePoint and Teams files at ' + coShort
+        + (wfName ? ' for the ' + wfName + ' process' : '')
+        + (techName ? '. Also look for any exports or reports from ' + techName : '')
+        + '. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.',
+      inputs:'SharePoint files, Teams messages' + (techName ? ', ' + techName + ' exports' : ''),
       metric:'Internal research time reduced from 90 to 15 minutes',
       guardrails:'Verify document currency; do not surface confidential files outside their intended audience' },
+
+    // MH5 — Word report: reference the workflow output and tech data source
     { id:'MH5', entry:'Word', baseSaved:45, highPriority:false,
       name:'Draft a report or document for ' + a4,
       pain:pain1,
-      prompt:'Create a detailed outline for a [report/brief/proposal] about ' + a4 + ' at ' + coShort + '. I am a ' + role.role + '. Include: executive summary, background, key findings, recommendations, and next steps. Context: ' + obj0,
-      inputs:'Brief, existing notes, relevant background documents (attach to Word)',
+      prompt:'Create a detailed outline for a [report/brief/proposal] about ' + a4 + ' at ' + coShort
+        + (wfStep2 ? '. This output will be used for the "' + wfStep2 + '" stage' + (wfName ? ' of the ' + wfName + ' process' : '') : '')
+        + (techName ? '. Reference data from ' + techName + ' (' + techDesc + ')' : '')
+        + '. I am a ' + role.role + '. Include: executive summary, background, key findings, recommendations, and next steps. Context: ' + obj0,
+      inputs:'Brief, existing notes' + (techName ? ', ' + techName + ' data export' : '') + ' (attach to Word)',
       metric:'Report drafting time reduced from 4 hours to 1 hour',
       guardrails:'Validate all data claims; get sign-off from relevant stakeholders before distribution' },
+
+    // MH6 — Word review: name the system the document came from
     { id:'MH6', entry:'Word', baseSaved:40, highPriority:false,
       name:'Review and summarise documents related to ' + a5,
       pain:pain2,
-      prompt:'Summarise the attached document related to ' + a5 + ' at ' + coShort + '. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a ' + role.role + '.',
-      inputs:'Attach Word document, PDF, or report in Word',
+      prompt:'Summarise the attached document'
+        + (techName ? ' from ' + techName : '')
+        + ' related to ' + a5 + ' at ' + coShort
+        + (priTitle ? ' (this relates to our priority: ' + priTitle + ')' : '')
+        + '. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a ' + role.role + '.',
+      inputs:'Attach ' + (techName ? techName + ' report,' : '') + ' Word document, or PDF in Word',
       metric:'Document review time reduced from 60 to 10 minutes',
       guardrails:'Cross-check AI summary against original; flag any discrepancies for human review' },
+
+    // MH7 — Excel analysis: name the data source and workflow context
     { id:'MH7', entry:'Excel', baseSaved:45, highPriority:false,
       name:'Analyse and visualise data for ' + a0,
       pain:pain0,
-      prompt:'Analyse the data in this spreadsheet related to ' + a0 + ' at ' + coShort + '. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.',
-      inputs:'Excel spreadsheet with relevant data',
+      prompt:'Analyse the data in this spreadsheet'
+        + (techName ? ' (pulled from ' + techName + ')' : '')
+        + ' related to ' + a0 + ' at ' + coShort
+        + (wfName ? ' as part of the ' + wfName + ' process' : '')
+        + '. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.',
+      inputs:(techName ? techName + ' data export in' : '') + ' Excel spreadsheet',
       metric:'Data analysis reduced from 3 hours to 30 minutes',
       guardrails:'Validate formulas and pivot logic; do not include personally identifiable data in shared reports' }
   ];
@@ -413,15 +530,24 @@ function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId) {
 }
 
 function generateUseCasesFromProfile(profileData) {
-  var roles = (profileData.capabilities || []).slice(0, 6);
+  var roles      = (profileData.capabilities || []).slice(0, 6);
   var clientInfo = profileData.client || {};
+  var workflows  = profileData.workflows  || [];
+  var platforms  = (profileData.technology && profileData.technology.platforms) || [];
+  var priorities = profileData.priorities || [];
   var chat = [], m365 = [];
   var chatNum = 1, m365Num = 1;
   roles.forEach(function(role) {
+    // Find the most relevant workflow, tech platform, and strategic priority for this role
+    var ctx = {
+      workflow: findWorkflowForRole(role, workflows),
+      tech:     findTechForRole(role, platforms),
+      priority: findPriorityForRole(role, priorities)
+    };
     for (var hi = 0; hi < 7; hi++) {
-      chat.push(buildChatUseCaseForRole(hi, role, clientInfo, 'CH-' + String(chatNum).padStart(2,'0')));
+      chat.push(buildChatUseCaseForRole(hi, role, clientInfo, 'CH-' + String(chatNum).padStart(2,'0'), ctx));
       chatNum++;
-      m365.push(buildM365UseCaseForRole(hi, role, clientInfo, 'MH-' + String(m365Num).padStart(2,'0')));
+      m365.push(buildM365UseCaseForRole(hi, role, clientInfo, 'MH-' + String(m365Num).padStart(2,'0'), ctx));
       m365Num++;
     }
   });
