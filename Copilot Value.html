@@ -719,7 +719,7 @@ const DATA = {
       "h7": 7
     }
   ],
-  "entryPoints": ["Copilot Chat (microsoft365.com)"]
+  "entryPoints": [{"name":"Copilot Chat (microsoft365.com)","desc":"Web interface at microsoft365.com","count":77}]
 },
 "m365": {
   "habits": [
@@ -1057,7 +1057,7 @@ const DATA = {
       "h7": 7
     }
   ],
-  "entryPoints": ["M365 Copilot Chat","Outlook","Teams","Word","Excel"]
+  "entryPoints": [{"name":"M365 Copilot Chat","desc":"Web interface with org data access","count":22},{"name":"Outlook","desc":"Email drafting and summarization","count":11},{"name":"Teams","desc":"Meeting summaries and chat recap","count":11},{"name":"Word","desc":"Document creation and editing","count":22},{"name":"Excel","desc":"Data analysis and formulas","count":11}]
 },
   "useCases": {
   "chat": [
@@ -3678,8 +3678,17 @@ function renderUseCaseCard(uc, type) {
       }
     }
 
-    // Helper: compute byRole, byHabit, totals, roleHabitMatrix from a use cases array
-    function buildAggregates(ucs, habitIds) {
+    // Helper: compute byRole, byHabit, totals, roleHabitMatrix, entryPoints from a use cases array
+    var EP_DESCS = {
+      'Copilot Chat (microsoft365.com)': 'Web interface at microsoft365.com',
+      'M365 Copilot Chat':               'Web interface with org data access',
+      'Outlook':                         'Email drafting and summarization',
+      'Teams':                           'Meeting summaries and chat recap',
+      'Word':                            'Document creation and editing',
+      'Excel':                           'Data analysis and formulas',
+      'PowerPoint':                      'Presentation creation'
+    };
+    function buildAggregates(ucs, habitIds, curatedMatrix) {
       var roleCodes = [], seenCodes = {};
       ucs.forEach(function(u) { if (!seenCodes[u.code]) { seenCodes[u.code] = true; roleCodes.push(u.code); } });
 
@@ -3725,7 +3734,14 @@ function renderUseCaseCard(uc, type) {
         return row;
       });
 
-      return { byRole: byRole, byHabit: byHabit, totals: totals, roleHabitMatrix: roleHabitMatrix };
+      // entryPoints: {name, desc, count} objects
+      var epMap = {}, epOrder = [];
+      ucs.forEach(function(u) { if (!epMap[u.entry]) { epMap[u.entry] = 0; epOrder.push(u.entry); } epMap[u.entry]++; });
+      var entryPoints = epOrder.map(function(name) {
+        return { name: name, desc: EP_DESCS[name] || name, count: epMap[name] };
+      });
+
+      return { byRole: byRole, byHabit: byHabit, totals: totals, roleHabitMatrix: roleHabitMatrix, entryPoints: entryPoints };
     }
 
     var CURATED_CHAT_MATRIX = [
@@ -3765,11 +3781,13 @@ function renderUseCaseCard(uc, type) {
     DATA.chat.byHabit         = chatAgg.byHabit;
     DATA.chat.totals          = chatAgg.totals;
     DATA.chat.roleHabitMatrix = chatAgg.roleHabitMatrix;
+    DATA.chat.entryPoints     = chatAgg.entryPoints;
 
     DATA.m365.byRole          = m365Agg.byRole;
     DATA.m365.byHabit         = m365Agg.byHabit;
     DATA.m365.totals          = m365Agg.totals;
     DATA.m365.roleHabitMatrix = m365Agg.roleHabitMatrix;
+    DATA.m365.entryPoints     = m365Agg.entryPoints;
 
     DATA.useCases = { chat: chatUCs, m365: m365UCs };
 

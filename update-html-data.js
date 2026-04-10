@@ -109,11 +109,23 @@ function buildAggregates(ucs, habitIds, curatedMatrix) {
   // Use curated matrix (passed in) instead of auto-computing from timeSaved
   var roleHabitMatrix = curatedMatrix.filter(function(r) { return roleCodes.indexOf(r.role) >= 0; });
 
-  // entryPoints derived from use cases
-  var epMap = {}, epList = [];
-  ucs.forEach(function(u) { if (!epMap[u.entry]) { epMap[u.entry] = true; epList.push(u.entry); } });
+  // entryPoints: {name, desc, count} objects, descriptions hardcoded per known entry point
+  var EP_DESCS = {
+    'Copilot Chat (microsoft365.com)': 'Web interface at microsoft365.com',
+    'M365 Copilot Chat':               'Web interface with org data access',
+    'Outlook':                         'Email drafting and summarization',
+    'Teams':                           'Meeting summaries and chat recap',
+    'Word':                            'Document creation and editing',
+    'Excel':                           'Data analysis and formulas',
+    'PowerPoint':                      'Presentation creation'
+  };
+  var epMap = {}, epOrder = [];
+  ucs.forEach(function(u) { if (!epMap[u.entry]) { epMap[u.entry] = 0; epOrder.push(u.entry); } epMap[u.entry]++; });
+  var entryPoints = epOrder.map(function(name) {
+    return { name: name, desc: EP_DESCS[name] || name, count: epMap[name] };
+  });
 
-  return { byRole: byRole, byHabit: byHabit, totals: totals, roleHabitMatrix: roleHabitMatrix, entryPoints: epList };
+  return { byRole: byRole, byHabit: byHabit, totals: totals, roleHabitMatrix: roleHabitMatrix, entryPoints: entryPoints };
 }
 
 var chatHabitIds = ['CH1','CH2','CH3','CH4','CH5','CH6','CH7'];
