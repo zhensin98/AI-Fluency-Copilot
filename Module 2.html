@@ -1,0 +1,1111 @@
+<html lang="en"><head>
+
+<!-- Auth check remove before pushing to production -->
+<script>
+  if (sessionStorage.getItem('authenticated') !== 'true') {
+    window.location.href = 'index.html';
+  }
+</script>
+<script>
+(function() {
+  var company = null;
+  try { company = JSON.parse(sessionStorage.getItem('active_company') || 'null'); } catch(e) {}
+  if (!company || !company.colors) return;
+  var c = company.colors;
+  var root = document.documentElement;
+  function rgb(hex) {
+    if (!hex || hex.length < 7) return '0,0,0';
+    return parseInt(hex.slice(1,3),16)+','+parseInt(hex.slice(3,5),16)+','+parseInt(hex.slice(5,7),16);
+  }
+  if (c.primary) {
+    var pr = rgb(c.primary);
+    root.style.setProperty('--brand-primary',      c.primary);
+    root.style.setProperty('--color-primary',      c.primary);
+    root.style.setProperty('--primary-color',      c.primary);
+    root.style.setProperty('--gradient-start',     c.primary);
+    root.style.setProperty('--color-info',         c.primary);
+    root.style.setProperty('--color-primary-light','rgba('+pr+',0.08)');
+    root.style.setProperty('--color-primary-muted','rgba('+pr+',0.06)');
+    root.style.setProperty('--color-primary-focus','rgba('+pr+',0.20)');
+    root.style.setProperty('--color-primary-pale', 'rgba('+pr+',0.08)');
+    root.style.setProperty('--color-nav-hover',    'rgba('+pr+',0.12)');
+    root.style.setProperty('--color-bg-highlight', 'rgba('+pr+',0.06)');
+    root.style.setProperty('--info-box-bg',        'rgba('+pr+',0.08)');
+    root.style.setProperty('--color-info-bg',      'rgba('+pr+',0.08)');
+    root.style.setProperty('--color-subsection-bg','rgba('+pr+',0.05)');
+  }
+  if (c.primaryDark) {
+    root.style.setProperty('--brand-primary-dark', c.primaryDark);
+    root.style.setProperty('--brand-secondary',    c.primaryDark);
+    root.style.setProperty('--color-primary-dark', c.primaryDark);
+    root.style.setProperty('--secondary-color',    c.primaryDark);
+    root.style.setProperty('--gradient-end',       c.primaryDark);
+  }
+  if (c.primaryLight) {
+    root.style.setProperty('--brand-primary-light',c.primaryLight);
+  }
+  if (c.accent) {
+    var ar = rgb(c.accent);
+    root.style.setProperty('--brand-accent',       c.accent);
+    root.style.setProperty('--color-accent',       c.accent);
+    root.style.setProperty('--accent-color',       c.accent);
+    root.style.setProperty('--color-accent-light', 'rgba('+ar+',0.10)');
+    root.style.setProperty('--color-accent-muted', 'rgba('+ar+',0.05)');
+    root.style.setProperty('--color-accent-border','rgba('+ar+',0.30)');
+  }
+  if (c.sidebarBg) {
+    root.style.setProperty('--brand-sidebar-bg',   c.sidebarBg);
+    root.style.setProperty('--color-sidebar-bg',   c.sidebarBg);
+  }
+})();
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinking and Working with AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../customer-brand.css">
+    <style>
+        /* MODULE-SPECIFIC STYLES
+           Shared overrides (sidebar, info-card, qa-question, content-area,
+           no-results, confidential-box) are now in styles.css */
+        .section-title svg { width: 24px; height: 24px; stroke: var(--primary-color); fill: none; }
+        /* OUTCOME LIST */
+        .outcome-list { list-style: none; margin: 20px 0; padding: 0; }
+        .outcome-list li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--color-border-light, #eee); }
+        .outcome-list li:last-child { border-bottom: none; }
+        .outcome-list li svg { width: 20px; height: 20px; stroke: var(--primary-color); fill: none; flex-shrink: 0; margin-top: 2px; }
+        .outcome-list li strong { color: var(--dark-text); }
+        .outcome-list li span { color: var(--gray-text); }
+        /* CARD CONTAINER & INFO CARDS */
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0; }
+        .card-container.single-column { grid-template-columns: 1fr; }
+        .info-card { background: var(--light-bg); border-radius: 10px; padding: 20px; border-top: 4px solid var(--primary-color); }
+        .info-card strong { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: var(--dark-text); }
+        .info-card strong svg { width: 20px; height: 20px; stroke: var(--primary-color); fill: none; }
+        .info-card p { color: var(--gray-text); font-size: var(--font-size-sm); line-height: 1.6; }
+        /* EXERCISE BOX */
+        .exercise-box { background: linear-gradient(135deg, var(--color-primary-muted), transparent); border: 2px dashed var(--primary-color); border-radius: 10px; padding: 24px; margin: 20px 0; }
+        .exercise-box h4 { display: flex; align-items: center; gap: 10px; color: var(--primary-color); margin-bottom: 16px; font-size: 1.3rem; }
+        .exercise-box h4 svg { width: 28px; height: 28px; stroke: var(--primary-color); fill: none; }
+        .exercise-steps { display: flex; flex-direction: column; gap: 12px; }
+        .exercise-step { display: flex; gap: 12px; align-items: flex-start; }
+        .exercise-step-num { width: 28px; height: 28px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: var(--font-size-sm); flex-shrink: 0; }
+        .exercise-step-content { flex: 1; }
+        .exercise-step-content strong { display: block; margin-bottom: 4px; color: var(--dark-text); }
+        .exercise-step-content p { color: var(--gray-text); font-size: var(--font-size-sm); margin: 0; }
+        .rating-scale { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; padding: 16px; background: white; border-radius: 6px; }
+        .rating-scale span { font-size: var(--font-size-sm); color: var(--gray-text); }
+        .rating-bar { flex: 1; max-width: 300px; height: 8px; background: linear-gradient(to right, var(--color-error, #DC2626), var(--color-warning, #D97706), var(--success-green)); border-radius: 4px; }
+        /* POLL CARD */
+        .poll-card { border: 2px solid var(--primary-color); border-radius: 10px; overflow: hidden; margin: 20px 0; }
+        .poll-card-header { background: var(--primary-color); color: white; padding: 16px 20px; }
+        .poll-card-header h4 { font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; color: white; }
+        .poll-card-header p { font-size: var(--font-size-sm); color: rgba(255,255,255,0.95); margin: 0; }
+        .poll-card-body { padding: 20px; background: white; }
+        .poll-card-body a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.2s; }
+        .poll-card-body a:hover { background: var(--secondary-color); }
+        .poll-card-body a svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
+        /* content-box white background is now in styles.css */
+        /* FLIP CARDS */
+        .flip-cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 24px 0; perspective: 1000px; }
+        .flip-card { height: 200px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 10px; display: flex; flex-direction: column; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .flip-card-front { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; align-items: center; justify-content: center; text-align: center; }
+        .flip-card-front svg { width: 40px; height: 40px; stroke: white; fill: none; margin-bottom: 12px; }
+        .flip-card-front h4, .vtab-panel .flip-card-front h4 { font-size: 1rem; font-weight: 600; line-height: 1.3; color: white; }
+        .flip-card-front .flip-hint, .vtab-panel .flip-card-front .flip-hint { position: absolute; bottom: 12px; font-size: var(--font-size-xs); opacity: 0.7; display: flex; align-items: center; gap: 4px; color: white; }
+        .flip-card-front .flip-hint svg { width: 14px; height: 14px; margin: 0; stroke: white; }
+        .flip-card-back { background: white; color: var(--dark-text); transform: rotateY(180deg); border: 2px solid var(--primary-color); justify-content: center; }
+        .flip-card-back p { font-size: var(--font-size-sm); line-height: 1.6; }
+        .flip-card-back .back-label { position: absolute; top: 12px; left: 12px; font-size: var(--font-size-xs); color: var(--primary-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* ROLE CARDS */
+        .role-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .role-card { border-radius: 10px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+        .role-card-header { padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+        .role-card.pilot .role-card-header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; }
+        .role-card.copilot .role-card-header { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: white; }
+        .role-card-header svg { width: 28px; height: 28px; stroke: currentColor; fill: none; }
+        .role-card-header h4 { font-size: 1.1rem; font-weight: 600; }
+        .role-card-body { padding: 16px 20px; background: white; }
+        .role-card-body ul { list-style: none; margin: 0; padding: 0; }
+        .role-card-body li { padding: 8px 0; padding-left: 24px; position: relative; font-size: var(--font-size-sm); color: var(--gray-text); }
+        .role-card-body li::before { content: ''; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 50%; }
+        .role-card.pilot li::before { background: var(--primary-color); }
+        .role-card.copilot li::before { background: var(--color-primary); }
+        /* COMPARISON CARDS */
+        .comparison-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .comparison-card { border-radius: 10px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+        .comparison-card.bad { border: 2px solid var(--color-error, #DC2626); opacity: 0.85; }
+        .comparison-card.good { border: 2px solid var(--success-green); }
+        .comparison-header { padding: 12px 16px; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: var(--font-size-sm); }
+        .comparison-card.bad .comparison-header { background: rgba(220, 38, 38, 0.1); color: var(--color-error, #DC2626); }
+        .comparison-card.good .comparison-header { background: rgba(0, 163, 108, 0.1); color: var(--success-green); }
+        .comparison-header svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
+        .comparison-body { padding: 16px; background: white; }
+        .comparison-card.bad .comparison-body { background: #fafafa; }
+        /* LABELED PROMPT */
+        .labeled-prompt { border: 1px solid var(--color-border, #e0e0e0); border-radius: 10px; overflow: hidden; margin: 16px 0; position: relative; }
+        .labeled-prompt-header { background: var(--light-bg); padding: 12px 16px; padding-right: 80px; border-bottom: 1px solid var(--color-border, #e0e0e0); font-weight: 600; font-size: var(--font-size-sm); color: var(--dark-text); }
+        .labeled-prompt .copy-btn { top: 8px; }
+        .prompt-section { padding: 0; }
+        .prompt-section-item { display: flex; border-bottom: 1px solid var(--color-border-light, #eee); }
+        .prompt-section-item:last-child { border-bottom: none; }
+        .prompt-label { flex: 0 0 120px; padding: 12px 16px; font-weight: 600; font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: flex-start; }
+        .prompt-label.goal { background: var(--color-primary-light); color: var(--color-primary); }
+        .prompt-label.context { background: var(--color-primary-light); color: var(--color-primary); }
+        .prompt-label.expectations { background: rgba(0, 163, 108, 0.1); color: var(--success-green); }
+        .prompt-content { flex: 1; padding: 12px 16px; font-family: var(--font-mono); font-size: var(--font-size-sm); line-height: 1.6; background: white; white-space: pre-wrap; }
+        /* VERTICAL TABS */
+        .vtabs-container { display: flex; gap: 20px; margin-top: 20px; min-height: 400px; }
+        .vtabs-nav { flex: 0 0 260px; display: flex; flex-direction: column; gap: 8px; }
+        .vtabs-nav-btn { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--light-bg); border: 1px solid var(--color-border, #e0e0e0); border-radius: 6px; cursor: pointer; text-align: left; font-family: inherit; transition: all 0.2s ease; }
+        .vtabs-nav-btn:hover { background: #e8eef1; border-color: var(--primary-color); }
+        .vtabs-nav-btn.active { background: white; border-color: var(--primary-color); border-left: 4px solid var(--primary-color); box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+        .vtabs-nav-btn .tab-num { width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; flex-shrink: 0; }
+        .vtabs-nav-btn .tab-label { font-size: 0.95rem; font-weight: 500; color: var(--dark-text); line-height: 1.3; }
+        .vtabs-content { flex: 1; background: white; border: 1px solid var(--color-border, #e0e0e0); border-radius: 10px; overflow: visible; }
+        .vtab-panel { display: none; padding: 24px; }
+        .vtab-panel.active { display: block; }
+        .vtab-panel h3 { color: var(--primary-color); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; }
+        .vtab-panel h3 .tab-num { width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1rem; }
+        .vtab-panel h4 { margin-top: 20px; margin-bottom: 10px; color: var(--dark-text); font-size: 1rem; }
+        /* COLLAPSIBLE ACCORDIONS */
+        .collapsible { border: 1px solid var(--color-border, #e0e0e0); border-radius: 6px; margin: 12px 0; overflow: hidden; }
+        .collapsible-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--light-bg); cursor: pointer; transition: background 0.2s; }
+        .collapsible-header:hover { background: #e8eef1; }
+        .collapsible-title { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: var(--font-size-base); color: var(--dark-text); }
+        .collapsible-title svg { width: 18px; height: 18px; stroke: var(--primary-color); fill: none; }
+        .collapsible-chevron { width: 20px; height: 20px; transition: transform 0.3s; }
+        .collapsible-chevron svg { width: 16px; height: 16px; stroke: var(--gray-text); fill: none; }
+        .collapsible.active .collapsible-chevron { transform: rotate(180deg); }
+        .collapsible.active .collapsible-chevron svg { stroke: var(--primary-color); }
+        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .collapsible.active .collapsible-content { max-height: 5000px; }
+        .collapsible-body { padding: 16px; border-top: 1px solid var(--color-border, #e0e0e0); background: white; }
+        /* FRAMEWORK STEPPER */
+        .framework-stepper { display: flex; align-items: center; justify-content: space-between; margin: 24px 0; position: relative; }
+        .framework-stepper::before { content: ''; position: absolute; top: 24px; left: 60px; right: 60px; height: 3px; background: var(--color-border, #e0e0e0); z-index: 0; }
+        .step-node { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; z-index: 1; }
+        .step-circle { width: 48px; height: 48px; border-radius: 50%; background: white; border: 3px solid var(--color-border, #e0e0e0); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: var(--gray-text); transition: all 0.3s; }
+        .step-node.active .step-circle { background: var(--primary-color); border-color: var(--primary-color); color: white; box-shadow: 0 0 0 4px var(--color-primary-focus); }
+        .step-node.completed .step-circle { background: var(--success-green); border-color: var(--success-green); color: white; }
+        .step-label { font-size: var(--font-size-xs); font-weight: 600; color: var(--gray-text); text-align: center; max-width: 100px; }
+        .step-node.active .step-label { color: var(--primary-color); }
+        /* FLOW ROW */
+        .flow-row { display: flex; align-items: stretch; gap: 0; margin: 20px 0; }
+        .flow-item { flex: 1; padding: 16px 20px; background: var(--light-bg); display: flex; flex-direction: column; justify-content: center; }
+        .flow-item:first-child { border-radius: 10px 0 0 10px; }
+        .flow-item:last-child { border-radius: 0 10px 10px 0; }
+        .flow-item strong { color: var(--dark-text); font-size: var(--font-size-sm); margin-bottom: 4px; }
+        .flow-item p { color: var(--gray-text); font-size: var(--font-size-sm); margin: 0; }
+        .flow-item[data-type="input"] { border-top: 3px solid var(--color-primary); }
+        .flow-item[data-type="action"] { border-top: 3px solid var(--color-warning, #D97706); }
+        .flow-item[data-type="output"] { border-top: 3px solid var(--success-green); }
+        .flow-arrow { display: flex; align-items: center; justify-content: center; padding: 0 12px; }
+        .flow-arrow svg { width: 28px; height: 28px; stroke: var(--primary-color); fill: none; stroke-width: 2.5; }
+        /* ISSUES GRID (Evaluate refinement loop) */
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+        .issue-card { display: flex; align-items: flex-start; gap: 12px; padding: 16px; background: var(--light-bg); border-radius: 8px; border-left: 3px solid var(--primary-color); }
+        .issue-icon { flex-shrink: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 8px; }
+        .issue-icon svg { width: 20px; height: 20px; stroke: var(--primary-color); fill: none; }
+        .issue-content h5 { font-size: var(--font-size-sm); font-weight: 600; color: var(--dark-text); margin: 0 0 4px 0; }
+        .issue-content p { font-size: var(--font-size-xs); color: var(--gray-text); margin: 0; line-height: 1.4; }
+        /* USE CASE FORM */
+        .usecase-form { background: white; border: 1px solid var(--color-border, #e0e0e0); border-radius: 10px; overflow: hidden; }
+        .usecase-form-header { background: var(--light-bg); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border, #e0e0e0); }
+        .usecase-form-header span { font-weight: 600; font-size: var(--font-size-sm); color: var(--dark-text); }
+        .usecase-form table { width: 100%; border-collapse: collapse; }
+        .usecase-form tr { border-bottom: 1px solid var(--color-border, #e0e0e0); }
+        .usecase-form tr:last-child { border-bottom: none; }
+        .usecase-form td:first-child { padding: 12px 16px; background: var(--light-bg); font-weight: 600; font-size: var(--font-size-sm); width: 35%; vertical-align: top; }
+        .usecase-form td:last-child { padding: 8px; }
+        .usecase-form input, .usecase-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--color-border, #e0e0e0); border-radius: 4px; font-family: inherit; font-size: var(--font-size-sm); resize: vertical; }
+        .usecase-form input:focus, .usecase-form textarea:focus { outline: none; border-color: var(--primary-color); }
+        .usecase-form textarea { min-height: 60px; }
+        /* Q&A CARDS */
+        .qa-cards-container { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+        .qa-card { border: 1px solid var(--color-border, #e0e0e0); border-radius: 6px; overflow: hidden; }
+        .qa-question { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; cursor: pointer; font-weight: 500; transition: background 0.2s; }
+        .qa-question span:first-child { flex: 1; padding-right: 16px; }
+        .qa-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; flex-shrink: 0; transition: transform 0.3s; }
+        .qa-card.active .qa-icon { transform: rotate(45deg); }
+        .qa-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .qa-card.active .qa-answer { max-height: 500px; }
+        .qa-answer-content { padding: 16px 20px; border-top: 1px solid var(--color-border, #e0e0e0); background: white; }
+        .qa-answer-content p { color: var(--success-green); font-weight: 500; }
+        .content-box-inner { background: white; border-radius: 6px; padding: 20px; border: 1px solid var(--color-border, #e0e0e0); }
+        .content-box-subtitle { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 600; color: var(--primary-color); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .content-box-subtitle svg { width: 18px; height: 18px; stroke: var(--primary-color); fill: none; }
+        .content-box-title-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .content-box-title-row .content-box-title { margin-bottom: 0; }
+        .content-box-title-row .expand-collapse-btn { padding: 6px 12px; background: white; border: 1px solid var(--color-border, #ddd); border-radius: 4px; font-size: var(--font-size-xs); cursor: pointer; color: var(--gray-text); transition: all 0.2s; }
+        .content-box-title-row .expand-collapse-btn:hover { background: var(--color-subsection-bg); border-color: var(--primary-color); color: var(--primary-color); }
+        /* GCE TABLE */
+        .gce-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        .gce-table th { background: var(--primary-color); color: white; padding: 12px 16px; text-align: left; font-size: var(--font-size-sm); }
+        .gce-table th:first-child { border-radius: 6px 0 0 0; }
+        .gce-table th:last-child { border-radius: 0 6px 0 0; }
+        .gce-table td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e0e0e0); font-size: var(--font-size-sm); line-height: 1.5; }
+        .gce-table td:first-child { font-weight: 600; color: var(--primary-color); width: 120px; }
+        .gce-table tr:last-child td { border-bottom: none; }
+        /* CHECKLIST TABLE */
+        .checklist-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        .checklist-table th { background: var(--light-bg); padding: 10px 16px; text-align: left; font-size: var(--font-size-sm); font-weight: 600; color: var(--dark-text); border-bottom: 2px solid var(--color-border, #e0e0e0); }
+        .checklist-table td { padding: 10px 16px; border-bottom: 1px solid var(--color-border-light, #eee); font-size: var(--font-size-sm); vertical-align: top; }
+        .checklist-table td:first-child { width: 40px; text-align: center; }
+        .checklist-table input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary-color); cursor: pointer; }
+        /* WATCHOUT TABLE */
+        .watchout-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        .watchout-table th { background: var(--warning-box-bg, #FFF3CD); padding: 10px 16px; text-align: left; font-size: var(--font-size-sm); font-weight: 600; border-bottom: 2px solid var(--color-warning, #D97706); }
+        .watchout-table td { padding: 10px 16px; border-bottom: 1px solid var(--color-border-light, #eee); font-size: var(--font-size-sm); vertical-align: top; line-height: 1.5; }
+        .watchout-table td:first-child { font-weight: 600; color: var(--color-warning, #D97706); width: 200px; }
+        /* LEARN AI CARD */
+        .learn-ai-card { background: linear-gradient(135deg, var(--color-primary-muted), white); border: 2px solid var(--primary-color); border-radius: 12px; padding: 32px; text-align: center; margin: 24px 0; }
+        .learn-ai-card h3 { color: var(--primary-color); font-size: 1.3rem; margin-bottom: 12px; }
+        .learn-ai-card .lead { font-size: 1.05rem; color: var(--dark-text); font-weight: 500; margin-bottom: 16px; }
+        /* GROWTH CARDS */
+        .growth-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0; }
+        .growth-card { border-top: 4px solid var(--primary-color); border-radius: 10px; padding: 20px; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.06); }
+        .growth-card h4 { color: var(--primary-color); font-size: 0.95rem; margin-bottom: 8px; }
+        .growth-card p { color: var(--gray-text); font-size: var(--font-size-sm); margin: 0; font-style: italic; }
+        /* REFLECTION FORM */
+        .reflection-form { background: white; border: 1px solid var(--color-border, #e0e0e0); border-radius: 10px; overflow: hidden; margin: 20px 0; }
+        .reflection-form-header { background: var(--light-bg); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border, #e0e0e0); }
+        .reflection-form-header span { font-weight: 600; font-size: var(--font-size-sm); color: var(--dark-text); }
+        .reflection-section { border-bottom: 1px solid var(--color-border, #e0e0e0); }
+        .reflection-section:last-child { border-bottom: none; }
+        .reflection-section-header { padding: 12px 16px; background: var(--color-primary-muted); font-weight: 600; font-size: var(--font-size-sm); color: var(--primary-color); }
+        .reflection-field { padding: 8px 16px; }
+        .reflection-field label { display: block; font-size: var(--font-size-sm); font-weight: 500; color: var(--dark-text); margin-bottom: 4px; }
+        .reflection-field textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--color-border, #e0e0e0); border-radius: 4px; font-family: inherit; font-size: var(--font-size-sm); resize: vertical; min-height: 60px; }
+        .reflection-field textarea:focus { outline: none; border-color: var(--primary-color); }
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .vtabs-container { flex-direction: column; }
+            .vtabs-nav { flex: none; flex-direction: row; flex-wrap: wrap; }
+            .vtabs-nav-btn { flex: 1 1 calc(50% - 4px); min-width: 140px; }
+            .flow-row { flex-direction: column; }
+            .flow-item:first-child { border-radius: 10px 10px 0 0; }
+            .flow-item:last-child { border-radius: 0 0 10px 10px; }
+            .flow-arrow { padding: 8px 0; }
+            .flow-arrow svg { transform: rotate(90deg); }
+        }
+        @media (max-width: 768px) {
+            .comparison-container { grid-template-columns: 1fr; }
+            .role-cards { grid-template-columns: 1fr; }
+            .flip-cards-container { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+            .flip-card { height: 180px; }
+            .framework-stepper { flex-wrap: wrap; gap: 16px; justify-content: center; }
+            .framework-stepper::before { display: none; }
+            .card-container { grid-template-columns: 1fr; }
+            .growth-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+    <noscript><style>.vtab-panel,.collapsible-content,.qa-answer{display:block!important;max-height:none!important}.section.collapsed .section-content{display:block!important}.content-box.collapsed .content-box-content{display:block!important}</style></noscript>
+</head>
+<body>
+    <button class="sidebar-toggle" id="sidebarToggle"><svg viewBox="0 0 24 24" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    <nav class="sidebar" id="sidebar"><button class="sidebar-collapse-btn" aria-label="Toggle sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <div class="sidebar-header">
+            <a href="Main page.html" class="sidebar-home-link" title="Back to Home"><svg class="sidebar-icon" viewBox="0 0 24 24"><path d="M12 2L9.5 8.5L3 11l6.5 2.5L12 22l2.5-8.5L21 11l-6.5-2.5L12 2z" fill="currentColor" stroke="none"></path><path d="M7 5L6 7L4 8l2 1 1 2 1-2 2-1-2-1-1-2z" fill="currentColor" stroke="none" opacity="0.6"></path></svg></a>
+            <h1>Thinking and Working with AI</h1>
+        </div>
+        <input type="text" class="search-box" id="searchBox" placeholder="Search guide...">
+        <ul class="nav-menu">
+            <li><a href="#welcome" class="active"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg><span class="nav-text">Welcome</span></a></li>
+            <li><a href="#warm-up"><svg viewBox="0 0 24 24"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"></path><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"></path><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"></path></svg><span class="nav-text">Warm Up</span></a></li>
+            <li><a href="#how-llms-work"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><span class="nav-text">How LLMs Work</span></a></li>
+            <li><a href="#how-to-talk-to-ai"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><span class="nav-text">How to Talk to AI</span></a></li>
+            <li><a href="#the-4-step-process"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg><span class="nav-text">The 4-Step Process</span></a></li>
+            <li><a href="#hands-on"><svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span class="nav-text">Hands-On</span></a></li>
+            <li><a href="#reflect-and-grow"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="nav-text">Reflect &amp; Grow</span></a></li>
+        </ul>
+        <a href="Main page.html" class="sidebar-home-nav" title="Back to Home"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"></path></svg>Home</a>
+        <div class="sidebar-footer"><div class="tagline">Making AI Real</div><div>© 2026 Mission +</div></div>
+    </nav>
+    <main class="main-content">
+        <div class="page-header"><div class="page-header-content"><div><h1>Thinking and Working with AI</h1><p>Stop guessing. Start thinking. A hands-on approach to working with AI.</p></div><div class="header-controls"><button class="btn-header" id="toggleAllBtn">Collapse All</button></div></div></div>
+        <div class="no-results hidden" id="noResults"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><h3>No matching content found</h3><p>Try different keywords or clear the search to see all sections.</p></div>
+        <div class="content-area">
+
+        <!-- SECTION 1: WELCOME -->
+        <div class="section" id="welcome" data-section="1">
+            <div class="section-accent"></div>
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>Welcome</div>
+                <button class="section-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            </div>
+            <div class="section-content">
+                <h3>Welcome Onboard</h3>
+                <p>Welcome to this hands-on session on thinking and working with AI! This isn't just about writing better prompts. You'll learn a repeatable process for thinking and working with AI that you can use every day, with any AI tool. By the end, you'll have a practical framework and real experience applying it to your own work.</p>
+                <h3>What You'll Learn</h3>
+                <div class="success-box"><p>By the end of this session, you will be able to:</p><ul>
+                    <li><strong>Apply</strong> a simple 4-step process (TAE-O) every time you work with AI</li>
+                    <li><strong>Think critically</strong> about what you need before you start typing</li>
+                    <li><strong>Ask effectively</strong> by providing rich context and using AI to help you craft better prompts</li>
+                    <li><strong>Evaluate</strong> AI outputs instead of accepting them at face value</li>
+                    <li><strong>Take ownership</strong> of what you use, share, or publish</li>
+                    <li><strong>Reflect</strong> on your AI interactions to continuously improve</li>
+                </ul></div>
+                <div class="info-box"><p><strong>Remember:</strong> This guide serves as your reference during and after the workshop. Use it to capture your prompts, ideas, and reflections as we go through each activity.</p></div>
+                <div class="confidential-box" style="font-size:13px;"><h4>Confidentiality and Usage Notice</h4><p style="margin-bottom:0;">This guide is for your personal use during and after the workshop to support your own learning and practice. Please do not share, forward, publish, reuse, or adapt any part of it without written permission from Mission +.</p></div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: WARM UP -->
+        <div class="section collapsed" id="warm-up" data-section="2">
+            <div class="section-accent"></div>
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"></path><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"></path><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"></path></svg>Warm Up</div>
+                <button class="section-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            </div>
+            <div class="section-content">
+                <div class="exercise-box">
+                    <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>Exercise: Prompt Away</h4>
+                    <p style="margin-bottom:16px;color:var(--gray-text);">Before we dive into the workshop, let's establish your starting baseline. You will ask Copilot for help with a task and then give the response a score.</p>
+                    <div class="exercise-steps">
+                        <div class="exercise-step"><span class="exercise-step-num">1</span><div class="exercise-step-content"><strong>Choose a task</strong><p>Think of a real work task you want to do faster or more easily with AI.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">2</span><div class="exercise-step-content"><strong>Prompt away</strong><p>Using your usual way of asking, prompt Copilot to help you with this task.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">3</span><div class="exercise-step-content"><strong>Rate the response</strong><p>Review the initial response Copilot gives you. How helpful is it?</p></div></div>
+                    </div>
+                    <div class="rating-scale"><span>1 (Poor)</span><div class="rating-bar"></div><span>10 (Great)</span></div>
+                </div>
+                <div class="poll-card">
+                    <div class="poll-card-header"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;vertical-align:middle;margin-right:6px;"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>Poll</h4><p>What challenges do you face with GenAI?</p></div>
+                    <div class="poll-card-body"><p style="margin-bottom:12px;color:var(--gray-text);">What are the key challenges or frustrations you face when using Generative AI tools? There are no right or wrong answers; your response helps us focus on what matters most.</p><a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=gYUkOi3ajE2nkTYuniojlFFPtdWxQrlDtWfKVNARHGFURVpGQTJMS0wyNk5ITVpTUDdUM0RGTUhWWi4u" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Open Poll Form</a></div>
+                </div>
+                <div class="content-box collapsed">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Common Issues &amp; Challenges</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                        <p style="margin-bottom:16px;">From many workshops, we see the same patterns show up again and again. As you read through these, notice which ones sound most like you. <strong>Click each card to learn more.</strong></p>
+                        <div class="flip-cards-container">
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><h4>Struggling to craft effective prompts</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this happens</span><p>Vague, overloaded instructions lead to guessing. Clear context and structure make the difference.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><h4>Using AI as an answering machine</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this happens</span><p>Treating it as one-way Q&amp;A misses the power of conversation. AI works best as a back-and-forth thinking partner.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg><h4>Stopping after the first attempt</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this happens</span><p>Missing the value of “improve this” or “try again.” The first response is a draft, not the final product.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg><h4>Trusting answers without verification</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this happens</span><p>AI can sound confident but be inaccurate. Always check facts, logic, and fit before using any output.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg><h4>Expecting AI to read your mind</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this happens</span><p>Missing context leads to generic answers. You need to provide the details AI can't guess.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><h4>Assuming AI can do everything</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this happens</span><p>Leading to unrealistic expectations. Know what AI is good at and where human judgement is still essential.</p></div></div></div>
+                        </div>
+                        <div class="success-box"><p>These are exactly the patterns we're going to fix. Let's start by understanding what you're working with.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: HOW LLMs WORK -->
+        <div class="section collapsed" id="how-llms-work" data-section="3">
+            <div class="section-accent"></div>
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>How LLMs Work</div>
+                <button class="section-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            </div>
+            <div class="section-content">
+                <div class="content-box collapsed">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>What You Need to Know About LLMs</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <p style="margin-bottom:16px;">You don't need to be a data scientist. But a few things about how LLMs work will help you understand why the skills and process in this guide matter. <strong>Click each card to learn more.</strong></p>
+                    <div class="flip-cards-container">
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg><h4>LLMs cannot read your mind</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this matters</span><p>They only work with what you tell them. If your request is vague, the output will be vague. Always provide clear context, constraints, and details.</p></div></div></div>
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><h4>LLMs will not proactively ask questions</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this matters</span><p>You need to volunteer context, constraints, and missing details instead of waiting for the tool to ask. Be proactive in sharing information.</p></div></div></div>
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg><h4>LLMs tend to be helpful and agree</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this matters</span><p>They may build on wrong premises. You can ask them to question your assumptions or play devil's advocate.</p></div></div></div>
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><h4>LLMs can and will hallucinate</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this matters</span><p>Their answers come from patterns, not a source of truth. You are responsible for fact-checking everything they produce.</p></div></div></div>
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><h4>LLMs don't actually know what they are doing</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why this matters</span><p>They predict likely words based on patterns. You must apply your own judgement and adapt what you get to your specific situation.</p></div></div></div>
+                    </div>
+                    </div>
+                </div>
+                <div class="content-box collapsed">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Understand You and Your Co-pilot R&amp;Rs</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <div class="content-box-inner">
+                        <div class="content-box-subtitle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Who Does What?</div>
+                        <div class="role-cards">
+                            <div class="role-card pilot"><div class="role-card-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><h4>You are the Pilot</h4></div><div class="role-card-body"><ul><li>Set direction and provide context</li><li>Give feedback and make decisions</li><li>Accountable for final output</li></ul></div></div>
+                            <div class="role-card copilot"><div class="role-card-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><h4>Copilot is the Co-pilot</h4></div><div class="role-card-body"><ul><li>Does heavy lifting and drafts content</li><li>Generates options and alternatives</li><li>Follows your lead</li></ul></div></div>
+                        </div>
+                    </div>
+                    <div class="warning-box" style="margin-top:16px;"><p><strong>Remember:</strong> When things go wrong, it's usually because one of you stepped outside your role. Stay in the pilot seat!</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: HOW TO TALK TO AI -->
+        <div class="section collapsed" id="how-to-talk-to-ai" data-section="4">
+            <div class="section-accent"></div>
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>How to Talk to AI</div>
+                <button class="section-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            </div>
+            <div class="section-content">
+                <p>Now that you understand how LLMs work and your role as the Pilot, let's look at three skills that will make you effective in that role.</p>
+
+                <!-- Vertical Tabs: 3 Fundamentals -->
+                <div class="vtabs-container" id="fundamentals-tabs">
+                    <div class="vtabs-nav">
+                        <button class="vtabs-nav-btn active" data-tab="1" onclick="switchVTab('fundamentals-tabs','1')"><span class="tab-num">1</span><span class="tab-label">Context is King</span></button>
+                        <button class="vtabs-nav-btn" data-tab="2" onclick="switchVTab('fundamentals-tabs','2')"><span class="tab-num">2</span><span class="tab-label">Just Ask Copilot (Meta-Prompting)</span></button>
+                        <button class="vtabs-nav-btn" data-tab="3" onclick="switchVTab('fundamentals-tabs','3')"><span class="tab-num">3</span><span class="tab-label">Keep the Conversation Going</span></button>
+                    </div>
+                    <div class="vtabs-content">
+                        <!-- Tab 1: Context is King -->
+                        <div class="vtab-panel active" data-tab="1">
+                            <h3><span class="tab-num">1</span> Context is King</h3>
+                            <p>The more relevant context you provide, the better the response. Use the Goal, Context, Expectations framework:</p>
+                            <table class="gce-table">
+                                <thead><tr><th>Element</th><th>What to Include</th><th>Example</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Goal</td><td>What you want the AI to produce</td><td>“List the top 3 challenges...”</td></tr>
+                                    <tr><td>Context</td><td>Background, audience, key facts</td><td>“I'm an AI Champion helping...”</td></tr>
+                                    <tr><td>Expectations</td><td>Tone, format, length, must include/avoid</td><td>“Keep each to 2-3 sentences...”</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="info-box"><p><strong>Pro tip:</strong> You don't need all three every time, but the more specific you are, the better your results.</p></div>
+
+                            <h4>Prompt Examples</h4>
+                            <!-- Example 1 -->
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Example 1: Summarizing a quarterly report for leadership</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <div class="comparison-container">
+                                        <div class="comparison-card bad"><div class="comparison-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>Vague Prompt</div><div class="comparison-body"><p style="font-family:var(--font-mono);font-size:var(--font-size-sm);">Help me summarize this report.</p></div></div>
+                                        <div class="comparison-card good"><div class="comparison-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Structured Prompt (G-C-E)</div><div class="comparison-body"><div style="font-size:var(--font-size-sm);font-family:var(--font-mono);line-height:1.6;"></div></div></div>
+                                    </div>
+                                    <div class="labeled-prompt">
+                                        <div class="labeled-prompt-header">Structured Prompt with G-C-E Labels<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                        <div class="prompt-section">
+                                            <div class="prompt-section-item"><div class="prompt-label goal">Goal</div><div class="prompt-content">Summarize the Q3 performance report so I can brief the leadership team on key results and recommended actions.</div></div>
+                                            <div class="prompt-section-item"><div class="prompt-label context">Context</div><div class="prompt-content">Your Role: Project Manager preparing a leadership briefing.
+Importance: The leadership team needs a clear picture of Q3 results, what's on track, and where we need to act. They have limited time.
+Audience: Senior leaders with varying familiarity with day-to-day operations.
+Source: Use only the content in the report I provide. Do not add external information.</div></div>
+                                            <div class="prompt-section-item"><div class="prompt-label expectations">Expectations</div><div class="prompt-content">Output Format: 5-bullet executive summary (most important results) / Key achievements and wins / Areas of concern or risk / Recommended next steps (with owners if possible) / Open questions for leadership to discuss.
+Tone: Clear, professional, and concise (avoid jargon).
+Length: Keep under ~300 words.</div></div>
+                                        </div>
+                                    </div>
+                                </div></div>
+                            </div>
+                            <!-- Example 2 -->
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Example 2: Preparing talking points for a stakeholder meeting</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <div class="comparison-container">
+                                        <div class="comparison-card bad"><div class="comparison-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>Vague Prompt</div><div class="comparison-body"><p style="font-family:var(--font-mono);font-size:var(--font-size-sm);">Help me prepare for a meeting with stakeholders.</p></div></div>
+                                        <div class="comparison-card good"><div class="comparison-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Structured Prompt (G-C-E)</div><div class="comparison-body"><div style="font-size:var(--font-size-sm);font-family:var(--font-mono);line-height:1.6;"></div></div></div>
+                                    </div>
+                                    <div class="labeled-prompt">
+                                        <div class="labeled-prompt-header">Structured Prompt with G-C-E Labels<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                        <div class="prompt-section">
+                                            <div class="prompt-section-item"><div class="prompt-label goal">Goal</div><div class="prompt-content">Help me prepare talking points for a stakeholder meeting so I can present our project status clearly and address potential concerns proactively.</div></div>
+                                            <div class="prompt-section-item"><div class="prompt-label context">Context</div><div class="prompt-content">Your Role: Team Lead presenting a project update to key stakeholders.
+Importance: The project is behind schedule by two weeks. I need to explain the delay, show the recovery plan, and maintain stakeholder confidence.
+Audience: Department Heads and the Project Sponsor in a 30-minute meeting.
+Source: Refer to the project status update and timeline I will provide.</div></div>
+                                            <div class="prompt-section-item"><div class="prompt-label expectations">Expectations</div><div class="prompt-content">Output Format: A brief opening statement (30-45 seconds) / 5-6 key talking points with supporting data / 3 questions stakeholders are likely to ask (with suggested responses) / 2-3 proposed next steps with timeline / A closing statement that reinforces confidence.
+Tone: Professional, transparent but solution-focused, calm under pressure. Include alternative phrasing for sensitive points.</div></div>
+                                        </div>
+                                    </div>
+                                </div></div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: Just Ask Copilot -->
+                        <div class="vtab-panel" data-tab="2">
+                            <h3><span class="tab-num">2</span> Just Ask Copilot (Meta-Prompting)</h3>
+                            <p>We know we need to include as much context as possible, but how do we know what we've missed? We don't know what we don't know!</p>
+                            <div class="info-box"><p>Use a simple “meta-prompt” to ask Copilot to act as a coach, review your initial prompt, and tell you what crucial details are missing.</p></div>
+                            <h4>The Prompt Coach Meta-Prompt</h4>
+                            <div class="prompt-box">Act as a Prompt Coach.
+
+(1) Critically review the prompt below. Note any crucial details that are missing.
+(2) Rewrite it for clarity and completeness, adding reasonable defaults for gaps in [].
+(3) Ask 2-3 follow-up questions to refine it further.
+
+Prompt: [Insert your initial prompt here, include your G-C-E]<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                            <div class="success-box"><p><strong>Remember:</strong> Your role is to guide Copilot, not to do its job. Give Copilot the full context (Goal, Context, Expectations) so it can generate the best output. Don't spend time crafting the “perfect” prompt yourself; Copilot is better at that than you!</p></div>
+                        </div>
+
+                        <!-- Tab 3: Keep the Conversation Going -->
+                        <div class="vtab-panel" data-tab="3">
+                            <h3><span class="tab-num">3</span> Keep the Conversation Going</h3>
+                            <div class="warning-box"><p>You will not get the perfect response in the first attempt, and that's perfectly normal.</p></div>
+                            <p>Treat the first response from Copilot as a draft, not the final product. The real value comes from the conversation. Don't stop after the first response. Review, refine, and iterate until you get what you need.</p>
+                            <div class="card-container single-column">
+                                <div class="info-card"><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>Review</strong><p>Check relevance, completeness, and accuracy of the response.</p></div>
+                                <div class="info-card"><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Feedback</strong><p>Tell Copilot what to keep, change, or remove.</p></div>
+                                <div class="info-card"><strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Iterate</strong><p>Refine and repeat until the output meets your needs.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: THE 4-STEP PROCESS -->
+        <div class="section collapsed" id="the-4-step-process" data-section="5">
+            <div class="section-accent"></div>
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>The 4-Step Process</div>
+                <button class="section-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            </div>
+            <div class="section-content">
+                <p>TAE-O is a simple, repeatable process you run every time you work with AI. Four steps, four questions. It puts together the skills you just learned into a workflow you can use every day.</p>
+
+                <!-- Stepper -->
+                <div class="framework-stepper">
+                    <div class="step-node active" onclick="switchFrameworkStep('1')"><div class="step-circle">T</div><div class="step-label">Think</div></div>
+                    <div class="step-node" onclick="switchFrameworkStep('2')"><div class="step-circle">A</div><div class="step-label">Ask</div></div>
+                    <div class="step-node" onclick="switchFrameworkStep('3')"><div class="step-circle">E</div><div class="step-label">Evaluate</div></div>
+                    <div class="step-node" onclick="switchFrameworkStep('4')"><div class="step-circle">O</div><div class="step-label">Own</div></div>
+                </div>
+
+                <!-- Framework VTabs -->
+                <div class="vtabs-container" id="framework-tabs">
+                    <div class="vtabs-nav">
+                        <button class="vtabs-nav-btn active" data-tab="1" onclick="switchFrameworkStep('1')"><span class="tab-num">T</span><span class="tab-label">Think</span></button>
+                        <button class="vtabs-nav-btn" data-tab="2" onclick="switchFrameworkStep('2')"><span class="tab-num">A</span><span class="tab-label">Ask</span></button>
+                        <button class="vtabs-nav-btn" data-tab="3" onclick="switchFrameworkStep('3')"><span class="tab-num">E</span><span class="tab-label">Evaluate</span></button>
+                        <button class="vtabs-nav-btn" data-tab="4" onclick="switchFrameworkStep('4')"><span class="tab-num">O</span><span class="tab-label">Own</span></button>
+                    </div>
+                    <div class="vtabs-content">
+                        <!-- THINK -->
+                        <div class="vtab-panel active" data-tab="1">
+                            <h3><span class="tab-num">T</span> THINK — “What do I actually need?”</h3>
+                            <div class="flow-row">
+                                <div class="flow-item" data-type="input"><strong>Input</strong><p>Your real work task or “Prompt Away” task</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="action"><strong>Action</strong><p>Define what you need before typing anything into AI</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="output"><strong>Output</strong><p>A clearly scoped task with success criteria</p></div>
+                            </div>
+                            <p>Stop before you type. Define what you need, why it matters, and what success looks like. This is the step most people skip, and it's the one that makes the biggest difference.</p>
+                            <h4>The THINK Checklist</h4>
+                            <table class="checklist-table"><thead><tr><th></th><th>Question</th><th>Ask Yourself</th></tr></thead><tbody>
+                                <tr><td><input type="checkbox" id="think-q1"></td><td>What is the task?</td><td>What am I trying to accomplish?</td></tr>
+                                <tr><td><input type="checkbox" id="think-q2"></td><td>Why does it matter?</td><td>What's at stake? Who is this for?</td></tr>
+                                <tr><td><input type="checkbox" id="think-q3"></td><td>What does success look like?</td><td>How will I know if the AI output is good enough?</td></tr>
+                                <tr><td><input type="checkbox" id="think-q4"></td><td>What context do I have?</td><td>What information, constraints, or examples can I provide?</td></tr>
+                            </tbody></table>
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Worked Example</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <p><strong>Scenario:</strong> You need to prepare a project status update for senior leadership.</p>
+                                    <p><strong>THINK before typing:</strong></p>
+                                    <ul><li><strong>Task:</strong> Summarise Q3 results for a leadership briefing</li><li><strong>Why:</strong> Leadership needs a clear picture; limited time in meeting</li><li><strong>Success:</strong> Concise summary with key results, risks, and actions</li><li><strong>Context:</strong> I have the full Q3 report; audience is senior leaders</li></ul>
+                                    <div class="info-box"><p>Notice how you haven't typed anything into AI yet. That's the point. Thinking first means you'll ask better, evaluate faster, and own the result with confidence.</p></div>
+                                </div></div>
+                            </div>
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>Don't have an idea? Try this Idea Generator</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <div class="prompt-box">Role: Act as an AI Productivity Consultant.
+
+Instructions:
+- Based on what you know about me, suggest the top 5 ways that you can help me in my context.
+- Keep all ideas within Copilot Chat's native capabilities (no external integrations).
+- For each use case, provide: Description, Expected Benefit, Ease of Implementation.<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                </div></div>
+                            </div>
+                        </div>
+
+                        <!-- ASK -->
+                        <div class="vtab-panel" data-tab="2">
+                            <h3><span class="tab-num">A</span> ASK — “How do I set AI up for success?”</h3>
+                            <div class="flow-row">
+                                <div class="flow-item" data-type="input"><strong>Input</strong><p>Your scoped task and context from THINK</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="action"><strong>Action</strong><p>Work with Copilot to craft a comprehensive prompt</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="output"><strong>Output</strong><p>A ready-to-use prompt</p></div>
+                            </div>
+                            <p>Now you're ready to talk to AI. Apply the skills from Section 4: structure your context with Goal-Context-Expectations, use meta-prompting to let AI help you refine your ask, and keep the conversation going.</p>
+                            <div class="info-box"><p><strong>Remember:</strong> You don't need to craft the perfect prompt yourself. Use the G-C-E structure from Section 4, then let Copilot help you improve it.</p></div>
+                            <h4>The Prompt Designer Meta-Prompt</h4>
+                            <p>This is your primary tool for turning a documented use case into a ready-to-use prompt.</p>
+                            <div class="prompt-box">Act as an Expert Prompt Designer.
+
+Based on the use case details provided, draft a comprehensive and clear prompt I can use to ask for your help with this use case.
+
+The prompt should briefly restate the context, describe the output I want you to produce, include my key constraints, and end by flagging any assumptions and requesting any missing information.
+
+After you propose the prompt, suggest 2-3 optional tweaks I could make to adapt it for different situations.
+
+Here are the details: [PASTE YOUR DOCUMENTED USE CASE FROM THINK STEP]<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>For Complex Use Cases: Problem Clarification</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <p>For tasks where the problem itself isn't clear yet:</p>
+                                    <div class="prompt-box">Role: Act as a Problem-framing Partner.
+Task: Turn my documented use case into a clear problem statement and success criteria.
+
+Instructions:
+1. Read my use case details below. Use only the information I provide.
+2. If anything is missing or unclear, ask me up to 3 clarifying questions and wait for my answers.
+3. Then respond with:
+   * Concise Summary (50 words or fewer)
+   * Problem Statement using this template:
+     &gt; "As a [role], I need help with [task / challenge] because [why it matters].
+     &gt; Success means [outcome &amp; any metrics].
+     &gt; Key context: [contextual details, constraints, assumptions]."
+   * What Success Looks Like: 3-5 clear, outcome-focused bullet points.
+
+Here are my use case details: [PASTE YOUR USE CASE]<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                </div></div>
+                            </div>
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Brainstorming with AI</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <p>Before jumping to a specific solution, use AI to explore your options:</p>
+                                    <div class="prompt-box">Act as my AI Thinking Partner.
+
+Based on the use case details I share below, suggest several realistic ways Microsoft Copilot Chat could help me tackle this problem. Briefly explain the pros and cons of each option, recommend the 1-2 approaches that you think would work best in my context, and ask me any clarifying questions you need before confirming your recommendations.
+
+Here are the details: [Paste your problem statement, success criteria, and key constraints here]<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                </div></div>
+                            </div>
+                            <div class="success-box"><p><strong>Tip:</strong> Let Copilot draft, you steer. Your job is to validate accuracy, tighten scope, and adjust tone.</p></div>
+                        </div>
+
+                        <!-- EVALUATE -->
+                        <div class="vtab-panel" data-tab="3">
+                            <h3><span class="tab-num">E</span> EVALUATE — “Is this actually good enough?”</h3>
+                            <div class="flow-row">
+                                <div class="flow-item" data-type="input"><strong>Input</strong><p>Copilot's response to your prompt</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="action"><strong>Action</strong><p>Challenge the output systematically and refine through conversation</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="output"><strong>Output</strong><p>A refined, verified response you can trust</p></div>
+                            </div>
+                            <p>This is where critical thinking becomes visible. Don't just read the output and say “looks good.” Challenge it systematically.</p>
+
+                            <h4>After You Get Your Initial Response...</h4>
+                            <p>Remember, your initial response is rarely exactly what you want or expect. The true value of working with an LLM is in the conversation — each round of feedback gets you closer to what you actually need.</p>
+                            <div class="issues-grid">
+                                <div class="issue-card"><div class="issue-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div><div class="issue-content"><h5>Review</h5><p>Check relevance, completeness, and accuracy</p></div></div>
+                                <div class="issue-card"><div class="issue-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></div><div class="issue-content"><h5>Clarify &amp; Expand</h5><p>Ask for deeper explanations, examples, alternatives</p></div></div>
+                                <div class="issue-card"><div class="issue-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><div class="issue-content"><h5>Feedback</h5><p>Tell AI what to keep, change, or remove</p></div></div>
+                                <div class="issue-card"><div class="issue-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></div><div class="issue-content"><h5>Refine &amp; Iterate</h5><p>Add context or adjust as needed</p></div></div>
+                            </div>
+                            <h4>The “Improve This” Prompt</h4>
+                            <div class="prompt-box">Compared to my goals and success criteria above, here is what works well:
+[list]
+
+and here is what is missing, unclear, off-topic, or incorrect:
+[list]
+
+Please produce a revised version that keeps the strengths and fixes the issues.<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+
+                            <h4>The EVALUATE Checklist</h4>
+                            <table class="checklist-table"><thead><tr><th></th><th>Check</th><th>Question</th></tr></thead><tbody>
+                                <tr><td><input type="checkbox" id="eval-q1"></td><td>Accurate?</td><td>Are the facts, figures, and claims correct? Could anything be hallucinated?</td></tr>
+                                <tr><td><input type="checkbox" id="eval-q2"></td><td>Complete?</td><td>Does it cover everything you asked for? Is anything missing?</td></tr>
+                                <tr><td><input type="checkbox" id="eval-q3"></td><td>Relevant?</td><td>Is it actually useful for your specific situation and audience?</td></tr>
+                                <tr><td><input type="checkbox" id="eval-q4"></td><td>Fit for purpose?</td><td>Could you use this as-is, or does it need work?</td></tr>
+                            </tbody></table>
+
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>What to Watch Out For</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <table class="watchout-table"><thead><tr><th>Issue</th><th>What to Look For</th></tr></thead><tbody>
+                                        <tr><td>Confident but wrong</td><td>AI can state incorrect facts with complete confidence. Verify claims you'll rely on.</td></tr>
+                                        <tr><td>Sounds specific but is generic</td><td>Watch for advice that sounds tailored but could apply to anyone. Push for specifics.</td></tr>
+                                        <tr><td>Agreeable but unchallenged</td><td>AI tends to build on your assumptions even if they're flawed. Ask it to play devil's advocate.</td></tr>
+                                        <tr><td>Missing edge cases</td><td>AI often gives the “happy path” answer. Ask “What could go wrong?”</td></tr>
+                                        <tr><td>Outdated information</td><td>AI training data has a cutoff. For time-sensitive topics, verify recency.</td></tr>
+                                        <tr><td>Tone mismatch</td><td>The output may be technically correct but wrong for your audience.</td></tr>
+                                    </tbody></table>
+                                </div></div>
+                            </div>
+                            <div class="collapsible">
+                                <div class="collapsible-header"><div class="collapsible-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Evaluation Prompts</div><span class="collapsible-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></div>
+                                <div class="collapsible-content"><div class="collapsible-body">
+                                    <p>Use these meta-prompts to help you evaluate more effectively:</p>
+                                    <h4>The “Fact Check” Prompt</h4>
+                                    <div class="prompt-box">Review your response above for factual accuracy. For each claim or statistic, indicate your confidence level (High / Medium / Low) and flag anything that should be independently verified before use.<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                    <h4>The “Devil's Advocate” Prompt</h4>
+                                    <div class="prompt-box">Act as a critical reviewer. Challenge the response you just gave me. What are the weaknesses, gaps, or assumptions? What would someone who disagrees with this say? What am I missing?<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                    <h4>The “Audience Check” Prompt</h4>
+                                    <div class="prompt-box">Review the output above from the perspective of [describe your audience]. Is the tone appropriate? Is it too technical or too simplistic? What would they find unclear or unconvincing?<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                                </div></div>
+                            </div>
+                            <div class="warning-box"><p>If you can't explain why the output is good enough, you haven't evaluated it. Go back and check again.</p></div>
+                        </div>
+
+                        <!-- OWN -->
+                        <div class="vtab-panel" data-tab="4">
+                            <h3><span class="tab-num">O</span> OWN — “Am I putting my name on this?”</h3>
+                            <div class="flow-row">
+                                <div class="flow-item" data-type="input"><strong>Input</strong><p>Your refined, evaluated output</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="action"><strong>Action</strong><p>Make a conscious decision about what you're taking responsibility for</p></div>
+                                <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="flow-item" data-type="output"><strong>Output</strong><p>A final output you can confidently use, share, or present</p></div>
+                            </div>
+                            <p>AI is not the author. You are. Before you use, send, or publish anything AI helped create, make a conscious decision about what you're taking responsibility for.</p>
+                            <h4>The OWN Checklist</h4>
+                            <table class="checklist-table"><thead><tr><th></th><th>Check</th><th>Question</th></tr></thead><tbody>
+                                <tr><td><input type="checkbox" id="own-q1"></td><td>What will I use?</td><td>Which parts of this output am I keeping?</td></tr>
+                                <tr><td><input type="checkbox" id="own-q2"></td><td>What needs editing?</td><td>What do I need to change, add, or remove?</td></tr>
+                                <tr><td><input type="checkbox" id="own-q3"></td><td>Are there any risks?</td><td>Could anything cause problems if shared? (inaccuracy, confidentiality, tone, bias)</td></tr>
+                                <tr><td><input type="checkbox" id="own-q4"></td><td>Who else needs to review?</td><td>Does anyone else need to sign off before I use this?</td></tr>
+                            </tbody></table>
+                            <h4>Why This Step Matters</h4>
+                            <p>In an enterprise setting, you are accountable for what you share, send, or present, regardless of whether AI helped create it. The OWN step makes that accountability explicit. It's also the step that separates professionals who use AI well from those who just copy-paste.</p>
+                            <div class="info-box"><p><strong>The Ownership Test:</strong> Ask yourself: If someone questioned this output, could I explain and defend every part of it? If not, go back to EVALUATE.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beyond the Loop -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Beyond the Loop</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                        <h4>Know When NOT to Use AI</h4>
+                        <div class="flip-cards-container">
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><h4>Highly confidential content</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why</span><p>If the data shouldn't leave your organisation, be cautious about what you paste into AI tools. Understand your organisation's AI usage policy.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg><h4>High-stakes decisions</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why</span><p>AI can inform your thinking, but decisions with significant financial, legal, or safety consequences need human judgement and proper sign-off processes.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><h4>Tasks requiring real-time accuracy</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why</span><p>AI training data has a cutoff date. For current events, live data, or rapidly changing information, verify independently.</p></div></div></div>
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-card-front"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><h4>Emotional or sensitive communications</h4><span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>Click to flip</span></div><div class="flip-card-back"><span class="back-label">Why</span><p>AI can help you draft, but messages involving people's careers, wellbeing, or personal matters need genuine human empathy and care.</p></div></div></div>
+                        </div>
+
+                        <h4 style="margin-top:24px;">Do Not Stop Here: Extend the Value</h4>
+                        <p>Once you've owned the output, think bigger. What else can AI help you do with this work? Don't just finish the task; use this as a springboard for the next one.</p>
+                        <div class="prompt-box">Act as my AI Thinking Partner.
+
+Help me extend the value of this work by suggesting the most useful next steps (e.g. action plan, checklist, risk analysis) and how you can help me with these steps.
+
+Ask me clarification questions for additional context required.<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                        <div class="success-box"><p>When you can say “I reviewed this, I refined it, and I stand behind it,” you've completed TAE-O. And when you ask “What else can AI help me with?”, you've made it a habit.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: HANDS-ON -->
+        <div class="section collapsed" id="hands-on" data-section="6">
+            <div class="section-accent"></div>
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>Hands-On: Run the Loop</div>
+                <button class="section-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            </div>
+            <div class="section-content">
+                <p>Time to put TAE-O into practice. You'll work through all four steps using a real task from your own work. By the end, you'll have a refined, usable output you can actually take back to your desk. All the prompts and tools you need are in <a href="#the-4-step-process">The 4-Step Process</a>. This section guides you through the exercise.</p>
+
+                <!-- Step 1: THINK -->
+                <div class="content-box collapsed">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>Step 1: THINK — Document Your Use Case</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <div class="exercise-steps">
+                        <div class="exercise-step"><span class="exercise-step-num">1</span><div class="exercise-step-content"><strong>Choose your task</strong><p>Use your “Prompt Away” task from the Warm Up, or pick a new real work task.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">2</span><div class="exercise-step-content"><strong>Document it</strong><p>Use the template below to capture your use case.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">3</span><div class="exercise-step-content"><strong>THINK checklist</strong><p>Work through the checklist before moving to the next step.</p></div></div>
+                    </div>
+                    <h4 style="margin-top:20px;">THINK Checklist</h4>
+                    <table class="checklist-table"><thead><tr><th></th><th>Question</th></tr></thead><tbody>
+                        <tr><td><input type="checkbox" id="ho-think-q1"></td><td>What is the task?</td></tr>
+                        <tr><td><input type="checkbox" id="ho-think-q2"></td><td>Why does it matter?</td></tr>
+                        <tr><td><input type="checkbox" id="ho-think-q3"></td><td>What does success look like?</td></tr>
+                        <tr><td><input type="checkbox" id="ho-think-q4"></td><td>What context do I have?</td></tr>
+                    </tbody></table>
+                    <hr style="margin:24px 0;border:none;border-top:1px solid var(--color-border,#e0e0e0);">
+                    <!-- Use Case Form -->
+                    <div class="usecase-form" id="usecaseForm">
+                        <div class="usecase-form-header"><span>Use Case Documentation</span><button class="copy-btn" onclick="copyUseCaseForm(event)" style="position:relative;top:auto;right:auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy All</button></div>
+                        <table>
+                            <tbody><tr><td>Use Case Title</td><td><input type="text" id="uc-title" placeholder="Give your use case a short name"></td></tr>
+                            <tr><td>Description (What is the task?)</td><td><textarea id="uc-description" placeholder="Describe the task you want AI to help with"></textarea></td></tr>
+                            <tr><td>How is this currently being done?</td><td><textarea id="uc-current" placeholder="Describe the current process"></textarea></td></tr>
+                            <tr><td>How often and how long does this take now?</td><td><input type="text" id="uc-frequency" placeholder="e.g., Weekly, ~2 hours each time"></td></tr>
+                            <tr><td>What are the issues or challenges?</td><td><textarea id="uc-challenges" placeholder="What makes this task difficult?"></textarea></td></tr>
+                            <tr><td>How do you hope AI can help?</td><td><textarea id="uc-hope" placeholder="What would AI ideally do for you?"></textarea></td></tr>
+                            <tr><td>What does success look like?</td><td><textarea id="uc-success" placeholder="How will you know the AI output is good enough?"></textarea></td></tr>
+                            <tr><td>Any constraints or commentary?</td><td><textarea id="uc-constraints" placeholder="Limitations, must-haves, nice-to-haves..."></textarea></td></tr>
+                        </tbody></table>
+                    </div>
+                    <div class="info-box"><p>Don't have an idea? Use the <strong>Idea Generator</strong> prompt in the <a href="#the-4-step-process">THINK step</a>.</p></div>
+                    </div>
+                </div>
+
+                <!-- Step 2: ASK -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>Step 2: ASK — Craft Your Prompt with AI</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <div class="exercise-steps">
+                        <div class="exercise-step"><span class="exercise-step-num">1</span><div class="exercise-step-content"><strong>Copy your use case</strong><p>Copy your documented use case from Step 1.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">2</span><div class="exercise-step-content"><strong>Use the Prompt Designer</strong><p>Use the <strong>Prompt Designer Meta-Prompt</strong> from <a href="#the-4-step-process">The 4-Step Process &gt; ASK</a> to let Copilot build your prompt.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">3</span><div class="exercise-step-content"><strong>Review and adjust</strong><p>Review what Copilot suggests. Add or adjust anything it missed.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">4</span><div class="exercise-step-content"><strong>For complex problems</strong><p>Try the <strong>Problem Clarification</strong> or <strong>Brainstorming</strong> prompts from <a href="#the-4-step-process">The 4-Step Process &gt; ASK</a>.</p></div></div>
+                    </div>
+                    <h4 style="margin-top:20px;">ASK Checklist</h4>
+                    <table class="checklist-table"><thead><tr><th></th><th>Check</th></tr></thead><tbody>
+                        <tr><td><input type="checkbox" id="ho-ask-q1"></td><td>I structured my request using Goal, Context, and Expectations</td></tr>
+                        <tr><td><input type="checkbox" id="ho-ask-q2"></td><td>I used a meta-prompt (Prompt Designer or Prompt Coach) to refine my prompt</td></tr>
+                        <tr><td><input type="checkbox" id="ho-ask-q3"></td><td>I reviewed Copilot's suggested prompt and made adjustments</td></tr>
+                        <tr><td><input type="checkbox" id="ho-ask-q4"></td><td>My prompt is ready to execute</td></tr>
+                    </tbody></table>
+                    <div class="info-box"><p><strong>Tip:</strong> Let Copilot draft, you steer. Your job is to validate accuracy, tighten scope, and adjust tone.</p></div>
+                    </div>
+                </div>
+
+                <!-- Step 3: EVALUATE -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>Step 3: EVALUATE — Review and Refine</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <div class="exercise-steps">
+                        <div class="exercise-step"><span class="exercise-step-num">1</span><div class="exercise-step-content"><strong>Run your prompt</strong><p>Run your prompt from Step 2 in Copilot.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">2</span><div class="exercise-step-content"><strong>Remember</strong><p>Your initial response is a starting point, not the final product. Use the conversation to refine it.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">3</span><div class="exercise-step-content"><strong>Work through the checklist</strong><p>Check the “What to Watch Out For” table in <a href="#the-4-step-process">The 4-Step Process &gt; EVALUATE</a> for common pitfalls.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">4</span><div class="exercise-step-content"><strong>Use evaluation prompts</strong><p>Use the evaluation and refinement prompts from <a href="#the-4-step-process">The 4-Step Process &gt; EVALUATE</a> to improve the output.</p></div></div>
+                    </div>
+                    <h4 style="margin-top:20px;">EVALUATE Checklist</h4>
+                    <table class="checklist-table"><thead><tr><th></th><th>Check</th></tr></thead><tbody>
+                        <tr><td><input type="checkbox" id="ho-eval-q1"></td><td>I verified the facts, figures, and claims are correct</td></tr>
+                        <tr><td><input type="checkbox" id="ho-eval-q2"></td><td>The response covers everything I asked for with nothing missing</td></tr>
+                        <tr><td><input type="checkbox" id="ho-eval-q3"></td><td>The output is relevant and useful for my specific situation</td></tr>
+                        <tr><td><input type="checkbox" id="ho-eval-q4"></td><td>I could use this output as-is or with minor edits</td></tr>
+                    </tbody></table>
+                    <div class="info-box"><p>Refer to <a href="#the-4-step-process">The 4-Step Process &gt; EVALUATE</a> for the Fact Check, Devil's Advocate, Audience Check, and Improve This prompts.</p></div>
+                    </div>
+                </div>
+
+                <!-- Step 4: OWN -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Step 4: OWN — Make It Yours</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <div class="exercise-steps">
+                        <div class="exercise-step"><span class="exercise-step-num">1</span><div class="exercise-step-content"><strong>Review your final output</strong><p>Review your final output from Step 3.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">2</span><div class="exercise-step-content"><strong>OWN checklist</strong><p>Work through the OWN checklist below.</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">3</span><div class="exercise-step-content"><strong>Make final edits</strong><p>Make any final edits yourself (not through AI).</p></div></div>
+                        <div class="exercise-step"><span class="exercise-step-num">4</span><div class="exercise-step-content"><strong>Extend the value</strong><p>Consider: What else can AI help you do? Try the “Extend Value” prompt from <a href="#the-4-step-process">The 4-Step Process &gt; OWN</a>.</p></div></div>
+                    </div>
+                    <h4 style="margin-top:20px;">OWN Checklist</h4>
+                    <table class="checklist-table"><thead><tr><th></th><th>Check</th></tr></thead><tbody>
+                        <tr><td><input type="checkbox" id="ho-own-q1"></td><td>I have decided which parts of this output I will keep</td></tr>
+                        <tr><td><input type="checkbox" id="ho-own-q2"></td><td>I have made the necessary edits to make it my own</td></tr>
+                        <tr><td><input type="checkbox" id="ho-own-q3"></td><td>I have checked for risks (inaccuracy, confidentiality, tone, bias)</td></tr>
+                        <tr><td><input type="checkbox" id="ho-own-q4"></td><td>I know who else needs to review before I share or use this</td></tr>
+                    </tbody></table>
+                    </div>
+                </div>
+
+                <!-- Re-Rate and Compare -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Re-Rate and Compare</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <p>Now that you've completed the full TAE-O loop, let's see how far you've come.</p>
+                    <p><strong>Rate your final output:</strong></p>
+                    <div class="rating-scale"><span>1 (Poor)</span><div class="rating-bar"></div><span>10 (Great)</span></div>
+                    <h4>Compare Your Approach</h4>
+                    <p>Think about the difference between your Warm Up attempt and your TAE-O attempt:</p>
+                    <ol style="margin:16px 0;padding-left:24px;color:var(--gray-text);line-height:1.8;">
+                        <li>What did you do differently this time?</li>
+                        <li>Which TAE-O step made the biggest difference?</li>
+                        <li>What would you do even better next time?</li>
+                    </ol>
+                    <div class="success-box"><p>Most people see a significant improvement. The difference isn't magic; it's the thinking process you applied.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: REFLECT AND GROW -->
+        <div class="section collapsed" id="reflect-and-grow" data-section="7">
+            <div class="section-accent"></div>
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Reflect and Grow</div>
+                <button class="section-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            </div>
+            <div class="section-content">
+                <!-- Reflection Form -->
+                <div class="content-box collapsed">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>Your TAE-O Reflection</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <p style="margin-bottom:16px;">This is your evidence of critical thinking. Document how you applied each step of TAE-O to your use case.</p>
+                    <div class="reflection-form" id="reflectionForm">
+                        <div class="reflection-form-header"><span>TAE-O Reflection</span><button class="copy-btn" onclick="copyFormToClipboard('reflectionForm','TAE-O REFLECTION')" style="position:relative;top:auto;right:auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy All</button></div>
+                        <div class="reflection-section">
+                            <div class="reflection-section-header">THINK — How did you define the problem?</div>
+                            <div class="reflection-field"><label>What was your task, and why did it matter?</label><textarea id="ref-think-1" placeholder="Describe your task and its importance..."></textarea></div>
+                            <div class="reflection-field"><label>What did defining success upfront change about how you approached the task?</label><textarea id="ref-think-2" placeholder="How did having clear success criteria help?"></textarea></div>
+                            <div class="reflection-field"><label>What context did you identify before talking to AI?</label><textarea id="ref-think-3" placeholder="What information did you gather first?"></textarea></div>
+                        </div>
+                        <div class="reflection-section">
+                            <div class="reflection-section-header">ASK — How did you set AI up for success?</div>
+                            <div class="reflection-field"><label>What context did you provide (Goal, Context, Expectations)?</label><textarea id="ref-ask-1" placeholder="Describe how you structured your prompt..."></textarea></div>
+                            <div class="reflection-field"><label>Did you use meta-prompting? What difference did it make?</label><textarea id="ref-ask-2" placeholder="Which meta-prompt did you use and what happened?"></textarea></div>
+                            <div class="reflection-field"><label>What did you learn about how to ask better?</label><textarea id="ref-ask-3" placeholder="Key insight about prompting..."></textarea></div>
+                        </div>
+                        <div class="reflection-section">
+                            <div class="reflection-section-header">EVALUATE — How did you challenge the output?</div>
+                            <div class="reflection-field"><label>What issues did you find in AI's initial response?</label><textarea id="ref-eval-1" placeholder="What was wrong or missing?"></textarea></div>
+                            <div class="reflection-field"><label>What did you ask AI to fix, change, or expand?</label><textarea id="ref-eval-2" placeholder="How did you give feedback?"></textarea></div>
+                            <div class="reflection-field"><label>How many rounds of refinement did it take?</label><textarea id="ref-eval-3" placeholder="Number of iterations and what improved..."></textarea></div>
+                        </div>
+                        <div class="reflection-section">
+                            <div class="reflection-section-header">OWN — What decisions did you make?</div>
+                            <div class="reflection-field"><label>What did you keep, change, or reject from the final output?</label><textarea id="ref-own-1" placeholder="Your editing decisions..."></textarea></div>
+                            <div class="reflection-field"><label>Are there any risks you identified before using this output?</label><textarea id="ref-own-2" placeholder="Any concerns about accuracy, tone, or appropriateness?"></textarea></div>
+                            <div class="reflection-field"><label>Could you explain and defend this output to a colleague or manager?</label><textarea id="ref-own-3" placeholder="Your confidence level and why..."></textarea></div>
+                        </div>
+                        <div class="reflection-section">
+                            <div class="reflection-section-header">Overall</div>
+                            <div class="reflection-field"><label>What was the single biggest difference TAE-O made compared to your Warm Up approach?</label><textarea id="ref-overall-1" placeholder="The biggest change you noticed..."></textarea></div>
+                            <div class="reflection-field"><label>What would you do differently next time?</label><textarea id="ref-overall-2" placeholder="Your improvement plan..."></textarea></div>
+                        </div>
+                    </div>
+                    <div class="info-box"><p>This reflection is your proof of practice. It shows that you didn't just copy what AI gave you. You thought critically, challenged the output, and made deliberate decisions about what to use.</p></div>
+                    </div>
+                </div>
+
+                <!-- Use AI to Learn AI -->
+                <div class="content-box collapsed">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Use AI to Learn AI</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                        <p class="lead">The best thing about AI is that you can use AI to help you get better at using AI.</p>
+                        <p>This is one of the most powerful habits you can build. After every meaningful AI interaction, ask Copilot to coach you on how you did. It takes 30 seconds and compounds over time.</p>
+                        <div class="prompt-box">Act as my Prompting Coach.
+
+Looking at our full conversation above, review how I described my problem, how I provided context, and how I gave you feedback; tell me what I did well, suggest 3-5 specific improvements I can make next time, and summarize your advice as a short list of simple rules I can follow.<button class="copy-btn" onclick="copyPrompt(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy</button></div>
+                        <div class="success-box"><p><strong>Make this a habit.</strong> Every time you have an important conversation with AI, end with this prompt. Your skills will improve faster than you expect.</p></div>
+                    </div>
+                </div>
+
+                <!-- Your Growth Plan -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>Your Growth Plan</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <p>Before you leave, capture these:</p>
+                    <div class="growth-cards">
+                        <div class="growth-card"><h4>Which TAE-O step made the biggest difference for you today?</h4><p>Why?</p></div>
+                        <div class="growth-card"><h4>Which TAE-O step do you need to practice most?</h4><p>What will you do to improve?</p></div>
+                        <div class="growth-card"><h4>One thing I'll start doing</h4><p>A new habit based on what I learned</p></div>
+                        <div class="growth-card"><h4>One thing I'll stop doing</h4><p>An old habit that TAE-O replaces</p></div>
+                    </div>
+                    <div class="info-box"><p>Schedule 15 minutes each week to run the “Use AI to Learn AI” prompt on your most important AI conversation that week. Small reflections compound into big improvements.</p></div>
+                    </div>
+                </div>
+
+                <!-- Recommended Next Steps -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>Recommended Next Steps</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                    <ul class="outcome-list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><div><strong>Personalize your Copilot</strong> <span>— Update your custom instructions so Copilot knows your role, goals, and typical tasks.</span></div></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg><div><strong>Run TAE-O on a second use case</strong> <span>— Pick another real task, ideally in a different area of your work.</span></div></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg><div><strong>Build your prompt library</strong> <span>— Save prompts and meta-prompts that work well. Adapt them for new tasks.</span></div></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><div><strong>Share what you learn</strong> <span>— Show your team your use cases, prompts, and before/after examples.</span></div></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><div><strong>Schedule regular reflection</strong> <span>— Once a week, run the “Use AI to Learn AI” prompt on one important conversation.</span></div></li>
+                    </ul>
+                    </div>
+                </div>
+
+                <!-- Knowledge Check -->
+                <div class="content-box collapsed" style="margin-top:24px;">
+                    <div class="content-box-header" onclick="toggleContentBox(this)">
+                        <div class="content-box-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Knowledge Check</div>
+                        <button class="content-box-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                    </div>
+                    <div class="content-box-content">
+                        <div style="display:flex;justify-content:flex-end;margin-bottom:12px;"><button class="expand-collapse-btn" onclick="toggleKnowledgeCheck(event)">Expand All</button></div>
+                        <p style="margin-bottom:16px;">Test your understanding. Click each question to reveal the answer.</p>
+                    <div class="qa-cards-container">
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q1: What are the 4 steps in TAE-O?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>Think, Ask, Evaluate, Own.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q2: What should you do BEFORE typing anything into AI?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>Think. Define what you need, why it matters, and what success looks like.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q3: T/F: If AI gives you a confident-sounding response with citations, you can trust it.</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>False. LLMs can hallucinate facts and citations. Always verify.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q4: What does G-C-E stand for?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>Goal, Context, Expectations. The framework for providing rich context when you ask AI for help.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q5: What is meta-prompting?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>Using AI to help you write or improve your prompt (e.g., “Act as a Prompt Coach”).</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q6: In the EVALUATE step, what 4 things should you check?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>Accuracy, completeness, relevance, and fitness for purpose.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q7: Why is the OWN step important in an enterprise setting?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>Because you are accountable for what you share, send, or present, regardless of whether AI helped create it.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q8: T/F: You should expect the perfect response from AI on the first attempt.</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>False. Treat the first response as a draft. The real value is in the conversation — review, give feedback, and iterate.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q9: What's the difference between the Pilot and the Co-pilot?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>You (the Pilot) set direction, make decisions, and are accountable. AI (the Co-pilot) does the heavy lifting and follows your lead.</p></div></div></div>
+                        <div class="qa-card"><div class="qa-question" onclick="this.closest('.qa-card').classList.toggle('active')"><span>Q10: How do you continuously improve your AI skills?</span><span class="qa-icon">+</span></div><div class="qa-answer"><div class="qa-answer-content"><p>Use AI to learn AI. After important conversations, ask Copilot to coach you on how you did. Reflect, capture lessons, and build better habits over time.</p></div></div></div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Closing Banner -->
+                <div class="quote-banner" style="margin-top:24px;">
+                    <blockquote>The magic doesn't start with AI; it starts with YOU!</blockquote>
+                    <cite>The tool is only as powerful as the one who wields it, and you are the only one who can help the AI to realize its potential in helping you.</cite>
+                </div>
+            </div>
+        </div>
+
+        </div><!-- /content-area -->
+        <div class="content-footer"><p>© 2026 Mission + | Making AI Real</p><p>This guide is for personal use during and after the workshop. Please do not share or redistribute without permission.</p></div>
+    </main>
+    <div class="toast" id="toast"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Copied to clipboard</div>
+    <button class="back-to-top" id="backToTop"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+    <script src="scripts.js"></script>
+    <script>
+        const STORAGE_KEY = 'thinking-ai-workshop';
+        function switchVTab(containerId, tabNum) { const c = document.getElementById(containerId); if (!c) return; c.querySelectorAll('.vtabs-nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tabNum)); c.querySelectorAll('.vtab-panel').forEach(p => p.classList.toggle('active', p.dataset.tab === tabNum)); }
+        function switchFrameworkStep(step) { document.querySelectorAll('.step-node').forEach((n, i) => { n.classList.remove('active', 'completed'); if (i + 1 < parseInt(step)) n.classList.add('completed'); else if (i + 1 === parseInt(step)) n.classList.add('active'); }); switchVTab('framework-tabs', step); }
+        function handleCollapsibleClick(e) { const h = e.target.closest('.collapsible-header'); if (h && !e.target.closest('.copy-btn')) h.closest('.collapsible').classList.toggle('active'); }
+        let knowledgeCheckExpanded = false;
+        function toggleKnowledgeCheck(e) { e.stopPropagation(); knowledgeCheckExpanded = !knowledgeCheckExpanded; const btn = e.target.closest('.expand-collapse-btn'); btn.textContent = knowledgeCheckExpanded ? 'Collapse All' : 'Expand All'; btn.closest('.content-box').querySelectorAll('.qa-card').forEach(q => knowledgeCheckExpanded ? q.classList.add('active') : q.classList.remove('active')); }
+        function saveFormData(formId) { const data = {}; document.querySelectorAll('#' + formId + ' input, #' + formId + ' textarea').forEach(el => { if (el.type === 'checkbox') data[el.id] = el.checked; else data[el.id] = el.value; }); try { localStorage.setItem(STORAGE_KEY + '-' + formId, JSON.stringify(data)); } catch(e) {} }
+        function loadFormData(formId) { try { const d = localStorage.getItem(STORAGE_KEY + '-' + formId); if (d) { const p = JSON.parse(d); Object.keys(p).forEach(k => { const el = document.getElementById(k); if (el) { if (el.type === 'checkbox') el.checked = p[k]; else el.value = p[k]; } }); } } catch(e) {} }
+        function copyFormToClipboard(formId, title) { let text = title + '\n' + '='.repeat(40) + '\n\n'; document.querySelectorAll('#' + formId + ' textarea, #' + formId + ' input[type="text"]').forEach(el => { const label = el.closest('.reflection-field, tr')?.querySelector('label, td:first-child')?.textContent || el.id; text += label + ':\n' + (el.value || '(not filled)') + '\n\n'; }); navigator.clipboard.writeText(text).then(() => { if (typeof showToast === 'function') showToast('Copied to clipboard!'); }); }
+        function copyUseCaseForm(e) { e.stopPropagation(); const fields = [{id:'uc-title',label:'Use Case Title'},{id:'uc-description',label:'Description'},{id:'uc-current',label:'How is this currently being done?'},{id:'uc-frequency',label:'How often and how long does this take now?'},{id:'uc-challenges',label:'What are the issues or challenges?'},{id:'uc-hope',label:'How do you hope Copilot can help?'},{id:'uc-success',label:'What does success look like?'},{id:'uc-constraints',label:'Any constraints or commentary?'}]; let text = 'USE CASE DOCUMENTATION\n' + '='.repeat(40) + '\n\n'; fields.forEach(f => { const el = document.getElementById(f.id); text += f.label + ':\n' + (el?.value || '(not filled)') + '\n\n'; }); navigator.clipboard.writeText(text).then(() => { if (typeof showToast === 'function') showToast('Use case copied to clipboard!'); }); }
+        function saveCheckboxes() { const data = {}; document.querySelectorAll('.checklist-table input[type="checkbox"]').forEach(cb => { data[cb.id] = cb.checked; }); try { localStorage.setItem(STORAGE_KEY + '-checkboxes', JSON.stringify(data)); } catch(e) {} }
+        function loadCheckboxes() { try { const d = localStorage.getItem(STORAGE_KEY + '-checkboxes'); if (d) { const p = JSON.parse(d); Object.keys(p).forEach(k => { const el = document.getElementById(k); if (el) el.checked = p[k]; }); } } catch(e) {} }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('click', handleCollapsibleClick);
+            loadFormData('usecaseForm');
+            document.querySelectorAll('#usecaseForm input, #usecaseForm textarea').forEach(el => el.addEventListener('input', () => saveFormData('usecaseForm')));
+            loadFormData('reflectionForm');
+            document.querySelectorAll('#reflectionForm textarea').forEach(el => el.addEventListener('input', () => saveFormData('reflectionForm')));
+            loadCheckboxes();
+            document.querySelectorAll('.checklist-table input[type="checkbox"]').forEach(cb => cb.addEventListener('change', saveCheckboxes));
+        });
+    </script>
+
+
+</body></html>
