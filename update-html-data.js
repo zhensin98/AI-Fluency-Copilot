@@ -47,11 +47,39 @@ if (m365BlockStr) m365HabitsStr = extractProp(m365BlockStr, 'habits');
 if (!chatHabitsStr) { console.error('Could not extract chat.habits'); process.exit(1); }
 if (!m365HabitsStr) { console.error('Could not extract m365.habits'); process.exit(1); }
 
+// ── Curated Role-Habit Relevance Matrix (manually defined, do not auto-compute) ──
+var CURATED_CHAT_MATRIX = [
+  {role:'LRUA', h1:3, h2:4, h3:1, h4:2, h5:5, h6:6, h7:7},
+  {role:'PR',   h1:4, h2:1, h3:5, h4:3, h5:2, h6:6, h7:7},
+  {role:'CM',   h1:4, h2:2, h3:3, h4:6, h5:1, h6:5, h7:7},
+  {role:'MS',   h1:1, h2:4, h3:2, h4:5, h5:3, h6:6, h7:7},
+  {role:'CE',   h1:3, h2:2, h3:4, h4:5, h5:1, h6:6, h7:7},
+  {role:'TSD',  h1:2, h2:1, h3:5, h4:4, h5:3, h6:6, h7:7},
+  {role:'IT',   h1:1, h2:2, h3:5, h4:6, h5:3, h6:7, h7:4},
+  {role:'FA',   h1:5, h2:4, h3:3, h4:6, h5:2, h6:7, h7:1},
+  {role:'HR',   h1:2, h2:3, h3:1, h4:5, h5:4, h6:6, h7:7},
+  {role:'SR',   h1:3, h2:1, h3:5, h4:4, h5:2, h6:6, h7:7},
+  {role:'LC',   h1:3, h2:1, h3:2, h4:5, h5:4, h6:6, h7:7}
+];
+var CURATED_M365_MATRIX = [
+  {role:'LRUA', h1:2, h2:1, h3:3, h4:4, h5:5, h6:6, h7:7},
+  {role:'PR',   h1:6, h2:4, h3:3, h4:1, h5:2, h6:5, h7:7},
+  {role:'CM',   h1:5, h2:3, h3:6, h4:2, h5:1, h6:4, h7:7},
+  {role:'MS',   h1:1, h2:2, h3:4, h4:5, h5:6, h6:3, h7:7},
+  {role:'CE',   h1:2, h2:3, h3:4, h4:5, h5:1, h6:6, h7:7},
+  {role:'TSD',  h1:3, h2:4, h3:5, h4:1, h5:2, h6:6, h7:7},
+  {role:'IT',   h1:3, h2:5, h3:4, h4:1, h5:2, h6:6, h7:7},
+  {role:'FA',   h1:2, h2:3, h3:5, h4:6, h5:4, h6:7, h7:1},
+  {role:'HR',   h1:1, h2:2, h3:4, h4:5, h5:3, h6:6, h7:7},
+  {role:'SR',   h1:5, h2:4, h3:3, h4:1, h5:2, h6:6, h7:7},
+  {role:'LC',   h1:4, h2:2, h3:5, h4:1, h5:3, h6:6, h7:7}
+];
+
 // ── Build aggregates from profile use cases ──
 var chatUCs = profile.useCases.chat;
 var m365UCs = profile.useCases.m365;
 
-function buildAggregates(ucs, habitIds) {
+function buildAggregates(ucs, habitIds, curatedMatrix) {
   var roleCodes = [], seenCodes = {};
   ucs.forEach(function(u) { if (!seenCodes[u.code]) { seenCodes[u.code] = true; roleCodes.push(u.code); } });
 
@@ -78,14 +106,8 @@ function buildAggregates(ucs, habitIds) {
     timeSaved: ucs.reduce(function(a, u) { return a + (u.timeSaved || 0); }, 0)
   };
 
-  var roleHabitMatrix = roleCodes.map(function(code) {
-    var group  = ucs.filter(function(u) { return u.code === code; });
-    var sorted = group.slice().sort(function(a, b) { return (b.timeSaved || 0) - (a.timeSaved || 0); });
-    var rankMap = {}; sorted.forEach(function(u, i) { rankMap[u.habitId] = i + 1; });
-    var row = { role: code };
-    habitIds.forEach(function(hid, i) { row['h' + (i + 1)] = rankMap[hid] || 7; });
-    return row;
-  });
+  // Use curated matrix (passed in) instead of auto-computing from timeSaved
+  var roleHabitMatrix = curatedMatrix.filter(function(r) { return roleCodes.indexOf(r.role) >= 0; });
 
   // entryPoints derived from use cases
   var epMap = {}, epList = [];
@@ -96,8 +118,8 @@ function buildAggregates(ucs, habitIds) {
 
 var chatHabitIds = ['CH1','CH2','CH3','CH4','CH5','CH6','CH7'];
 var m365HabitIds = ['MH1','MH2','MH3','MH4','MH5','MH6','MH7'];
-var chatAgg = buildAggregates(chatUCs, chatHabitIds);
-var m365Agg = buildAggregates(m365UCs, m365HabitIds);
+var chatAgg = buildAggregates(chatUCs, chatHabitIds, CURATED_CHAT_MATRIX);
+var m365Agg = buildAggregates(m365UCs, m365HabitIds, CURATED_M365_MATRIX);
 
 // Build roleNames from use cases
 var roleNames = {}, seenN = {};
