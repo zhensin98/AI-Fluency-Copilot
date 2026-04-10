@@ -1245,15 +1245,22 @@ function renderPage(pageId) {
   }
 
   if (company && company.id) {
-    fetch('http://localhost:3002/profile?id=' + encodeURIComponent(company.id))
-      .then(function(r) { return r.json(); })
+    // Try static profile JSON first (works on Vercel), fall back to local dev server
+    fetch('profile/' + company.id + '.json')
+      .then(function(r) { if (!r.ok) throw new Error('not found'); return r.json(); })
       .then(function(d) {
-        if (d.found && d.data) {
-          Object.assign(DATA, d.data);
-        }
+        if (d.data) { Object.assign(DATA, d.data); }
         init();
       })
-      .catch(function() { init(); });
+      .catch(function() {
+        fetch('http://localhost:3002/profile?id=' + encodeURIComponent(company.id))
+          .then(function(r) { return r.json(); })
+          .then(function(d) {
+            if (d.found && d.data) { Object.assign(DATA, d.data); }
+            init();
+          })
+          .catch(function() { init(); });
+      });
   } else {
     init();
   }

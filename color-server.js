@@ -234,13 +234,18 @@ function callClaudeLocal(prompt) {
 // ── Template-based use case generation (no second AI call needed) ─────────────
 function extractPain(text, index) {
   if (!text) return 'Manual, repetitive work that slows down delivery';
-  var parts = text.split(';').map(function(p){return p.trim();}).filter(Boolean);
+  var parts = text.split(/[.;]/).map(function(p){return p.trim();}).filter(Boolean);
   return parts[index % parts.length] || parts[0];
 }
 function extractObj(text, index) {
   if (!text) return 'Deliver high-quality outcomes efficiently';
-  var parts = text.split(';').map(function(p){return p.trim();}).filter(Boolean);
+  var parts = text.split(/[.;]/).map(function(p){return p.trim();}).filter(Boolean);
   return parts[index % parts.length] || parts[0];
+}
+// Split keyActivities (comma-separated) into an array
+function extractActivities(text) {
+  if (!text) return [];
+  return text.split(',').map(function(a){return a.trim();}).filter(Boolean);
 }
 
 function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId) {
@@ -250,54 +255,68 @@ function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId) {
   var pain2 = extractPain(role.painPoints, 2);
   var obj0  = extractObj(role.objectives, 0);
 
+  // Use keyActivities so each use case reflects what this role actually does
+  var acts = extractActivities(role.keyActivities);
+  var act = function(i) { return acts[i % acts.length] || role.role + ' tasks'; };
+
+  // Map each of the 7 Copilot Chat habits to a specific activity from this role
+  // habitIndex 0=CH1(Explain), 1=CH2(Research), 2=CH3(Email), 3=CH4(Minutes),
+  //            4=CH5(Content), 5=CH6(DocInsights), 6=CH7(DataAnalyst)
+  var a0 = act(0); // e.g. "preparing client profiles and briefing notes"
+  var a1 = act(1); // e.g. "writing personalised thank-you messages to clients"
+  var a2 = act(2); // e.g. "responding to email and phone enquiries"
+  var a3 = act(3); // e.g. "logging client interactions in CRM"
+  var a4 = act(4); // e.g. "handling product availability enquiries"
+  var a5 = act(5); // e.g. "escalating client complaints to management"
+
   var habits = [
     { id:'CH1', baseSaved:15, highPriority:false,
-      name:'Quickly explain ' + role.role + ' concepts on demand',
+      name:'Get quick answers to support ' + a0,
       pain:pain0,
-      prompt:'Explain [concept or term, e.g., specific policy, process, or tool] as if I\'m a ' + role.role + ' professional at ' + coShort + '. Include: 1) a simple analogy 2) 3 practical implications 3) one common misconception to avoid.',
+      prompt:'Explain [concept, process, or term relevant to ' + a0 + '] as if I\'m a ' + role.role + ' at ' + coShort + '. Include: 1) a simple explanation 2) 3 practical steps or implications 3) one common mistake to avoid.',
       inputs:'None — general knowledge query',
       metric:'Understanding new concepts reduced from 30 min to 5 min',
       guardrails:'AI explanations are not expert advice; verify key facts with authoritative sources' },
     { id:'CH2', baseSaved:30, highPriority:true,
-      name:'Research and validate information for ' + role.role + ' decisions',
+      name:'Research information needed for ' + a1,
       pain:pain1,
-      prompt:'Research [topic relevant to ' + role.role + ' at ' + coShort + ']. Provide: 1) key findings with sources 2) implications for ' + coShort + ' 3) recommended next steps. Flag any conflicting information.',
+      prompt:'I need to research [specific topic] to help with ' + a1 + ' at ' + coShort + '. Provide: 1) key findings with sources 2) how this applies to ' + coShort + ' 3) recommended next steps. Flag any conflicting information.',
       inputs:'None — web research',
       metric:'Research time reduced from 2 hours to 15 minutes',
       guardrails:'Verify all facts against primary sources before acting; note any information cutoff dates' },
     { id:'CH3', baseSaved:20, highPriority:true,
-      name:'Draft professional emails for ' + role.role + ' communications',
+      name:'Draft email for ' + a2,
       pain:pain2,
-      prompt:'Draft an email to [recipient/stakeholder] regarding [topic]. Context: I am a ' + role.role + ' at ' + coShort + '. Key points to cover: [list points]. Tone: [professional/formal/collaborative]. Length: ~200 words.',
-      inputs:'Recipient details, key message points, any relevant context',
+      prompt:'Draft an email to [recipient] about [topic] related to ' + a2 + ' at ' + coShort + '. Key points to cover: [list points]. Tone: [professional/warm/collaborative]. Length: ~200 words.',
+      inputs:'Recipient, key message points, any relevant context',
       metric:'Email drafting time reduced from 20 to 5 minutes',
       guardrails:'Review all drafts before sending; do not include sensitive or confidential information' },
     { id:'CH4', baseSaved:35, highPriority:true,
-      name:'Create meeting minutes from ' + role.role + ' discussions',
+      name:'Create structured notes from discussion about ' + a3,
       pain:pain0,
-      prompt:'I\'m pasting a meeting transcript from a ' + role.role + ' discussion at ' + coShort + '. Create meeting minutes with: 1) 3-sentence summary 2) key decisions 3) action items with owners and deadlines 4) open questions.\n\n[Paste transcript here]',
-      inputs:'Paste meeting transcript or notes',
-      metric:'Minutes creation reduced from 60 to 10 minutes',
+      prompt:'I\'m pasting notes from a meeting or discussion about ' + a3 + ' at ' + coShort + '. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]',
+      inputs:'Paste meeting notes or transcript',
+      metric:'Notes creation reduced from 60 to 10 minutes',
       guardrails:'Verify all attributed decisions are accurate; mark unclear items as [To Verify]' },
     { id:'CH5', baseSaved:30, highPriority:false,
-      name:'Create a structured ' + role.role + ' document or report',
+      name:'Create a document or template for ' + a4,
       pain:pain1,
-      prompt:'I need to create a [document type, e.g., report, proposal, briefing] on [topic] for [audience] at ' + coShort + '. Generate a detailed outline with 6-8 sections, key points per section, and suggested data/evidence to include.\n\nContext: ' + obj0,
+      prompt:'I need to create a [document type, e.g., brief, template, report] to support ' + a4 + ' at ' + coShort + '. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.\n\nContext: ' + obj0,
       inputs:'Topic, audience, purpose, any existing notes',
       metric:'Document outline created in 15 minutes instead of 1 hour',
       guardrails:'Validate all factual claims before publishing; get appropriate approvals' },
     { id:'CH6', baseSaved:30, highPriority:false,
-      name:'Summarise and extract insights from ' + role.role + ' documents',
+      name:'Extract key information from documents for ' + a5,
       pain:pain2,
-      prompt:'I\'m pasting a document relevant to my ' + role.role + ' work at ' + coShort + '. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]',
-      inputs:'Paste document, report, or policy text',
+      prompt:'I\'m pasting a document relevant to ' + a5 + ' at ' + coShort + '. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]',
+      inputs:'Paste document, report, or reference text',
       metric:'Document review time reduced from 60 to 10 minutes',
       guardrails:'Verify extracted details against original; flag any ambiguities for human review' },
     { id:'CH7', baseSaved:30, highPriority:false,
-      name:'Analyse pasted data relevant to ' + role.role + ' work',
+      name:'Analyse data relevant to ' + a0,
       pain:pain0,
-      prompt:'I\'m pasting data relevant to ' + role.role + ' at ' + coShort + '. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions based on the data 4) any data quality issues.\n\n[Paste data table here]',
-      inputs:'Paste data table or metrics from spreadsheet or report',
+      prompt:'I\'m pasting data related to ' + a0 + ' at ' + coShort + '. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]',
+      inputs:'Paste data table or metrics from a spreadsheet or report',
       metric:'Data analysis time reduced from 3 hours to 20 minutes',
       guardrails:'Validate interpretation with relevant stakeholders; do not share individual-level sensitive data' }
   ];
@@ -318,53 +337,67 @@ function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId) {
   var pain2 = extractPain(role.painPoints, 2);
   var obj0  = extractObj(role.objectives, 0);
 
+  // Use keyActivities so each use case reflects what this role actually does
+  var acts = extractActivities(role.keyActivities);
+  var act = function(i) { return acts[i % acts.length] || role.role + ' tasks'; };
+
+  // Map each of the 7 M365 habits to a specific activity from this role
+  // habitIndex 0=MH1(DailyBriefing), 1=MH2(Outlook), 2=MH3(Teams),
+  //            3=MH4(InternalSearch), 4=MH5(Word-report), 5=MH6(Word-review), 6=MH7(Excel)
+  var a0 = act(0);
+  var a1 = act(1);
+  var a2 = act(2);
+  var a3 = act(3);
+  var a4 = act(4);
+  var a5 = act(5);
+
   var habits = [
     { id:'MH1', entry:'M365 Copilot Chat', baseSaved:25, highPriority:true,
-      name:'Daily briefing on ' + role.role + ' priorities and updates',
+      name:'Get a daily briefing on tasks related to ' + a0,
       pain:pain0,
-      prompt:'Give me a daily digest for today as a ' + role.role + ' at ' + coShort + '. Based on my emails, chats, and calendar from yesterday: 1) key updates I need to act on 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.',
-      inputs:'Emails, chats, calendar events',
+      prompt:'Give me a daily digest as a ' + role.role + ' at ' + coShort + ' focused on ' + a0 + '. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.',
+      inputs:'Emails, chats, calendar events (accessed via M365 Copilot)',
       metric:'Daily briefing prep reduced from 30 to 5 minutes',
       guardrails:'Do not share summary outputs outside your direct team; verify key action items before proceeding' },
     { id:'MH2', entry:'Outlook', baseSaved:30, highPriority:true,
-      name:'Draft ' + role.role + ' emails with full context',
+      name:'Reply to emails about ' + a1 + ' using thread context',
       pain:pain1,
-      prompt:'Write a reply to [sender] about [topic]. I am a ' + role.role + ' at ' + coShort + '. Key points: [list]. Tone: [professional/formal]. Use the email thread as context. Target length: ~150 words.',
-      inputs:'Email thread context',
-      metric:'Email drafting time reduced from 20 to 4 minutes',
+      prompt:'Write a reply to [sender] about [topic] related to ' + a1 + ' at ' + coShort + '. Key points to include: [list]. Tone: [professional/warm]. Use the email thread as context. Target length: ~150 words.',
+      inputs:'Email thread (Outlook reads context automatically)',
+      metric:'Email reply time reduced from 20 to 4 minutes',
       guardrails:'Review drafts carefully before sending; remove any internal-only references' },
     { id:'MH3', entry:'Teams', baseSaved:30, highPriority:true,
-      name:'Prepare meeting agenda and summary for ' + role.role + ' discussions',
+      name:'Prepare agenda and capture meeting notes for ' + a2,
       pain:pain2,
-      prompt:'Using recent messages and emails about [upcoming meeting topic], create a structured agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads list. After the meeting, summarise key decisions and action items.',
-      inputs:'Calendar invite, email threads, prior meeting notes',
+      prompt:'Using recent messages and emails about ' + a2 + ' at ' + coShort + ', create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.',
+      inputs:'Calendar invite, email threads, prior meeting notes (Teams reads context)',
       metric:'Meeting prep reduced from 45 to 8 minutes',
       guardrails:'Confirm agenda with all parties before distributing; verify meeting summaries are accurate' },
     { id:'MH4', entry:'M365 Copilot Chat', baseSaved:45, highPriority:false,
-      name:'Search and synthesise internal ' + role.role + ' documents',
+      name:'Search internal files and emails related to ' + a3,
       pain:pain0,
-      prompt:'Find documents related to [topic] from our internal SharePoint and Teams files. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent/authoritative source 4) gaps where more information is needed.',
+      prompt:'Find documents and messages related to ' + a3 + ' from our SharePoint and Teams files at ' + coShort + '. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.',
       inputs:'SharePoint files, Teams messages, internal documents',
       metric:'Internal research time reduced from 90 to 15 minutes',
       guardrails:'Verify document currency; do not surface confidential files outside their intended audience' },
     { id:'MH5', entry:'Word', baseSaved:45, highPriority:false,
-      name:'Create a comprehensive ' + role.role + ' report or proposal',
+      name:'Draft a report or document for ' + a4,
       pain:pain1,
-      prompt:'Create a detailed outline for a [report/proposal type] on [topic] for [audience]. I am a ' + role.role + ' at ' + coShort + '. Include: executive summary, background, key findings, recommendations, and next steps. Context: ' + obj0,
-      inputs:'Brief, existing notes, relevant background documents',
+      prompt:'Create a detailed outline for a [report/brief/proposal] about ' + a4 + ' at ' + coShort + '. I am a ' + role.role + '. Include: executive summary, background, key findings, recommendations, and next steps. Context: ' + obj0,
+      inputs:'Brief, existing notes, relevant background documents (attach to Word)',
       metric:'Report drafting time reduced from 4 hours to 1 hour',
       guardrails:'Validate all data claims; get sign-off from relevant stakeholders before distribution' },
     { id:'MH6', entry:'Word', baseSaved:40, highPriority:false,
-      name:'Review and summarise documents for ' + role.role + ' decisions',
+      name:'Review and summarise documents related to ' + a5,
       pain:pain2,
-      prompt:'Summarise the attached document. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a ' + role.role + '.',
-      inputs:'Attached Word document, PDF, or report',
+      prompt:'Summarise the attached document related to ' + a5 + ' at ' + coShort + '. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a ' + role.role + '.',
+      inputs:'Attach Word document, PDF, or report in Word',
       metric:'Document review time reduced from 60 to 10 minutes',
       guardrails:'Cross-check AI summary against original; flag any discrepancies for human review' },
     { id:'MH7', entry:'Excel', baseSaved:45, highPriority:false,
-      name:'Analyse and visualise ' + role.role + ' data in Excel',
+      name:'Analyse and visualise data for ' + a0,
       pain:pain0,
-      prompt:'Analyse the data in this spreadsheet relevant to ' + role.role + ' at ' + coShort + '. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark/prior period] 4) recommended chart types to visualise the most important findings.',
+      prompt:'Analyse the data in this spreadsheet related to ' + a0 + ' at ' + coShort + '. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.',
       inputs:'Excel spreadsheet with relevant data',
       metric:'Data analysis reduced from 3 hours to 30 minutes',
       guardrails:'Validate formulas and pivot logic; do not include personally identifiable data in shared reports' }

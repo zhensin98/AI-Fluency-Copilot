@@ -3800,16 +3800,32 @@ function renderUseCaseCard(uc, type) {
   function init() { render(); }
 
   if (company && company.id) {
-    fetch('http://localhost:3002/profile?id=' + encodeURIComponent(company.id))
-      .then(function(r) { return r.json(); })
+    // Try static profile JSON first (works on Vercel), fall back to local dev server
+    fetch('profile/' + company.id + '.json')
+      .then(function(r) { if (!r.ok) throw new Error('not found'); return r.json(); })
       .then(function(d) {
-        if (d.found && d.useCases && d.useCases.chat && d.useCases.m365
+        if (d.useCases && d.useCases.chat && d.useCases.m365
             && d.useCases.chat.length > 0 && d.useCases.m365.length > 0) {
           rebuildFromUseCases(d.useCases.chat, d.useCases.m365, d.data && d.data.client);
+          init();
+        } else {
+          // Static file exists but no useCases — try local server
+          throw new Error('no usecases');
         }
-        init();
       })
-      .catch(function() { init(); });
+      .catch(function() {
+        // Static file unavailable — fall back to local dev server
+        fetch('http://localhost:3002/profile?id=' + encodeURIComponent(company.id))
+          .then(function(r) { return r.json(); })
+          .then(function(d) {
+            if (d.found && d.useCases && d.useCases.chat && d.useCases.m365
+                && d.useCases.chat.length > 0 && d.useCases.m365.length > 0) {
+              rebuildFromUseCases(d.useCases.chat, d.useCases.m365, d.data && d.data.client);
+            }
+            init();
+          })
+          .catch(function() { init(); });
+      });
   } else { init(); }
 })();
 </script>
