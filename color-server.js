@@ -248,6 +248,35 @@ function extractActivities(text) {
   return text.split(',').map(function(a){return a.trim();}).filter(Boolean);
 }
 
+// ── Relevance scoring: only include habits that genuinely fit the role ────────
+// Each habit has signal keywords — the more a role's activities match, the higher the score.
+// A score of 0 means this habit type is irrelevant for this role and should be skipped.
+var HABIT_SIGNALS = {
+  'CH1': [],                                                                   // Quick answers — always useful
+  'CH2': ['research','find','information','policy','knowledge','topic','best practice'],
+  'CH3': ['email','write','draft','communicate','message','follow-up','reply','invite','notice'],
+  'CH4': ['meeting','notes','minutes','discussion','action','recap','debrief','review','feedback'],
+  'CH5': ['create','template','document','brief','guide','onboard','material','content','build','update'],
+  'CH6': ['review','read','extract','summarise','report','policy','contract','document','ticket'],
+  'CH7': ['data','analyse','excel','metrics','sales','dashboard','figures','variance','forecast','report','power bi'],
+  'MH1': [],                                                                   // Daily briefing — always useful
+  'MH2': ['email','outlook','reply','respond','communicate','message','follow-up','invite'],
+  'MH3': ['meeting','teams','agenda','notes','calendar','debrief','discussion'],
+  'MH4': ['search','find','document','sharepoint','file','knowledge','policy','reference'],
+  'MH5': ['report','word','document','draft','write','brief','proposal','summary','guide'],
+  'MH6': ['review','summarise','read','document','policy','report','ticket','contract'],
+  'MH7': ['data','excel','analyse','spreadsheet','metrics','sales','power bi','dashboard','figures','variance','forecast']
+};
+
+function scoreHabitForRole(habitId, role) {
+  var signals = HABIT_SIGNALS[habitId];
+  if (!signals || signals.length === 0) return 100; // Always relevant
+  var kw = ((role.keyActivities||'') + ' ' + (role.objectives||'') + ' ' + (role.painPoints||'')).toLowerCase();
+  var score = 0;
+  signals.forEach(function(signal) { if (kw.indexOf(signal) >= 0) score += 10; });
+  return score;
+}
+
 // ── Context matchers: map a role to its most relevant workflow, tech, priority ──
 function findWorkflowForRole(role, workflows) {
   if (!workflows || !workflows.length) return null;
@@ -402,10 +431,11 @@ function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   var hd = habits[habitIndex];
   var codeVal = (role.short||'').split('').reduce(function(s,c){return s+c.charCodeAt(0);},0);
   var timeSaved = Math.max(10, hd.baseSaved + ((codeVal * 3 + habitIndex * 11) % 20) - 7);
+  var relevanceScore = scoreHabitForRole(hd.id, role);
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:'Copilot Chat (microsoft365.com)',
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
-    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium' };
+    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium', relevanceScore:relevanceScore };
 }
 
 function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
@@ -523,11 +553,15 @@ function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   var hd = habits[habitIndex];
   var codeVal = (role.short||'').split('').reduce(function(s,c){return s+c.charCodeAt(0);},0);
   var timeSaved = Math.max(10, hd.baseSaved + ((codeVal * 5 + habitIndex * 13) % 20) - 6);
+  var relevanceScore = scoreHabitForRole(hd.id, role);
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:hd.entry,
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
-    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium' };
+    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium', relevanceScore:relevanceScore };
 }
+
+var MIN_USE_CASES_PER_ROLE = 3; // always keep at least this many per role even if low relevance
+var MIN_RELEVANCE_SCORE    = 10; // drop habits scoring below this (no keyword match at all)
 
 function generateUseCasesFromProfile(profileData) {
   var roles      = (profileData.capabilities || []).slice(0, 6);
@@ -537,20 +571,47 @@ function generateUseCasesFromProfile(profileData) {
   var priorities = profileData.priorities || [];
   var chat = [], m365 = [];
   var chatNum = 1, m365Num = 1;
+
   roles.forEach(function(role) {
-    // Find the most relevant workflow, tech platform, and strategic priority for this role
     var ctx = {
       workflow: findWorkflowForRole(role, workflows),
       tech:     findTechForRole(role, platforms),
       priority: findPriorityForRole(role, priorities)
     };
+
+    // Generate all 7 candidates for this role
+    var chatCandidates = [], m365Candidates = [];
     for (var hi = 0; hi < 7; hi++) {
-      chat.push(buildChatUseCaseForRole(hi, role, clientInfo, 'CH-' + String(chatNum).padStart(2,'0'), ctx));
-      chatNum++;
-      m365.push(buildM365UseCaseForRole(hi, role, clientInfo, 'MH-' + String(m365Num).padStart(2,'0'), ctx));
-      m365Num++;
+      chatCandidates.push(buildChatUseCaseForRole(hi, role, clientInfo, '__tmp__', ctx));
+      m365Candidates.push(buildM365UseCaseForRole(hi, role, clientInfo, '__tmp__', ctx));
     }
+
+    // Sort by relevanceScore descending — best fit for this role comes first
+    chatCandidates.sort(function(a, b) { return b.relevanceScore - a.relevanceScore; });
+    m365Candidates.sort(function(a, b) { return b.relevanceScore - a.relevanceScore; });
+
+    // Keep all that meet the minimum score, but always keep at least MIN_USE_CASES_PER_ROLE
+    function filterAndAssign(candidates, prefix, num) {
+      var kept = candidates.filter(function(uc) { return uc.relevanceScore >= MIN_RELEVANCE_SCORE; });
+      if (kept.length < MIN_USE_CASES_PER_ROLE) kept = candidates.slice(0, MIN_USE_CASES_PER_ROLE);
+      kept.forEach(function(uc) {
+        uc.id = prefix + String(num[0]).padStart(2,'0');
+        num[0]++;
+      });
+      return kept;
+    }
+
+    var chatNum_ref  = [chatNum];
+    var m365Num_ref  = [m365Num];
+    var keptChat = filterAndAssign(chatCandidates, 'CH-', chatNum_ref);
+    var keptM365 = filterAndAssign(m365Candidates, 'MH-', m365Num_ref);
+    chatNum = chatNum_ref[0];
+    m365Num = m365Num_ref[0];
+
+    chat = chat.concat(keptChat);
+    m365 = m365.concat(keptM365);
   });
+
   return { chat: chat, m365: m365 };
 }
 
