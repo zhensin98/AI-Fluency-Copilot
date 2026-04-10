@@ -560,8 +560,85 @@ function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
     timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium', relevanceScore:relevanceScore };
 }
 
-var MIN_USE_CASES_PER_ROLE = 3; // always keep at least this many per role even if low relevance
-var MIN_RELEVANCE_SCORE    = 10; // drop habits scoring below this (no keyword match at all)
+// Generic fallback prompts — used when a habit type doesn't strongly fit a role.
+// Still valid Copilot use cases, just not activity-specific.
+var GENERIC_CHAT_HABITS = [
+  { id:'CH1', baseSaved:15, highPriority:false,
+    name:  function(r,co){ return 'Get quick answers to common questions in your role at ' + co; },
+    prompt:function(r,co){ return 'Explain [concept or process] that I need to understand as a ' + r + ' at ' + co + '. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.'; },
+    inputs:'None — general knowledge query', metric:'Understanding new concepts reduced from 30 min to 5 min',
+    guardrails:'AI explanations are not expert advice; verify key facts with authoritative sources' },
+  { id:'CH2', baseSaved:25, highPriority:false,
+    name:  function(r,co){ return 'Research a topic you need for your work at ' + co; },
+    prompt:function(r,co){ return 'I need to research [specific topic] as a ' + r + ' at ' + co + '. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.'; },
+    inputs:'None — web research', metric:'Research time reduced from 2 hours to 20 minutes',
+    guardrails:'Verify all facts against primary sources before acting' },
+  { id:'CH3', baseSaved:20, highPriority:false,
+    name:  function(r,co){ return 'Draft a professional email for your work at ' + co; },
+    prompt:function(r,co){ return 'Draft an email to [recipient] about [topic] as a ' + r + ' at ' + co + '. Key points: [list]. Tone: professional. Length: ~200 words.'; },
+    inputs:'Recipient, key message points, any relevant context', metric:'Email drafting time reduced from 20 to 5 minutes',
+    guardrails:'Review all drafts before sending; do not include sensitive or confidential information' },
+  { id:'CH4', baseSaved:30, highPriority:false,
+    name:  function(r,co){ return 'Create structured notes from a meeting or discussion at ' + co; },
+    prompt:function(r,co){ return 'I\'m pasting notes from a meeting at ' + co + ' relevant to my work as a ' + r + '. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]'; },
+    inputs:'Paste meeting notes or transcript', metric:'Notes creation reduced from 60 to 10 minutes',
+    guardrails:'Verify all attributed decisions are accurate; mark unclear items as [To Verify]' },
+  { id:'CH5', baseSaved:25, highPriority:false,
+    name:  function(r,co){ return 'Create a document or template for your work as a ' + r; },
+    prompt:function(r,co){ return 'I need to create a [document type] for my work as a ' + r + ' at ' + co + '. Generate a detailed outline with 6-8 sections, key points per section, and suggested content to include.'; },
+    inputs:'Topic, audience, purpose, any existing notes', metric:'Document outline created in 15 minutes instead of 1 hour',
+    guardrails:'Validate all factual claims before publishing; get appropriate approvals' },
+  { id:'CH6', baseSaved:25, highPriority:false,
+    name:  function(r,co){ return 'Extract key information from a document relevant to your role at ' + co; },
+    prompt:function(r,co){ return 'I\'m pasting a document relevant to my work as a ' + r + ' at ' + co + '. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]'; },
+    inputs:'Paste document, report, or reference text', metric:'Document review time reduced from 60 to 10 minutes',
+    guardrails:'Verify extracted details against original; flag any ambiguities for human review' },
+  { id:'CH7', baseSaved:25, highPriority:false,
+    name:  function(r,co){ return 'Summarise and interpret information to support your decisions at ' + co; },
+    prompt:function(r,co){ return 'I\'m pasting information relevant to a decision I need to make as a ' + r + ' at ' + co + '. Help me: 1) identify the key points 2) spot any gaps or risks 3) suggest a recommended course of action 4) flag anything that needs verification.\n\n[Paste information here]'; },
+    inputs:'Paste report, notes, data table, or any relevant content', metric:'Decision prep time reduced from 2 hours to 20 minutes',
+    guardrails:'Validate AI interpretation with relevant stakeholders before acting' }
+];
+
+var GENERIC_M365_HABITS = [
+  { id:'MH1', entry:'M365 Copilot Chat', baseSaved:25, highPriority:false,
+    name:  function(r,co){ return 'Get a daily work briefing as a ' + r + ' at ' + co; },
+    prompt:function(r,co){ return 'Give me a daily digest as a ' + r + ' at ' + co + '. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week.'; },
+    inputs:'Emails, chats, calendar events (accessed via M365 Copilot)', metric:'Daily briefing prep reduced from 30 to 5 minutes',
+    guardrails:'Verify key action items before proceeding; do not share outputs outside your direct team' },
+  { id:'MH2', entry:'Outlook', baseSaved:25, highPriority:false,
+    name:  function(r,co){ return 'Draft or reply to emails for your work at ' + co; },
+    prompt:function(r,co){ return 'Write a reply to [sender] about [topic] as a ' + r + ' at ' + co + '. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.'; },
+    inputs:'Email thread (Outlook reads context automatically)', metric:'Email reply time reduced from 20 to 4 minutes',
+    guardrails:'Review drafts carefully before sending; remove any internal-only references' },
+  { id:'MH3', entry:'Teams', baseSaved:25, highPriority:false,
+    name:  function(r,co){ return 'Prepare meeting agenda and capture notes for your team at ' + co; },
+    prompt:function(r,co){ return 'Create a structured meeting agenda for a discussion as a ' + r + ' at ' + co + ' with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.'; },
+    inputs:'Calendar invite, email threads, prior meeting notes (Teams reads context)', metric:'Meeting prep reduced from 45 to 8 minutes',
+    guardrails:'Confirm agenda with all parties before distributing; verify meeting summaries are accurate' },
+  { id:'MH4', entry:'M365 Copilot Chat', baseSaved:35, highPriority:false,
+    name:  function(r,co){ return 'Search internal files and emails for information you need at ' + co; },
+    prompt:function(r,co){ return 'Find documents and messages relevant to [topic] from our SharePoint and Teams files at ' + co + '. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.'; },
+    inputs:'SharePoint files, Teams messages, internal documents', metric:'Internal research time reduced from 90 to 15 minutes',
+    guardrails:'Verify document currency; do not surface confidential files outside their intended audience' },
+  { id:'MH5', entry:'Word', baseSaved:35, highPriority:false,
+    name:  function(r,co){ return 'Draft a report or document for your work as a ' + r + ' at ' + co; },
+    prompt:function(r,co){ return 'Create a detailed outline for a [report/brief/proposal] about [topic] at ' + co + '. I am a ' + r + '. Include: executive summary, background, key findings, recommendations, and next steps.'; },
+    inputs:'Brief, existing notes, relevant background documents (attach to Word)', metric:'Report drafting time reduced from 4 hours to 1 hour',
+    guardrails:'Validate all data claims; get sign-off from relevant stakeholders before distribution' },
+  { id:'MH6', entry:'Word', baseSaved:30, highPriority:false,
+    name:  function(r,co){ return 'Review and summarise a document relevant to your work at ' + co; },
+    prompt:function(r,co){ return 'Summarise the attached document relevant to my work as a ' + r + ' at ' + co + '. Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention.'; },
+    inputs:'Attach Word document, PDF, or report in Word', metric:'Document review time reduced from 60 to 10 minutes',
+    guardrails:'Cross-check AI summary against original; flag any discrepancies for human review' },
+  { id:'MH7', entry:'Excel', baseSaved:30, highPriority:false,
+    name:  function(r,co){ return 'Analyse data to support your decisions as a ' + r + ' at ' + co; },
+    prompt:function(r,co){ return 'Analyse the data in this spreadsheet relevant to my work as a ' + r + ' at ' + co + '. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.'; },
+    inputs:'Excel spreadsheet with relevant data', metric:'Data analysis reduced from 3 hours to 30 minutes',
+    guardrails:'Validate formulas and pivot logic; do not include personally identifiable data in shared reports' }
+];
+
+var SPECIFIC_THRESHOLD = 10; // score >= this → use specific use case; below → use generic fallback
 
 function generateUseCasesFromProfile(profileData) {
   var roles      = (profileData.capabilities || []).slice(0, 6);
@@ -569,6 +646,7 @@ function generateUseCasesFromProfile(profileData) {
   var workflows  = profileData.workflows  || [];
   var platforms  = (profileData.technology && profileData.technology.platforms) || [];
   var priorities = profileData.priorities || [];
+  var coShort    = (clientInfo.shortName || clientInfo.name) || 'the organisation';
   var chat = [], m365 = [];
   var chatNum = 1, m365Num = 1;
 
@@ -579,37 +657,49 @@ function generateUseCasesFromProfile(profileData) {
       priority: findPriorityForRole(role, priorities)
     };
 
-    // Generate all 7 candidates for this role
+    // Build all 7 specific candidates
     var chatCandidates = [], m365Candidates = [];
     for (var hi = 0; hi < 7; hi++) {
-      chatCandidates.push(buildChatUseCaseForRole(hi, role, clientInfo, '__tmp__', ctx));
-      m365Candidates.push(buildM365UseCaseForRole(hi, role, clientInfo, '__tmp__', ctx));
+      var chatUC = buildChatUseCaseForRole(hi, role, clientInfo, '__tmp__', ctx);
+      var m365UC = buildM365UseCaseForRole(hi, role, clientInfo, '__tmp__', ctx);
+
+      // If this habit type doesn't fit the role, swap in a generic fallback
+      if (chatUC.relevanceScore < SPECIFIC_THRESHOLD) {
+        var g = GENERIC_CHAT_HABITS[hi];
+        chatUC.name        = g.name(role.role, coShort);
+        chatUC.prompt      = g.prompt(role.role, coShort);
+        chatUC.inputs      = g.inputs;
+        chatUC.metric      = g.metric;
+        chatUC.guardrails  = g.guardrails;
+        chatUC.timeSaved   = g.baseSaved;
+        chatUC.isGeneric   = true;
+      }
+      if (m365UC.relevanceScore < SPECIFIC_THRESHOLD) {
+        var gm = GENERIC_M365_HABITS[hi];
+        m365UC.name        = gm.name(role.role, coShort);
+        m365UC.prompt      = gm.prompt(role.role, coShort);
+        m365UC.inputs      = gm.inputs;
+        m365UC.metric      = gm.metric;
+        m365UC.guardrails  = gm.guardrails;
+        m365UC.timeSaved   = gm.baseSaved;
+        m365UC.entry       = gm.entry;
+        m365UC.isGeneric   = true;
+      }
+
+      chatCandidates.push(chatUC);
+      m365Candidates.push(m365UC);
     }
 
-    // Sort by relevanceScore descending — best fit for this role comes first
+    // Sort: specific (high relevance) first, generic fallbacks last
     chatCandidates.sort(function(a, b) { return b.relevanceScore - a.relevanceScore; });
     m365Candidates.sort(function(a, b) { return b.relevanceScore - a.relevanceScore; });
 
-    // Keep all that meet the minimum score, but always keep at least MIN_USE_CASES_PER_ROLE
-    function filterAndAssign(candidates, prefix, num) {
-      var kept = candidates.filter(function(uc) { return uc.relevanceScore >= MIN_RELEVANCE_SCORE; });
-      if (kept.length < MIN_USE_CASES_PER_ROLE) kept = candidates.slice(0, MIN_USE_CASES_PER_ROLE);
-      kept.forEach(function(uc) {
-        uc.id = prefix + String(num[0]).padStart(2,'0');
-        num[0]++;
-      });
-      return kept;
-    }
+    // Assign sequential IDs in sorted order
+    chatCandidates.forEach(function(uc) { uc.id = 'CH-' + String(chatNum++).padStart(2,'0'); });
+    m365Candidates.forEach(function(uc) { uc.id = 'MH-' + String(m365Num++).padStart(2,'0'); });
 
-    var chatNum_ref  = [chatNum];
-    var m365Num_ref  = [m365Num];
-    var keptChat = filterAndAssign(chatCandidates, 'CH-', chatNum_ref);
-    var keptM365 = filterAndAssign(m365Candidates, 'MH-', m365Num_ref);
-    chatNum = chatNum_ref[0];
-    m365Num = m365Num_ref[0];
-
-    chat = chat.concat(keptChat);
-    m365 = m365.concat(keptM365);
+    chat = chat.concat(chatCandidates);
+    m365 = m365.concat(m365Candidates);
   });
 
   return { chat: chat, m365: m365 };

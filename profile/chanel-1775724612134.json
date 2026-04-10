@@ -792,6 +792,40 @@
       },
       {
         "id": "CH-13",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Research a topic you need for your work at Chanel",
+        "pain": "Action items from meetings are often missed or forgotten",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a Managers & Team Leads at Chanel. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-14",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Draft a professional email for your work at Chanel",
+        "pain": "Status updates require chasing team members manually",
+        "habitId": "CH3",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Draft an email to [recipient] about [topic] as a Managers & Team Leads at Chanel. Key points: [list]. Tone: professional. Length: ~200 words.",
+        "inputs": "Recipient, key message points, any relevant context",
+        "metric": "Email drafting time reduced from 20 to 5 minutes",
+        "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
+        "timeSaved": 20,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-15",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Get quick answers to support Use Copilot in Excel to analyse sales data and flag variances",
@@ -807,7 +841,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "CH-14",
+        "id": "CH-16",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Analyse data relevant to Use Copilot in Excel to analyse sales data and flag variances",
@@ -823,7 +857,7 @@
         "relevanceScore": 90
       },
       {
-        "id": "CH-15",
+        "id": "CH-17",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Create a document or template for use Power BI with Copilot to build visual sales dashboards",
@@ -839,7 +873,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-16",
+        "id": "CH-18",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Extract key information from documents for Use Copilot in Excel to analyse sales data and flag variances",
@@ -855,7 +889,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-17",
+        "id": "CH-19",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Draft email for convert Excel analysis into PowerPoint slides using Copilot",
@@ -871,7 +905,41 @@
         "relevanceScore": 10
       },
       {
-        "id": "CH-18",
+        "id": "CH-20",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Research a topic you need for your work at Chanel",
+        "pain": "Creating slides from Excel data is slow and error-prone",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a Finance & Operations at Chanel. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-21",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Create structured notes from a meeting or discussion at Chanel",
+        "pain": "Weekly sales reports take too long to compile from multiple sources",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a meeting at Chanel relevant to my work as a Finance & Operations. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 30,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-22",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Get quick answers to support Build and update onboarding guides using Copilot in Word",
@@ -887,7 +955,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "CH-19",
+        "id": "CH-23",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Create a document or template for track learning completion data in Power BI",
@@ -903,7 +971,7 @@
         "relevanceScore": 90
       },
       {
-        "id": "CH-20",
+        "id": "CH-24",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Draft email for draft HR policy documents and FAQs using Copilot",
@@ -919,7 +987,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-21",
+        "id": "CH-25",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Extract key information from documents for Build and update onboarding guides using Copilot in Word",
@@ -935,7 +1003,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-22",
+        "id": "CH-26",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Analyse data relevant to Build and update onboarding guides using Copilot in Word",
@@ -951,7 +1019,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-23",
+        "id": "CH-27",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Research information needed for publish and assign training modules through Viva Learning",
@@ -967,7 +1035,24 @@
         "relevanceScore": 10
       },
       {
-        "id": "CH-24",
+        "id": "CH-28",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Create structured notes from a meeting or discussion at Chanel",
+        "pain": "Onboarding materials are stored in different places and go out of date quickly",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a meeting at Chanel relevant to my work as a HR & People Development. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 30,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-29",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Get quick answers to support Use Copilot in Outlook to draft personalised follow-up emails after client visits",
@@ -983,7 +1068,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "CH-25",
+        "id": "CH-30",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Draft email for record and store client preferences in structured notes using Teams",
@@ -999,7 +1084,7 @@
         "relevanceScore": 40
       },
       {
-        "id": "CH-26",
+        "id": "CH-31",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Create a document or template for create event invitations for product launches using Copilot in Outlook",
@@ -1015,7 +1100,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-27",
+        "id": "CH-32",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Analyse data relevant to Use Copilot in Outlook to draft personalised follow-up emails after client visits",
@@ -1031,7 +1116,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-28",
+        "id": "CH-33",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Create structured notes from discussion about prepare appointment briefs using Copilot in Word",
@@ -1047,7 +1132,7 @@
         "relevanceScore": 10
       },
       {
-        "id": "CH-29",
+        "id": "CH-34",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Extract key information from documents for Use Copilot in Outlook to draft personalised follow-up emails after client visits",
@@ -1063,7 +1148,24 @@
         "relevanceScore": 10
       },
       {
-        "id": "CH-30",
+        "id": "CH-35",
+        "role": "Sales & Customer Service",
+        "code": "SAL",
+        "name": "Research a topic you need for your work at Chanel",
+        "pain": "Client notes after visits are often incomplete or inconsistent",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a Sales & Customer Service at Chanel. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-36",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Get quick answers to support Draft ticket responses and resolution notes using Copilot in Outlook",
@@ -1079,7 +1181,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "CH-31",
+        "id": "CH-37",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Draft email for create user guides and how-to articles using Copilot",
@@ -1095,7 +1197,7 @@
         "relevanceScore": 30
       },
       {
-        "id": "CH-32",
+        "id": "CH-38",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Create a document or template for send scheduled maintenance notices using Copilot-drafted Teams messages",
@@ -1111,7 +1213,7 @@
         "relevanceScore": 30
       },
       {
-        "id": "CH-33",
+        "id": "CH-39",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Extract key information from documents for Draft ticket responses and resolution notes using Copilot in Outlook",
@@ -1127,7 +1229,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "CH-34",
+        "id": "CH-40",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Create structured notes from discussion about use ServiceNow with Copilot summaries to triage and prioritise tickets",
@@ -1141,6 +1243,40 @@
         "timeSaved": 32,
         "priority": "High",
         "relevanceScore": 10
+      },
+      {
+        "id": "CH-41",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Research a topic you need for your work at Chanel",
+        "pain": "System documentation is often out of date or missing",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a IT & Systems Administrators at Chanel. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-42",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Summarise and interpret information to support your decisions at Chanel",
+        "pain": "Writing responses to routine support tickets takes too much time",
+        "habitId": "CH7",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting information relevant to a decision I need to make as a IT & Systems Administrators at Chanel. Help me: 1) identify the key points 2) spot any gaps or risks 3) suggest a recommended course of action 4) flag anything that needs verification.\n\n[Paste information here]",
+        "inputs": "Paste report, notes, data table, or any relevant content",
+        "metric": "Decision prep time reduced from 2 hours to 20 minutes",
+        "guardrails": "Validate AI interpretation with relevant stakeholders before acting",
+        "timeSaved": 25,
+        "priority": "Medium",
+        "relevanceScore": 0,
+        "isGeneric": true
       }
     ],
     "m365": [
@@ -1242,6 +1378,23 @@
       },
       {
         "id": "MH-07",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Analyse data to support your decisions as a Knowledge Workers & Office Staff at Chanel",
+        "pain": "Staff spend too much time writing emails and reports from scratch",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet relevant to my work as a Knowledge Workers & Office Staff at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet with relevant data",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 30,
+        "priority": "Medium",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-08",
         "role": "Managers & Team Leads",
         "code": "MGR",
         "name": "Get a daily briefing on tasks related to Use Copilot in Teams to recap missed meetings and extract action items",
@@ -1257,7 +1410,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "MH-08",
+        "id": "MH-09",
         "role": "Managers & Team Leads",
         "code": "MGR",
         "name": "Review and summarise documents related to Use Copilot in Teams to recap missed meetings and extract action items",
@@ -1273,7 +1426,7 @@
         "relevanceScore": 40
       },
       {
-        "id": "MH-09",
+        "id": "MH-10",
         "role": "Managers & Team Leads",
         "code": "MGR",
         "name": "Draft a report or document for summarise project documents before stakeholder reviews",
@@ -1289,7 +1442,7 @@
         "relevanceScore": 30
       },
       {
-        "id": "MH-10",
+        "id": "MH-11",
         "role": "Managers & Team Leads",
         "code": "MGR",
         "name": "Prepare agenda and capture meeting notes for assign and track tasks using Planner with Copilot support",
@@ -1305,7 +1458,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-11",
+        "id": "MH-12",
         "role": "Managers & Team Leads",
         "code": "MGR",
         "name": "Reply to emails about create weekly team status updates using Copilot in Word using thread context",
@@ -1321,7 +1474,7 @@
         "relevanceScore": 10
       },
       {
-        "id": "MH-12",
+        "id": "MH-13",
         "role": "Managers & Team Leads",
         "code": "MGR",
         "name": "Search internal files and emails related to prepare talking points for one-on-one meetings using Copilot in Outlook",
@@ -1337,7 +1490,24 @@
         "relevanceScore": 10
       },
       {
-        "id": "MH-13",
+        "id": "MH-14",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Analyse data to support your decisions as a Managers & Team Leads at Chanel",
+        "pain": "Managers spend too much time in meetings without clear outcomes",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet relevant to my work as a Managers & Team Leads at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet with relevant data",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 30,
+        "priority": "Medium",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-15",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Get a daily briefing on tasks related to Use Copilot in Excel to analyse sales data and flag variances",
@@ -1353,7 +1523,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "MH-14",
+        "id": "MH-16",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Analyse and visualise data for Use Copilot in Excel to analyse sales data and flag variances",
@@ -1369,7 +1539,7 @@
         "relevanceScore": 80
       },
       {
-        "id": "MH-15",
+        "id": "MH-17",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Draft a report or document for use Power BI with Copilot to build visual sales dashboards",
@@ -1385,7 +1555,7 @@
         "relevanceScore": 40
       },
       {
-        "id": "MH-16",
+        "id": "MH-18",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Review and summarise documents related to Use Copilot in Excel to analyse sales data and flag variances",
@@ -1401,7 +1571,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-17",
+        "id": "MH-19",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Reply to emails about draft finance commentary and report summaries in Word using thread context",
@@ -1417,7 +1587,7 @@
         "relevanceScore": 10
       },
       {
-        "id": "MH-18",
+        "id": "MH-20",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Prepare agenda and capture meeting notes for convert Excel analysis into PowerPoint slides using Copilot",
@@ -1433,7 +1603,7 @@
         "relevanceScore": 10
       },
       {
-        "id": "MH-19",
+        "id": "MH-21",
         "role": "Finance & Operations",
         "code": "FIN",
         "name": "Search internal files and emails related to send structured data queries to regional teams via Outlook",
@@ -1449,7 +1619,7 @@
         "relevanceScore": 10
       },
       {
-        "id": "MH-20",
+        "id": "MH-22",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Get a daily briefing on tasks related to Build and update onboarding guides using Copilot in Word",
@@ -1465,7 +1635,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "MH-21",
+        "id": "MH-23",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Draft a report or document for track learning completion data in Power BI",
@@ -1481,7 +1651,7 @@
         "relevanceScore": 40
       },
       {
-        "id": "MH-22",
+        "id": "MH-24",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Reply to emails about publish and assign training modules through Viva Learning using thread context",
@@ -1497,7 +1667,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-23",
+        "id": "MH-25",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Search internal files and emails related to respond to common employee queries using Copilot-drafted email templates",
@@ -1513,7 +1683,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-24",
+        "id": "MH-26",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Review and summarise documents related to Build and update onboarding guides using Copilot in Word",
@@ -1529,7 +1699,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-25",
+        "id": "MH-27",
         "role": "HR & People Development",
         "code": "HR",
         "name": "Analyse and visualise data for Build and update onboarding guides using Copilot in Word",
@@ -1545,7 +1715,24 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-26",
+        "id": "MH-28",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Prepare meeting agenda and capture notes for your team at Chanel",
+        "pain": "HR staff spend too long answering the same employee questions",
+        "habitId": "MH3",
+        "entry": "Teams",
+        "prompt": "Create a structured meeting agenda for a discussion as a HR & People Development at Chanel with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
+        "metric": "Meeting prep reduced from 45 to 8 minutes",
+        "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-29",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Get a daily briefing on tasks related to Use Copilot in Outlook to draft personalised follow-up emails after client visits",
@@ -1561,7 +1748,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "MH-27",
+        "id": "MH-30",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Draft a report or document for create event invitations for product launches using Copilot in Outlook",
@@ -1577,7 +1764,7 @@
         "relevanceScore": 40
       },
       {
-        "id": "MH-28",
+        "id": "MH-31",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Reply to emails about summarise client history from Salesforce CRM before appointments using thread context",
@@ -1593,7 +1780,7 @@
         "relevanceScore": 30
       },
       {
-        "id": "MH-29",
+        "id": "MH-32",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Prepare agenda and capture meeting notes for record and store client preferences in structured notes using Teams",
@@ -1609,7 +1796,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-30",
+        "id": "MH-33",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Analyse and visualise data for Use Copilot in Outlook to draft personalised follow-up emails after client visits",
@@ -1625,7 +1812,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-31",
+        "id": "MH-34",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Search internal files and emails related to prepare appointment briefs using Copilot in Word",
@@ -1641,7 +1828,7 @@
         "relevanceScore": 10
       },
       {
-        "id": "MH-32",
+        "id": "MH-35",
         "role": "Sales & Customer Service",
         "code": "SAL",
         "name": "Review and summarise documents related to Use Copilot in Outlook to draft personalised follow-up emails after client visits",
@@ -1657,7 +1844,7 @@
         "relevanceScore": 10
       },
       {
-        "id": "MH-33",
+        "id": "MH-36",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Get a daily briefing on tasks related to Draft ticket responses and resolution notes using Copilot in Outlook",
@@ -1673,7 +1860,7 @@
         "relevanceScore": 100
       },
       {
-        "id": "MH-34",
+        "id": "MH-37",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Draft a report or document for send scheduled maintenance notices using Copilot-drafted Teams messages",
@@ -1689,7 +1876,7 @@
         "relevanceScore": 40
       },
       {
-        "id": "MH-35",
+        "id": "MH-38",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Reply to emails about document system changes and fixes using Copilot in Word using thread context",
@@ -1705,7 +1892,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-36",
+        "id": "MH-39",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Prepare agenda and capture meeting notes for create user guides and how-to articles using Copilot",
@@ -1721,7 +1908,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-37",
+        "id": "MH-40",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Review and summarise documents related to Draft ticket responses and resolution notes using Copilot in Outlook",
@@ -1737,7 +1924,7 @@
         "relevanceScore": 20
       },
       {
-        "id": "MH-38",
+        "id": "MH-41",
         "role": "IT & Systems Administrators",
         "code": "IT",
         "name": "Search internal files and emails related to use ServiceNow with Copilot summaries to triage and prioritise tickets",
@@ -1751,6 +1938,23 @@
         "timeSaved": 43,
         "priority": "Medium",
         "relevanceScore": 10
+      },
+      {
+        "id": "MH-42",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Analyse data to support your decisions as a IT & Systems Administrators at Chanel",
+        "pain": "Writing responses to routine support tickets takes too much time",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet relevant to my work as a IT & Systems Administrators at Chanel. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet with relevant data",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 30,
+        "priority": "Medium",
+        "relevanceScore": 0,
+        "isGeneric": true
       }
     ]
   },
