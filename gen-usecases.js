@@ -1,5 +1,5 @@
 var fs = require('fs');
-var profileData = JSON.parse(fs.readFileSync('profile/chanel-1775806987479.json', 'utf8'));
+var profileData = JSON.parse(fs.readFileSync('profile/chanel-1775724612134.json', 'utf8'));
 
 function extractPain(text, index) {
   if (!text) return 'Manual, repetitive work that slows down delivery';
@@ -369,85 +369,49 @@ var GENERIC_M365_HABITS = [
 var SPECIFIC_THRESHOLD = 10;
 
 // ── Generate ──────────────────────────────────────────────────────────
-// 11 Copilot Value roles — mapped to the codes used by Copilot Value.html
+// 6 roles from Profile Explorer — mapped to the codes used by Copilot Value.html
 var COPILOT_VALUE_ROLES = [
   {
-    role: 'Brand & Client Relations',
-    short: 'LRUA',
-    // Short comma-separated activities used for use case names; rich keywords below drive scoring
-    keyActivities: 'VIC client advisory, boutique clienteling, personalised styling consultations, client gifting and follow-up, loyalty relationship building',
-    objectives: 'Deepen client relationships and cultivate VIC loyalty to drive repeat purchases. Build personalised client experiences at every boutique touchpoint.',
-    painPoints: 'Tracking client preferences across boutiques is time-consuming. Consistent follow-up communication after appointments requires manual effort. Preparing personalised client recommendations quickly is difficult without a central system.'
+    role: 'Knowledge Workers & Office Staff',
+    short: 'KW',
+    keyActivities: 'drafting internal briefs and memos, formatting presentation decks for leadership, managing inbox and responding to cross-department queries, scheduling and preparing agendas for recurring meetings, updating shared documents on SharePoint',
+    objectives: 'Office staff support the business by handling communications, preparing documents, and keeping day-to-day operations running. They work across departments and often bridge information between teams.',
+    painPoints: 'Staff write common documents like briefs and reports from scratch, even for recurring tasks. Emails go back and forth unnecessarily before a clear answer is reached. Finding the right file version across SharePoint and email is time-consuming.'
   },
   {
-    role: 'Corporate Strategy',
-    short: 'PR',
-    keyActivities: 'strategy planning and reporting, executive board presentations, stakeholder management, global business planning, performance reviews',
-    objectives: 'Drive business growth and align organisational priorities across global teams. Inform executive decision-making with timely strategic analysis.',
-    painPoints: 'Consolidating reports from multiple regions takes significant time. Aligning global teams on strategic priorities requires extensive email coordination. Slow decision-making due to information overload across departments.'
+    role: 'Managers & Team Leads',
+    short: 'MGR',
+    keyActivities: 'running weekly team check-ins and setting action items, writing staff performance notes and review summaries, reviewing project status across boutique or department deliverables, preparing briefs for seasonal launches or campaigns',
+    objectives: 'Managers lead teams across boutiques, regional offices, and head office functions. They are responsible for team performance, project delivery, and upholding brand standards.',
+    painPoints: 'Managers spend too much time in status update meetings instead of focused work. Writing performance reviews and team communications takes longer than it should. Tracking action items across multiple Teams chats and email threads is error-prone.'
   },
   {
-    role: 'Communications & Marketing',
-    short: 'CM',
-    keyActivities: 'brand campaign briefing and delivery, content creation and copy, press releases and PR, event planning, editorial calendars and lookbooks',
-    objectives: 'Deliver consistent brand messaging and drive global brand awareness. Produce high-quality campaign content efficiently across all markets.',
-    painPoints: 'Long approval cycles for marketing content delay campaigns. Coordinating campaign assets across regions leads to version confusion. Maintaining brand voice and consistency across markets is difficult at scale.'
+    role: 'Finance & Operations',
+    short: 'FIN',
+    keyActivities: 'preparing monthly budget-to-actual reports, consolidating sales and margin data from boutiques, reviewing supplier invoices and purchase orders, building Excel models for seasonal forecasting, drafting financial summaries for regional leadership',
+    objectives: 'Finance and operations teams manage budgets, forecasts, and the flow of goods and money across the business. They produce reports that help leaders make decisions on stock, investment, and costs.',
+    painPoints: 'Building monthly financial reports in Excel takes significant manual effort and is prone to errors. Consolidating data from multiple boutiques and regions into one view is slow. Finance staff spend time chasing approvals via email.'
   },
   {
-    role: 'Retail & Client Services',
-    short: 'MS',
-    keyActivities: 'boutique operations management, weekly sales performance reporting, stock and inventory tracking, visual merchandising, client service standards',
-    objectives: 'Drive boutique revenue and deliver exceptional client experience at every touchpoint. Maintain consistent service quality across all retail locations.',
-    painPoints: 'Building weekly sales reports manually from multiple data sources takes hours. Inventory discrepancies across boutiques create fulfilment issues. Inconsistent client service standards across locations affect brand perception.'
-  },
-  {
-    role: 'Social Impact & Engagement',
-    short: 'CE',
-    keyActivities: 'sustainability and ESG reporting, CSR programme management, community engagement and cultural initiatives, charity partnerships, stakeholder communication',
-    objectives: 'Advance sustainability commitments and build meaningful community relationships. Report credibly on ESG metrics to internal and external stakeholders.',
-    painPoints: 'Gathering sustainability data from multiple teams and sources is fragmented. Reporting ESG progress to stakeholders requires significant manual compilation. Coordinating programme delivery with NGO and community partners involves heavy communication.'
-  },
-  {
-    role: 'Learning & Development',
-    short: 'TSD',
-    keyActivities: 'training programme design, new employee onboarding, skills assessments, learning management, compliance training delivery, guide and template creation',
-    objectives: 'Build workforce capabilities and accelerate onboarding across global boutiques. Create and deliver learning content efficiently at scale.',
-    painPoints: 'Creating and updating training materials manually is slow at scale. Scheduling sessions across time zones and boutique rosters is complex. Tracking completion of compliance training across multiple locations is labour-intensive.'
-  },
-  {
-    role: 'IT & Digital Transformation',
-    short: 'IT',
-    keyActivities: 'Microsoft 365 administration, service desk and IT support, SharePoint and access management, technology rollout projects, user documentation, Copilot adoption support',
-    objectives: 'Enable digital transformation and maintain system reliability across all locations. Support staff adoption of AI and productivity tools like Microsoft Copilot.',
-    painPoints: 'High volume of IT support tickets across boutiques and time zones stretches the team. Technology change management requires extensive communication. Writing clear user-facing documentation for non-technical staff is time-consuming.'
-  },
-  {
-    role: 'Finance & Administration',
-    short: 'FA',
-    keyActivities: 'monthly financial reporting and reconciliation, budgeting and forecasting, invoice and expense management, audit preparation, quarterly board reports, Excel data analysis',
-    objectives: 'Ensure financial accuracy and streamline reporting processes across regions. Provide timely financial insights to support business decisions.',
-    painPoints: 'Manual consolidation of financial data from multiple regional inputs takes days. Excel files shared by email lead to version mix-ups and errors. Preparing quarterly board financial reports from scratch is highly time-consuming.'
-  },
-  {
-    role: 'Human Resources',
+    role: 'HR & People Development',
     short: 'HR',
-    keyActivities: 'recruitment and talent acquisition, onboarding new staff, performance management, HR policy development and communication, workforce analytics, job descriptions and offer letters',
-    objectives: 'Attract and retain talent and support business leaders with people insights. Build an inclusive culture aligned with Chanel values globally.',
-    painPoints: 'Administrative HR tasks take too long and crowd out strategic work. Managing multiple recruitment pipelines simultaneously is difficult without automation. Communicating HR policies clearly to global teams requires significant effort.'
+    keyActivities: 'writing job postings and position descriptions, coordinating interview schedules across hiring managers, preparing onboarding packs for new boutique and office staff, drafting HR policy documents and internal communications',
+    objectives: 'HR and learning teams recruit talent, support employee development, and manage the people processes that keep the business running well.',
+    painPoints: 'Onboarding documents exist in different formats and locations. Scheduling interviews across hiring managers wastes time. Writing job descriptions, training content, and policy documents from scratch is time-consuming.'
   },
   {
-    role: 'Strategy & Research',
-    short: 'SR',
-    keyActivities: 'market and competitive research, business intelligence reporting, trend and data analysis, executive strategy presentations, benchmarking, strategic planning support',
-    objectives: 'Provide strategic insights and support business decision-making with evidence. Deliver timely, presentation-ready analysis to senior leadership.',
-    painPoints: 'Synthesising large volumes of data for executive reports is slow. Creating polished, presentation-ready outputs under time pressure is demanding. Keeping up with market trends and competitor activity across multiple regions requires constant research.'
+    role: 'Sales & Customer Service',
+    short: 'CS',
+    keyActivities: 'preparing client profiles and briefing notes before appointments, writing personalised thank-you and follow-up messages to clients, responding to email and phone enquiries, logging client interactions and purchase preferences in CRM',
+    objectives: 'Client Advisors and customer service teams are the face of the brand. They build relationships with clients, guide them through purchases, and deliver a standard of service that matches the brand\'s prestige.',
+    painPoints: 'Preparing for client appointments means pulling information from multiple systems. Writing personalised follow-up notes after interactions is done manually and inconsistently. Responding to client queries requires careful brand-tone writing.'
   },
   {
-    role: 'Legal & Compliance',
-    short: 'LC',
-    keyActivities: 'contract drafting and review, regulatory compliance monitoring, data privacy and IP management, risk assessment, legal research, compliance policy documentation',
-    objectives: 'Protect company interests and ensure regulatory compliance across all markets. Manage legal risk efficiently while supporting fast-moving business teams.',
-    painPoints: 'Reviewing lengthy contracts and agreements manually is highly time-consuming. Keeping up with regulatory changes across multiple jurisdictions is challenging. Compliance monitoring and reporting across regions requires significant coordination.'
+    role: 'IT & Systems Administrators',
+    short: 'IT',
+    keyActivities: 'managing Microsoft 365 user accounts and access permissions, supporting boutique POS system issues and escalations, writing technical guides and user-facing how-to documents, coordinating software rollouts across Singapore boutiques, monitoring system availability',
+    objectives: 'IT teams manage the systems, devices, and platforms that keep the business running. They support retail point-of-sale systems, corporate applications, and the Microsoft 365 environment.',
+    painPoints: 'IT support tickets are handled through email and manual tracking, making it hard to prioritise and resolve issues quickly. Writing clear technical documentation for non-technical users is time-consuming. Coordinating system updates across global time zones is complex.'
   }
 ];
 
@@ -514,5 +478,5 @@ roles.forEach(function(role) {
 });
 
 profileData.useCases = { chat: chat, m365: m365 };
-fs.writeFileSync('profile/chanel-1775806987479.json', JSON.stringify(profileData, null, 2));
-console.log('\nDone. ' + chat.length + ' chat + ' + m365.length + ' M365 use cases written (7 per role, 11 roles).');
+fs.writeFileSync('profile/chanel-1775724612134.json', JSON.stringify(profileData, null, 2));
+console.log('\nDone. ' + chat.length + ' chat + ' + m365.length + ' M365 use cases written (7 per role, 6 roles).');

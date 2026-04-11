@@ -6,7 +6,7 @@
  */
 var fs = require('fs');
 
-var profile = JSON.parse(fs.readFileSync('profile/chanel-1775806987479.json', 'utf8'));
+var profile = JSON.parse(fs.readFileSync('profile/chanel-1775724612134.json', 'utf8'));
 var html    = fs.readFileSync('Copilot Value.html', 'utf8');
 
 var startMarker = '// === DATA_BLOCK_START === (DO NOT MODIFY OR DELETE THIS LINE)';
@@ -48,31 +48,25 @@ if (!chatHabitsStr) { console.error('Could not extract chat.habits'); process.ex
 if (!m365HabitsStr) { console.error('Could not extract m365.habits'); process.exit(1); }
 
 // ── Curated Role-Habit Relevance Matrix (manually defined, do not auto-compute) ──
+// Rankings based on primary task fit per role (1 = most relevant, 7 = least relevant)
+// Methodology: Dillon et al., "Early Impacts of M365 Copilot" (Microsoft Research, 2025, arxiv:2504.11443)
+// Chat: CH1=Q&A, CH2=Research, CH3=Email, CH4=Meeting, CH5=Content, CH6=DocInsights, CH7=Data
 var CURATED_CHAT_MATRIX = [
-  {role:'LRUA', h1:3, h2:4, h3:1, h4:2, h5:5, h6:6, h7:7},
-  {role:'PR',   h1:4, h2:1, h3:5, h4:3, h5:2, h6:6, h7:7},
-  {role:'CM',   h1:4, h2:2, h3:3, h4:6, h5:1, h6:5, h7:7},
-  {role:'MS',   h1:1, h2:4, h3:2, h4:5, h5:3, h6:6, h7:7},
-  {role:'CE',   h1:3, h2:2, h3:4, h4:5, h5:1, h6:6, h7:7},
-  {role:'TSD',  h1:2, h2:1, h3:5, h4:4, h5:3, h6:6, h7:7},
-  {role:'IT',   h1:1, h2:2, h3:5, h4:6, h5:3, h6:7, h7:4},
-  {role:'FA',   h1:5, h2:4, h3:3, h4:6, h5:2, h6:7, h7:1},
-  {role:'HR',   h1:2, h2:3, h3:1, h4:5, h5:4, h6:6, h7:7},
-  {role:'SR',   h1:3, h2:1, h3:5, h4:4, h5:2, h6:6, h7:7},
-  {role:'LC',   h1:3, h2:1, h3:2, h4:5, h5:4, h6:6, h7:7}
+  {role:'KW',  h1:3, h2:6, h3:1, h4:4, h5:2, h6:5, h7:7},
+  {role:'MGR', h1:4, h2:6, h3:2, h4:1, h5:3, h6:5, h7:7},
+  {role:'FIN', h1:7, h2:3, h3:5, h4:6, h5:4, h6:2, h7:1},
+  {role:'HR',  h1:4, h2:3, h3:2, h4:5, h5:1, h6:6, h7:7},
+  {role:'CS',  h1:2, h2:4, h3:1, h4:5, h5:3, h6:6, h7:7},
+  {role:'IT',  h1:1, h2:3, h3:7, h4:6, h5:4, h6:2, h7:5}
 ];
+// M365: MH1=Personal, MH2=Email, MH3=Meeting, MH4=Research, MH5=Content, MH6=DocInsights, MH7=Data
 var CURATED_M365_MATRIX = [
-  {role:'LRUA', h1:2, h2:1, h3:3, h4:4, h5:5, h6:6, h7:7},
-  {role:'PR',   h1:6, h2:4, h3:3, h4:1, h5:2, h6:5, h7:7},
-  {role:'CM',   h1:5, h2:3, h3:6, h4:2, h5:1, h6:4, h7:7},
-  {role:'MS',   h1:1, h2:2, h3:4, h4:5, h5:6, h6:3, h7:7},
-  {role:'CE',   h1:2, h2:3, h3:4, h4:5, h5:1, h6:6, h7:7},
-  {role:'TSD',  h1:3, h2:4, h3:5, h4:1, h5:2, h6:6, h7:7},
-  {role:'IT',   h1:3, h2:5, h3:4, h4:1, h5:2, h6:6, h7:7},
-  {role:'FA',   h1:2, h2:3, h3:5, h4:6, h5:4, h6:7, h7:1},
-  {role:'HR',   h1:1, h2:2, h3:4, h4:5, h5:3, h6:6, h7:7},
-  {role:'SR',   h1:5, h2:4, h3:3, h4:1, h5:2, h6:6, h7:7},
-  {role:'LC',   h1:4, h2:2, h3:5, h4:1, h5:3, h6:6, h7:7}
+  {role:'KW',  h1:2, h2:1, h3:4, h4:6, h5:3, h6:5, h7:7},
+  {role:'MGR', h1:3, h2:2, h3:1, h4:6, h5:4, h6:5, h7:7},
+  {role:'FIN', h1:7, h2:5, h3:6, h4:3, h5:4, h6:2, h7:1},
+  {role:'HR',  h1:5, h2:2, h3:6, h4:3, h5:1, h6:4, h7:7},
+  {role:'CS',  h1:2, h2:1, h3:5, h4:4, h5:3, h6:6, h7:7},
+  {role:'IT',  h1:6, h2:7, h3:5, h4:2, h5:3, h6:1, h7:4}
 ];
 
 // ── Build aggregates from profile use cases ──
@@ -87,9 +81,21 @@ function buildAggregates(ucs, habitIds, curatedMatrix) {
     var group = ucs.filter(function(u) { return u.code === code; });
     var ts    = group.reduce(function(a, u) { return a + (u.timeSaved || 0); }, 0);
     var hp    = group.filter(function(u) { return u.priority === 'High'; }).length;
-    var ranked = group.slice().sort(function(a, b) { return (b.timeSaved || 0) - (a.timeSaved || 0); });
+    // Derive topHabits from curated matrix (rank 1,2,3 = most relevant) for consistency
+    var curatedRow = curatedMatrix.filter(function(r) { return r.role === code; })[0];
+    var topHabits;
+    if (curatedRow) {
+      var sortedKeys = ['h1','h2','h3','h4','h5','h6','h7']
+        .sort(function(a, b) { return curatedRow[a] - curatedRow[b]; });
+      topHabits = sortedKeys.slice(0, 3).map(function(k) {
+        return habitIds[parseInt(k.replace('h',''), 10) - 1];
+      });
+    } else {
+      var ranked = group.slice().sort(function(a, b) { return (b.timeSaved || 0) - (a.timeSaved || 0); });
+      topHabits = ranked.slice(0, 3).map(function(u) { return u.habitId; });
+    }
     return { role: group[0].role, code: code, useCases: group.length, highPriority: hp,
-             timeSaved: ts, topHabits: ranked.slice(0, 3).map(function(u) { return u.habitId; }) };
+             timeSaved: ts, topHabits: topHabits };
   });
 
   var total = ucs.length;
@@ -181,7 +187,20 @@ var newBlock = '\nconst DATA = {\n'
 
 // ── Write updated HTML ──
 var newHtml = html.substring(0, blockStart) + newBlock + html.substring(blockEnd);
+
+// Also patch the hardcoded nav badge values so they match before JS runs
+var totalUCs = chatUCs.length + m365UCs.length;
+var roleCount = Object.keys(roleNames).length;
+newHtml = newHtml.replace(
+  /(<span class="nav-badge" id="badge-usecases">)\d+(<\/span>)/,
+  '$1' + totalUCs + '$2'
+);
+newHtml = newHtml.replace(
+  /(<span class="nav-badge" id="badge-roles">)\d+(<\/span>)/,
+  '$1' + roleCount + '$2'
+);
+
 fs.writeFileSync('Copilot Value.html', newHtml);
 console.log('Done. DATA block updated in Copilot Value.html');
-console.log('  Chat use cases: ' + chatUCs.length + ' | M365 use cases: ' + m365UCs.length);
-console.log('  Roles:', Object.keys(roleNames).join(', '));
+console.log('  Chat use cases: ' + chatUCs.length + ' | M365 use cases: ' + m365UCs.length + ' | Total: ' + totalUCs);
+console.log('  Roles (' + roleCount + '):', Object.keys(roleNames).join(', '));
