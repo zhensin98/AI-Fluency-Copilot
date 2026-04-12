@@ -1303,15 +1303,16 @@
         } else {
             document.getElementById('auth-overlay').style.display = 'flex';
 
-            if (_companies.length > 1) {
+            if (_companies.length === 0) {
+                // No companies configured — go through index.html to seed company data
+                window.location.href = 'index.html';
+            } else if (_companies.length > 1) {
                 // Multiple companies — show company selector first
                 showCompanySelect();
             } else {
-                // Single company (or none) — go straight to passcode screen
-                if (_companies.length === 1) {
-                    sessionStorage.setItem('active_company', JSON.stringify(_companies[0]));
-                    applyCompanyColors();
-                }
+                // Single company — go straight to passcode screen
+                sessionStorage.setItem('active_company', JSON.stringify(_companies[0]));
+                applyCompanyColors();
                 showPasscodeScreen();
             }
         }
