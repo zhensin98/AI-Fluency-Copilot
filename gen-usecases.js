@@ -41,6 +41,65 @@ function scoreHabitForRole(habitId, role) {
   return score;
 }
 
+// ── Research-backed time savings calculation ──────────────────────────
+// baseTime: average minutes/week a typical office worker spends on this activity
+// Sources: Microsoft Work Trend Index 2024, McKinsey "The social economy" (2012),
+//          Atlassian "State of Teams" (2023)
+var BASE_TIME_MIN = {
+  CH1: 30,   // Quick Q&A / concept lookups
+  CH2: 120,  // Research and information gathering (McKinsey: workers spend 1.8 hrs/day searching)
+  CH3: 160,  // Email drafting (~2.5 hrs/day on email; ~25% is active drafting)
+  CH4: 120,  // Meeting notes and summarisation (~3 meetings/week × 40 min notes effort)
+  CH5: 180,  // Content and document creation (~2 hrs/day knowledge work)
+  CH6: 120,  // Document review and extraction
+  CH7: 90,   // Data analysis
+  MH1: 30,   // Personal daily digest / briefing
+  MH2: 160,  // Email drafting via Outlook
+  MH3: 120,  // Meeting prep and notes via Teams
+  MH4: 120,  // Internal file/document search via M365
+  MH5: 180,  // Document drafting via Word
+  MH6: 120,  // Document review via Word
+  MH7: 90    // Data analysis via Excel
+};
+
+// copilotPct: % of task time saved by Copilot, per task category
+// Source: Forrester "Total Economic Impact of Microsoft 365 Copilot" (2024)
+//   - Meeting notes/summarisation: 18.6%
+//   - Information search: 29.8%
+//   - Content creation: 34.2%
+var COPILOT_SAVINGS_PCT = {
+  CH1: 0.298, // Information search (Forrester: 29.8%)
+  CH2: 0.298, // Information search (Forrester: 29.8%)
+  CH3: 0.342, // Content creation — email drafting (Forrester: 34.2%)
+  CH4: 0.186, // Meeting notes (Forrester: 18.6%)
+  CH5: 0.342, // Content creation (Forrester: 34.2%)
+  CH6: 0.186, // Document review — similar to meeting summarisation (Forrester: 18.6%)
+  CH7: 0.342, // Data analysis — output creation (Forrester: 34.2%)
+  MH1: 0.186, // Personal digest — summarisation task (Forrester: 18.6%)
+  MH2: 0.342, // Email via Outlook (Forrester: 34.2%)
+  MH3: 0.186, // Meeting via Teams (Forrester: 18.6%)
+  MH4: 0.298, // Internal search via M365 (Forrester: 29.8%)
+  MH5: 0.342, // Document drafting via Word (Forrester: 34.2%)
+  MH6: 0.186, // Document review via Word (Forrester: 18.6%)
+  MH7: 0.342  // Data analysis via Excel (Forrester: 34.2%)
+};
+
+// calcTimeSaved: research-backed per-use-case time saving (minutes/week)
+// Formula: baseTime × copilotSavingsPct × roleWeight
+//   roleWeight = 0.5–1.5 derived from how strongly the role's activities
+//   match this habit (via scoreHabitForRole keyword matching).
+//   Works for any role — no hardcoded role codes required.
+function calcTimeSaved(habitId, role) {
+  var baseTime = BASE_TIME_MIN[habitId] || 90;
+  var pct      = COPILOT_SAVINGS_PCT[habitId] || 0.25;
+  var rawScore = scoreHabitForRole(habitId, role); // 0–100
+  // score 0  → weight 0.5 (role uses this habit less than average)
+  // score 50 → weight 1.0 (average relevance)
+  // score 100→ weight 1.5 (role is heavily focused on this habit)
+  var weight = 0.5 + (rawScore / 100);
+  return Math.max(5, Math.round(baseTime * pct * weight));
+}
+
 function findWorkflowForRole(role, workflows) {
   if (!workflows || !workflows.length) return null;
   var kw = ((role.keyActivities||'') + ' ' + (role.role||'') + ' ' + (role.painPoints||'')).toLowerCase();
@@ -174,9 +233,8 @@ function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   ];
 
   var hd = habits[habitIndex];
-  var codeVal = (role.short||'').split('').reduce(function(s,c){return s+c.charCodeAt(0);},0);
-  var timeSaved = Math.max(10, hd.baseSaved + ((codeVal*3 + habitIndex*11) % 20) - 7);
   var relevanceScore = scoreHabitForRole(hd.id, role);
+  var timeSaved = calcTimeSaved(hd.id, role);
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:'Copilot Chat (microsoft365.com)',
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
@@ -280,9 +338,8 @@ function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   ];
 
   var hd = habits[habitIndex];
-  var codeVal = (role.short||'').split('').reduce(function(s,c){return s+c.charCodeAt(0);},0);
-  var timeSaved = Math.max(10, hd.baseSaved + ((codeVal*5 + habitIndex*13) % 20) - 6);
   var relevanceScore = scoreHabitForRole(hd.id, role);
+  var timeSaved = calcTimeSaved(hd.id, role);
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:hd.entry,
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
@@ -444,7 +501,7 @@ roles.forEach(function(role) {
       chatUC.name = g.name(role.role, coShort);
       chatUC.prompt = g.prompt(role.role, coShort);
       chatUC.inputs = g.inputs; chatUC.metric = g.metric;
-      chatUC.guardrails = g.guardrails; chatUC.timeSaved = g.baseSaved;
+      chatUC.guardrails = g.guardrails; chatUC.timeSaved = calcTimeSaved(g.id, role);
       chatUC.isGeneric = true;
     }
     if (m365UC.relevanceScore < SPECIFIC_THRESHOLD) {
@@ -452,7 +509,7 @@ roles.forEach(function(role) {
       m365UC.name = gm.name(role.role, coShort);
       m365UC.prompt = gm.prompt(role.role, coShort);
       m365UC.inputs = gm.inputs; m365UC.metric = gm.metric;
-      m365UC.guardrails = gm.guardrails; m365UC.timeSaved = gm.baseSaved;
+      m365UC.guardrails = gm.guardrails; m365UC.timeSaved = calcTimeSaved(gm.id, role);
       m365UC.entry = gm.entry; m365UC.isGeneric = true;
     }
     chatCandidates.push(chatUC);

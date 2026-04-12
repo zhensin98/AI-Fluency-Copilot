@@ -606,7 +606,7 @@
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
-        "timeSaved": 14,
+        "timeSaved": 13,
         "priority": "Medium",
         "relevanceScore": 100
       },
@@ -622,7 +622,7 @@
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
-        "timeSaved": 21,
+        "timeSaved": 44,
         "priority": "High",
         "relevanceScore": 30
       },
@@ -638,7 +638,7 @@
         "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
-        "timeSaved": 40,
+        "timeSaved": 25,
         "priority": "High",
         "relevanceScore": 20
       },
@@ -654,7 +654,7 @@
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
-        "timeSaved": 33,
+        "timeSaved": 43,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -670,7 +670,7 @@
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
-        "timeSaved": 24,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -686,7 +686,7 @@
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
-        "timeSaved": 47,
+        "timeSaved": 13,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -702,7 +702,7 @@
         "inputs": "Paste data table or metrics from a spreadsheet or report",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
-        "timeSaved": 35,
+        "timeSaved": 18,
         "priority": "Medium",
         "relevanceScore": 10
       },
@@ -718,7 +718,7 @@
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
-        "timeSaved": 18,
+        "timeSaved": 13,
         "priority": "Medium",
         "relevanceScore": 100
       },
@@ -734,7 +734,7 @@
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
-        "timeSaved": 31,
+        "timeSaved": 20,
         "priority": "High",
         "relevanceScore": 40
       },
@@ -750,7 +750,7 @@
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
-        "timeSaved": 37,
+        "timeSaved": 43,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -766,7 +766,7 @@
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
-        "timeSaved": 28,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -782,7 +782,7 @@
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
-        "timeSaved": 25,
+        "timeSaved": 33,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -798,7 +798,7 @@
         "inputs": "None — web research",
         "metric": "Research time reduced from 2 hours to 20 minutes",
         "guardrails": "Verify all facts against primary sources before acting",
-        "timeSaved": 25,
+        "timeSaved": 18,
         "priority": "High",
         "relevanceScore": 0,
         "isGeneric": true
@@ -815,7 +815,7 @@
         "inputs": "Paste report, notes, data table, or any relevant content",
         "metric": "Decision prep time reduced from 2 hours to 20 minutes",
         "guardrails": "Validate AI interpretation with relevant stakeholders before acting",
-        "timeSaved": 25,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -832,7 +832,7 @@
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
-        "timeSaved": 11,
+        "timeSaved": 13,
         "priority": "Medium",
         "relevanceScore": 100
       },
@@ -848,7 +848,7 @@
         "inputs": "Paste data table or metrics from a spreadsheet or report",
         "metric": "Data analysis time reduced from 3 hours to 20 minutes",
         "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
-        "timeSaved": 32,
+        "timeSaved": 31,
         "priority": "Medium",
         "relevanceScore": 50
       },
@@ -864,7 +864,7 @@
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
-        "timeSaved": 18,
+        "timeSaved": 38,
         "priority": "High",
         "relevanceScore": 20
       },
@@ -880,7 +880,7 @@
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
-        "timeSaved": 41,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -896,7 +896,7 @@
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
-        "timeSaved": 44,
+        "timeSaved": 13,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -912,7 +912,7 @@
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
-        "timeSaved": 30,
+        "timeSaved": 37,
         "priority": "Medium",
         "relevanceScore": 10
       },
@@ -928,7 +928,7 @@
         "inputs": "None — web research",
         "metric": "Research time reduced from 2 hours to 20 minutes",
         "guardrails": "Verify all facts against primary sources before acting",
-        "timeSaved": 25,
+        "timeSaved": 18,
         "priority": "High",
         "relevanceScore": 0,
         "isGeneric": true
@@ -945,7 +945,7 @@
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
-        "timeSaved": 10,
+        "timeSaved": 13,
         "priority": "Medium",
         "relevanceScore": 100
       },
@@ -961,7 +961,7 @@
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
-        "timeSaved": 29,
+        "timeSaved": 49,
         "priority": "Medium",
         "relevanceScore": 30
       },
@@ -977,7 +977,7 @@
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
-        "timeSaved": 40,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -993,7 +993,7 @@
         "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
-        "timeSaved": 36,
+        "timeSaved": 21,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1009,7 +1009,7 @@
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
-        "timeSaved": 17,
+        "timeSaved": 33,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1025,7 +1025,7 @@
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
-        "timeSaved": 30,
+        "timeSaved": 11,
         "priority": "High",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1042,7 +1042,7 @@
         "inputs": "Paste report, notes, data table, or any relevant content",
         "metric": "Decision prep time reduced from 2 hours to 20 minutes",
         "guardrails": "Validate AI interpretation with relevant stakeholders before acting",
-        "timeSaved": 25,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1059,7 +1059,7 @@
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
-        "timeSaved": 18,
+        "timeSaved": 13,
         "priority": "Medium",
         "relevanceScore": 100
       },
@@ -1075,7 +1075,7 @@
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
-        "timeSaved": 25,
+        "timeSaved": 44,
         "priority": "High",
         "relevanceScore": 30
       },
@@ -1091,7 +1091,7 @@
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
-        "timeSaved": 37,
+        "timeSaved": 49,
         "priority": "Medium",
         "relevanceScore": 30
       },
@@ -1107,7 +1107,7 @@
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
-        "timeSaved": 31,
+        "timeSaved": 16,
         "priority": "High",
         "relevanceScore": 20
       },
@@ -1123,7 +1123,7 @@
         "inputs": "None — web research or internal documents",
         "metric": "Research time reduced from 2 hours to 15 minutes",
         "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
-        "timeSaved": 24,
+        "timeSaved": 21,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1139,7 +1139,7 @@
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
-        "timeSaved": 25,
+        "timeSaved": 11,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1156,7 +1156,7 @@
         "inputs": "Paste report, notes, data table, or any relevant content",
         "metric": "Decision prep time reduced from 2 hours to 20 minutes",
         "guardrails": "Validate AI interpretation with relevant stakeholders before acting",
-        "timeSaved": 25,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1173,7 +1173,7 @@
         "inputs": "None — general knowledge query",
         "metric": "Understanding new concepts reduced from 30 min to 5 min",
         "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
-        "timeSaved": 19,
+        "timeSaved": 13,
         "priority": "Medium",
         "relevanceScore": 100
       },
@@ -1189,7 +1189,7 @@
         "inputs": "Topic, audience, purpose, any existing notes",
         "metric": "Document outline created in 15 minutes instead of 1 hour",
         "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
-        "timeSaved": 38,
+        "timeSaved": 49,
         "priority": "Medium",
         "relevanceScore": 30
       },
@@ -1205,7 +1205,7 @@
         "inputs": "Paste document, report, or reference text",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
-        "timeSaved": 29,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1221,7 +1221,7 @@
         "inputs": "Recipient, key message points, any relevant context",
         "metric": "Email drafting time reduced from 20 to 5 minutes",
         "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
-        "timeSaved": 26,
+        "timeSaved": 33,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1237,7 +1237,7 @@
         "inputs": "None — web research",
         "metric": "Research time reduced from 2 hours to 20 minutes",
         "guardrails": "Verify all facts against primary sources before acting",
-        "timeSaved": 25,
+        "timeSaved": 18,
         "priority": "High",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1254,7 +1254,7 @@
         "inputs": "Paste meeting notes or transcript",
         "metric": "Notes creation reduced from 60 to 10 minutes",
         "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
-        "timeSaved": 30,
+        "timeSaved": 11,
         "priority": "High",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1271,7 +1271,7 @@
         "inputs": "Paste report, notes, data table, or any relevant content",
         "metric": "Decision prep time reduced from 2 hours to 20 minutes",
         "guardrails": "Validate AI interpretation with relevant stakeholders before acting",
-        "timeSaved": 25,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1290,7 +1290,7 @@
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
-        "timeSaved": 29,
+        "timeSaved": 8,
         "priority": "High",
         "relevanceScore": 100
       },
@@ -1306,7 +1306,7 @@
         "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
-        "timeSaved": 41,
+        "timeSaved": 62,
         "priority": "Medium",
         "relevanceScore": 50
       },
@@ -1322,7 +1322,7 @@
         "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
-        "timeSaved": 48,
+        "timeSaved": 32,
         "priority": "Medium",
         "relevanceScore": 40
       },
@@ -1338,7 +1338,7 @@
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
-        "timeSaved": 40,
+        "timeSaved": 18,
         "priority": "High",
         "relevanceScore": 30
       },
@@ -1354,7 +1354,7 @@
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
-        "timeSaved": 27,
+        "timeSaved": 38,
         "priority": "High",
         "relevanceScore": 20
       },
@@ -1370,7 +1370,7 @@
         "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
-        "timeSaved": 49,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1386,7 +1386,7 @@
         "inputs": "Excel spreadsheet with relevant data",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
-        "timeSaved": 30,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1403,7 +1403,7 @@
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
-        "timeSaved": 29,
+        "timeSaved": 8,
         "priority": "High",
         "relevanceScore": 100
       },
@@ -1419,7 +1419,7 @@
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
-        "timeSaved": 40,
+        "timeSaved": 18,
         "priority": "High",
         "relevanceScore": 30
       },
@@ -1435,7 +1435,7 @@
         "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
-        "timeSaved": 49,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1451,7 +1451,7 @@
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
-        "timeSaved": 27,
+        "timeSaved": 33,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1467,7 +1467,7 @@
         "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
-        "timeSaved": 41,
+        "timeSaved": 37,
         "priority": "Medium",
         "relevanceScore": 10
       },
@@ -1483,7 +1483,7 @@
         "inputs": "SharePoint files, Teams messages, internal documents",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
-        "timeSaved": 35,
+        "timeSaved": 18,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1500,7 +1500,7 @@
         "inputs": "Excel spreadsheet with relevant data",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
-        "timeSaved": 30,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1517,7 +1517,7 @@
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
-        "timeSaved": 24,
+        "timeSaved": 8,
         "priority": "High",
         "relevanceScore": 100
       },
@@ -1533,7 +1533,7 @@
         "inputs": "Excel spreadsheet",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
-        "timeSaved": 42,
+        "timeSaved": 28,
         "priority": "Medium",
         "relevanceScore": 40
       },
@@ -1549,7 +1549,7 @@
         "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
-        "timeSaved": 56,
+        "timeSaved": 43,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1565,7 +1565,7 @@
         "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
-        "timeSaved": 44,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1581,7 +1581,7 @@
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
-        "timeSaved": 42,
+        "timeSaved": 33,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1597,7 +1597,7 @@
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
-        "timeSaved": 35,
+        "timeSaved": 13,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1613,7 +1613,7 @@
         "inputs": "SharePoint files, Teams messages, internal documents",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
-        "timeSaved": 35,
+        "timeSaved": 18,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1630,7 +1630,7 @@
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
-        "timeSaved": 29,
+        "timeSaved": 8,
         "priority": "High",
         "relevanceScore": 100
       },
@@ -1646,7 +1646,7 @@
         "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
-        "timeSaved": 48,
+        "timeSaved": 25,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1662,7 +1662,7 @@
         "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
-        "timeSaved": 41,
+        "timeSaved": 43,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1678,7 +1678,7 @@
         "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
-        "timeSaved": 49,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1694,7 +1694,7 @@
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
-        "timeSaved": 40,
+        "timeSaved": 13,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1710,7 +1710,7 @@
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
-        "timeSaved": 25,
+        "timeSaved": 27,
         "priority": "High",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1727,7 +1727,7 @@
         "inputs": "Excel spreadsheet with relevant data",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
-        "timeSaved": 30,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1744,7 +1744,7 @@
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
-        "timeSaved": 29,
+        "timeSaved": 8,
         "priority": "High",
         "relevanceScore": 100
       },
@@ -1760,7 +1760,7 @@
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
-        "timeSaved": 27,
+        "timeSaved": 49,
         "priority": "High",
         "relevanceScore": 40
       },
@@ -1776,7 +1776,7 @@
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
-        "timeSaved": 40,
+        "timeSaved": 16,
         "priority": "High",
         "relevanceScore": 20
       },
@@ -1792,7 +1792,7 @@
         "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
-        "timeSaved": 48,
+        "timeSaved": 25,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1808,7 +1808,7 @@
         "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
-        "timeSaved": 41,
+        "timeSaved": 43,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1824,7 +1824,7 @@
         "inputs": "Attach Word document, PDF, or report in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
-        "timeSaved": 30,
+        "timeSaved": 11,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1841,7 +1841,7 @@
         "inputs": "Excel spreadsheet with relevant data",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
-        "timeSaved": 30,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
@@ -1858,7 +1858,7 @@
         "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
         "metric": "Daily briefing prep reduced from 30 to 5 minutes",
         "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
-        "timeSaved": 24,
+        "timeSaved": 8,
         "priority": "High",
         "relevanceScore": 100
       },
@@ -1874,7 +1874,7 @@
         "inputs": "Brief, existing notes (attach to Word)",
         "metric": "Report drafting time reduced from 4 hours to 1 hour",
         "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
-        "timeSaved": 56,
+        "timeSaved": 43,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1890,7 +1890,7 @@
         "inputs": "Attach Word document, or PDF in Word",
         "metric": "Document review time reduced from 60 to 10 minutes",
         "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
-        "timeSaved": 44,
+        "timeSaved": 16,
         "priority": "Medium",
         "relevanceScore": 20
       },
@@ -1906,7 +1906,7 @@
         "inputs": "Email thread (Outlook reads context automatically)",
         "metric": "Email reply time reduced from 20 to 4 minutes",
         "guardrails": "Review drafts carefully before sending; remove any internal-only references",
-        "timeSaved": 42,
+        "timeSaved": 33,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1922,7 +1922,7 @@
         "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
         "metric": "Meeting prep reduced from 45 to 8 minutes",
         "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
-        "timeSaved": 35,
+        "timeSaved": 13,
         "priority": "High",
         "relevanceScore": 10
       },
@@ -1938,7 +1938,7 @@
         "inputs": "SharePoint files, Teams messages",
         "metric": "Internal research time reduced from 90 to 15 minutes",
         "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
-        "timeSaved": 43,
+        "timeSaved": 21,
         "priority": "Medium",
         "relevanceScore": 10
       },
@@ -1954,7 +1954,7 @@
         "inputs": "Excel spreadsheet with relevant data",
         "metric": "Data analysis reduced from 3 hours to 30 minutes",
         "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
-        "timeSaved": 30,
+        "timeSaved": 15,
         "priority": "Medium",
         "relevanceScore": 0,
         "isGeneric": true
