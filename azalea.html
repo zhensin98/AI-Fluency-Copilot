@@ -31,8 +31,10 @@
       localStorage.setItem('copilot_companies', JSON.stringify(existing));
       localStorage.setItem('copilot_logo_' + COMPANY_ID, LOGO);
 
-      sessionStorage.removeItem('authenticated');
-      sessionStorage.removeItem('active_company');
+      // Set active company and mark authenticated so Main page.html opens directly as the trainer view
+      company.logoDataUrl = LOGO;
+      sessionStorage.setItem('active_company', JSON.stringify(company));
+      sessionStorage.setItem('authenticated', 'true');
 
       window.location.href = 'Main page.html';
     })();
