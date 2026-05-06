@@ -1292,29 +1292,13 @@
         }
 
         // ── Auth flow ─────────────────────────────────────────────────
+        // Main page is the trainer page — always accessible without login.
+        // Password protection lives in Copilot Value.html.
         var _companies = [];
         try { _companies = JSON.parse(localStorage.getItem('copilot_companies') || '[]'); } catch(e) {}
 
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            // Already authenticated — apply colors and show content
-            applyCompanyColors();
-            document.getElementById('auth-overlay').style.display = 'none';
-        } else {
-            document.getElementById('auth-overlay').style.display = 'flex';
-
-            if (_companies.length === 0) {
-                // No companies configured — go through index.html to seed company data
-                window.location.href = 'index.html';
-            } else if (_companies.length > 1) {
-                // Multiple companies — show company selector first
-                showCompanySelect();
-            } else {
-                // Single company — go straight to passcode screen
-                sessionStorage.setItem('active_company', JSON.stringify(_companies[0]));
-                applyCompanyColors();
-                showPasscodeScreen();
-            }
-        }
+        applyCompanyColors();
+        document.getElementById('auth-overlay').style.display = 'none';
 
         function showCompanySelect() {
             var grid = document.getElementById('company-grid');
