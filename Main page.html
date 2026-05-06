@@ -18,7 +18,7 @@
         #auth-overlay {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);
+            background: #0d1b2e;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -105,13 +105,12 @@
         }
 
         #auth-overlay .auth-mission-badge {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--brand-primary, #000);
-            opacity: 0.45;
             margin-bottom: 1.25rem;
+        }
+        #auth-overlay .auth-mission-badge img {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
         }
 
         #auth-overlay .auth-title {
@@ -965,7 +964,7 @@
     <div id="auth-overlay" style="display: none;">
         <!-- Screen 1: Company Selector (shown when >1 companies) -->
         <div class="auth-box wide" id="company-select-screen" style="display:none;">
-            <div class="auth-mission-badge">Mission + | Making AI Real</div>
+            <div class="auth-mission-badge"><img src="Brand asset/Mission plus.png" alt="Mission + | Making AI Real"></div>
             <div class="auth-title">Select your organisation</div>
             <div class="company-grid" id="company-grid"></div>
         </div>

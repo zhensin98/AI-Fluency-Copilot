@@ -1,0 +1,1970 @@
+{
+  "id": "azalea-1778056022708",
+  "name": "Azalea",
+  "url": "https://www.azalea.com.sg/",
+  "timestamp": "2026-05-06T08:33:30.038Z",
+  "data": {
+    "client": {
+      "name": "Azalea Asset Management Pte. Ltd.",
+      "shortName": "Azalea",
+      "tagline": "Broadening Access to Private Equity",
+      "subtitle": "Financial Services | Private Equity Asset Management",
+      "description": "Azalea is a Singapore-based private equity asset manager founded in 2015 as a Temasek subsidiary. It manages around US$14 billion in assets across two platforms: Astrea, which packages PE investments into bonds for retail investors, and Altrium, a PE fund-of-funds for institutional and accredited investors. Its team of over 70 professionals serves more than 80,000 individual investors and over 200 institutional investors."
+    },
+    "keyFacts": [
+      {
+        "label": "Founded",
+        "value": "2015",
+        "desc": "Temasek subsidiary, Singapore HQ"
+      },
+      {
+        "label": "Employees",
+        "value": "~70+",
+        "desc": "Investment and support professionals"
+      },
+      {
+        "label": "AUM",
+        "value": "~US$14 billion",
+        "desc": "Across Astrea and Altrium platforms"
+      },
+      {
+        "label": "Investors Served",
+        "value": "80,000+ retail; 200+ institutional",
+        "desc": "Retail and institutional investor base"
+      },
+      {
+        "label": "Workshop Focus",
+        "value": "Microsoft 365 Copilot",
+        "desc": "AI tools for all teams"
+      }
+    ],
+    "serviceAreas": [
+      {
+        "title": "Astrea Platform",
+        "desc": "Issues retail-accessible PE bonds backed by diversified private equity fund portfolios."
+      },
+      {
+        "title": "Altrium Platform",
+        "desc": "Provides PE fund-of-funds products to institutional and accredited investors globally."
+      },
+      {
+        "title": "STEP by Azalea",
+        "desc": "Digital portal for retail investors to subscribe to and manage Astrea PE bond holdings."
+      },
+      {
+        "title": "Investments",
+        "desc": "Sources, evaluates, and monitors private equity fund commitments across global markets."
+      },
+      {
+        "title": "Investor Relations & Education",
+        "desc": "Manages investor communications, semi-annual reports, events, and PE education programmes."
+      }
+    ],
+    "leadership": [
+      {
+        "title": "Chief Executive Officer",
+        "name": "Margaret Lui"
+      },
+      {
+        "title": "Managing Director, Investments",
+        "name": "Justin Keh"
+      },
+      {
+        "title": "Head of Investor Relations",
+        "name": "Lim Jun Jie"
+      }
+    ],
+    "locations": [
+      {
+        "label": "Headquarters",
+        "address": "60B Orchard Road, Tower 2, The Atrium@Orchard, Singapore 238891"
+      }
+    ],
+    "priorities": [
+      {
+        "num": 1,
+        "title": "Broadening Retail Access to Private Equity",
+        "tagline": "PE for Everyone",
+        "desc": "Azalea's core mission is making private equity — historically limited to large institutions — available to everyday investors. The Astrea bond structure packages diversified PE portfolios into listed, accessible products. Growing retail participation drives new issuances and the continued expansion of the STEP digital platform.",
+        "roles": "Investments, Investor Relations, Legal & Compliance, Product",
+        "pains": "Explaining complex PE structures clearly to retail investors; producing large volumes of investor education content; managing high subscription demand during bond launches"
+      },
+      {
+        "num": 2,
+        "title": "Investor Trust Through Transparent Reporting",
+        "tagline": "Clear, Consistent Communication",
+        "desc": "Azalea publishes semi-annual distribution reports and hosts an annual Investor Day to keep its 80,000+ retail investors informed. Maintaining trust requires timely, accurate, and plain-language reporting across all platforms. Any delay or error in reporting can quickly erode investor confidence.",
+        "roles": "Investor Relations, Finance, Compliance, Communications",
+        "pains": "Producing polished semi-annual reports under tight deadlines; consolidating data from multiple fund managers into coherent summaries; drafting investor communications that are both accurate and easy to read"
+      },
+      {
+        "num": 3,
+        "title": "Portfolio Performance and Risk Management",
+        "tagline": "Strong Returns, Managed Risk",
+        "desc": "The investments team tracks performance across a large number of underlying PE funds globally. Consistent bond obligation payments depend on healthy portfolio distributions and timely capital recycling. Monitoring and communicating portfolio health requires constant data analysis and cross-team coordination.",
+        "roles": "Investments, Finance, Risk, Fund Administration",
+        "pains": "Aggregating portfolio data from multiple external fund managers; producing timely performance updates; identifying risks in underlying portfolios before they affect bond payments"
+      },
+      {
+        "num": 4,
+        "title": "Digital Platform Growth and Innovation",
+        "tagline": "Invest Smarter, Online",
+        "desc": "STEP by Azalea is the firm's direct retail investment portal for PE bond subscriptions and account management. Growing and improving STEP is a key strategic priority to reach more retail investors at scale. This requires close collaboration between technology, product, compliance, and investor relations teams.",
+        "roles": "Technology, Product, Investor Relations, Operations",
+        "pains": "Coordinating cross-functional platform improvements across a lean team; managing high investor traffic during bond launch windows; keeping the platform compliant with MAS regulations"
+      },
+      {
+        "num": 5,
+        "title": "Talent Development and Operational Excellence",
+        "tagline": "Small Team, Big Impact",
+        "desc": "With over 70 professionals managing US$14 billion in assets, Azalea's team must work efficiently across complex, specialist workflows. Building staff capability — including AI tool adoption — directly improves output quality and speed. Strong operations help Azalea scale impact without proportional headcount growth.",
+        "roles": "HR, All Departments, IT, Leadership",
+        "pains": "Onboarding and upskilling a lean team across specialised finance functions; maintaining consistent processes across investments, IR, and operations; producing high-quality output with limited resources"
+      }
+    ],
+    "capabilities": [
+      {
+        "role": "Knowledge Workers & Office Staff",
+        "short": "KW",
+        "icon": "primary",
+        "objectives": "Analysts and associates produce the research, documents, and data summaries that support investment decisions and investor communications. They work across bond structuring, market analysis, and fund reporting. Their output directly feeds into investor reports, board presentations, and deal memos. Quality and speed of output are critical in a lean team.",
+        "painPoints": "Drafting detailed research notes and fund summaries takes hours of manual work in Word and Excel. Searching through past reports and emails in Outlook and SharePoint to find precedents is slow. Formatting PowerPoint decks for investor presentations consumes time that could go to analysis. Meeting notes from Teams calls are rarely captured well, leading to follow-up gaps.",
+        "keyActivities": "drafting investment research notes, summarising PE fund manager updates, building Excel models for portfolio data, preparing investor presentation slides in PowerPoint, searching SharePoint for past reports and templates, writing internal deal memos"
+      },
+      {
+        "role": "Managers & Team Leads",
+        "short": "MGR",
+        "icon": "secondary",
+        "objectives": "Team leads across investments, IR, and operations oversee day-to-day workflows and ensure deliverables meet quality standards. They review staff output, run team meetings, and coordinate across functions. Their decisions shape priorities and how the lean Azalea team allocates its time. Effective managers keep output consistent and deadlines on track.",
+        "painPoints": "Reviewing and editing large volumes of analyst-drafted documents takes significant time in Word and Outlook. Running productive team meetings on Teams requires preparation that is often squeezed out. Tracking task progress across team members without a central system leads to missed deadlines. Condensing updates from multiple sources into a single executive summary is time-consuming.",
+        "keyActivities": "reviewing analyst drafts and investor reports, running weekly team meetings on Teams, consolidating status updates from team members, preparing executive briefings for leadership, assigning tasks and tracking completion, coordinating with external PE fund managers"
+      },
+      {
+        "role": "Finance & Operations",
+        "short": "FIN",
+        "icon": "accent",
+        "objectives": "The finance and operations team manages fund accounting, cash flow tracking, and operational reporting across Azalea's investment platforms. They ensure bond obligations — including semi-annual distributions to investors — are met on schedule. Accurate financial data underpins investor trust and regulatory compliance. They work closely with investments and IR during every reporting cycle.",
+        "painPoints": "Pulling and reconciling financial data from multiple external fund managers into Excel reports is manual and error-prone. Drafting financial sections of semi-annual distribution reports under tight deadlines creates pressure. Tracking payment schedules and cash positions across multiple Astrea issuances requires constant monitoring. Routing financial documents for approval over email introduces delays and version confusion.",
+        "keyActivities": "reconciling fund distribution data in Excel, drafting financial sections of semi-annual reports, tracking bond payment schedules and cash positions, preparing cash flow summaries for leadership, reviewing fund manager fee invoices, coordinating audit and compliance document requests"
+      },
+      {
+        "role": "HR & People Development",
+        "short": "HR",
+        "icon": "primary",
+        "objectives": "HR manages recruitment, onboarding, and staff development for Azalea's specialised 70-person team. Building capability in investment analysis, compliance, and digital tools is a key priority. Given the firm's lean structure, every hire and every training investment matters. HR also supports the firm-wide Microsoft 365 Copilot adoption programme.",
+        "painPoints": "Coordinating interviews and onboarding schedules across busy investment professionals is difficult using Outlook calendar alone. Tracking training completion and skills gaps across small, specialised teams has no central system. Creating training materials and onboarding documents in Word and PowerPoint is time-consuming. Drafting offer letters, HR policies, and role descriptions requires careful, repetitive writing effort.",
+        "keyActivities": "scheduling interviews and onboarding sessions, drafting job descriptions and offer letters, coordinating Copilot training workshops across teams, tracking staff training completion in SharePoint, updating HR policies and handbooks, preparing headcount and skills gap reports for leadership"
+      },
+      {
+        "role": "Sales & Customer Service",
+        "short": "IR",
+        "icon": "secondary",
+        "objectives": "Investor Relations (IR) is Azalea's primary interface with its 80,000+ retail investors and 200+ institutional investors. The IR team manages enquiries, publishes reports, runs the annual Astrea Investor Day, and produces investor education content. Building investor confidence and communicating clearly and consistently is their core mission. They also support STEP platform users with onboarding and account queries.",
+        "painPoints": "Responding to high volumes of investor enquiries during bond launch periods stretches Outlook and email capacity significantly. Translating complex financial data into plain-language investor updates and FAQs is demanding and time-consuming. Coordinating the semi-annual report distribution to tens of thousands of investors requires careful planning. Producing investor education content — articles, Q&As, event writeups — requires constant writing and review effort.",
+        "keyActivities": "responding to retail investor enquiries via email and STEP platform, drafting investor FAQs and education articles, coordinating the annual Astrea Investor Day event logistics, preparing semi-annual report distribution, writing investor communications for new bond launches, updating content on the STEP platform"
+      },
+      {
+        "role": "IT & Systems Administrators",
+        "short": "IT",
+        "icon": "accent",
+        "objectives": "IT supports Azalea's digital infrastructure, including the STEP retail investment platform, internal Microsoft 365 environment, and connections to external financial data systems. They manage system security, access controls, and platform reliability for both internal staff and retail investors. With a small team, IT must prioritise effectively and enable staff self-service where possible. They also lead the Microsoft 365 Copilot rollout.",
+        "painPoints": "Managing Microsoft 365 licences, permissions, and security settings in a finance-regulated environment requires careful ongoing maintenance. Supporting staff with Teams, SharePoint, and OneDrive issues takes time away from strategic platform work. Coordinating STEP platform updates with external development teams involves significant documentation and back-and-forth communication. Tracking and resolving IT helpdesk tickets without a streamlined system creates backlogs.",
+        "keyActivities": "managing Microsoft 365 licences and user permissions, administering SharePoint and OneDrive for document storage, supporting STEP platform maintenance and updates, resolving staff IT helpdesk tickets via Teams, configuring Teams channels and meeting settings, deploying and monitoring Copilot licences across the organisation"
+      }
+    ],
+    "workflows": [
+      {
+        "name": "Bond Issuance and Investor Subscription",
+        "steps": [
+          {
+            "t": "Structure Bond",
+            "d": "Investments and legal teams design the bond structure and portfolio composition."
+          },
+          {
+            "t": "Draft Prospectus",
+            "d": "Legal and IR teams write the offer document and investor disclosures."
+          },
+          {
+            "t": "Regulatory Approval",
+            "d": "Compliance submits the prospectus to MAS for review and formal approval."
+          },
+          {
+            "t": "Investor Outreach",
+            "d": "IR team sends communications and updates STEP platform with bond details."
+          },
+          {
+            "t": "Process Subscriptions",
+            "d": "Operations processes investor applications and payments through the STEP platform."
+          },
+          {
+            "t": "Publish Results",
+            "d": "IR publishes subscription outcomes and bond allocation results to all investors."
+          }
+        ],
+        "friction": "Drafting and reviewing the prospectus involves multiple rounds of edits across legal, compliance, and IR — mostly done over email, making version control difficult and slow."
+      },
+      {
+        "name": "Semi-Annual Distribution Reporting",
+        "steps": [
+          {
+            "t": "Collect Fund Data",
+            "d": "Finance gathers performance and distribution data from external PE fund managers."
+          },
+          {
+            "t": "Reconcile Financials",
+            "d": "Finance reconciles fund cash flows and NAV data across Excel spreadsheets."
+          },
+          {
+            "t": "Draft Report",
+            "d": "IR and finance write the distribution report using prior period Word templates."
+          },
+          {
+            "t": "Review and Approve",
+            "d": "Management and compliance review the draft report for accuracy and tone."
+          },
+          {
+            "t": "Publish and Distribute",
+            "d": "IR publishes the final report and emails investors through STEP and Outlook."
+          }
+        ],
+        "friction": "Data collection from multiple external fund managers is slow and inconsistent, often delaying drafting and compressing the review window into the final days before deadline."
+      },
+      {
+        "name": "Investment Due Diligence",
+        "steps": [
+          {
+            "t": "Identify Opportunity",
+            "d": "Investments team flags a PE fund or secondary opportunity for evaluation."
+          },
+          {
+            "t": "Gather Materials",
+            "d": "Analysts collect fund documents, data room files, and manager track records."
+          },
+          {
+            "t": "Analyse and Model",
+            "d": "Analysts build Excel models and write research notes on fund performance and risk."
+          },
+          {
+            "t": "Draft Investment Memo",
+            "d": "Investments team writes a recommendation memo in Word for leadership review."
+          },
+          {
+            "t": "Investment Committee",
+            "d": "Leadership reviews the memo and makes a formal capital commitment decision."
+          }
+        ],
+        "friction": "Summarising large volumes of fund documents and data room materials into a clear, concise investment memo is time-consuming and requires many hours of analyst effort."
+      },
+      {
+        "name": "Investor Relations Event Management",
+        "steps": [
+          {
+            "t": "Plan Event",
+            "d": "IR team plans the annual Investor Day agenda, speakers, and logistics in Teams."
+          },
+          {
+            "t": "Prepare Content",
+            "d": "IR and investments draft presentations and speaker notes in PowerPoint."
+          },
+          {
+            "t": "Coordinate Logistics",
+            "d": "IR manages venue, registrations, and investor invitations through Outlook."
+          },
+          {
+            "t": "Run Event",
+            "d": "Teams hosts the investor event with live presentations and recorded sessions."
+          },
+          {
+            "t": "Send Follow-Up",
+            "d": "IR sends event summaries, Q&A responses, and recordings to all attendees."
+          }
+        ],
+        "friction": "Pulling together presentation content from multiple teams and turning it into a polished investor-facing deck takes many rounds of review and creates version confusion across email."
+      }
+    ],
+    "painPoints": {
+      "individual": [
+        {
+          "name": "Manual Report Drafting",
+          "desc": "Writing fund summaries and distribution reports from scratch takes several hours each cycle.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Slow Document Search",
+          "desc": "Finding past reports or precedent documents across SharePoint and Outlook takes too long.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Meeting Note Gaps",
+          "desc": "Key decisions from Teams calls are not reliably captured, causing follow-up confusion.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Repetitive Email Drafting",
+          "desc": "Writing similar investor query responses repeatedly wastes time that could go to analysis.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Excel Data Aggregation",
+          "desc": "Manually pulling and consolidating PE fund data into Excel models is slow and error-prone.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Slide Formatting Overhead",
+          "desc": "Reformatting investor presentation slides consumes time that should go to content and analysis.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Version Control Confusion",
+          "desc": "Multiple document versions shared over email make it hard to find the latest approved draft.",
+          "freq": "Daily"
+        }
+      ],
+      "team": [
+        {
+          "name": "Reporting Deadline Pressure",
+          "desc": "Semi-annual reporting cycles compress all teams into a short, high-pressure delivery window.",
+          "freq": "Semi-Annual"
+        },
+        {
+          "name": "Cross-Team Handoff Gaps",
+          "desc": "Handoffs between investments, IR, and finance during report production are poorly tracked.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Bond Launch Workload Spikes",
+          "desc": "New Astrea bond launches spike workload across IR, operations, and finance simultaneously.",
+          "freq": "Periodic"
+        },
+        {
+          "name": "Inconsistent Meeting Outcomes",
+          "desc": "Team meetings often end without agreed actions captured, leading to repeated discussions.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Knowledge Silos",
+          "desc": "Expertise in specific fund structures sits with individuals rather than being documented and shared.",
+          "freq": "Structural"
+        }
+      ],
+      "organisation": [
+        {
+          "name": "Lean Team Capacity Constraints",
+          "desc": "A 70-person team managing US$14 billion in assets leaves little slack for new work.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Retail Investor Communication Scale",
+          "desc": "Communicating clearly and consistently with 80,000 retail investors requires significant content effort.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Regulatory Reporting Complexity",
+          "desc": "MAS compliance requires precise, timely documentation across multiple platforms and bond issuances.",
+          "freq": "Structural"
+        },
+        {
+          "name": "External Data Dependency",
+          "desc": "Reliance on external PE fund managers for performance data creates delays in internal reporting.",
+          "freq": "Structural"
+        },
+        {
+          "name": "AI and Digital Upskilling Gap",
+          "desc": "Adopting Microsoft 365 Copilot requires structured training across specialised, time-pressured finance roles.",
+          "freq": "Structural"
+        }
+      ]
+    },
+    "technology": {
+      "m365Status": "Azalea uses Microsoft 365 across its teams for email, document collaboration, and meetings. A Microsoft 365 Copilot rollout is being introduced to help the lean team work faster on reporting, investment analysis, and investor communications.",
+      "m365": [
+        "Outlook",
+        "Teams",
+        "Word",
+        "Excel",
+        "PowerPoint",
+        "SharePoint",
+        "OneDrive",
+        "OneNote",
+        "Microsoft Copilot",
+        "Power BI"
+      ],
+      "platforms": [
+        {
+          "name": "STEP by Azalea",
+          "desc": "Retail portal for investor onboarding, PE bond subscriptions, and account management."
+        },
+        {
+          "name": "Bloomberg Terminal",
+          "desc": "Market data and financial analysis tool used daily by the investments team."
+        },
+        {
+          "name": "eFront",
+          "desc": "Private equity fund administration and portfolio monitoring platform for tracking commitments."
+        },
+        {
+          "name": "DocuSign",
+          "desc": "Electronic signature tool used for investor agreements and fund commitment documents."
+        },
+        {
+          "name": "Power BI",
+          "desc": "Data visualisation tool for building portfolio performance dashboards and reporting."
+        },
+        {
+          "name": "Workday",
+          "desc": "HR management system for payroll, leave tracking, and employee records."
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "t": "Azalea",
+        "d": "Azalea Asset Management Pte. Ltd. is a Singapore-based private equity asset manager founded in 2015. It is a wholly owned subsidiary of Temasek Holdings.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Temasek",
+        "d": "Temasek Holdings is Singapore's state investment company and Azalea's parent entity. It manages a global portfolio across multiple asset classes.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "MAS",
+        "d": "The Monetary Authority of Singapore is Singapore's central bank and financial regulator. Azalea's bond products and investment platforms require MAS approval and ongoing compliance.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Investment Committee",
+        "d": "An internal group of senior leaders who review and approve new PE fund commitments at Azalea. Investment memos prepared by analysts are presented here before capital is deployed.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Semi-Annual Distribution Report",
+        "d": "A report Azalea publishes every six months for each Astrea issuance, covering financial performance, distributions, and portfolio updates. It is a key document for retail investor transparency.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Astrea Investor Day",
+        "d": "An annual event hosted by Azalea for Astrea PE bond investors, featuring market updates, portfolio reviews, and investor education sessions. First held as an in-person forum and now a key IR event.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Astrea Platform",
+        "d": "Azalea's flagship retail investment product line, which issues PE bonds backed by diversified private equity fund portfolios. There have been nine Astrea issuances since the programme began.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Altrium Platform",
+        "d": "Azalea's PE fund-of-funds offering for institutional and accredited investors. Products include the Altrium Private Equity Fund, Altrium Sustainability Fund, and Altrium Co-Invest Fund.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "STEP by Azalea",
+        "d": "A digital investment portal that allows retail investors to subscribe to and manage their Astrea PE bond holdings online. It is Azalea's primary direct-to-investor channel.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Investor Relations (IR)",
+        "d": "The team at Azalea that manages all communication with retail and institutional investors. IR runs reports, events, investor enquiries, and education programmes.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Investments Team",
+        "d": "The team responsible for identifying, evaluating, and monitoring PE fund commitments across global markets. They produce investment memos and manage ongoing fund relationships.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Fund Administration",
+        "d": "The operations function responsible for tracking fund accounting, capital calls, distributions, and financial reporting. They support both the Astrea and Altrium platforms.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Private Equity (PE)",
+        "d": "An asset class where investors commit capital to funds that invest in private companies not listed on public exchanges. Returns are typically realised through company sales or IPOs.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Fund-of-Funds (FoF)",
+        "d": "An investment structure that invests in a portfolio of underlying PE funds rather than directly in companies. The Altrium platform uses this structure.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Limited Partner (LP)",
+        "d": "An investor who commits capital to a PE fund but plays no active role in managing it. Azalea acts as an LP when investing in external PE funds on behalf of its platforms.",
+        "cat": "Industry"
+      },
+      {
+        "t": "General Partner (GP)",
+        "d": "The fund manager who runs a PE fund and makes all investment decisions. GPs manage the underlying portfolio companies and are responsible for generating returns.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Secondary Market",
+        "d": "A market where existing PE fund interests are bought and sold before the fund's end of life. Azalea uses secondary strategies to acquire mature, cash-generative PE portfolios for the Astrea platform.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Net Asset Value (NAV)",
+        "d": "The estimated current value of a fund's portfolio, calculated periodically by the fund manager. NAV is a key metric for tracking PE fund performance and reporting to investors.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Internal Rate of Return (IRR)",
+        "d": "A measure of a PE fund's annualised return, accounting for the timing of cash flows in and out. Higher IRR indicates stronger fund performance relative to peers.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Distributions to Paid-In (DPI)",
+        "d": "A ratio showing how much cash a PE fund has returned to investors relative to the capital invested. A DPI above 1.0 means investors have received back more than they put in.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Capital Call / Drawdown",
+        "d": "A request by a GP for investors to transfer committed capital when the fund is ready to invest. Azalea must manage drawdown timing across many simultaneous fund commitments.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Vintage Year",
+        "d": "The year a PE fund made its first investment, used to compare performance across funds of similar age and market cycle. Azalea's portfolios span multiple vintage years.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Carried Interest",
+        "d": "The share of fund profits paid to the GP as performance compensation, typically 20% of gains above a threshold. It aligns GP incentives with investor returns.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Prospectus",
+        "d": "A formal legal document describing a bond offering, its structure, and its risks for potential investors. Azalea publishes a prospectus for every new Astrea bond issuance.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Subscription Rate",
+        "d": "The total investor demand for a bond offering relative to the bonds available, expressed as a multiple. Astrea 9 achieved a 3.4 times subscription rate, the largest Astrea offering to date.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Due Diligence",
+        "d": "The process of thoroughly researching a PE fund before committing capital, covering strategy, track record, portfolio, and risk. Azalea analysts lead this process for every new investment.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Microsoft 365 Copilot",
+        "d": "An AI assistant embedded in Microsoft 365 apps like Word, Excel, Teams, and Outlook. It helps users draft documents, summarise meetings, and work through data faster.",
+        "cat": "Technology"
+      },
+      {
+        "t": "SharePoint",
+        "d": "Microsoft's document management and intranet platform used by Azalea for storing and sharing internal reports, templates, and policies. It is the central document repository.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Bloomberg Terminal",
+        "d": "A professional financial data platform used by Azalea's investments team for market data, fund analytics, and financial news. It is a core daily tool for investment analysis.",
+        "cat": "Technology"
+      },
+      {
+        "t": "eFront",
+        "d": "A private equity fund administration platform used to track fund commitments, capital calls, distributions, and portfolio performance data across Azalea's investments.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Power BI",
+        "d": "Microsoft's data visualisation tool used to build dashboards and reports from portfolio and financial data. It connects with Excel and other Microsoft 365 tools.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Knowledge Worker",
+        "d": "An employee whose primary output is information, analysis, or documents rather than physical goods. Most of Azalea's 70-person team are knowledge workers in investment, IR, or operations roles.",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "Copilot Adoption",
+        "d": "The process of introducing and embedding Microsoft 365 Copilot into daily work habits across teams. Azalea is running a structured training programme to build Copilot skills firm-wide.",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "AI Upskilling",
+        "d": "Training staff to use AI tools effectively in their daily work. For Azalea, this means learning to use Copilot to speed up research, reporting, and investor communications.",
+        "cat": "HR & Learning"
+      }
+    ],
+    "brandColors": {
+      "primary": "#2B5F45 — deep forest green, the dominant brand color used in Azalea's logo and primary visual identity",
+      "accent": "#C9A96E — warm gold used for highlights, headings, and decorative accents across Azalea's brand materials"
+    }
+  },
+  "useCases": {
+    "chat": [
+      {
+        "id": "CH-01",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Get quick answers to support drafting investment research notes",
+        "pain": "Drafting detailed research notes and fund summaries takes hours of manual work in Word and Excel",
+        "habitId": "CH1",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Explain [concept or process relevant to drafting investment research notes] as if I'm a Knowledge Workers & Office Staff at Azalea. This supports our goal to Investor Trust Through Transparent Reporting. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
+        "inputs": "None — general knowledge query",
+        "metric": "Understanding new concepts reduced from 30 min to 5 min",
+        "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
+        "timeSaved": 14,
+        "priority": "Medium",
+        "relevanceScore": 100
+      },
+      {
+        "id": "CH-02",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Create a document or template for searching SharePoint for past reports and templates",
+        "pain": "Searching through past reports and emails in Outlook and SharePoint to find precedents is slow",
+        "habitId": "CH5",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to create a [document type] to support searching SharePoint for past reports and templates at Azalea, aligned with our priority to Investor Trust Through Transparent Reporting. This document will be used during the \"Gather Materials\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Analysts and associates produce the research, documents, and data summaries that support investment decisions and investor communications",
+        "inputs": "Topic, audience, purpose, any existing notes",
+        "metric": "Document outline created in 15 minutes instead of 1 hour",
+        "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
+        "timeSaved": 33,
+        "priority": "Medium",
+        "relevanceScore": 40
+      },
+      {
+        "id": "CH-03",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Draft email for building Excel models for portfolio data",
+        "pain": "Formatting PowerPoint decks for investor presentations consumes time that could go to analysis",
+        "habitId": "CH3",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Draft an email to [recipient] about [topic] related to building Excel models for portfolio data at Azalea. This is for the \"Identify Opportunity\" stage of the Investment Due Diligence process. Key points: [list]. Tone: professional. Length: ~200 words.",
+        "inputs": "Recipient, key message points, any relevant context",
+        "metric": "Email drafting time reduced from 20 to 5 minutes",
+        "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
+        "timeSaved": 21,
+        "priority": "High",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-04",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Analyse data relevant to drafting investment research notes",
+        "pain": "Drafting detailed research notes and fund summaries takes hours of manual work in Word and Excel",
+        "habitId": "CH7",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting data from Power BI related to drafting investment research notes at Azalea as part of the Investment Due Diligence process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from Power BI",
+        "metric": "Data analysis time reduced from 3 hours to 20 minutes",
+        "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
+        "timeSaved": 35,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-05",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Research information needed for summarising PE fund manager updates",
+        "pain": "Searching through past reports and emails in Outlook and SharePoint to find precedents is slow",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] to help with summarising PE fund manager updates at Azalea as part of the Investment Due Diligence process. Context: Summarising large volumes of fund documents and data room materials into a clear, concise investment memo is time-consuming and requires many hours of analyst effort.. Provide: 1) key findings with sources 2) how this applies to Azalea 3) recommended next steps.",
+        "inputs": "None — web research or internal documents",
+        "metric": "Research time reduced from 2 hours to 15 minutes",
+        "guardrails": "Verify all facts against primary sources before acting; note any information cutoff dates",
+        "timeSaved": 40,
+        "priority": "High",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-06",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Create structured notes from discussion about preparing investor presentation slides in PowerPoint",
+        "pain": "Drafting detailed research notes and fund summaries takes hours of manual work in Word and Excel",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a discussion about preparing investor presentation slides in PowerPoint at Azalea (part of the Investment Due Diligence workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 47,
+        "priority": "High",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-07",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Extract key information from documents for writing internal deal memos",
+        "pain": "Formatting PowerPoint decks for investor presentations consumes time that could go to analysis",
+        "habitId": "CH6",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting a document exported from Power BI (Data visualisation tool for building portfolio performance dashboards and reporting.) relevant to writing internal deal memos at Azalea. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or Power BI export",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
+        "timeSaved": 24,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-08",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Get quick answers to support reviewing analyst drafts and investor reports",
+        "pain": "Reviewing and editing large volumes of analyst-drafted documents takes significant time in Word and Outlook",
+        "habitId": "CH1",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Explain [concept or process relevant to reviewing analyst drafts and investor reports] as if I'm a Managers & Team Leads at Azalea. This supports our goal to Talent Development and Operational Excellence. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
+        "inputs": "None — general knowledge query",
+        "metric": "Understanding new concepts reduced from 30 min to 5 min",
+        "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
+        "timeSaved": 18,
+        "priority": "Medium",
+        "relevanceScore": 100
+      },
+      {
+        "id": "CH-09",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Create a document or template for assigning tasks and tracking completion",
+        "pain": "Running productive team meetings on Teams requires preparation that is often squeezed out",
+        "habitId": "CH5",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to create a [document type] to support assigning tasks and tracking completion at Azalea, aligned with our priority to Talent Development and Operational Excellence. This document will be used during the \"Reconcile Financials\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Team leads across investments, IR, and operations oversee day-to-day workflows and ensure deliverables meet quality standards",
+        "inputs": "Topic, audience, purpose, any existing notes",
+        "metric": "Document outline created in 15 minutes instead of 1 hour",
+        "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
+        "timeSaved": 37,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-10",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Extract key information from documents for coordinating with external PE fund managers",
+        "pain": "Tracking task progress across team members without a central system leads to missed deadlines",
+        "habitId": "CH6",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting a document relevant to coordinating with external PE fund managers at Azalea. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or reference text",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
+        "timeSaved": 28,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-11",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Create structured notes from discussion about preparing executive briefings for leadership",
+        "pain": "Reviewing and editing large volumes of analyst-drafted documents takes significant time in Word and Outlook",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a discussion about preparing executive briefings for leadership at Azalea (part of the Semi-Annual Distribution Reporting workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 31,
+        "priority": "High",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-12",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Draft email for consolidating status updates from team members",
+        "pain": "Tracking task progress across team members without a central system leads to missed deadlines",
+        "habitId": "CH3",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Draft an email to [recipient] about [topic] related to consolidating status updates from team members at Azalea. This is for the \"Collect Fund Data\" stage of the Semi-Annual Distribution Reporting process. Key points: [list]. Tone: professional. Length: ~200 words.",
+        "inputs": "Recipient, key message points, any relevant context",
+        "metric": "Email drafting time reduced from 20 to 5 minutes",
+        "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-13",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Analyse data relevant to reviewing analyst drafts and investor reports",
+        "pain": "Reviewing and editing large volumes of analyst-drafted documents takes significant time in Word and Outlook",
+        "habitId": "CH7",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting data related to reviewing analyst drafts and investor reports at Azalea as part of the Semi-Annual Distribution Reporting process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from a spreadsheet or report",
+        "metric": "Data analysis time reduced from 3 hours to 20 minutes",
+        "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
+        "timeSaved": 39,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-14",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Research a topic you need for your work at Azalea",
+        "pain": "Running productive team meetings on Teams requires preparation that is often squeezed out",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a Managers & Team Leads at Azalea. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-15",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Get quick answers to support reconciling fund distribution data in Excel",
+        "pain": "Pulling and reconciling financial data from multiple external fund managers into Excel reports is manual and error-prone",
+        "habitId": "CH1",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Explain [concept or process relevant to reconciling fund distribution data in Excel] as if I'm a Finance & Operations at Azalea. This supports our goal to Investor Trust Through Transparent Reporting. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
+        "inputs": "None — general knowledge query",
+        "metric": "Understanding new concepts reduced from 30 min to 5 min",
+        "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
+        "timeSaved": 11,
+        "priority": "Medium",
+        "relevanceScore": 100
+      },
+      {
+        "id": "CH-16",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Extract key information from documents for coordinating audit and compliance document requests",
+        "pain": "Tracking payment schedules and cash positions across multiple Astrea issuances requires constant monitoring",
+        "habitId": "CH6",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting a document relevant to coordinating audit and compliance document requests at Azalea. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or reference text",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
+        "timeSaved": 41,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-17",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Analyse data relevant to reconciling fund distribution data in Excel",
+        "pain": "Pulling and reconciling financial data from multiple external fund managers into Excel reports is manual and error-prone",
+        "habitId": "CH7",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting data related to reconciling fund distribution data in Excel at Azalea as part of the Semi-Annual Distribution Reporting process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from a spreadsheet or report",
+        "metric": "Data analysis time reduced from 3 hours to 20 minutes",
+        "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
+        "timeSaved": 32,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-18",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Draft email for tracking bond payment schedules and cash positions",
+        "pain": "Tracking payment schedules and cash positions across multiple Astrea issuances requires constant monitoring",
+        "habitId": "CH3",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Draft an email to [recipient] about [topic] related to tracking bond payment schedules and cash positions at Azalea. This is for the \"Collect Fund Data\" stage of the Semi-Annual Distribution Reporting process. Key points: [list]. Tone: professional. Length: ~200 words.",
+        "inputs": "Recipient, key message points, any relevant context",
+        "metric": "Email drafting time reduced from 20 to 5 minutes",
+        "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
+        "timeSaved": 18,
+        "priority": "High",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-19",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Create a document or template for reviewing fund manager fee invoices",
+        "pain": "Drafting financial sections of semi-annual distribution reports under tight deadlines creates pressure",
+        "habitId": "CH5",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to create a [document type] to support reviewing fund manager fee invoices at Azalea, aligned with our priority to Investor Trust Through Transparent Reporting. This document will be used during the \"Reconcile Financials\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: The finance and operations team manages fund accounting, cash flow tracking, and operational reporting across Azalea's investment platforms",
+        "inputs": "Topic, audience, purpose, any existing notes",
+        "metric": "Document outline created in 15 minutes instead of 1 hour",
+        "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
+        "timeSaved": 30,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-20",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Create structured notes from discussion about preparing cash flow summaries for leadership",
+        "pain": "Pulling and reconciling financial data from multiple external fund managers into Excel reports is manual and error-prone",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a discussion about preparing cash flow summaries for leadership at Azalea (part of the Semi-Annual Distribution Reporting workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 44,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-21",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Research a topic you need for your work at Azalea",
+        "pain": "Drafting financial sections of semi-annual distribution reports under tight deadlines creates pressure",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a Finance & Operations at Azalea. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-22",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Get quick answers to support scheduling interviews and onboarding sessions",
+        "pain": "Coordinating interviews and onboarding schedules across busy investment professionals is difficult using Outlook calendar alone",
+        "habitId": "CH1",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Explain [concept or process relevant to scheduling interviews and onboarding sessions] as if I'm a HR & People Development at Azalea. This supports our goal to Talent Development and Operational Excellence. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
+        "inputs": "None — general knowledge query",
+        "metric": "Understanding new concepts reduced from 30 min to 5 min",
+        "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
+        "timeSaved": 10,
+        "priority": "Medium",
+        "relevanceScore": 100
+      },
+      {
+        "id": "CH-23",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Create a document or template for updating HR policies and handbooks",
+        "pain": "Tracking training completion and skills gaps across small, specialised teams has no central system",
+        "habitId": "CH5",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to create a [document type] to support updating HR policies and handbooks at Azalea, aligned with our priority to Talent Development and Operational Excellence. This document will be used during the \"Gather Materials\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: HR manages recruitment, onboarding, and staff development for Azalea's specialised 70-person team",
+        "inputs": "Topic, audience, purpose, any existing notes",
+        "metric": "Document outline created in 15 minutes instead of 1 hour",
+        "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
+        "timeSaved": 29,
+        "priority": "Medium",
+        "relevanceScore": 40
+      },
+      {
+        "id": "CH-24",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Extract key information from documents for preparing headcount and skills gap reports for leadership",
+        "pain": "Creating training materials and onboarding documents in Word and PowerPoint is time-consuming",
+        "habitId": "CH6",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting a document relevant to preparing headcount and skills gap reports for leadership at Azalea. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or reference text",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
+        "timeSaved": 40,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-25",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Draft email for coordinating Copilot training workshops across teams",
+        "pain": "Creating training materials and onboarding documents in Word and PowerPoint is time-consuming",
+        "habitId": "CH3",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Draft an email to [recipient] about [topic] related to coordinating Copilot training workshops across teams at Azalea. This is for the \"Identify Opportunity\" stage of the Investment Due Diligence process. Key points: [list]. Tone: professional. Length: ~200 words.",
+        "inputs": "Recipient, key message points, any relevant context",
+        "metric": "Email drafting time reduced from 20 to 5 minutes",
+        "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
+        "timeSaved": 17,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-26",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Analyse data relevant to scheduling interviews and onboarding sessions",
+        "pain": "Coordinating interviews and onboarding schedules across busy investment professionals is difficult using Outlook calendar alone",
+        "habitId": "CH7",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting data related to scheduling interviews and onboarding sessions at Azalea as part of the Investment Due Diligence process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from a spreadsheet or report",
+        "metric": "Data analysis time reduced from 3 hours to 20 minutes",
+        "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
+        "timeSaved": 31,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-27",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Research a topic you need for your work at Azalea",
+        "pain": "Tracking training completion and skills gaps across small, specialised teams has no central system",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a HR & People Development at Azalea. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-28",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Create structured notes from a meeting or discussion at Azalea",
+        "pain": "Coordinating interviews and onboarding schedules across busy investment professionals is difficult using Outlook calendar alone",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a meeting at Azalea relevant to my work as a HR & People Development. Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 30,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-29",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Get quick answers to support responding to retail investor enquiries via email and STEP platform",
+        "pain": "Responding to high volumes of investor enquiries during bond launch periods stretches Outlook and email capacity significantly",
+        "habitId": "CH1",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Explain [concept or process relevant to responding to retail investor enquiries via email and STEP platform] as if I'm a Sales & Customer Service at Azalea. This supports our goal to Investor Trust Through Transparent Reporting. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
+        "inputs": "None — general knowledge query",
+        "metric": "Understanding new concepts reduced from 30 min to 5 min",
+        "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
+        "timeSaved": 13,
+        "priority": "Medium",
+        "relevanceScore": 100
+      },
+      {
+        "id": "CH-30",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Create a document or template for writing investor communications for new bond launches",
+        "pain": "Translating complex financial data into plain-language investor updates and FAQs is demanding and time-consuming",
+        "habitId": "CH5",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to create a [document type] to support writing investor communications for new bond launches at Azalea, aligned with our priority to Investor Trust Through Transparent Reporting. This document will be used during the \"Reconcile Financials\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: Investor Relations (IR) is Azalea's primary interface with its 80,000+ retail investors and 200+ institutional investors",
+        "inputs": "Topic, audience, purpose, any existing notes",
+        "metric": "Document outline created in 15 minutes instead of 1 hour",
+        "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
+        "timeSaved": 32,
+        "priority": "Medium",
+        "relevanceScore": 40
+      },
+      {
+        "id": "CH-31",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Draft email for coordinating the annual Astrea Investor Day event logistics",
+        "pain": "Coordinating the semi-annual report distribution to tens of thousands of investors requires careful planning",
+        "habitId": "CH3",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Draft an email to [recipient] about [topic] related to coordinating the annual Astrea Investor Day event logistics at Azalea. This is for the \"Collect Fund Data\" stage of the Semi-Annual Distribution Reporting process. Key points: [list]. Tone: professional. Length: ~200 words.",
+        "inputs": "Recipient, key message points, any relevant context",
+        "metric": "Email drafting time reduced from 20 to 5 minutes",
+        "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
+        "timeSaved": 20,
+        "priority": "High",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-32",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Extract key information from documents for updating content on the STEP platform",
+        "pain": "Coordinating the semi-annual report distribution to tens of thousands of investors requires careful planning",
+        "habitId": "CH6",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting a document exported from STEP by Azalea (Retail portal for investor onboarding, PE bond subscriptions, and account management.) relevant to updating content on the STEP platform at Azalea. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or STEP by Azalea export",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
+        "timeSaved": 23,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-33",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Analyse data relevant to responding to retail investor enquiries via email and STEP platform",
+        "pain": "Responding to high volumes of investor enquiries during bond launch periods stretches Outlook and email capacity significantly",
+        "habitId": "CH7",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting data from STEP by Azalea related to responding to retail investor enquiries via email and STEP platform at Azalea as part of the Semi-Annual Distribution Reporting process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from STEP by Azalea",
+        "metric": "Data analysis time reduced from 3 hours to 20 minutes",
+        "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
+        "timeSaved": 34,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-34",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Create structured notes from discussion about preparing semi-annual report distribution",
+        "pain": "Responding to high volumes of investor enquiries during bond launch periods stretches Outlook and email capacity significantly",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a discussion about preparing semi-annual report distribution at Azalea (part of the Semi-Annual Distribution Reporting workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 46,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-35",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Research a topic you need for your work at Azalea",
+        "pain": "Translating complex financial data into plain-language investor updates and FAQs is demanding and time-consuming",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a Sales & Customer Service at Azalea. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-36",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Get quick answers to support managing Microsoft 365 licences and user permissions",
+        "pain": "Managing Microsoft 365 licences, permissions, and security settings in a finance-regulated environment requires careful ongoing maintenance",
+        "habitId": "CH1",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Explain [concept or process relevant to managing Microsoft 365 licences and user permissions] as if I'm a IT & Systems Administrators at Azalea. This supports our goal to Digital Platform Growth and Innovation. Include: 1) a clear plain-language explanation 2) 3 practical steps I can take 3) one common mistake to avoid.",
+        "inputs": "None — general knowledge query",
+        "metric": "Understanding new concepts reduced from 30 min to 5 min",
+        "guardrails": "AI explanations are not expert advice; verify key facts with authoritative sources",
+        "timeSaved": 19,
+        "priority": "Medium",
+        "relevanceScore": 100
+      },
+      {
+        "id": "CH-37",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Create a document or template for configuring Teams channels and meeting settings",
+        "pain": "Supporting staff with Teams, SharePoint, and OneDrive issues takes time away from strategic platform work",
+        "habitId": "CH5",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to create a [document type] to support configuring Teams channels and meeting settings at Azalea, aligned with our priority to Digital Platform Growth and Innovation. This document will be used during the \"Draft Prospectus\" stage. Generate a detailed outline with 6-8 sections, key points per section, and suggested content.\n\nContext: IT supports Azalea's digital infrastructure, including the STEP retail investment platform, internal Microsoft 365 environment, and connections to external financial data systems",
+        "inputs": "Topic, audience, purpose, any existing notes",
+        "metric": "Document outline created in 15 minutes instead of 1 hour",
+        "guardrails": "Validate all factual claims before publishing; get appropriate approvals",
+        "timeSaved": 38,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "CH-38",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Extract key information from documents for deploying and monitoring Copilot licences across the organisation",
+        "pain": "Coordinating STEP platform updates with external development teams involves significant documentation and back-and-forth communication",
+        "habitId": "CH6",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting a document exported from STEP by Azalea (Retail portal for investor onboarding, PE bond subscriptions, and account management.) relevant to deploying and monitoring Copilot licences across the organisation at Azalea. Summarise: 1) key findings or decisions 2) action items 3) important dates or deadlines 4) any risks or issues flagged.\n\n[Paste document text here]",
+        "inputs": "Paste document, report, or STEP by Azalea export",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Verify extracted details against original; flag any ambiguities for human review",
+        "timeSaved": 29,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "CH-39",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Create structured notes from discussion about resolving staff IT helpdesk tickets via Teams",
+        "pain": "Managing Microsoft 365 licences, permissions, and security settings in a finance-regulated environment requires careful ongoing maintenance",
+        "habitId": "CH4",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting notes from a discussion about resolving staff IT helpdesk tickets via Teams at Azalea (part of the Bond Issuance and Investor Subscription workflow). Create a structured summary with: 1) 3-sentence overview 2) key decisions or outcomes 3) action items with owners and deadlines 4) open questions.\n\n[Paste notes or transcript here]",
+        "inputs": "Paste meeting notes or transcript",
+        "metric": "Notes creation reduced from 60 to 10 minutes",
+        "guardrails": "Verify all attributed decisions are accurate; mark unclear items as [To Verify]",
+        "timeSaved": 32,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-40",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Analyse data relevant to managing Microsoft 365 licences and user permissions",
+        "pain": "Managing Microsoft 365 licences, permissions, and security settings in a finance-regulated environment requires careful ongoing maintenance",
+        "habitId": "CH7",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I'm pasting data from STEP by Azalea related to managing Microsoft 365 licences and user permissions at Azalea as part of the Bond Issuance and Investor Subscription process. Analyse it and tell me: 1) key patterns or trends 2) outliers or anomalies 3) recommended actions 4) any data quality issues.\n\n[Paste data table here]",
+        "inputs": "Paste data table or metrics from STEP by Azalea",
+        "metric": "Data analysis time reduced from 3 hours to 20 minutes",
+        "guardrails": "Validate interpretation with relevant stakeholders; do not share individual-level sensitive data",
+        "timeSaved": 40,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "CH-41",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Research a topic you need for your work at Azalea",
+        "pain": "Supporting staff with Teams, SharePoint, and OneDrive issues takes time away from strategic platform work",
+        "habitId": "CH2",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "I need to research [specific topic] as a IT & Systems Administrators at Azalea. Provide: 1) key findings with sources 2) how this applies to my role 3) recommended next steps. Flag any conflicting information.",
+        "inputs": "None — web research",
+        "metric": "Research time reduced from 2 hours to 20 minutes",
+        "guardrails": "Verify all facts against primary sources before acting",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "CH-42",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Draft a professional email for your work at Azalea",
+        "pain": "Coordinating STEP platform updates with external development teams involves significant documentation and back-and-forth communication",
+        "habitId": "CH3",
+        "entry": "Copilot Chat (microsoft365.com)",
+        "prompt": "Draft an email to [recipient] about [topic] as a IT & Systems Administrators at Azalea. Key points: [list]. Tone: professional. Length: ~200 words.",
+        "inputs": "Recipient, key message points, any relevant context",
+        "metric": "Email drafting time reduced from 20 to 5 minutes",
+        "guardrails": "Review all drafts before sending; do not include sensitive or confidential information",
+        "timeSaved": 20,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      }
+    ],
+    "m365": [
+      {
+        "id": "MH-01",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Get a daily briefing on tasks related to drafting investment research notes",
+        "pain": "Drafting detailed research notes and fund summaries takes hours of manual work in Word and Excel",
+        "habitId": "MH1",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Give me a daily digest as a Knowledge Workers & Office Staff at Azalea focused on the Investment Due Diligence process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Summarising large volumes of fund documents and data room materials into a clear, concise investment memo is time-consuming and requires many hours of analyst effort..",
+        "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
+        "metric": "Daily briefing prep reduced from 30 to 5 minutes",
+        "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
+        "timeSaved": 29,
+        "priority": "High",
+        "relevanceScore": 100
+      },
+      {
+        "id": "MH-02",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Search internal files and emails related to preparing investor presentation slides in PowerPoint",
+        "pain": "Drafting detailed research notes and fund summaries takes hours of manual work in Word and Excel",
+        "habitId": "MH4",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Find documents and messages related to preparing investor presentation slides in PowerPoint from our SharePoint and Teams files at Azalea for the Investment Due Diligence process. Also look for any exports or reports from Power BI. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages, Power BI exports",
+        "metric": "Internal research time reduced from 90 to 15 minutes",
+        "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
+        "timeSaved": 48,
+        "priority": "Medium",
+        "relevanceScore": 40
+      },
+      {
+        "id": "MH-03",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Draft a report or document for searching SharePoint for past reports and templates",
+        "pain": "Searching through past reports and emails in Outlook and SharePoint to find precedents is slow",
+        "habitId": "MH5",
+        "entry": "Word",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about searching SharePoint for past reports and templates at Azalea. This output will be used for the \"Analyse and Model\" stage of the Investment Due Diligence process. Reference data from Power BI (Data visualisation tool for building portfolio performance dashboards and reporting.). I am a Knowledge Workers & Office Staff. Include: executive summary, background, key findings, recommendations, and next steps. Context: Analysts and associates produce the research, documents, and data summaries that support investment decisions and investor communications",
+        "inputs": "Brief, existing notes, Power BI data export (attach to Word)",
+        "metric": "Report drafting time reduced from 4 hours to 1 hour",
+        "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
+        "timeSaved": 41,
+        "priority": "Medium",
+        "relevanceScore": 40
+      },
+      {
+        "id": "MH-04",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Reply to emails about summarising PE fund manager updates using thread context",
+        "pain": "Searching through past reports and emails in Outlook and SharePoint to find precedents is slow",
+        "habitId": "MH2",
+        "entry": "Outlook",
+        "prompt": "Write a reply to [sender] about [topic] related to summarising PE fund manager updates at Azalea. This relates to the \"Identify Opportunity\" stage of the Investment Due Diligence process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
+        "inputs": "Email thread (Outlook reads context automatically)",
+        "metric": "Email reply time reduced from 20 to 4 minutes",
+        "guardrails": "Review drafts carefully before sending; remove any internal-only references",
+        "timeSaved": 27,
+        "priority": "High",
+        "relevanceScore": 30
+      },
+      {
+        "id": "MH-05",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Prepare agenda and capture meeting notes for building Excel models for portfolio data",
+        "pain": "Formatting PowerPoint decks for investor presentations consumes time that could go to analysis",
+        "habitId": "MH3",
+        "entry": "Teams",
+        "prompt": "Using recent messages and emails about building Excel models for portfolio data at Azalea (part of the Investment Due Diligence workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Gather Materials\" step. After the meeting, summarise key decisions and action items.",
+        "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
+        "metric": "Meeting prep reduced from 45 to 8 minutes",
+        "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
+        "timeSaved": 40,
+        "priority": "High",
+        "relevanceScore": 30
+      },
+      {
+        "id": "MH-06",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Review and summarise documents related to writing internal deal memos",
+        "pain": "Formatting PowerPoint decks for investor presentations consumes time that could go to analysis",
+        "habitId": "MH6",
+        "entry": "Word",
+        "prompt": "Summarise the attached document from Power BI related to writing internal deal memos at Azalea (this relates to our priority: Investor Trust Through Transparent Reporting). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Knowledge Workers & Office Staff.",
+        "inputs": "Attach Power BI report, Word document, or PDF in Word",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
+        "timeSaved": 49,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-07",
+        "role": "Knowledge Workers & Office Staff",
+        "code": "KW",
+        "name": "Analyse and visualise data for drafting investment research notes",
+        "pain": "Drafting detailed research notes and fund summaries takes hours of manual work in Word and Excel",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet (pulled from Power BI) related to drafting investment research notes at Azalea as part of the Investment Due Diligence process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Power BI data export in Excel spreadsheet",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 47,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-08",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Get a daily briefing on tasks related to reviewing analyst drafts and investor reports",
+        "pain": "Reviewing and editing large volumes of analyst-drafted documents takes significant time in Word and Outlook",
+        "habitId": "MH1",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Give me a daily digest as a Managers & Team Leads at Azalea focused on the Semi-Annual Distribution Reporting process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Data collection from multiple external fund managers is slow and inconsistent, often delaying drafting and compressing the review window into the final days before deadline..",
+        "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
+        "metric": "Daily briefing prep reduced from 30 to 5 minutes",
+        "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
+        "timeSaved": 29,
+        "priority": "High",
+        "relevanceScore": 100
+      },
+      {
+        "id": "MH-09",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Draft a report or document for assigning tasks and tracking completion",
+        "pain": "Running productive team meetings on Teams requires preparation that is often squeezed out",
+        "habitId": "MH5",
+        "entry": "Word",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about assigning tasks and tracking completion at Azalea. This output will be used for the \"Draft Report\" stage of the Semi-Annual Distribution Reporting process. I am a Managers & Team Leads. Include: executive summary, background, key findings, recommendations, and next steps. Context: Team leads across investments, IR, and operations oversee day-to-day workflows and ensure deliverables meet quality standards",
+        "inputs": "Brief, existing notes (attach to Word)",
+        "metric": "Report drafting time reduced from 4 hours to 1 hour",
+        "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
+        "timeSaved": 41,
+        "priority": "Medium",
+        "relevanceScore": 60
+      },
+      {
+        "id": "MH-10",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Review and summarise documents related to coordinating with external PE fund managers",
+        "pain": "Tracking task progress across team members without a central system leads to missed deadlines",
+        "habitId": "MH6",
+        "entry": "Word",
+        "prompt": "Summarise the attached document related to coordinating with external PE fund managers at Azalea (this relates to our priority: Talent Development and Operational Excellence). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Managers & Team Leads.",
+        "inputs": "Attach  Word document, or PDF in Word",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
+        "timeSaved": 49,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "MH-11",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Prepare agenda and capture meeting notes for consolidating status updates from team members",
+        "pain": "Tracking task progress across team members without a central system leads to missed deadlines",
+        "habitId": "MH3",
+        "entry": "Teams",
+        "prompt": "Using recent messages and emails about consolidating status updates from team members at Azalea (part of the Semi-Annual Distribution Reporting workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Reconcile Financials\" step. After the meeting, summarise key decisions and action items.",
+        "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
+        "metric": "Meeting prep reduced from 45 to 8 minutes",
+        "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
+        "timeSaved": 40,
+        "priority": "High",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-12",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Reply to emails about running weekly team meetings on Teams using thread context",
+        "pain": "Running productive team meetings on Teams requires preparation that is often squeezed out",
+        "habitId": "MH2",
+        "entry": "Outlook",
+        "prompt": "Write a reply to [sender] about [topic] related to running weekly team meetings on Teams at Azalea. This relates to the \"Collect Fund Data\" stage of the Semi-Annual Distribution Reporting process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
+        "inputs": "Email thread (Outlook reads context automatically)",
+        "metric": "Email reply time reduced from 20 to 4 minutes",
+        "guardrails": "Review drafts carefully before sending; remove any internal-only references",
+        "timeSaved": 27,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-13",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Search internal files and emails related to preparing executive briefings for leadership",
+        "pain": "Reviewing and editing large volumes of analyst-drafted documents takes significant time in Word and Outlook",
+        "habitId": "MH4",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Find documents and messages related to preparing executive briefings for leadership from our SharePoint and Teams files at Azalea for the Semi-Annual Distribution Reporting process. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages",
+        "metric": "Internal research time reduced from 90 to 15 minutes",
+        "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
+        "timeSaved": 48,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-14",
+        "role": "Managers & Team Leads",
+        "code": "MGR",
+        "name": "Analyse data to support your decisions as a Managers & Team Leads at Azalea",
+        "pain": "Reviewing and editing large volumes of analyst-drafted documents takes significant time in Word and Outlook",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet relevant to my work as a Managers & Team Leads at Azalea. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet with relevant data",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 30,
+        "priority": "Medium",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-15",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Get a daily briefing on tasks related to reconciling fund distribution data in Excel",
+        "pain": "Pulling and reconciling financial data from multiple external fund managers into Excel reports is manual and error-prone",
+        "habitId": "MH1",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Give me a daily digest as a Finance & Operations at Azalea focused on the Semi-Annual Distribution Reporting process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Data collection from multiple external fund managers is slow and inconsistent, often delaying drafting and compressing the review window into the final days before deadline..",
+        "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
+        "metric": "Daily briefing prep reduced from 30 to 5 minutes",
+        "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
+        "timeSaved": 24,
+        "priority": "High",
+        "relevanceScore": 100
+      },
+      {
+        "id": "MH-16",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Draft a report or document for reviewing fund manager fee invoices",
+        "pain": "Drafting financial sections of semi-annual distribution reports under tight deadlines creates pressure",
+        "habitId": "MH5",
+        "entry": "Word",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about reviewing fund manager fee invoices at Azalea. This output will be used for the \"Draft Report\" stage of the Semi-Annual Distribution Reporting process. I am a Finance & Operations. Include: executive summary, background, key findings, recommendations, and next steps. Context: The finance and operations team manages fund accounting, cash flow tracking, and operational reporting across Azalea's investment platforms",
+        "inputs": "Brief, existing notes (attach to Word)",
+        "metric": "Report drafting time reduced from 4 hours to 1 hour",
+        "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
+        "timeSaved": 56,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "MH-17",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Review and summarise documents related to coordinating audit and compliance document requests",
+        "pain": "Tracking payment schedules and cash positions across multiple Astrea issuances requires constant monitoring",
+        "habitId": "MH6",
+        "entry": "Word",
+        "prompt": "Summarise the attached document related to coordinating audit and compliance document requests at Azalea (this relates to our priority: Investor Trust Through Transparent Reporting). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Finance & Operations.",
+        "inputs": "Attach  Word document, or PDF in Word",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
+        "timeSaved": 44,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "MH-18",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Analyse and visualise data for reconciling fund distribution data in Excel",
+        "pain": "Pulling and reconciling financial data from multiple external fund managers into Excel reports is manual and error-prone",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet related to reconciling fund distribution data in Excel at Azalea as part of the Semi-Annual Distribution Reporting process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": " Excel spreadsheet",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 42,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-19",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Reply to emails about drafting financial sections of semi-annual reports using thread context",
+        "pain": "Drafting financial sections of semi-annual distribution reports under tight deadlines creates pressure",
+        "habitId": "MH2",
+        "entry": "Outlook",
+        "prompt": "Write a reply to [sender] about [topic] related to drafting financial sections of semi-annual reports at Azalea. This relates to the \"Collect Fund Data\" stage of the Semi-Annual Distribution Reporting process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
+        "inputs": "Email thread (Outlook reads context automatically)",
+        "metric": "Email reply time reduced from 20 to 4 minutes",
+        "guardrails": "Review drafts carefully before sending; remove any internal-only references",
+        "timeSaved": 42,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-20",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Search internal files and emails related to preparing cash flow summaries for leadership",
+        "pain": "Pulling and reconciling financial data from multiple external fund managers into Excel reports is manual and error-prone",
+        "habitId": "MH4",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Find documents and messages related to preparing cash flow summaries for leadership from our SharePoint and Teams files at Azalea for the Semi-Annual Distribution Reporting process. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages",
+        "metric": "Internal research time reduced from 90 to 15 minutes",
+        "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
+        "timeSaved": 43,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-21",
+        "role": "Finance & Operations",
+        "code": "FIN",
+        "name": "Prepare meeting agenda and capture notes for your team at Azalea",
+        "pain": "Tracking payment schedules and cash positions across multiple Astrea issuances requires constant monitoring",
+        "habitId": "MH3",
+        "entry": "Teams",
+        "prompt": "Create a structured meeting agenda for a discussion as a Finance & Operations at Azalea with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
+        "metric": "Meeting prep reduced from 45 to 8 minutes",
+        "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-22",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Get a daily briefing on tasks related to scheduling interviews and onboarding sessions",
+        "pain": "Coordinating interviews and onboarding schedules across busy investment professionals is difficult using Outlook calendar alone",
+        "habitId": "MH1",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Give me a daily digest as a HR & People Development at Azalea focused on the Investment Due Diligence process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Summarising large volumes of fund documents and data room materials into a clear, concise investment memo is time-consuming and requires many hours of analyst effort..",
+        "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
+        "metric": "Daily briefing prep reduced from 30 to 5 minutes",
+        "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
+        "timeSaved": 29,
+        "priority": "High",
+        "relevanceScore": 100
+      },
+      {
+        "id": "MH-23",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Draft a report or document for updating HR policies and handbooks",
+        "pain": "Tracking training completion and skills gaps across small, specialised teams has no central system",
+        "habitId": "MH5",
+        "entry": "Word",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about updating HR policies and handbooks at Azalea. This output will be used for the \"Analyse and Model\" stage of the Investment Due Diligence process. I am a HR & People Development. Include: executive summary, background, key findings, recommendations, and next steps. Context: HR manages recruitment, onboarding, and staff development for Azalea's specialised 70-person team",
+        "inputs": "Brief, existing notes (attach to Word)",
+        "metric": "Report drafting time reduced from 4 hours to 1 hour",
+        "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
+        "timeSaved": 41,
+        "priority": "Medium",
+        "relevanceScore": 40
+      },
+      {
+        "id": "MH-24",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Prepare agenda and capture meeting notes for coordinating Copilot training workshops across teams",
+        "pain": "Creating training materials and onboarding documents in Word and PowerPoint is time-consuming",
+        "habitId": "MH3",
+        "entry": "Teams",
+        "prompt": "Using recent messages and emails about coordinating Copilot training workshops across teams at Azalea (part of the Investment Due Diligence workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Gather Materials\" step. After the meeting, summarise key decisions and action items.",
+        "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
+        "metric": "Meeting prep reduced from 45 to 8 minutes",
+        "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
+        "timeSaved": 40,
+        "priority": "High",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-25",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Search internal files and emails related to tracking staff training completion in SharePoint",
+        "pain": "Coordinating interviews and onboarding schedules across busy investment professionals is difficult using Outlook calendar alone",
+        "habitId": "MH4",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Find documents and messages related to tracking staff training completion in SharePoint from our SharePoint and Teams files at Azalea for the Investment Due Diligence process. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages",
+        "metric": "Internal research time reduced from 90 to 15 minutes",
+        "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
+        "timeSaved": 48,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-26",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Review and summarise documents related to preparing headcount and skills gap reports for leadership",
+        "pain": "Creating training materials and onboarding documents in Word and PowerPoint is time-consuming",
+        "habitId": "MH6",
+        "entry": "Word",
+        "prompt": "Summarise the attached document related to preparing headcount and skills gap reports for leadership at Azalea (this relates to our priority: Talent Development and Operational Excellence). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a HR & People Development.",
+        "inputs": "Attach  Word document, or PDF in Word",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
+        "timeSaved": 49,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-27",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Reply to emails about drafting job descriptions and offer letters using thread context",
+        "pain": "Tracking training completion and skills gaps across small, specialised teams has no central system",
+        "habitId": "MH2",
+        "entry": "Outlook",
+        "prompt": "Write a reply to [sender] about [topic] related to drafting job descriptions and offer letters at Azalea. This relates to the \"Identify Opportunity\" stage of the Investment Due Diligence process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
+        "inputs": "Email thread (Outlook reads context automatically)",
+        "metric": "Email reply time reduced from 20 to 4 minutes",
+        "guardrails": "Review drafts carefully before sending; remove any internal-only references",
+        "timeSaved": 27,
+        "priority": "High",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-28",
+        "role": "HR & People Development",
+        "code": "HR",
+        "name": "Analyse data to support your decisions as a HR & People Development at Azalea",
+        "pain": "Coordinating interviews and onboarding schedules across busy investment professionals is difficult using Outlook calendar alone",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet relevant to my work as a HR & People Development at Azalea. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "Excel spreadsheet with relevant data",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 30,
+        "priority": "Medium",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-29",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Get a daily briefing on tasks related to responding to retail investor enquiries via email and STEP platform",
+        "pain": "Responding to high volumes of investor enquiries during bond launch periods stretches Outlook and email capacity significantly",
+        "habitId": "MH1",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Give me a daily digest as a Sales & Customer Service at Azalea focused on the Semi-Annual Distribution Reporting process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Data collection from multiple external fund managers is slow and inconsistent, often delaying drafting and compressing the review window into the final days before deadline..",
+        "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
+        "metric": "Daily briefing prep reduced from 30 to 5 minutes",
+        "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
+        "timeSaved": 34,
+        "priority": "High",
+        "relevanceScore": 100
+      },
+      {
+        "id": "MH-30",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Reply to emails about drafting investor FAQs and education articles using thread context",
+        "pain": "Translating complex financial data into plain-language investor updates and FAQs is demanding and time-consuming",
+        "habitId": "MH2",
+        "entry": "Outlook",
+        "prompt": "Write a reply to [sender] about [topic] related to drafting investor FAQs and education articles at Azalea. This relates to the \"Collect Fund Data\" stage of the Semi-Annual Distribution Reporting process. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
+        "inputs": "Email thread (Outlook reads context automatically)",
+        "metric": "Email reply time reduced from 20 to 4 minutes",
+        "guardrails": "Review drafts carefully before sending; remove any internal-only references",
+        "timeSaved": 32,
+        "priority": "High",
+        "relevanceScore": 30
+      },
+      {
+        "id": "MH-31",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Draft a report or document for writing investor communications for new bond launches",
+        "pain": "Translating complex financial data into plain-language investor updates and FAQs is demanding and time-consuming",
+        "habitId": "MH5",
+        "entry": "Word",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about writing investor communications for new bond launches at Azalea. This output will be used for the \"Draft Report\" stage of the Semi-Annual Distribution Reporting process. Reference data from STEP by Azalea (Retail portal for investor onboarding, PE bond subscriptions, and account management.). I am a Sales & Customer Service. Include: executive summary, background, key findings, recommendations, and next steps. Context: Investor Relations (IR) is Azalea's primary interface with its 80,000+ retail investors and 200+ institutional investors",
+        "inputs": "Brief, existing notes, STEP by Azalea data export (attach to Word)",
+        "metric": "Report drafting time reduced from 4 hours to 1 hour",
+        "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
+        "timeSaved": 46,
+        "priority": "Medium",
+        "relevanceScore": 30
+      },
+      {
+        "id": "MH-32",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Review and summarise documents related to updating content on the STEP platform",
+        "pain": "Coordinating the semi-annual report distribution to tens of thousands of investors requires careful planning",
+        "habitId": "MH6",
+        "entry": "Word",
+        "prompt": "Summarise the attached document from STEP by Azalea related to updating content on the STEP platform at Azalea (this relates to our priority: Investor Trust Through Transparent Reporting). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a Sales & Customer Service.",
+        "inputs": "Attach STEP by Azalea report, Word document, or PDF in Word",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
+        "timeSaved": 34,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-33",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Analyse and visualise data for responding to retail investor enquiries via email and STEP platform",
+        "pain": "Responding to high volumes of investor enquiries during bond launch periods stretches Outlook and email capacity significantly",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet (pulled from STEP by Azalea) related to responding to retail investor enquiries via email and STEP platform at Azalea as part of the Semi-Annual Distribution Reporting process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "STEP by Azalea data export in Excel spreadsheet",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 52,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-34",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Prepare meeting agenda and capture notes for your team at Azalea",
+        "pain": "Coordinating the semi-annual report distribution to tens of thousands of investors requires careful planning",
+        "habitId": "MH3",
+        "entry": "Teams",
+        "prompt": "Create a structured meeting agenda for a discussion as a Sales & Customer Service at Azalea with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. After the meeting, summarise key decisions and action items.",
+        "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
+        "metric": "Meeting prep reduced from 45 to 8 minutes",
+        "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-35",
+        "role": "Sales & Customer Service",
+        "code": "IR",
+        "name": "Search internal files and emails for information you need at Azalea",
+        "pain": "Responding to high volumes of investor enquiries during bond launch periods stretches Outlook and email capacity significantly",
+        "habitId": "MH4",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Find documents and messages relevant to [topic] from our SharePoint and Teams files at Azalea. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages, internal documents",
+        "metric": "Internal research time reduced from 90 to 15 minutes",
+        "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
+        "timeSaved": 35,
+        "priority": "Medium",
+        "relevanceScore": 0,
+        "isGeneric": true
+      },
+      {
+        "id": "MH-36",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Get a daily briefing on tasks related to managing Microsoft 365 licences and user permissions",
+        "pain": "Managing Microsoft 365 licences, permissions, and security settings in a finance-regulated environment requires careful ongoing maintenance",
+        "habitId": "MH1",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Give me a daily digest as a IT & Systems Administrators at Azalea focused on the Bond Issuance and Investor Subscription process. Based on my emails, chats, and calendar: 1) key updates I need to act on today 2) action items sorted by priority 3) upcoming meetings to prepare for 4) any open items from last week. Flag anything related to: Drafting and reviewing the prospectus involves multiple rounds of edits across legal, compliance, and IR — mostly done over email, making version control difficult and slow..",
+        "inputs": "Emails, chats, calendar events (accessed via M365 Copilot)",
+        "metric": "Daily briefing prep reduced from 30 to 5 minutes",
+        "guardrails": "Do not share summary outputs outside your direct team; verify key action items before proceeding",
+        "timeSaved": 24,
+        "priority": "High",
+        "relevanceScore": 100
+      },
+      {
+        "id": "MH-37",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Prepare agenda and capture meeting notes for supporting STEP platform maintenance and updates",
+        "pain": "Coordinating STEP platform updates with external development teams involves significant documentation and back-and-forth communication",
+        "habitId": "MH3",
+        "entry": "Teams",
+        "prompt": "Using recent messages and emails about supporting STEP platform maintenance and updates at Azalea (part of the Bond Issuance and Investor Subscription workflow), create a structured meeting agenda with: 1) objectives 2) discussion items with time allocations 3) expected outcomes 4) pre-reads. Ensure the agenda covers the \"Draft Prospectus\" step. After the meeting, summarise key decisions and action items.",
+        "inputs": "Calendar invite, email threads, prior meeting notes (Teams reads context)",
+        "metric": "Meeting prep reduced from 45 to 8 minutes",
+        "guardrails": "Confirm agenda with all parties before distributing; verify meeting summaries are accurate",
+        "timeSaved": 35,
+        "priority": "High",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-38",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Search internal files and emails related to resolving staff IT helpdesk tickets via Teams",
+        "pain": "Managing Microsoft 365 licences, permissions, and security settings in a finance-regulated environment requires careful ongoing maintenance",
+        "habitId": "MH4",
+        "entry": "M365 Copilot Chat",
+        "prompt": "Find documents and messages related to resolving staff IT helpdesk tickets via Teams from our SharePoint and Teams files at Azalea for the Bond Issuance and Investor Subscription process. Also look for any exports or reports from STEP by Azalea. Summarise: 1) key content across the documents 2) any conflicting information 3) the most recent or authoritative source 4) gaps where more information is needed.",
+        "inputs": "SharePoint files, Teams messages, STEP by Azalea exports",
+        "metric": "Internal research time reduced from 90 to 15 minutes",
+        "guardrails": "Verify document currency; do not surface confidential files outside their intended audience",
+        "timeSaved": 43,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-39",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Review and summarise documents related to deploying and monitoring Copilot licences across the organisation",
+        "pain": "Coordinating STEP platform updates with external development teams involves significant documentation and back-and-forth communication",
+        "habitId": "MH6",
+        "entry": "Word",
+        "prompt": "Summarise the attached document from STEP by Azalea related to deploying and monitoring Copilot licences across the organisation at Azalea (this relates to our priority: Digital Platform Growth and Innovation). Extract: 1) key points and decisions 2) action items with owners 3) important dates or deadlines 4) risks or issues flagged 5) anything requiring my attention as a IT & Systems Administrators.",
+        "inputs": "Attach STEP by Azalea report, Word document, or PDF in Word",
+        "metric": "Document review time reduced from 60 to 10 minutes",
+        "guardrails": "Cross-check AI summary against original; flag any discrepancies for human review",
+        "timeSaved": 44,
+        "priority": "Medium",
+        "relevanceScore": 20
+      },
+      {
+        "id": "MH-40",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Draft a report or document for configuring Teams channels and meeting settings",
+        "pain": "Supporting staff with Teams, SharePoint, and OneDrive issues takes time away from strategic platform work",
+        "habitId": "MH5",
+        "entry": "Word",
+        "prompt": "Create a detailed outline for a [report/brief/proposal] about configuring Teams channels and meeting settings at Azalea. This output will be used for the \"Regulatory Approval\" stage of the Bond Issuance and Investor Subscription process. Reference data from STEP by Azalea (Retail portal for investor onboarding, PE bond subscriptions, and account management.). I am a IT & Systems Administrators. Include: executive summary, background, key findings, recommendations, and next steps. Context: IT supports Azalea's digital infrastructure, including the STEP retail investment platform, internal Microsoft 365 environment, and connections to external financial data systems",
+        "inputs": "Brief, existing notes, STEP by Azalea data export (attach to Word)",
+        "metric": "Report drafting time reduced from 4 hours to 1 hour",
+        "guardrails": "Validate all data claims; get sign-off from relevant stakeholders before distribution",
+        "timeSaved": 56,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-41",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Analyse and visualise data for managing Microsoft 365 licences and user permissions",
+        "pain": "Managing Microsoft 365 licences, permissions, and security settings in a finance-regulated environment requires careful ongoing maintenance",
+        "habitId": "MH7",
+        "entry": "Excel",
+        "prompt": "Analyse the data in this spreadsheet (pulled from STEP by Azalea) related to managing Microsoft 365 licences and user permissions at Azalea as part of the Bond Issuance and Investor Subscription process. Identify: 1) key trends and patterns 2) outliers that need attention 3) comparison to [benchmark or prior period] 4) recommended chart types to show the most important findings.",
+        "inputs": "STEP by Azalea data export in Excel spreadsheet",
+        "metric": "Data analysis reduced from 3 hours to 30 minutes",
+        "guardrails": "Validate formulas and pivot logic; do not include personally identifiable data in shared reports",
+        "timeSaved": 42,
+        "priority": "Medium",
+        "relevanceScore": 10
+      },
+      {
+        "id": "MH-42",
+        "role": "IT & Systems Administrators",
+        "code": "IT",
+        "name": "Draft or reply to emails for your work at Azalea",
+        "pain": "Supporting staff with Teams, SharePoint, and OneDrive issues takes time away from strategic platform work",
+        "habitId": "MH2",
+        "entry": "Outlook",
+        "prompt": "Write a reply to [sender] about [topic] as a IT & Systems Administrators at Azalea. Key points to include: [list]. Tone: professional. Use the email thread as context. Target length: ~150 words.",
+        "inputs": "Email thread (Outlook reads context automatically)",
+        "metric": "Email reply time reduced from 20 to 4 minutes",
+        "guardrails": "Review drafts carefully before sending; remove any internal-only references",
+        "timeSaved": 25,
+        "priority": "High",
+        "relevanceScore": 0,
+        "isGeneric": true
+      }
+    ]
+  },
+  "config": {
+    "password": "Azalea2026",
+    "colors": {
+      "primary": "#cb3394",
+      "primaryDark": "#a22976",
+      "primaryLight": "#eaadd4",
+      "accent": "#bfbfbf",
+      "sidebarBg": "#401a42"
+    },
+    "logoDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIoAAAAjCAYAAABLlJJCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAYeSURBVHhe7ZsxTxtJFMf/OenY4rRu8OmU3egkqtgNuggHV9fRISyF+iQqC5o0d1UqxGdIA3LFFwAJhHRIfAESnyLRGK4IDV4a06yroeEK9qHxMO/N7NpcgOxPmoKxdzzz9j/z/jO7vLi5ublBSYmDF6VQxuPrh0NcHf5rVgMAfv3zd/zyx29m9ZPkB7OipAA3THlGFF5Rkq1PSLsXZvUIlcYrRKvzZvWz4uuHQ1z9zawof33nK4pKUvQ3jzHs9sXS3zyGSlLz8pInSCGhXO2fmlUsw27frCp5ghQSymCvZ1axDPb9v1vyeMktFJWkudLJsNvP9f2Sx0luoeRJO0SRa0oeF7l3PZ/ffDSrAADVVp1dPYKogtmDFbP6m6OSFNfJcKTPQVRB2IhHvicxqV0P9WX4z62nm3oZAgX6Y4PGp481iCoA4N12LqEMu32ctnfMagBAvNZE2r1gzevswcpd5ziG3T7O14/M6tzYRKmSFMNuH9eXQwz2elZBE0FUwVQUorpUR7VVNz8eYRyhqCTF1f6pV3+qrTqml2rOGEJrFwD6m8fmxyPQWOPVpiiaXEI5Xz9ijezbL+8x2OuxN7raqmNmY8GsHkG6Pg9vv7w3q8S+SwRRBTMbC2wQiwpFmnQcJBjX2dTJ4rYoPA5q2yZGb4+ikpQNNAWRCyYyERTp/LdGJWlhkXEUEQm086tJ9kVnsNfDWXvXep+8hSIZ0krjFZAp3qZGgktLjx2VpEi2PlkDmBcfkUgxRHYq/lCxVEmKs/auWe0vFEnF+lIo5fTHcKYSRBXEa03MbCyg1lnG7MEKap1lzGwsiH3X8/449Ld4zxA2YswerNwVLlWrJBXbIaSxSqs/+TkdL4+ikhQni9tmNZANrtZZvvvbNWMkU6sy5y8x2O+JogXjUWjgUoCQzVbOAJpjRU6PInkwW9twxL7WWbaOZ7DXQ9iI2ThDEz43VtNTeq0o0kyitEO4Oii1FWRbQa5IPomwBRtZv2xBNYlW59nvuUTsQlpRuX6TgbVBW2mTaqsu3gNk7U4v1dixmiuKl1A41cFIOwT343CkMAmfrTM3w1yo7LSZiil+gj4vihl8ghMCUV2yf+56em9DH2cenKmnyHLpSj95b6irPQBOj0HQkiud+UiYqdM39UgpJGzErDiRXWubYIHjIJMMuLJ4Dh/0FO4UirQ1jNea1hUFjr28mf8kJiUSyXvkoahQfMZRBNOP0USYxFj1tsXUwymZGOz1cLK4bS2cSJDjTMUnuPFa0ymS0/bORAL3GNHjqLIzn4cYqygUyXjCktv14sK1FPqIxOeU8rS9I/4WmUUSXLVVz5UWfZmKbp/dTBrdYJ+1d3OP1WV6CTH1uFaGceD8DTxFIl1PKMEXQEidUrotmnqkvgTZ8xbfm6ZDR+6Sl4QwVmkieXkUaWCTwgw6PH/XRyRwGHHJJz2EUCDcFJcp9UHqs+ThpMXAy6O40s4kMH9jkiIBgOtL/twjnOPTCxfwceF2NqrgrsQXczISQ+a1EBusUCRDVG3VUessexWuk7DckGTr08jfJkFUQbzaxNDyIrdeCEkM3GGVK+WNw/RSzay6Q1oRdFT23MkUlhRnG8rzMQBhTT2uraS5JZNwBUA/U3F91xdKD5LXIWNH73iobMdg3gCTcVIPhPQD/WR67vZ0eyoKR15m0neL5lmUa6zR6vxd+lHZgz/XauJMPVID8VrTrBLhThUJ6Vh7XELh2F5lj+xPFrfx+c1HnCxuszdwksxsLLCzX2XHEefrRzht7+Bkcftua+/61xfJDNMk0MdKbXHXmNwTCnWWg17R8yV0PPvxPVMpCmdYJXw9UBGCqILXnXdiTIpAq4aELc6cyTW5JxTTYOrQcp0X1zUPOZOD7A01X1yP4CcBiSXv6qzD3XTfNoOocpu+BB+nc08oafcCQfYCkllciuUgH8AVysFmfdFiUm3VMXuwIgogyALnErWNH3/+yVokgiyeeX8zyN4x4a6hNm1xIMJGjNedd2I8TKxm9jmjtK3o9eUQ4Vws5vf/C2X8R4C+tZ96edu/PDcW2liprXCO92wuvjuhlBTjXuopKbFRCqXEi/8A3qZsXclimY4AAAAASUVORK5CYII="
+  }
+}
