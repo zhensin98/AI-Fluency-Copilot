@@ -209,25 +209,27 @@ function _setCache(list) {
   } catch(e) {}
 }
 
-// Load companies FROM server and sync into cache
+// Load companies from static profile files
 function loadCompaniesFromServer(callback) {
-  fetch('http://localhost:3002/list-profiles')
+  fetch('profile/index.json')
     .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (!data.profiles) { callback([]); return; }
-      var list = data.profiles
-        .map(function(p) {
-          var cfg = p.config || {};
-          return {
-            id:          p.id,
-            name:        p.name,
-            url:         p.url             || '',
-            password:    cfg.password    || '',
-            colors:      cfg.colors      || {},
-            // Use server logo if available, otherwise fall back to locally stored logo
-            logoDataUrl: cfg.logoDataUrl || localStorage.getItem('copilot_logo_' + p.id) || ''
-          };
-        });
+    .then(function(ids) {
+      return Promise.all(ids.map(function(id) {
+        return fetch('profile/' + id + '.json').then(function(r) { return r.json(); });
+      }));
+    })
+    .then(function(profiles) {
+      var list = profiles.map(function(p) {
+        var cfg = p.config || {};
+        return {
+          id:          p.id,
+          name:        p.name,
+          url:         p.url          || '',
+          password:    cfg.password   || '',
+          colors:      cfg.colors     || {},
+          logoDataUrl: cfg.logoDataUrl || localStorage.getItem('copilot_logo_' + p.id) || ''
+        };
+      });
       _setCache(list);
       callback(list);
     })
