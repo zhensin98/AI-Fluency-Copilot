@@ -95,6 +95,18 @@
     .import-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1000; align-items: center; justify-content: center; }
     .import-modal-overlay.open { display: flex; }
     .import-modal { background: white; border-radius: 14px; padding: 24px; width: 460px; max-width: 95vw; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+    /* ── Password modal ── */
+    #pwd-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1100; align-items: center; justify-content: center; }
+    #pwd-modal-overlay.open { display: flex; }
+    #pwd-modal { background: white; border-radius: 14px; padding: 28px 24px; width: 360px; max-width: 95vw; box-shadow: 0 20px 60px rgba(0,0,0,0.25); text-align: center; }
+    #pwd-modal h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    #pwd-modal p { font-size: 0.8rem; color: #718096; margin-bottom: 16px; }
+    #pwd-modal input { width: 100%; padding: 9px 12px; border: 1px solid #E2E8F0; border-radius: 8px; font-size: 0.9rem; margin-bottom: 8px; }
+    #pwd-modal input:focus { outline: none; border-color: #4299E1; box-shadow: 0 0 0 3px rgba(66,153,225,0.15); }
+    #pwd-modal-error { color: #C53030; font-size: 0.78rem; min-height: 18px; margin-bottom: 10px; }
+    #pwd-modal .modal-btns { display: flex; gap: 8px; justify-content: flex-end; }
+    #pwd-modal .btn-confirm { padding: 8px 18px; border: none; border-radius: 7px; background: #4299E1; color: white; font-weight: 600; cursor: pointer; font-size: 0.88rem; }
+    #pwd-modal .btn-cancel  { padding: 8px 18px; border: 1px solid #E2E8F0; border-radius: 7px; background: white; color: #4A5568; font-weight: 600; cursor: pointer; font-size: 0.88rem; }
     .import-modal h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
     .import-modal p { font-size: 0.8rem; color: #718096; margin-bottom: 14px; line-height: 1.5; }
     .import-modal textarea { width: 100%; height: 120px; padding: 10px; border: 1px solid #E2E8F0; border-radius: 8px; font-size: 0.82rem; font-family: monospace; resize: vertical; }
@@ -135,7 +147,7 @@
     <line x1="12" y1="17" x2="12" y2="21"></line>
   </svg>
   <h1>Copilot Training Platform — Company Setup</h1>
-  <a href="Main page.html" class="btn-goto-main" onclick="var _co=getCompanies().find(function(c){return c.id===activeId;});if(_co){sessionStorage.setItem('active_company',JSON.stringify(_co));sessionStorage.setItem('authenticated','true');}else{sessionStorage.removeItem('active_company');sessionStorage.removeItem('authenticated');}">&#8594; Go to Training</a>
+  <a class="btn-goto-main" onclick="openPwdModal()" style="cursor:pointer;">&#8594; Go to Training</a>
 </div>
 
 <div class="main">
@@ -157,6 +169,20 @@
     </div>
   </div>
 
+</div>
+
+<!-- Password Modal -->
+<div id="pwd-modal-overlay" onclick="if(event.target===this)closePwdModal()">
+  <div id="pwd-modal">
+    <h3>Enter Access Code</h3>
+    <p id="pwd-modal-company"></p>
+    <input type="password" id="pwd-modal-input" placeholder="Access code" onkeydown="if(event.key==='Enter')confirmPwd()">
+    <div id="pwd-modal-error"></div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closePwdModal()">Cancel</button>
+      <button class="btn-confirm" onclick="confirmPwd()">Go to Training →</button>
+    </div>
+  </div>
 </div>
 
 <!-- Import Colors Modal -->
@@ -864,6 +890,34 @@ function applyImportColors() {
     showStatus('save-status', '✓ Colors applied — review and click Save Company.', 'success');
   } catch(e) {
     errEl.textContent = 'Invalid JSON. Check the format and try again.';
+  }
+}
+
+// ── Password modal ───────────────────────────────────────────────────
+function openPwdModal() {
+  var co = getCompanies().find(function(c) { return c.id === activeId; });
+  if (!co) { alert('Select a company first.'); return; }
+  document.getElementById('pwd-modal-company').textContent = 'Enter the access code for ' + co.name + '.';
+  document.getElementById('pwd-modal-input').value = '';
+  document.getElementById('pwd-modal-error').textContent = '';
+  document.getElementById('pwd-modal-overlay').classList.add('open');
+  setTimeout(function() { document.getElementById('pwd-modal-input').focus(); }, 50);
+}
+function closePwdModal() {
+  document.getElementById('pwd-modal-overlay').classList.remove('open');
+}
+function confirmPwd() {
+  var co = getCompanies().find(function(c) { return c.id === activeId; });
+  var entered = document.getElementById('pwd-modal-input').value;
+  if (!co) return;
+  if (entered === co.password) {
+    co.logoDataUrl = co.logoDataUrl || localStorage.getItem('copilot_logo_' + co.id) || '';
+    sessionStorage.setItem('active_company', JSON.stringify(co));
+    sessionStorage.setItem('authenticated', 'true');
+    window.location.href = 'Main page.html';
+  } else {
+    document.getElementById('pwd-modal-error').textContent = 'Incorrect access code.';
+    document.getElementById('pwd-modal-input').select();
   }
 }
 
