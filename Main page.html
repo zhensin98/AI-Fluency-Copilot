@@ -1292,13 +1292,55 @@
         }
 
         // ── Auth flow ─────────────────────────────────────────────────
-        // Main page is the trainer page — always accessible without login.
-        // Password protection lives in Copilot Value.html.
         var _companies = [];
         try { _companies = JSON.parse(localStorage.getItem('copilot_companies') || '[]'); } catch(e) {}
 
-        applyCompanyColors();
-        document.getElementById('auth-overlay').style.display = 'none';
+        function initAuth() {
+            if (sessionStorage.getItem('authenticated') === 'true') {
+                applyCompanyColors();
+                document.getElementById('auth-overlay').style.display = 'none';
+            } else {
+                document.getElementById('auth-overlay').style.display = 'flex';
+                if (_companies.length === 0) {
+                    window.location.href = 'index.html';
+                } else if (_companies.length > 1) {
+                    showCompanySelect();
+                } else {
+                    sessionStorage.setItem('active_company', JSON.stringify(_companies[0]));
+                    applyCompanyColors();
+                    showPasscodeScreen();
+                }
+            }
+        }
+
+        // Seed companies from static profile files if localStorage is empty
+        if (_companies.length === 0) {
+            fetch('profile/index.json')
+                .then(function(r) { return r.json(); })
+                .then(function(ids) {
+                    return Promise.all(ids.map(function(id) {
+                        return fetch('profile/' + id + '.json').then(function(r) { return r.json(); });
+                    }));
+                })
+                .then(function(profiles) {
+                    _companies = profiles.map(function(p) {
+                        var cfg = p.config || {};
+                        var logo = cfg.logoDataUrl || '';
+                        if (logo) localStorage.setItem('copilot_logo_' + p.id, logo);
+                        var slim = { id: p.id, name: p.name, url: p.url || '', password: cfg.password || '', colors: cfg.colors || {} };
+                        var existing = [];
+                        try { existing = JSON.parse(localStorage.getItem('copilot_companies') || '[]'); } catch(e) {}
+                        existing = existing.filter(function(c) { return c.id !== p.id; });
+                        existing.push(slim);
+                        localStorage.setItem('copilot_companies', JSON.stringify(existing));
+                        return slim;
+                    });
+                    initAuth();
+                })
+                .catch(function() { initAuth(); });
+        } else {
+            initAuth();
+        }
 
         function showCompanySelect() {
             var grid = document.getElementById('company-grid');
