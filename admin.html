@@ -135,7 +135,7 @@
     <line x1="12" y1="17" x2="12" y2="21"></line>
   </svg>
   <h1>Copilot Training Platform — Company Setup</h1>
-  <a href="Main page.html" class="btn-goto-main" onclick="sessionStorage.removeItem('authenticated');sessionStorage.removeItem('active_company');">&#8594; Go to Training</a>
+  <a class="btn-goto-main" onclick="goToTraining()" style="cursor:pointer;">&#8594; Go to Training</a>
 </div>
 
 <div class="main">
@@ -865,6 +865,13 @@ function applyImportColors() {
   } catch(e) {
     errEl.textContent = 'Invalid JSON. Check the format and try again.';
   }
+}
+
+// ── Go to Training ───────────────────────────────────────────────────
+function goToTraining() {
+  sessionStorage.removeItem('authenticated');
+  sessionStorage.removeItem('active_company');
+  window.location.href = 'Main page.html?login=1';
 }
 
 // ── Research Company Profile ──────────────────────────────────────────

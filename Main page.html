@@ -1296,7 +1296,8 @@
         try { _companies = JSON.parse(localStorage.getItem('copilot_companies') || '[]'); } catch(e) {}
 
         function initAuth() {
-            if (sessionStorage.getItem('authenticated') === 'true') {
+            var forceLogin = window.location.search.indexOf('login=1') !== -1;
+            if (!forceLogin && sessionStorage.getItem('authenticated') === 'true') {
                 applyCompanyColors();
                 document.getElementById('auth-overlay').style.display = 'none';
             } else {
