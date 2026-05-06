@@ -135,7 +135,7 @@
     <line x1="12" y1="17" x2="12" y2="21"></line>
   </svg>
   <h1>Copilot Training Platform — Company Setup</h1>
-  <a href="Main page.html" class="btn-goto-main" onclick="sessionStorage.removeItem('authenticated');var _co=getCompanies().find(function(c){return c.id===activeId;});if(_co){sessionStorage.setItem('active_company',JSON.stringify(_co));}else{sessionStorage.removeItem('active_company');}">&#8594; Go to Training</a>
+  <a href="Main page.html" class="btn-goto-main" onclick="var _co=getCompanies().find(function(c){return c.id===activeId;});if(_co){sessionStorage.setItem('active_company',JSON.stringify(_co));sessionStorage.setItem('authenticated','true');}else{sessionStorage.removeItem('active_company');sessionStorage.removeItem('authenticated');}">&#8594; Go to Training</a>
 </div>
 
 <div class="main">
