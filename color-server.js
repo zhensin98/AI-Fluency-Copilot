@@ -755,9 +755,15 @@ function buildResearchPrompt(name, url, scraped) {
     }
   };
 
+  var currentYear = new Date().getFullYear();
   return 'Research the company "' + name + '" (website: ' + url + ') and generate a complete operational profile JSON for a Microsoft 365 Copilot AI adoption training workshop.\n\n'
-    + 'Website content (scraped from homepage):\n---\n' + scraped + '\n---\n\n'
-    + 'Use your training knowledge plus the scraped content above. The profile contextualises Microsoft 365 Copilot AI productivity training for their knowledge workers and business teams.\n\n'
+    + 'Website content (scraped ' + currentYear + '):\n---\n' + scraped + '\n---\n\n'
+    + 'IMPORTANT — data freshness rules:\n'
+    + '- The scraped content above is current as of ' + currentYear + '. Always prefer it over your training knowledge.\n'
+    + '- Leadership (CEO, C-suite names) changes frequently. Use ONLY names found in the scraped content. If no name is found in the scraped pages, write "Not publicly listed" — do NOT fall back on training knowledge for people\'s names or titles.\n'
+    + '- The same applies to employee headcount, revenue, and AUM — use scraped figures if available, otherwise state "Not disclosed".\n'
+    + '- Use your training knowledge only for stable facts: industry context, product/service descriptions, typical workflows for this type of organisation.\n\n'
+    + 'The profile contextualises Microsoft 365 Copilot AI productivity training for their knowledge workers and business teams.\n\n'
     + 'Return ONLY raw JSON — no markdown code fences, no explanation text. Start directly with { and end with }.\n\n'
     + 'WRITING STYLE — apply to ALL text fields:\n'
     + '- Write in plain, simple English. Avoid jargon, buzzwords, and corporate language.\n'
@@ -835,9 +841,33 @@ var server = http.createServer(function (req, res) {
         var scraped = '';
         try {
           var targetUrl = /^https?:\/\//i.test(data.url) ? data.url : 'https://' + data.url;
-          var html = await fetchUrl(targetUrl);
-          scraped = htmlToText(html);
-          console.log('Scraped', scraped.length, 'chars from homepage');
+          var baseUrl = targetUrl.replace(/\/+$/, '');
+
+          // Scrape homepage + likely leadership/about pages for up-to-date people data
+          var pagesToTry = [
+            baseUrl,
+            baseUrl + '/about',
+            baseUrl + '/about-us',
+            baseUrl + '/team',
+            baseUrl + '/leadership',
+            baseUrl + '/our-team',
+            baseUrl + '/management',
+            baseUrl + '/who-we-are'
+          ];
+
+          var pageTexts = [];
+          for (var i = 0; i < pagesToTry.length; i++) {
+            try {
+              var html = await fetchUrl(pagesToTry[i]);
+              var text = htmlToText(html);
+              if (text && text.length > 200) {
+                pageTexts.push('=== ' + pagesToTry[i] + ' ===\n' + text);
+                console.log('Scraped', text.length, 'chars from', pagesToTry[i]);
+              }
+            } catch(e) { /* page doesn't exist, skip */ }
+          }
+
+          scraped = pageTexts.join('\n\n') || '(Could not scrape website)';
         } catch(e) {
           scraped = '(Could not scrape website: ' + e.message + ')';
           console.warn('Scrape warning:', e.message);
