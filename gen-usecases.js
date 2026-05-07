@@ -32,12 +32,51 @@ var HABIT_SIGNALS = {
   'MH6': ['review','summarise','read','document','policy','report','ticket','contract'],
   'MH7': ['data','excel','analyse','spreadsheet','metrics','sales','power bi','dashboard','figures','variance','forecast']
 };
+var ROLE_HABIT_MINIMUMS = [
+  { keywords: ['finance','financial','accounting','analyst','controller','cfo','treasury','budget','fp&a'],
+    habits: { CH7:70, MH7:70, CH6:60, MH6:60 } },
+  { keywords: ['hr','human resource','people','talent','recruitment','recruiter','learning','l&d','training','hrbp'],
+    habits: { CH4:70, MH3:70, CH3:60, MH2:60 } },
+  { keywords: ['sales','account manager','account executive','business development','bdm','commercial','revenue'],
+    habits: { CH3:70, MH2:70, CH2:60, MH5:60 } },
+  { keywords: ['legal','compliance','lawyer','counsel','solicitor','regulatory','risk','audit'],
+    habits: { CH6:80, MH6:80, CH2:70, MH4:70 } },
+  { keywords: ['marketing','brand','content','communications','digital','social media','campaign'],
+    habits: { CH5:80, MH5:80, CH3:70, MH2:60 } },
+  { keywords: ['it','technology','tech support','developer','engineer','infrastructure','systems','helpdesk'],
+    habits: { CH1:80, CH4:60, MH4:60 } },
+  { keywords: ['project manager','programme','pmo','delivery manager','operations manager'],
+    habits: { CH4:70, MH3:70, CH5:60, MH5:60 } },
+  { keywords: ['executive','ceo','coo','cfo','director','head of','vp ','vice president','president','managing director'],
+    habits: { MH1:80, CH4:70, MH3:70, CH2:60 } }
+];
+
 function scoreHabitForRole(habitId, role) {
-  var signals = HABIT_SIGNALS[habitId];
-  if (!signals || signals.length === 0) return 100;
-  var kw = ((role.keyActivities||'') + ' ' + (role.objectives||'') + ' ' + (role.painPoints||'')).toLowerCase();
-  var score = 0;
-  signals.forEach(function(signal) { if (kw.indexOf(signal) >= 0) score += 10; });
+  var score;
+  // Use Claude-generated habit scores if available (more accurate, company-specific)
+  if (role.habitScores && role.habitScores[habitId] !== undefined) {
+    score = role.habitScores[habitId] * 10; // convert 1-10 → 10-100 to match existing scale
+  } else {
+    // Fallback: keyword matching for older profiles without habitScores
+    var signals = HABIT_SIGNALS[habitId];
+    if (!signals || signals.length === 0) { score = 100; }
+    else {
+      var kw = ((role.keyActivities||'') + ' ' + (role.objectives||'') + ' ' + (role.painPoints||'')).toLowerCase();
+      score = 0;
+      signals.forEach(function(signal) { if (kw.indexOf(signal) >= 0) score += 10; });
+    }
+  }
+  // Universal floor: CH1 and MH1 are useful for every knowledge worker
+  if (habitId === 'CH1' || habitId === 'MH1') score = Math.max(score, 60);
+  // Role-keyword minimums: catch obvious mismatches (e.g. Finance low on Excel)
+  var roleName = (role.role || '').toLowerCase();
+  for (var i = 0; i < ROLE_HABIT_MINIMUMS.length; i++) {
+    var rule = ROLE_HABIT_MINIMUMS[i];
+    var matches = rule.keywords.some(function(kw) { return roleName.indexOf(kw) >= 0; });
+    if (matches && rule.habits[habitId] !== undefined) {
+      score = Math.max(score, rule.habits[habitId]);
+    }
+  }
   return score;
 }
 
@@ -93,11 +132,22 @@ function calcTimeSaved(habitId, role) {
   var baseTime = BASE_TIME_MIN[habitId] || 90;
   var pct      = COPILOT_SAVINGS_PCT[habitId] || 0.25;
   var rawScore = scoreHabitForRole(habitId, role); // 0–100
-  // score 0  → weight 0.5 (role uses this habit less than average)
-  // score 50 → weight 1.0 (average relevance)
-  // score 100→ weight 1.5 (role is heavily focused on this habit)
-  var weight = 0.5 + (rawScore / 100);
+  // Non-linear weight curve — low scores punished more, high scores rewarded more
+  // score 0-20  → weight 0.2-0.4 (habit barely applies)
+  // score 20-60 → weight 0.4-0.9 (habit applies somewhat)
+  // score 60-100→ weight 0.9-1.5 (habit is core to role)
+  var weight;
+  if      (rawScore <= 20) weight = 0.2 + (rawScore / 20) * 0.2;
+  else if (rawScore <= 60) weight = 0.4 + ((rawScore - 20) / 40) * 0.5;
+  else                     weight = 0.9 + ((rawScore - 60) / 40) * 0.6;
   return Math.max(5, Math.round(baseTime * pct * weight));
+}
+
+function habitPriority(habitId, role) {
+  var score = scoreHabitForRole(habitId, role);
+  if (score >= 70) return 'High';
+  if (score >= 40) return 'Medium';
+  return 'Low';
 }
 
 function findWorkflowForRole(role, workflows) {
@@ -238,7 +288,7 @@ function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:'Copilot Chat (microsoft365.com)',
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
-    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium', relevanceScore:relevanceScore };
+    timeSaved:timeSaved, priority:habitPriority(hd.id, role), relevanceScore:relevanceScore };
 }
 
 function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
@@ -343,7 +393,7 @@ function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:hd.entry,
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
-    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium', relevanceScore:relevanceScore };
+    timeSaved:timeSaved, priority:habitPriority(hd.id, role), relevanceScore:relevanceScore };
 }
 
 // ── Generic fallbacks — used when a habit doesn't fit a role ─────────
@@ -423,7 +473,8 @@ var GENERIC_M365_HABITS = [
     guardrails:'Validate formulas and pivot logic; do not include personally identifiable data in shared reports' }
 ];
 
-var SPECIFIC_THRESHOLD = 10;
+var SPECIFIC_THRESHOLD = 30;
+var HIDE_THRESHOLD     = 20;
 
 // ── Generate ──────────────────────────────────────────────────────────
 // 6 roles from Profile Explorer — mapped to the codes used by Copilot Value.html
@@ -473,7 +524,17 @@ var COPILOT_VALUE_ROLES = [
 ];
 
 var data       = profileData.data;
-var roles      = COPILOT_VALUE_ROLES;
+var roles      = (data.capabilities || []).length
+  ? data.capabilities.map(function(c) {
+      return {
+        role:          c.role          || '',
+        short:         c.short         || c.role.replace(/[^A-Z]/g,'').slice(0,3),
+        keyActivities: c.keyActivities || '',
+        objectives:    c.objectives    || '',
+        painPoints:    c.painPoints    || ''
+      };
+    })
+  : COPILOT_VALUE_ROLES;
 var clientInfo = data.client || {};
 var workflows  = data.workflows || [];
 var platforms  = (data.technology && data.technology.platforms) || [];
@@ -495,21 +556,25 @@ roles.forEach(function(role) {
     var chatUC = buildChatUseCaseForRole(hi, role, clientInfo, '__tmp__', ctx);
     var m365UC = buildM365UseCaseForRole(hi, role, clientInfo, '__tmp__', ctx);
 
-    // Low relevance → swap in generic fallback instead of dropping
-    if (chatUC.relevanceScore < SPECIFIC_THRESHOLD) {
+    // Score too low → habit doesn't apply to this role, mark hidden
+    if (chatUC.relevanceScore <= HIDE_THRESHOLD) {
+      chatUC.hidden = true;
+    } else if (chatUC.relevanceScore < SPECIFIC_THRESHOLD) {
       var g = GENERIC_CHAT_HABITS[hi];
       chatUC.name = g.name(role.role, coShort);
       chatUC.prompt = g.prompt(role.role, coShort);
       chatUC.inputs = g.inputs; chatUC.metric = g.metric;
-      chatUC.guardrails = g.guardrails; chatUC.timeSaved = calcTimeSaved(g.id, role);
+      chatUC.guardrails = g.guardrails;
       chatUC.isGeneric = true;
     }
-    if (m365UC.relevanceScore < SPECIFIC_THRESHOLD) {
+    if (m365UC.relevanceScore <= HIDE_THRESHOLD) {
+      m365UC.hidden = true;
+    } else if (m365UC.relevanceScore < SPECIFIC_THRESHOLD) {
       var gm = GENERIC_M365_HABITS[hi];
       m365UC.name = gm.name(role.role, coShort);
       m365UC.prompt = gm.prompt(role.role, coShort);
       m365UC.inputs = gm.inputs; m365UC.metric = gm.metric;
-      m365UC.guardrails = gm.guardrails; m365UC.timeSaved = calcTimeSaved(gm.id, role);
+      m365UC.guardrails = gm.guardrails;
       m365UC.entry = gm.entry; m365UC.isGeneric = true;
     }
     chatCandidates.push(chatUC);

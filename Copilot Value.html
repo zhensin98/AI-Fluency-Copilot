@@ -2431,7 +2431,21 @@ function renderUseCaseCard(uc, type) {
       'Excel':                           'Data analysis and formulas',
       'PowerPoint':                      'Presentation creation'
     };
-    function buildAggregates(ucs, habitIds, curatedMatrix) {
+
+    // Rank habits for a role: primary sort by relevanceScore DESC, tiebreaker by timeSaved DESC,
+    // final fallback by habitId alphabetical (ensures unique ranks 1-7 with no ties)
+    function rankHabitsForRole(group) {
+      var sorted = group.slice().sort(function(a, b) {
+        if ((b.relevanceScore || 0) !== (a.relevanceScore || 0)) return (b.relevanceScore || 0) - (a.relevanceScore || 0);
+        if ((b.timeSaved || 0) !== (a.timeSaved || 0)) return (b.timeSaved || 0) - (a.timeSaved || 0);
+        return a.habitId < b.habitId ? -1 : 1;
+      });
+      var rankMap = {};
+      sorted.forEach(function(u, i) { rankMap[u.habitId] = i + 1; });
+      return rankMap;
+    }
+
+    function buildAggregates(ucs, habitIds) {
       var roleCodes = [], seenCodes = {};
       ucs.forEach(function(u) { if (!seenCodes[u.code]) { seenCodes[u.code] = true; roleCodes.push(u.code); } });
 
@@ -2440,19 +2454,8 @@ function renderUseCaseCard(uc, type) {
         var group = ucs.filter(function(u) { return u.code === code; });
         var ts = group.reduce(function(a, u) { return a + (u.timeSaved || 0); }, 0);
         var hp = group.filter(function(u) { return u.priority === 'High'; }).length;
-        // Derive topHabits from curated matrix (rank 1,2,3 = most relevant) for consistency
-        var curatedRow = (curatedMatrix || []).find(function(r) { return r.role === code; });
-        var topHabits;
-        if (curatedRow) {
-          var sortedKeys = ['h1','h2','h3','h4','h5','h6','h7']
-            .sort(function(a, b) { return curatedRow[a] - curatedRow[b]; });
-          topHabits = sortedKeys.slice(0, 3).map(function(k) {
-            return habitIds[parseInt(k.replace('h',''), 10) - 1];
-          });
-        } else {
-          var ranked = group.slice().sort(function(a, b) { return (b.timeSaved||0) - (a.timeSaved||0); });
-          topHabits = ranked.slice(0, 3).map(function(u) { return u.habitId; });
-        }
+        var rankMap = rankHabitsForRole(group);
+        var topHabits = habitIds.slice().sort(function(a, b) { return (rankMap[a] || 99) - (rankMap[b] || 99); }).slice(0, 3);
         return {
           role: group[0].role, code: code,
           useCases: group.length, highPriority: hp, timeSaved: ts,
@@ -2475,16 +2478,13 @@ function renderUseCaseCard(uc, type) {
         timeSaved: ucs.reduce(function(a, u) { return a + (u.timeSaved||0); }, 0)
       };
 
-      // roleHabitMatrix — use curated rankings if available, otherwise compute from timeSaved
+      // roleHabitMatrix — derived dynamically from habitScores (relevanceScore) per role
+      // Primary rank: relevanceScore DESC. Tiebreaker: timeSaved DESC. Final: habitId alphabetical.
       var roleHabitMatrix = roleCodes.map(function(code) {
-        var curated = (curatedMatrix || []).find(function(r) { return r.role === code; });
-        if (curated) return curated;
         var group = ucs.filter(function(u) { return u.code === code; });
-        var sorted = group.slice().sort(function(a, b) { return (b.timeSaved||0) - (a.timeSaved||0); });
-        var rankMap = {};
-        sorted.forEach(function(u, i) { rankMap[u.habitId] = i + 1; });
+        var rankMap = rankHabitsForRole(group);
         var row = { role: code };
-        habitIds.forEach(function(hid, i) { row['h' + (i + 1)] = rankMap[hid] || 7; });
+        habitIds.forEach(function(hid, i) { row['h' + (i + 1)] = rankMap[hid] || habitIds.length; });
         return row;
       });
 
@@ -2498,32 +2498,11 @@ function renderUseCaseCard(uc, type) {
       return { byRole: byRole, byHabit: byHabit, totals: totals, roleHabitMatrix: roleHabitMatrix, entryPoints: entryPoints };
     }
 
-    // Rankings based on primary task fit per role (1 = most relevant, 7 = least relevant)
-    // Methodology: Dillon et al., "Early Impacts of M365 Copilot" (Microsoft Research, 2025, arxiv:2504.11443)
-    // Chat: CH1=Q&A, CH2=Research, CH3=Email, CH4=Meeting, CH5=Content, CH6=DocInsights, CH7=Data
-    var CURATED_CHAT_MATRIX = [
-      {role:'KW',  h1:3, h2:6, h3:1, h4:4, h5:2, h6:5, h7:7},
-      {role:'MGR', h1:4, h2:6, h3:2, h4:1, h5:3, h6:5, h7:7},
-      {role:'FIN', h1:7, h2:3, h3:5, h4:6, h5:4, h6:2, h7:1},
-      {role:'HR',  h1:4, h2:3, h3:2, h4:5, h5:1, h6:6, h7:7},
-      {role:'CS',  h1:2, h2:4, h3:1, h4:5, h5:3, h6:6, h7:7},
-      {role:'IT',  h1:1, h2:3, h3:7, h4:6, h5:4, h6:2, h7:5}
-    ];
-    // M365: MH1=Personal, MH2=Email, MH3=Meeting, MH4=Research, MH5=Content, MH6=DocInsights, MH7=Data
-    var CURATED_M365_MATRIX = [
-      {role:'KW',  h1:2, h2:1, h3:4, h4:6, h5:3, h6:5, h7:7},
-      {role:'MGR', h1:3, h2:2, h3:1, h4:6, h5:4, h6:5, h7:7},
-      {role:'FIN', h1:7, h2:5, h3:6, h4:3, h5:4, h6:2, h7:1},
-      {role:'HR',  h1:5, h2:2, h3:6, h4:3, h5:1, h6:4, h7:7},
-      {role:'CS',  h1:2, h2:1, h3:5, h4:4, h5:3, h6:6, h7:7},
-      {role:'IT',  h1:6, h2:7, h3:5, h4:2, h5:3, h6:1, h7:4}
-    ];
-
     var chatHabitIds = ['CH1','CH2','CH3','CH4','CH5','CH6','CH7'];
     var m365HabitIds = ['MH1','MH2','MH3','MH4','MH5','MH6','MH7'];
 
-    var chatAgg = buildAggregates(chatUCs, chatHabitIds, CURATED_CHAT_MATRIX);
-    var m365Agg = buildAggregates(m365UCs, m365HabitIds, CURATED_M365_MATRIX);
+    var chatAgg = buildAggregates(chatUCs, chatHabitIds);
+    var m365Agg = buildAggregates(m365UCs, m365HabitIds);
 
     DATA.chat.byRole          = chatAgg.byRole;
     DATA.chat.byHabit         = chatAgg.byHabit;

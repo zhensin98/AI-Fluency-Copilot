@@ -268,12 +268,52 @@ var HABIT_SIGNALS = {
   'MH7': ['data','excel','analyse','spreadsheet','metrics','sales','power bi','dashboard','figures','variance','forecast']
 };
 
+// Role-habit minimum scores to catch obvious mismatches (e.g. Finance scoring low on Excel)
+var ROLE_HABIT_MINIMUMS = [
+  { keywords: ['finance','financial','accounting','analyst','controller','cfo','treasury','budget','fp&a'],
+    habits: { CH7:70, MH7:70, CH6:60, MH6:60 } },
+  { keywords: ['hr','human resource','people','talent','recruitment','recruiter','learning','l&d','training','hrbp'],
+    habits: { CH4:70, MH3:70, CH3:60, MH2:60 } },
+  { keywords: ['sales','account manager','account executive','business development','bdm','commercial','revenue'],
+    habits: { CH3:70, MH2:70, CH2:60, MH5:60 } },
+  { keywords: ['legal','compliance','lawyer','counsel','solicitor','regulatory','risk','audit'],
+    habits: { CH6:80, MH6:80, CH2:70, MH4:70 } },
+  { keywords: ['marketing','brand','content','communications','digital','social media','campaign'],
+    habits: { CH5:80, MH5:80, CH3:70, MH2:60 } },
+  { keywords: ['it','technology','tech support','developer','engineer','infrastructure','systems','helpdesk'],
+    habits: { CH1:80, CH4:60, MH4:60 } },
+  { keywords: ['project manager','programme','pmo','delivery manager','operations manager'],
+    habits: { CH4:70, MH3:70, CH5:60, MH5:60 } },
+  { keywords: ['executive','ceo','coo','cfo','director','head of','vp ','vice president','president','managing director'],
+    habits: { MH1:80, CH4:70, MH3:70, CH2:60 } }
+];
+
 function scoreHabitForRole(habitId, role) {
-  var signals = HABIT_SIGNALS[habitId];
-  if (!signals || signals.length === 0) return 100; // Always relevant
-  var kw = ((role.keyActivities||'') + ' ' + (role.objectives||'') + ' ' + (role.painPoints||'')).toLowerCase();
-  var score = 0;
-  signals.forEach(function(signal) { if (kw.indexOf(signal) >= 0) score += 10; });
+  var score;
+  // Use Claude-generated habit scores if available (more accurate, company-specific)
+  if (role.habitScores && role.habitScores[habitId] !== undefined) {
+    score = role.habitScores[habitId] * 10; // convert 1-10 → 10-100 to match existing scale
+  } else {
+    // Fallback: keyword matching for older profiles without habitScores
+    var signals = HABIT_SIGNALS[habitId];
+    if (!signals || signals.length === 0) { score = 100; }
+    else {
+      var kw = ((role.keyActivities||'') + ' ' + (role.objectives||'') + ' ' + (role.painPoints||'')).toLowerCase();
+      score = 0;
+      signals.forEach(function(signal) { if (kw.indexOf(signal) >= 0) score += 10; });
+    }
+  }
+  // Universal floor: CH1 and MH1 are useful for every knowledge worker
+  if (habitId === 'CH1' || habitId === 'MH1') score = Math.max(score, 60);
+  // Role-keyword minimums: catch obvious mismatches (e.g. Finance low on Excel)
+  var roleName = (role.role || '').toLowerCase();
+  for (var i = 0; i < ROLE_HABIT_MINIMUMS.length; i++) {
+    var rule = ROLE_HABIT_MINIMUMS[i];
+    var matches = rule.keywords.some(function(kw) { return roleName.indexOf(kw) >= 0; });
+    if (matches && rule.habits[habitId] !== undefined) {
+      score = Math.max(score, rule.habits[habitId]);
+    }
+  }
   return score;
 }
 
@@ -429,13 +469,12 @@ function buildChatUseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   ];
 
   var hd = habits[habitIndex];
-  var codeVal = (role.short||'').split('').reduce(function(s,c){return s+c.charCodeAt(0);},0);
-  var timeSaved = Math.max(10, hd.baseSaved + ((codeVal * 3 + habitIndex * 11) % 20) - 7);
   var relevanceScore = scoreHabitForRole(hd.id, role);
+  var timeSaved = calcTimeSaved(hd.id, role);
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:'Copilot Chat (microsoft365.com)',
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
-    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium', relevanceScore:relevanceScore };
+    timeSaved:timeSaved, priority:habitPriority(hd.id, role), relevanceScore:relevanceScore };
 }
 
 function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
@@ -551,13 +590,12 @@ function buildM365UseCaseForRole(habitIndex, role, clientInfo, ucId, ctx) {
   ];
 
   var hd = habits[habitIndex];
-  var codeVal = (role.short||'').split('').reduce(function(s,c){return s+c.charCodeAt(0);},0);
-  var timeSaved = Math.max(10, hd.baseSaved + ((codeVal * 5 + habitIndex * 13) % 20) - 6);
   var relevanceScore = scoreHabitForRole(hd.id, role);
+  var timeSaved = calcTimeSaved(hd.id, role);
   return { id:ucId, role:role.role, code:role.short, name:hd.name, pain:hd.pain,
     habitId:hd.id, entry:hd.entry,
     prompt:hd.prompt, inputs:hd.inputs, metric:hd.metric, guardrails:hd.guardrails,
-    timeSaved:timeSaved, priority:hd.highPriority?'High':'Medium', relevanceScore:relevanceScore };
+    timeSaved:timeSaved, priority:habitPriority(hd.id, role), relevanceScore:relevanceScore };
 }
 
 // Generic fallback prompts — used when a habit type doesn't strongly fit a role.
@@ -638,10 +676,44 @@ var GENERIC_M365_HABITS = [
     guardrails:'Validate formulas and pivot logic; do not include personally identifiable data in shared reports' }
 ];
 
-var SPECIFIC_THRESHOLD = 10; // score >= this → use specific use case; below → use generic fallback
+var SPECIFIC_THRESHOLD = 30; // score >= this → use specific use case; below → use generic fallback
+var HIDE_THRESHOLD     = 20; // score <= this → habit doesn't apply to role, mark as hidden
+
+// ── Forrester research-backed time savings formula ────────────────────────────
+// Source: Forrester TEI of Microsoft 365 Copilot (2024)
+var BASE_TIME_MIN = {
+  CH1:30, CH2:120, CH3:160, CH4:120, CH5:180, CH6:120, CH7:90,
+  MH1:30, MH2:160, MH3:120, MH4:120, MH5:180, MH6:120, MH7:90
+};
+var COPILOT_SAVINGS_PCT = {
+  CH1:0.298, CH2:0.298, CH3:0.342, CH4:0.186, CH5:0.342, CH6:0.186, CH7:0.342,
+  MH1:0.186, MH2:0.342, MH3:0.186, MH4:0.298, MH5:0.342, MH6:0.186, MH7:0.342
+};
+function calcTimeSaved(habitId, role) {
+  var baseTime = BASE_TIME_MIN[habitId] || 90;
+  var pct      = COPILOT_SAVINGS_PCT[habitId] || 0.25;
+  var rawScore = scoreHabitForRole(habitId, role); // 0-100 scale
+  // Non-linear weight: low scores are punished more, high scores rewarded more
+  // score 0-20 → weight 0.2-0.4  (habit barely applies to role)
+  // score 20-60 → weight 0.4-0.9 (habit applies somewhat)
+  // score 60-100 → weight 0.9-1.5 (habit is core to role)
+  var weight;
+  if      (rawScore <= 20)  weight = 0.2 + (rawScore / 20)  * 0.2;   // 0.2 → 0.4
+  else if (rawScore <= 60)  weight = 0.4 + ((rawScore - 20) / 40) * 0.5; // 0.4 → 0.9
+  else                      weight = 0.9 + ((rawScore - 60) / 40) * 0.6; // 0.9 → 1.5
+  return Math.max(5, Math.round(baseTime * pct * weight));
+}
+
+// Derive priority from score rather than hardcoded habit flag
+function habitPriority(habitId, role) {
+  var score = scoreHabitForRole(habitId, role);
+  if (score >= 70) return 'High';
+  if (score >= 40) return 'Medium';
+  return 'Low';
+}
 
 function generateUseCasesFromProfile(profileData) {
-  var roles      = (profileData.capabilities || []).slice(0, 6);
+  var roles      = profileData.capabilities || [];
   var clientInfo = profileData.client || {};
   var workflows  = profileData.workflows  || [];
   var platforms  = (profileData.technology && profileData.technology.platforms) || [];
@@ -663,25 +735,28 @@ function generateUseCasesFromProfile(profileData) {
       var chatUC = buildChatUseCaseForRole(hi, role, clientInfo, '__tmp__', ctx);
       var m365UC = buildM365UseCaseForRole(hi, role, clientInfo, '__tmp__', ctx);
 
-      // If this habit type doesn't fit the role, swap in a generic fallback
-      if (chatUC.relevanceScore < SPECIFIC_THRESHOLD) {
+      // Score too low → habit doesn't apply to this role, mark hidden
+      if (chatUC.relevanceScore <= HIDE_THRESHOLD) {
+        chatUC.hidden = true;
+      } else if (chatUC.relevanceScore < SPECIFIC_THRESHOLD) {
+        // Habit applies somewhat but not specifically → use generic fallback prompt
         var g = GENERIC_CHAT_HABITS[hi];
         chatUC.name        = g.name(role.role, coShort);
         chatUC.prompt      = g.prompt(role.role, coShort);
         chatUC.inputs      = g.inputs;
         chatUC.metric      = g.metric;
         chatUC.guardrails  = g.guardrails;
-        chatUC.timeSaved   = g.baseSaved;
         chatUC.isGeneric   = true;
       }
-      if (m365UC.relevanceScore < SPECIFIC_THRESHOLD) {
+      if (m365UC.relevanceScore <= HIDE_THRESHOLD) {
+        m365UC.hidden = true;
+      } else if (m365UC.relevanceScore < SPECIFIC_THRESHOLD) {
         var gm = GENERIC_M365_HABITS[hi];
         m365UC.name        = gm.name(role.role, coShort);
         m365UC.prompt      = gm.prompt(role.role, coShort);
         m365UC.inputs      = gm.inputs;
         m365UC.metric      = gm.metric;
         m365UC.guardrails  = gm.guardrails;
-        m365UC.timeSaved   = gm.baseSaved;
         m365UC.entry       = gm.entry;
         m365UC.isGeneric   = true;
       }
@@ -733,7 +808,16 @@ function buildResearchPrompt(name, url, scraped) {
       {num:1, title:'Priority name 5-8 words', tagline:'Short catchy phrase', desc:'2-3 sentences on what this involves', roles:'Knowledge Workers, Managers, Operations teams', pains:'Key productivity challenges tied to this priority'}
     ],
     capabilities: [
-      {role:'Department Full Name', short:'ABBR', icon:'primary', objectives:'3-4 short sentences on what this team does and why it matters', painPoints:'3-4 short sentences on the specific day-to-day friction this team faces using Microsoft 365 tools', keyActivities:'4-6 specific daily tasks for this exact role, e.g. drafting reports, reviewing contracts, scheduling interviews'}
+      {
+        role:'Department Full Name', short:'ABBR', icon:'primary',
+        objectives:'3-4 short sentences on what this team does and why it matters',
+        painPoints:'3-4 short sentences on the specific day-to-day friction this team faces using Microsoft 365 tools',
+        keyActivities:'4-6 specific daily tasks for this exact role, e.g. drafting reports, reviewing contracts, scheduling interviews',
+        habitScores:{
+          CH1:7, CH2:8, CH3:6, CH4:7, CH5:8, CH6:6, CH7:5,
+          MH1:7, MH2:6, MH3:7, MH4:8, MH5:8, MH6:6, MH7:5
+        }
+      }
     ],
     workflows: [
       {name:'Workflow name', steps:[{t:'Step Name (2-4 words)', d:'1 short sentence, max 15 words — who does what'}], friction:'1-2 short sentences on the main bottleneck'}
@@ -758,11 +842,24 @@ function buildResearchPrompt(name, url, scraped) {
   var currentYear = new Date().getFullYear();
   return 'Research the company "' + name + '" (website: ' + url + ') and generate a complete operational profile JSON for a Microsoft 365 Copilot AI adoption training workshop.\n\n'
     + 'Website content (scraped ' + currentYear + '):\n---\n' + scraped + '\n---\n\n'
-    + 'IMPORTANT — data freshness rules:\n'
-    + '- The scraped content above is current as of ' + currentYear + '. Always prefer it over your training knowledge.\n'
-    + '- Leadership (CEO, C-suite names) changes frequently. Use ONLY names found in the scraped content. If no name is found in the scraped pages, write "Not publicly listed" — do NOT fall back on training knowledge for people\'s names or titles.\n'
-    + '- The same applies to employee headcount, revenue, and AUM — use scraped figures if available, otherwise state "Not disclosed".\n'
-    + '- Use your training knowledge only for stable facts: industry context, product/service descriptions, typical workflows for this type of organisation.\n\n'
+    + 'IMPORTANT — data freshness rules (apply to every field before you write it):\n\n'
+    + 'The scraped content above is your PRIMARY source. It was fetched in ' + currentYear + '. Your training knowledge may be years out of date for this company — treat it as a last resort, not a default.\n\n'
+    + 'FIELDS THAT MUST USE SCRAPED CONTENT ONLY — do NOT fall back on training knowledge:\n'
+    + '- leadership[].name: use ONLY names found in the scraped pages. If a name is not in the scraped content, write "Not publicly listed". Never use a name from training knowledge — it may refer to someone who has already left.\n'
+    + '- keyFacts[].value for any financial or size metric (Employees, Revenue, AUM, fund size, assets): use ONLY figures explicitly stated in scraped content. If not found, write "Not disclosed". Do not estimate or recall figures from training data.\n'
+    + '- locations[].address: use the full address from scraped content if found. If not found, write city and country only — do not guess a street address.\n'
+    + '- client.description: describe what the company does and who it serves. Do NOT mention any person by name (CEO, founder, chair). Do NOT embed specific financial figures (AUM, revenue, headcount) unless they appear in the scraped content — these change frequently and wrong numbers will mislead workshop participants.\n\n'
+    + 'FIELDS WHERE TRAINING KNOWLEDGE IS ACCEPTABLE AS FALLBACK (when scraped content is insufficient):\n'
+    + '- client.tagline, client.subtitle: use scraped text if found, otherwise infer from industry context.\n'
+    + '- serviceAreas[]: use scraped division or product names. Training knowledge is OK for describing what each area does.\n'
+    + '- technology.m365Status: infer from industry and company size if not stated on the website.\n'
+    + '- priorities[], capabilities[], workflows[]: these are workshop training aids — infer from industry context where needed.\n'
+    + '- glossary[]: combine scraped internal terminology with standard industry terms.\n\n'
+    + 'NEVER fabricate or guess the following — if not in scraped content, use the fallback text shown:\n'
+    + '- Any person\'s name or title → "Not publicly listed"\n'
+    + '- Any financial figure (revenue, AUM, fund size, assets under management) → "Not disclosed"\n'
+    + '- Any headcount or employee number → "Not disclosed"\n'
+    + '- Any specific office address → city and country only\n\n'
     + 'The profile contextualises Microsoft 365 Copilot AI productivity training for their knowledge workers and business teams.\n\n'
     + 'Return ONLY raw JSON — no markdown code fences, no explanation text. Start directly with { and end with }.\n\n'
     + 'WRITING STYLE — apply to ALL text fields:\n'
@@ -774,10 +871,16 @@ function buildResearchPrompt(name, url, scraped) {
     + JSON.stringify(schema, null, 2)
     + '\n\nRequirements:\n'
     + '- priorities: exactly 5 items reflecting this organisation\'s strategic business priorities\n'
-    + '- capabilities: exactly 6 items, one for each of these role groups IN THIS ORDER: Knowledge Workers & Office Staff, Managers & Team Leads, Finance & Operations, HR & People Development, Sales & Customer Service, IT & Systems Administrators — write objectives and painPoints specific to how that role group operates at THIS company using Microsoft 365\n'
+    + '- capabilities: between 5 and 8 role groups. DO NOT default to 6 — the count must reflect this specific company\'s structure. Use 5 for simple or small organisations with few distinct knowledge worker functions. Use 7-8 for larger or more complex organisations with clearly distinct teams (e.g. a bank with separate Wealth Management, Risk, Operations, HR, Finance, IT, and Marketing teams should produce 7-8 groups). Only use 6 if the company genuinely has exactly 6 meaningfully different role clusters — not as a default. IMPORTANT — only include roles that realistically use Microsoft 365 Copilot in their daily work (knowledge workers, office-based, desk-based roles). Exclude roles that primarily do physical, manual, or frontline work with no meaningful use of Word, Excel, Outlook, or Teams — e.g. factory floor operators, warehouse staff, delivery drivers, retail cashiers, security guards. Office-based or customer-facing roles that use Outlook, Excel, or Teams regularly (e.g. Sales Managers, Account Executives, Relationship Managers) should always be included. If a company has many non-knowledge-worker roles, focus only on the office/management/knowledge worker segment. Grouping rule: merge roles that would use Copilot in the same way (similar daily tasks in Word, Excel, Outlook, Teams); keep roles separate when their Copilot workflows are meaningfully different. Example: a hospital\'s doctors and nurses both do meeting notes and document review so they merge into "Clinical Staff"; but a law firm\'s lawyers (drafting, reasoning) and paralegals (research, filing) use Copilot differently so they stay separate. Always include one general office/knowledge worker group and one IT group. Tailor every group to THIS specific company — do not use a generic fixed list. Give each group a unique 2-3 letter code in the "short" field (e.g. "KW", "FIN", "LEG", "NUR"). Write objectives and painPoints specific to how that role cluster actually works at this company using Microsoft 365.\n'
     + '- workflows: exactly 4 items — common business workflows at this company where Microsoft 365 Copilot drives productivity (e.g. meeting management, document creation, reporting, communications)\n'
     + '- painPoints.individual: 6-8 items specific to knowledge workers at this company; painPoints.team: 4-6; painPoints.organisation: 4-6\n'
-    + '- glossary: 25-40 terms across: Organisation, Business Units, Technology, HR & Learning, Industry — include this company\'s internal tools, systems, and business terminology\n'
+    + '- glossary: 30-45 terms across these 6 categories with the following rules:\n'
+    + '  Organisation (3-5 terms): parent company, key subsidiaries, internal committees or governance bodies specific to this company.\n'
+    + '  Business Units (4-6 terms): the company\'s main divisions, platforms, or product lines by their actual internal names.\n'
+    + '  Industry (8-10 terms): essential industry-specific terminology a new employee would need to know. Do not exceed 10 — prioritise terms that are genuinely specific to this industry, not generic business words.\n'
+    + '  Technology (6-8 terms): the company\'s internal systems and tools (e.g. CRM, ERP, data platforms) plus the Microsoft 365 apps most relevant to this company. Do not define generic apps like Teams or SharePoint unless this company uses them in a distinctive way — focus on company-specific platforms and less-familiar Copilot features.\n'
+    + '  HR & Learning (4-6 terms): onboarding, L&D programmes, performance processes, and workforce terms specific to this company.\n'
+    + '  Copilot & AI (6-8 terms): mandatory workshop vocabulary that participants will encounter during training. Always include: Prompt, AI Habit, Use Case, Guardrails, Hallucination, AI Adoption. Add 1-2 more relevant to this company\'s Copilot context (e.g. Copilot Chat, M365 Copilot, Suggested Prompt). Definitions should be simple and practical — explain what the term means in the context of this workshop.\n'
     + '- icon values must rotate between: "primary", "secondary", "accent"\n'
     + '- workflows[].steps[].t: step name, 2-4 words only\n'
     + '- workflows[].steps[].d: 1 sentence, max 15 words — simply state who does what at this step\n'
@@ -787,7 +890,23 @@ function buildResearchPrompt(name, url, scraped) {
     + '- painPoints.individual[].desc, painPoints.team[].desc, painPoints.organisation[].desc: 1 sentence only, max 20 words\n'
     + '- technology.platforms[].desc: 10-12 words maximum — what the platform does, nothing more\n'
     + '- glossary[].d: 2 sentences maximum — keep definitions short and clear\n'
-    + '- capabilities[].keyActivities: 4-6 specific daily tasks for that exact role at this company — comma-separated, no generic filler like "coordination" or "process improvement". Each item should be a concrete action, e.g. "drafting client proposals", "reviewing invoices", "scheduling interviews"\n'
+    + '- capabilities[].keyActivities: 4-6 specific daily tasks for that exact role at this company — comma-separated, no generic filler. Each item must be a concrete action. Ensure activities reflect the 7 Copilot habits where genuinely applicable: quick Q&A lookups, research/information gathering, email drafting, meeting notes, document/content creation, document review, data analysis. Use specific language — e.g. "drafting investor update emails", "analysing variance data in Excel", "taking notes in portfolio review meetings".\n'
+    + '- capabilities[].habitScores: score each of the 14 habit IDs (CH1-CH7, MH1-MH7) from 1-10 based on how much this specific role at this specific company relies on that activity in their daily work. Use the role\'s keyActivities, objectives, and painPoints as evidence.\n'
+    + '  DISTRIBUTION RULE: across all 14 habits, at most 3-4 should score 7 or higher. The remaining 10+ habits must reflect genuine lower usage (score 3-6). This is mandatory — giving too many 7+ scores makes every role look the same and destroys the value of the matrix.\n'
+    + '  FLOOR RULE: CH1 and MH1 must be at least 6 for every knowledge worker role. Every desk-based worker benefits from quick answers and a daily briefing regardless of their specific function.\n'
+    + '  Scale: Score 1-3 = role rarely does this. Score 4-6 = role does this occasionally. Score 7-9 = role does this regularly. Score 10 = this is central to the role\'s daily work.\n'
+    + '  INDEPENDENTLY SCORED — these CH/MH pairs represent genuinely different activities, score them separately:\n'
+    + '  CH1 (Quick answers via Copilot Chat): asking Copilot general questions about any topic using public knowledge. Minimum 6 for all knowledge workers. Score 8-10 for roles that constantly answer questions or explain concepts to others (e.g. IT Support, Trainers, Managers). Score 6-7 for all other office roles.\n'
+    + '  MH1 (Daily briefing via M365 Copilot): Copilot reads THIS person\'s actual emails, calendar, and tasks to generate a personalised morning digest. Score 8-10 for roles with heavy inbox and calendar management who benefit from a daily catch-up (e.g. Managers, Executives, Client-facing roles). Score 6-7 for roles with moderate email/meeting load. Minimum 6 for all knowledge workers. CH1 and MH1 may differ — a role can have low CH1 (rarely asks general questions) but high MH1 (heavily uses daily briefing to manage inbox).\n'
+    + '  CH2 (Research via Copilot Chat): finding and synthesising PUBLIC information — web research, market data, industry reports, publicly available policies. Score 8-10 for roles that spend significant time on external research (e.g. Strategy, Marketing, Investment Research). Score 4-6 for occasional external research. Score 1-3 for roles that rarely research external sources.\n'
+    + '  MH4 (Internal search via M365 Copilot): searching the company\'s INTERNAL documents — SharePoint files, past emails, Teams messages, internal reports. Score 8-10 for roles that constantly search internal files (e.g. Legal searching contracts, Finance searching past reports, Operations searching procedures). Score 4-6 for occasional internal search. CH2 and MH4 may differ significantly — a role that rarely does web research (CH2=4) may constantly search internal files (MH4=8).\n'
+    + '  CH4 (Meeting notes via Copilot Chat): manually pasting meeting notes or transcripts into Copilot Chat to create structured summaries. Score 8-10 for roles that attend many meetings and manually capture notes (e.g. Project Managers, HR, Operations). Score 4-6 for occasional manual note-taking.\n'
+    + '  MH3 (Teams meeting notes via M365 Copilot): Copilot auto-captures notes directly inside a live Teams meeting with real-time transcription — no manual pasting needed. Score 8-10 for roles that run or join many Teams video meetings (e.g. remote-heavy teams, client-facing roles using Teams calls). Score 4-6 for occasional Teams meetings. CH4 and MH3 may differ — a role may attend many in-person meetings (high CH4) but few Teams video calls (lower MH3), or vice versa.\n'
+    + '  MIRRORED — these CH/MH pairs represent the same activity in different interfaces, score them the same:\n'
+    + '  CH3 / MH2 (Email drafting): same habit — drafting emails via Chat or natively in Outlook. Score 8-10 for roles with heavy external or client communication (e.g. Sales, Account Managers, HR, PR). Score 4-6 for mostly internal email. Score 1-3 for minimal email roles. Give CH3 and MH2 identical scores.\n'
+    + '  CH5 / MH5 (Document creation): same habit — creating reports, proposals, or content via Chat or natively in Word. Score 8-10 for roles that regularly produce documents (e.g. Marketing, L&D, Strategy, Consultants). Give CH5 and MH5 identical scores.\n'
+    + '  CH6 / MH6 (Document review): same habit — reviewing and extracting from documents via Chat or natively in Word. Score 8-10 for roles that review contracts, policies, or reports (e.g. Legal, Compliance, Finance). Give CH6 and MH6 identical scores.\n'
+    + '  CH7 / MH7 (Data analysis): same habit — analysing data via Chat or natively in Excel. Score 8-10 for roles working with data, metrics, or forecasts daily (e.g. Finance, Sales Ops, Data Analysts). Give CH7 and MH7 identical scores.\n'
     + '- keyFacts[].desc: 6 words maximum — short qualifier only, no full sentences\n'
     + '- serviceAreas[].desc: 1 sentence only, maximum 20 words — no run-on descriptions\n'
     + '- All content must reflect how this specific organisation actually operates — not generic\n'
@@ -867,7 +986,7 @@ var server = http.createServer(function (req, res) {
             } catch(e) { /* page doesn't exist, skip */ }
           }
 
-          scraped = pageTexts.join('\n\n') || '(Could not scrape website)';
+          scraped = (pageTexts.join('\n\n') || '(Could not scrape website)').slice(0, 20000);
         } catch(e) {
           scraped = '(Could not scrape website: ' + e.message + ')';
           console.warn('Scrape warning:', e.message);
