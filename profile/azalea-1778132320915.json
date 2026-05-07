@@ -2021,5 +2021,15 @@
         "relevanceScore": 40
       }
     ]
+  },
+  "config": {
+    "password": "azalea2026",
+    "colors": {
+      "primary": "#2B4B7E",
+      "primaryDark": "#1C3357",
+      "primaryLight": "#6B90C2",
+      "accent": "#E8A030",
+      "sidebarBg": "#1A2D52"
+    }
   }
 }
